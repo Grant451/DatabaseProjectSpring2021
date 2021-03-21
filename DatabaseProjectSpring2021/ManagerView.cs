@@ -16,5 +16,10 @@ namespace DatabaseProjectSpring2021
         {
             InitializeComponent();
         }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
