@@ -15,7 +15,8 @@ CREATE TABLE Location.Stock (
   Quantity int
 );
 
-CREATE INDEX PK,FK1 ON  Stock (LocationID);
+CREATE INDEX PK ON Location.Stock (LocationID);
+CREATE INDEX FK ON Location.Stock (LocationID);
 
 CREATE TABLE Location.Parts (
   PartID int identity,
@@ -29,7 +30,8 @@ CREATE TABLE Location.RepairParts (
   quantity int
 );
 
-CREATE INDEX (PK,FK) ON  RepairParts (RepairID, PartID);
+CREATE INDEX PK ON  Location.RepairParts (PartID);
+CREATE INDEX FK ON  Location.RepairParts (PartID);
 
 CREATE TABLE Location.Repairs (
   RepairID int identity,
@@ -44,7 +46,8 @@ CREATE TABLE Location.EmployeesRepairs (
   RepairID int
 );
 
-CREATE INDEX (PK,FK) ON  EmployeesRepairs (EmployeeID, RepairID);
+CREATE INDEX PK ON Location.EmployeesRepairs (EmployeeID, RepairID);
+CREATE INDEX FK ON Location.EmployeesRepairs (EmployeeID, RepairID);
 
 CREATE TABLE Location.Employees (
   EmployeeID int identity,
@@ -53,14 +56,15 @@ CREATE TABLE Location.Employees (
   PRIMARY KEY (EmployeeID)
 );
 
-CREATE INDEX U ON  Employees (EmployeeName);
+CREATE INDEX U ON  Location.Employees (EmployeeName);
 
 CREATE TABLE Location.EmployeesLocation (
   EmployeeID int identity,
   LocationID int
 );
 
-CREATE INDEX (PK,FK) ON  EmployeesLocation (EmployeeID, LocationID);
+CREATE INDEX PK ON Location.EmployeesLocation (EmployeeID, LocationID);
+CREATE INDEX FK ON Location.EmployeesLocation (EmployeeID, LocationID);
 
 CREATE TABLE Location.Appointments (
   CustomerID int identity,
@@ -69,7 +73,8 @@ CREATE TABLE Location.Appointments (
   Datetime Datetime2
 );
 
-CREATE INDEX (PK,FK) ON  Appointments (CustomerID, LocationID, RepairID);
+CREATE INDEX PK ON  Location.Appointments (CustomerID, LocationID, RepairID);
+CREATE INDEX FK ON  Location.Appointments (CustomerID, LocationID, RepairID);
 
 CREATE TABLE Location.Customers (
   CustomerID int identity,
