@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using DataAccess;
-using LocationData.Models;
+//using LocationData.Models;
+//using LocationData.DataDelegates;
+
 
 namespace LocationData
 {

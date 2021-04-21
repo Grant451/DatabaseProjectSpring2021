@@ -76,6 +76,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlCommandExecutor.cs" />
     <EmbeddedResource Include="ManagerView.resx">
       <DependentUpon>ManagerView.cs</DependentUpon>
     </EmbeddedResource>
