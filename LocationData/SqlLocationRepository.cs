@@ -10,11 +10,11 @@ namespace LocationData
 {
     class SqlLocationRepository
     {
-        private readonly SqlCommandExecutor executor;
+        //private readonly SqlCommandExecutor executor;
 
         public SqlLocationRepository(string connectionString)
         {
-            executor = new SqlCommandExecutor(connectionString);
+            //executor = new SqlCommandExecutor(connectionString);
         }
     }
 }
