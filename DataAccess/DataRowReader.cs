@@ -52,7 +52,7 @@ namespace DataAccess
             }
             catch (IndexOutOfRangeException ex)
             {
-                throw new ColumnNotFoundExeption(name, ex);
+                throw new ColumnNotFoundException(name, ex);
             }
         }
     }

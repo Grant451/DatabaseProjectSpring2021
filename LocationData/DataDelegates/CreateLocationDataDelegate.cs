@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LocationData.DataDelegates
 {
-    class CreatePersonDataDelegate
+    class CreateLocationDataDelegate
     {
         //public 
     }

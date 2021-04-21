@@ -5,8 +5,6 @@ using System.Data.SqlClient;
 
 namespace DataAccess
 {
-    class DataDelegate
-    {
         public abstract class DataDelegate : IDataDelegate
         {
             public string ProcedureName { get; }
@@ -22,8 +20,7 @@ namespace DataAccess
 
             public virtual void PrepareCommand(SqlCommand command)
             {
-                command.CommandType = CommandType.StoredProcedure;
+                //command.CommandType = CommandType.StoredProcedure;
             }
         }
     }
-}
