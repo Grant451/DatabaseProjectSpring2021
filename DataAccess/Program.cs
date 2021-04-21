@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LocationData
+namespace DataAccess
 {
     class Program
     {

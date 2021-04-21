@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseProjectSpring2021", "DatabaseProjectSpring2021\DatabaseProjectSpring2021.csproj", "{98B56263-AF6D-4457-B351-65F3D4CA2FE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocationData", "LocationData\LocationData.csproj", "{BCA384ED-6BA2-4A27-89EF-AC99455B53EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocationData", "LocationData\LocationData.csproj", "{BCA384ED-6BA2-4A27-89EF-AC99455B53EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{4EABDDD2-1101-4803-85FF-B3F3C65C6BA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{BCA384ED-6BA2-4A27-89EF-AC99455B53EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCA384ED-6BA2-4A27-89EF-AC99455B53EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCA384ED-6BA2-4A27-89EF-AC99455B53EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EABDDD2-1101-4803-85FF-B3F3C65C6BA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EABDDD2-1101-4803-85FF-B3F3C65C6BA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EABDDD2-1101-4803-85FF-B3F3C65C6BA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EABDDD2-1101-4803-85FF-B3F3C65C6BA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
