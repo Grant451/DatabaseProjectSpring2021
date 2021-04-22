@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace DataAccess
 {
@@ -20,7 +21,7 @@ namespace DataAccess
 
             public virtual void PrepareCommand(SqlCommand command)
             {
-                //command.CommandType = CommandType.StoredProcedure;
+                command.CommandType = CommandType.StoredProcedure;
             }
         }
     }
