@@ -7,7 +7,6 @@ namespace DataAccess
         protected NonQueryDataDelegate(string procedureName)
             : base(procedureName)
         {
-
         }
 
         public abstract T Translate(SqlCommand command);
