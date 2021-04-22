@@ -36,6 +36,8 @@ namespace LocationData.DataDelegates
             p.Value = region;
             p = command.Parameters.Add("Zip", SqlDbType.NVarChar);
             p.Value = zip;
+            p = command.Parameters.Add("LocationID", SqlDbType.Int);
+            p.Direction = ParameterDirection.Output;
         }
 
         public override Location Translate(SqlCommand command)
