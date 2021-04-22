@@ -36,6 +36,7 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.lblstatus = new System.Windows.Forms.Label();
+            this.btntest1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // display
@@ -106,11 +107,22 @@
             this.lblstatus.Size = new System.Drawing.Size(0, 32);
             this.lblstatus.TabIndex = 7;
             // 
+            // btntest1
+            // 
+            this.btntest1.Location = new System.Drawing.Point(832, 387);
+            this.btntest1.Name = "btntest1";
+            this.btntest1.Size = new System.Drawing.Size(335, 140);
+            this.btntest1.TabIndex = 8;
+            this.btntest1.Text = "test query";
+            this.btntest1.UseVisualStyleBackColor = true;
+            this.btntest1.Click += new System.EventHandler(this.btntest1_Click);
+            // 
             // ManagerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1637, 744);
+            this.Controls.Add(this.btntest1);
             this.Controls.Add(this.lblstatus);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnSubmit);
@@ -136,6 +148,7 @@
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblstatus;
+        private System.Windows.Forms.Button btntest1;
     }
 }
 

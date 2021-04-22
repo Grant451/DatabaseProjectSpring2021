@@ -9,7 +9,7 @@ using LocationData.DataDelegates;
 
 namespace LocationData
 {
-    class SqlLocationRepository
+    public class SqlLocationRepository : ILocationRepository
     {
         private readonly SqlCommandExecutor executor;
 
@@ -28,9 +28,25 @@ namespace LocationData
                 throw new ArgumentException("The parameter cannot be null or empty.", nameof(Region));
             if (string.IsNullOrWhiteSpace(Zip))
                 throw new ArgumentException("The parameter cannot be null or empty.", nameof(Zip));
-
             var d = new CreateLocationDataDelegate(StreetAddress, City, Region, Zip);
             return executor.ExecuteNonQuery(d);
+        }
+
+        public Location FetchLocation(int LocationID)
+        {
+            var d = new FetchLocationDataDelegate(LocationID);
+            return executor.ExecuteReader(d);
+        }
+
+        public Location GetLocation(string email)
+        {
+            var d = new GetLocationDataDelegate(email);
+            return executor.ExecuteReader(d);
+        }
+
+        public IReadOnlyList<Location> RetrieveLocations()
+        {
+            return executor.ExecuteReader(new RetrieveLocationsDataDelegate());
         }
     }
 }

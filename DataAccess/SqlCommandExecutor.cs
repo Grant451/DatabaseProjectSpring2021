@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Transactions;
 using DataAccess;
@@ -18,7 +14,7 @@ namespace DatabaseProjectSpring2021
 
         public SqlCommandExecutor(string connectionString)
         {
-            if(string.IsNullOrWhiteSpace(connectionString))
+            if (string.IsNullOrWhiteSpace(connectionString))
             {
                 throw new ArgumentException("The parameter connot be null or empty.", nameof(connectionString));
             }
@@ -41,7 +37,7 @@ namespace DatabaseProjectSpring2021
                 }
             }
         }
-        
+
 
         public T ExecuteNonQuery<T>(INonQueryDataDelegate<T> dataDelegate)
         {

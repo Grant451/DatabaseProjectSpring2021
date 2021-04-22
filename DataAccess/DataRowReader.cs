@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data.SqlClient;
 
 namespace DataAccess
 {
-    internal class  DataRowReader : IDataRowReader
+    internal class DataRowReader : IDataRowReader
     {
         private readonly SqlDataReader reader;
 
@@ -31,7 +29,7 @@ namespace DataAccess
 
         public string GetString(string name)
         {
-            return GetValue(name,reader.GetString);
+            return GetValue(name, reader.GetString);
         }
 
         public T GetValue<T>(string name)

@@ -115,5 +115,15 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{5007b67f-b34a-4862-9490-ca6ca5eaf1a8}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LocationData\LocationData.csproj">
+      <Project>{c661b960-ecf7-4349-9bc8-4dedb214d5f6}</Project>
+      <Name>LocationData</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

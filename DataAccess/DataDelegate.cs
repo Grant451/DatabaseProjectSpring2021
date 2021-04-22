@@ -1,27 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Data.SqlClient;
 using System.Data;
 
 namespace DataAccess
 {
-        public abstract class DataDelegate : IDataDelegate
+    public abstract class DataDelegate : IDataDelegate
+    {
+        public string ProcedureName { get; }
+
+        protected DataDelegate(string procedureName)
         {
-            public string ProcedureName { get; }
-
-            protected DataDelegate(string procedureName)
+            if (string.IsNullOrWhiteSpace(procedureName))
             {
-                if (string.IsNullOrWhiteSpace(procedureName)) 
-                {
-                    throw new ArgumentException("The procedure name cannot be null or empty.", nameof(procedureName));
-                }
-                ProcedureName = procedureName;
+                throw new ArgumentException("The procedure name cannot be null or empty.", nameof(procedureName));
             }
+            ProcedureName = procedureName;
+        }
 
-            public virtual void PrepareCommand(SqlCommand command)
-            {
-                command.CommandType = CommandType.StoredProcedure;
-            }
+        public virtual void PrepareCommand(SqlCommand command)
+        {
+            command.CommandType = CommandType.StoredProcedure;
         }
     }
+}
