@@ -79,7 +79,7 @@ CREATE INDEX FK ON  Location.Appointments (CustomerID, LocationID, RepairID);
 CREATE TABLE Location.Customers (
   CustomerID int identity,
   CustomerName nvarchar(64),
-  vinnumber nvarchar(11),
+  VinNumber nvarchar(11),
   PRIMARY KEY (CustomerID)
 );
 

@@ -18,6 +18,26 @@ namespace LocationData
             executor = new SqlCommandExecutor(connectionString);
         }
 
+        public Appointment CreateAppointment(DateTime dateTime)
+        {
+            if(dateTime == null)
+            {
+                throw new ArgumentException("The parameter cannot be null or empty.", nameof(dateTime));
+            }
+            var d = new CreateAppointmentDataDelegate(dateTime);
+            return executor.ExecuteNonQuery(d);
+        }
+
+        public Customer CreateCustomer(string customerName, string vinNumber)
+        {
+            if (string.IsNullOrWhiteSpace(customerName))
+                throw new ArgumentException("The parameter cannot be null or empty.", nameof(customerName));
+            if (string.IsNullOrWhiteSpace(vinNumber))
+                throw new ArgumentException("The parameter cannot be null or empty.", nameof(vinNumber));
+            var d = new CreateCustomerDataDelegate(customerName, vinNumber);
+            return executor.ExecuteNonQuery(d);
+        }
+
         public Location CreateLocation(string StreetAddress, string City, string Region, string Zip)
         {
             if (string.IsNullOrWhiteSpace(StreetAddress))
@@ -48,5 +68,7 @@ namespace LocationData
         {
             return executor.ExecuteReader(new RetrieveLocationsDataDelegate());
         }
+
+       
     }
 }

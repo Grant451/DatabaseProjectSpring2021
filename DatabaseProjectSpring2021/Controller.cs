@@ -25,7 +25,7 @@ namespace DatabaseProjectSpring2021
         {
             repo = new SqlLocationRepository(connectionString);
             transaction = new TransactionScope();
-
+            /*
             string streetAddress = "testAddress";
             string city = "testcity";
             string region = "testregion";
@@ -35,11 +35,23 @@ namespace DatabaseProjectSpring2021
             repo.CreateLocation(streetAddress, city, region, zip);
             repo.CreateLocation(streetAddress, city, region, zip);
             repo.CreateLocation(streetAddress, city, region, zip);
+            */
             //System.Windows.Forms.MessageBox.Show(actual.LocationID.ToString());
             //Location help = repo.FetchLocation(6);
-            var thing = repo.RetrieveLocations();
+            //var thing = repo.RetrieveLocations();
+
+            /******currently fails*****
+            DateTime dateTime = new DateTime(2015, 12, 31, 5, 10, 20);
+            Appointment x = repo.CreateAppointment(dateTime);
+            */
+
+            /******currently fails*****
+            string name = "bob";
+            string vin = "123";
+            Customer customertest = repo.CreateCustomer(name, vin);
+            */
 
         }
-        
+
     }
 }

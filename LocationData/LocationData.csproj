@@ -41,17 +41,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataDelegates\CreateAppointmentDataDelegate.cs" />
+    <Compile Include="DataDelegates\CreateCustomerDataDelegate.cs" />
     <Compile Include="DataDelegates\CreateLocationDataDelegate.cs" />
     <Compile Include="DataDelegates\FetchLocationDataDelegate.cs" />
     <Compile Include="DataDelegates\GetLocationDataDelegate.cs" />
     <Compile Include="DataDelegates\RetrieveLocationsDataDelegate.cs" />
     <Compile Include="ILocationRepository.cs" />
+    <Compile Include="Models\Appointment.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlAppointmentRepository.cs" />
     <Compile Include="SqlLocationRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Sql\Data\Location.Types.sql" />
+    <Content Include="Sql\Procedures\Location.CreateAppointment.sql" />
+    <Content Include="Sql\Procedures\Location.CreateCustomer.sql" />
     <Content Include="Sql\Procedures\Location.CreateLocation.sql" />
     <Content Include="Sql\Procedures\Location.FetchLocation.sql" />
     <Content Include="Sql\Procedures\Location.RetrieveLocations.sql" />
