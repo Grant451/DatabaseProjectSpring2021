@@ -43,6 +43,8 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData
 
 Write-Host "Stored procedures..."
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\Location.CreateLocation.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\Location.RetrieveLocations.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\Location.FetchLocation.sql"
 
 <#
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Procedures\Person.CreatePerson.sql"

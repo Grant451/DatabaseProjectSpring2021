@@ -53,6 +53,8 @@
   <ItemGroup>
     <Content Include="Sql\Data\Location.Types.sql" />
     <Content Include="Sql\Procedures\Location.CreateLocation.sql" />
+    <Content Include="Sql\Procedures\Location.FetchLocation.sql" />
+    <Content Include="Sql\Procedures\Location.RetrieveLocations.sql" />
     <Content Include="Sql\Schemas\Location.sql" />
     <Content Include="Sql\Tables\CreateLocationtables.sql" />
   </ItemGroup>

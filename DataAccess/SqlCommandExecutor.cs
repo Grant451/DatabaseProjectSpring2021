@@ -38,7 +38,6 @@ namespace DatabaseProjectSpring2021
             }
         }
 
-
         public T ExecuteNonQuery<T>(INonQueryDataDelegate<T> dataDelegate)
         {
             using (var transaction = new TransactionScope())
@@ -56,7 +55,7 @@ namespace DatabaseProjectSpring2021
                 }
             }
         }
-
+        
         public T ExecuteReader<T>(IDataReaderDelegate<T> dataDelegate)
         {
             using (var connection = new SqlConnection(connectionString))

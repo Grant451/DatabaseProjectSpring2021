@@ -32,13 +32,13 @@ namespace DatabaseProjectSpring2021
             string zip = "testzip";
 
             Location actual = repo.CreateLocation(streetAddress, city, region, zip);
-            /*
-            reader.GetInt32("LocationID"),
-            reader.GetString("StreetAddress"),
-            reader.GetString("City"),
-            region,
-            reader.GetString("Zip")
-            */
+            repo.CreateLocation(streetAddress, city, region, zip);
+            repo.CreateLocation(streetAddress, city, region, zip);
+            repo.CreateLocation(streetAddress, city, region, zip);
+            //System.Windows.Forms.MessageBox.Show(actual.LocationID.ToString());
+            //Location help = repo.FetchLocation(6);
+            var thing = repo.RetrieveLocations();
+
         }
         
     }

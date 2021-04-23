@@ -42,6 +42,11 @@ namespace DataAccess
             return reader.Read();
         }
 
+        public bool GetBoolean(string name)
+        {
+            return GetValue(name, reader.GetBoolean);
+        }
+
         public T GetValue<T>(string name, Func<int, T> getter)
         {
             try

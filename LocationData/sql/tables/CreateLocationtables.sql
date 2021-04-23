@@ -5,7 +5,7 @@ CREATE TABLE Location.Location (
   StreetAddress nvarchar(255),
   City nvarchar(255),
   Region nvarchar(50),
-  Zip nvarchar(10)
+  Zip nvarchar(10),
   PRIMARY KEY (LocationID)
 );
 
