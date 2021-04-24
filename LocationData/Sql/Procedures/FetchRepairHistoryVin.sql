@@ -1,20 +1,16 @@
--- Fetch parts used based on customer
-
---DROP PROCEDURE IF EXISTS AutoShop.FetchPartInformation
+--DROP PROCEDURE IF EXISTS AutoShop.FetchRepairHistoryVehicle
 --GO
 
-CREATE PROCEDURE AutoShop.FetchPartInformation
-   @StreetAddress NVARCHAR(255),
-   @PartName NVARCHAR(64)
+CREATE PROCEDURE AutoShop.FetchRepairHistoryVehicle
+   @vinnumber NVARCHAR(11)
 AS
 
-SELECT S.Quantity, P.Price
-FROM AutoShop.Locations L 
-	INNER JOIN AutoShop.Stock S ON S.LocationId = L.LocationId
-	INNER JOIN AutoShop.Parts P ON P.PartId = S.PartId
-WHERE L.StreetAddress = @StreetAddress
-	AND P.PartName = @PartName
+SELECT C.CustomerName, R.RepairName
+FROM AutoShop.Customers C
+	INNER JOIN AutoShop.Appointments A ON A.CustomerID = C.CustomerId
+	INNER JOIN AutoShop.Repairs R ON R.RepairID = A.RepairId
+WHERE C.vinnumber = @vinnumber;
 GO
 
---EXEC AutoShop.FetchPartInformation '3521 Quam. Avenue', 'ipsum porta';
+--EXEC AutoShop.FetchRepairHistoryVehicle '28522458199';
 

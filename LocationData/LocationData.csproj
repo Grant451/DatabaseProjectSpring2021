@@ -46,6 +46,7 @@
     <Compile Include="DataDelegates\CreateLocationDataDelegate.cs" />
     <Compile Include="DataDelegates\FetchLocationDataDelegate.cs" />
     <Compile Include="DataDelegates\FetchPartInformationDataDelegate.cs" />
+    <Compile Include="DataDelegates\FetchRepairHistoryVehicleDataDelegate.cs" />
     <Compile Include="DataDelegates\GetLocationDataDelegate.cs" />
     <Compile Include="DataDelegates\RetrieveLocationsDataDelegate.cs" />
     <Compile Include="DataDelegates\FetchRepairHistoryDataDelegate.cs" />

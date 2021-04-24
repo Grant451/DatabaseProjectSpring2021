@@ -60,26 +60,29 @@ namespace DatabaseProjectSpring2021
             var custlisttest = repo.RetrieveCustomers();
             */
 
-            ///*****query 1 serch to bring up a part for a specific location*****
+            /*****query 1 serch to bring up a part for a specific location not working*****
             //Fetchpartinformation
             //takes streetAddress and part name
             string streetAddress = "3521 Quam. Avenue";                
             string partName = "ipsum porta";
             PartSearch thing = repo.FetchPartInformation(streetAddress, partName);
             //returns Quantity, price, 
-            //*/
+            */
 
             /*****query 2 search to bring up repair history works*****
             string custname = "Vincent Flores";
             RepairHistory help = repo.FetchRepairHistoryCustomer(custname);
             */
 
+            /*****query 3 FetchRepairHistoryCustomer working*****
+            string vin = "28522458199";
+            RepairHistory  reptest = repo.FetchRepairHistoryVehicle(vin);
+            */
+
             /*
             var Repairslisttest = repo.RetrieveRepairs();//works
             var aptlisttest = repo.RetreiveAppointments();
             */
-
-
 
         }
 

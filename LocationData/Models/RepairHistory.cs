@@ -12,10 +12,19 @@ namespace LocationData.Models
 
         string RepairName { get; }
 
+        string VinNumber { get; }
+
         public RepairHistory(string customerName, string repairName)
         {
             CustomerName = customerName;
             RepairName = repairName;
+        }
+
+        public RepairHistory(string vinNumber, string customerName, string repairName)
+        {
+            CustomerName = customerName;
+            RepairName = repairName;
+            VinNumber = vinNumber;
         }
     }
 }

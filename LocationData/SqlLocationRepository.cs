@@ -76,6 +76,12 @@ namespace LocationData
             return executor.ExecuteReader(d);
         }
 
+        public RepairHistory FetchRepairHistoryVehicle(string vin)
+        {
+            var d = new FetchRepairHistoryVehicleDataDelegate(vin);
+            return executor.ExecuteReader(d);
+        }
+
         public Location GetLocation(string email)
         {
             var d = new GetLocationDataDelegate(email);

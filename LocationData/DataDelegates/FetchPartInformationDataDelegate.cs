@@ -37,9 +37,9 @@ namespace LocationData.DataDelegates
         public override PartSearch Translate(SqlCommand command, IDataRowReader reader)
         {
             if (!reader.Read())
-                throw new RecordNotFoundException(StreetAddress.ToString());
+                throw new RecordNotFoundException(StreetAddress);
             if (!reader.Read())
-                throw new RecordNotFoundException(PartName.ToString());
+                throw new RecordNotFoundException(PartName);
                 
 
             return new PartSearch(
