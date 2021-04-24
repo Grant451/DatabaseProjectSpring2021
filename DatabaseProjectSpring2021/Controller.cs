@@ -60,10 +60,13 @@ namespace DatabaseProjectSpring2021
             var custlisttest = repo.RetrieveCustomers();
             */
 
-            ///*****query 2 search to bring up repair history*****
-            string custname = "Vincent Flores";
+            /*****query 2 search to bring up repair history does not work*****
+            string custname = "Duis mi";
             RepairHistory help = repo.FetchRepairHistoryCustomer(custname);
-            //*/
+            */
+
+            var Repairslisttest = repo.RetrieveRepairs();//works
+            var aptlisttest = repo.RetreiveAppointments();
 
         }
 

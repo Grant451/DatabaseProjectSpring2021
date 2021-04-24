@@ -91,6 +91,9 @@ namespace LocationData
             return executor.ExecuteReader(new RetrieveLocationsDataDelegate());
         }
 
-       
+        public IReadOnlyList<Repair> RetrieveRepairs()
+        {
+            return executor.ExecuteReader(new RetrieveRepairsDataDelegate());
+        }
     }
 }
