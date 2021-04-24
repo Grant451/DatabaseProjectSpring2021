@@ -8,7 +8,7 @@ namespace LocationData
     internal class RetrieveAppointmentsDataDelegate : DataReaderDelegate<IReadOnlyList<Appointment>>
     {
         public RetrieveAppointmentsDataDelegate()
-            : base("Location.RetrieveAppointments")
+            : base("AutoShop.RetrieveAppointments")
         {
         }
 

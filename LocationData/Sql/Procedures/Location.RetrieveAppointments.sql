@@ -1,4 +1,4 @@
-CREATE OR ALTER PROCEDURE Location.RetrieveAppointments
+CREATE OR ALTER PROCEDURE AutoShop.RetrieveAppointments
 AS
 
 Select A.AppointmentID, A.LocationID, A.RepairID, A.CustomerID, A.AppointmentTime

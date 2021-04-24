@@ -1,4 +1,4 @@
-CREATE OR ALTER PROCEDURE Location.CreateAppointment
+CREATE OR ALTER PROCEDURE AutoShop.CreateAppointment
 	@AppointmentID int Output,
 	@LocationID int,
 	@RepairID int,

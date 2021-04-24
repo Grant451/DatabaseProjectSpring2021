@@ -16,7 +16,7 @@ namespace LocationData.DataDelegates
         private readonly int LocationID;
 
         public FetchLocationDataDelegate(int locationID)
-            : base("Location.FetchLocation")
+            : base("AutoShop.FetchLocation")
         {
             this.LocationID = locationID;
         }

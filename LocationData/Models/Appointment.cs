@@ -34,5 +34,6 @@ namespace LocationData.Models
             RepairID = repairID;
             AppointmentTime = appointmentTime;
         }
+
     }
 }

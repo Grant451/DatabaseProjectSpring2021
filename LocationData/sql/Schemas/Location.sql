@@ -2,8 +2,8 @@ IF NOT EXISTS
    (
       SELECT *
       FROM sys.schemas s
-      WHERE s.[name] = 'Location'
+      WHERE s.[name] = 'AutoShop'
    )
 BEGIN
-   EXEC('CREATE SCHEMA [Location] AUTHORIZATION [dbo]');
+   EXEC('CREATE SCHEMA [AutoShop] AUTHORIZATION [dbo]');
 END;

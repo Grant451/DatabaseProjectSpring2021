@@ -17,7 +17,7 @@ namespace LocationData.DataDelegates
         public readonly string VinNumber;
 
         public CreateCustomerDataDelegate(string customerName, string vinNumber)
-            : base("Location.CreateCustomer")
+            : base("AutoShop.CreateCustomer")
         {
             this.CustomerName = customerName;
             this.VinNumber = vinNumber;

@@ -16,7 +16,7 @@ namespace LocationData.DataDelegates
         public readonly string zip;
 
         public CreateLocationDataDelegate(string streetAddress, string city, string region, string zip)
-            : base("Location.CreateLocation")
+            : base("AutoShop.CreateLocation")
         {
             this.streetAddress = streetAddress;
             this.city = city;

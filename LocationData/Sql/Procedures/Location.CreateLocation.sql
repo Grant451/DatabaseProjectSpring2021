@@ -1,4 +1,4 @@
-CREATE OR ALTER PROCEDURE Location.CreateLocation
+CREATE OR ALTER PROCEDURE AutoShop.CreateLocation
 	@StreetAddress nvarchar(255),
 	@City nvarchar(255),
 	@Region nvarchar(50),

@@ -1,4 +1,4 @@
-CREATE OR ALTER PROCEDURE Location.CreateCustomer
+CREATE OR ALTER PROCEDURE AutoShop.CreateCustomer
 	@CustomerID Int output,
 	@CustomerName nvarchar(64),
 	@VinNumber nvarchar(11)

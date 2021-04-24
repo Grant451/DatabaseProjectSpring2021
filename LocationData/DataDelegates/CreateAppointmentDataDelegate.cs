@@ -27,7 +27,7 @@ namespace LocationData.DataDelegates
         public readonly DateTime AppointmentTime;
 
         public CreateAppointmentDataDelegate(int locationID, int repairID, int customerID, DateTime dateTime)
-            : base("Location.CreateAppointment")
+            : base("AutoShop.CreateAppointment")
         {
             this.LocationID = locationID;
             this.RepairID = repairID;

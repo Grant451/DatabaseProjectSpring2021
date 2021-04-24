@@ -13,7 +13,7 @@ namespace LocationData.DataDelegates
     internal class RetrieveRepairsDataDelegate : DataReaderDelegate<IReadOnlyList<Repair>>
     {
         public RetrieveRepairsDataDelegate()
-            : base("Location.RetrieveRepairs")
+            : base("AutoShop.RetrieveRepairs")
         {
         }
 

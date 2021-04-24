@@ -10,7 +10,7 @@ namespace LocationData
         private readonly string CustomerName;
 
         public FetchRepairHistoryDataDelegate(string custname)
-            : base("Location.FetchRepairHistoryCustomer")
+            : base("AutoShop.FetchRepairHistoryCustomer")
         {
             this.CustomerName = custname;
         }

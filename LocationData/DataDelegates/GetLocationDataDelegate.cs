@@ -15,7 +15,7 @@ namespace LocationData.DataDelegates
         private readonly string region;
 
         public GetLocationDataDelegate(string region)
-            : base("Location.GetLocation")
+            : base("AutoShop.GetLocation")
         {
             this.region = region;
         }

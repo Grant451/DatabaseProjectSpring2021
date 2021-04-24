@@ -1,4 +1,4 @@
-CREATE OR ALTER PROCEDURE Location.FetchLocation
+CREATE OR ALTER PROCEDURE AutoShop.FetchLocation
 	@LocationID INT
 AS
 
