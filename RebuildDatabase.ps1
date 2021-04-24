@@ -52,16 +52,18 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationDa
 
 <#Query 1 #>
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\FetchPartInformation.sql"
-
 <#Query 2 #>
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\Location.FetchRepairHistoryCustomer.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\Location.RetrieveRepairs.sql" <#suplemental#>
-
 <#Query 3 #>
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\FetchRepairHistoryVin.sql"
-
 <#Query 4 #>
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\FetchRepairHistoryEmployee.sql"
+
+<#Query 8 #>
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\FetchEmployeeRepairCounts.sql"
+<#Query 9 #>
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\FetchAllEmployeeRepairCounts.sql"
 
 <#
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Procedures\Person.CreatePerson.sql"

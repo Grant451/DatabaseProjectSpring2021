@@ -33,6 +33,10 @@ namespace LocationData
         //repair history by employee query 4:
         IReadOnlyList<RepairHistory> FetchRepairHistoryEmployee(string empName);
 
+        //repair counts by employee query 8:
+        IReadOnlyList<EmployeeRepair> FetchEmployeeRepairCounts(string fertest);
 
+        //repair counts for all employees query 9
+        IReadOnlyList<EmployeeRepair> FetchAllEmployeeRepairCounts(int blank);
     }
 }

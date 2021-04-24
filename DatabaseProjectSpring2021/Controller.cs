@@ -84,6 +84,16 @@ namespace DatabaseProjectSpring2021
             var rhelisttest = repo.FetchRepairHistoryEmployee(empName);
             */
 
+            /*****query 8 FetchEmployeeRepairCounts working*****
+            string fertest = "Colleen Mcleod";
+            var ferlisttest = repo.FetchEmployeeRepairCounts(fertest);
+            */
+
+            /*****query 9 FetchAllEmployeeRepairCounts untested*****
+            int x = 0;//takes in a 0 to keep it simple
+            var faerclisttest = repo.FetchAllEmployeeRepairCounts(x);
+            */
+
             /*
             var Repairslisttest = repo.RetrieveRepairs();//works
             var aptlisttest = repo.RetreiveAppointments();

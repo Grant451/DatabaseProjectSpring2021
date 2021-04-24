@@ -58,6 +58,18 @@ namespace LocationData
             return executor.ExecuteNonQuery(d);
         }
 
+        public IReadOnlyList<EmployeeRepair> FetchAllEmployeeRepairCounts(int blank)
+        {
+            var d = new FetchAllEmployeeRepairCountsDataDelegate(blank);
+            return executor.ExecuteReader(d);
+        }
+
+        public IReadOnlyList<EmployeeRepair> FetchEmployeeRepairCounts(string empName)
+        {
+            var d = new FetchEmployeeRepairCountsDataDelegate(empName);
+            return executor.ExecuteReader(d);
+        }
+
         public Location FetchLocation(int LocationID)
         {
             var d = new FetchLocationDataDelegate(LocationID);
