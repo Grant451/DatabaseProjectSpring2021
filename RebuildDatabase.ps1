@@ -35,11 +35,9 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationDa
 
 Write-Host "Creating tables..."
 Invoke-sqlcmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Tables\CreateLocationtables.sql"
-<#
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Tables\Person.Person.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Tables\Person.AddressType.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Tables\Person.PersonAddress.sql"
-#>
+
+Write-Host "Inserting testData..."
+Invoke-sqlcmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Data\testData.sql"
 
 Write-Host "Stored procedures..."
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\Location.CreateLocation.sql"
@@ -50,6 +48,7 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationDa
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\Location.RetrieveAppointments.sql"
 
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\Location.CreateCustomer.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\Location.RetrieveCustomers.sql"
 
 <#
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Procedures\Person.CreatePerson.sql"

@@ -59,6 +59,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Sql\Data\Location.Types.sql" />
+    <Content Include="Sql\Data\testData.sql" />
+    <Content Include="Sql\Procedures\Location.RetrieveCustomers.sql" />
     <Content Include="Sql\Procedures\Location.RetrieveAppointments.sql" />
     <Content Include="Sql\Procedures\Location.CreateAppointment.sql" />
     <Content Include="Sql\Procedures\Location.CreateCustomer.sql" />

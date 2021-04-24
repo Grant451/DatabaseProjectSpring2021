@@ -51,13 +51,14 @@ namespace DatabaseProjectSpring2021
             var aptlisttest = repo.RetreiveAppointments();
             */
 
-            /******currently fails*****
+            /******working*****
             string name = "bob";
             string vin = "123";
             Customer customertest = repo.CreateCustomer(name, vin);
+            Customer ct1 = repo.CreateCustomer(name, vin);
+            Customer ct2 = repo.CreateCustomer(name, vin);
+            var custlisttest = repo.RetrieveCustomers();
             */
-
-
 
         }
 

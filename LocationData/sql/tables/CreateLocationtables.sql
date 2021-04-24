@@ -5,7 +5,7 @@ CREATE TABLE Location.Location (
   StreetAddress nvarchar(255),
   City nvarchar(255),
   Region nvarchar(50),
-  Zip nvarchar(10),
+  Zip nvarchar(20),
   PRIMARY KEY (LocationID)
 );
 
@@ -21,6 +21,7 @@ CREATE INDEX FK ON Location.Stock (LocationID);
 CREATE TABLE Location.Parts (
   PartID int identity,
   PartName nvarchar(32),
+  Price NVARCHAR(64) NOT NULL,
   PRIMARY KEY (PartID)
 );
 
@@ -35,7 +36,7 @@ CREATE INDEX FK ON  Location.RepairParts (PartID);
 
 CREATE TABLE Location.Repairs (
   RepairID int identity,
-  RepairName TEXT,
+  RepairName nvarchar(64),
   LaborCost nvarchar(100),
   status nvarchar(255),
   PRIMARY KEY (RepairID)
@@ -50,9 +51,9 @@ CREATE INDEX PK ON Location.EmployeesRepairs (EmployeeID, RepairID);
 CREATE INDEX FK ON Location.EmployeesRepairs (EmployeeID, RepairID);
 
 CREATE TABLE Location.Employees (
-  EmployeeID int identity,
-  EmployeeName nvarchar(32),
-  hours int
+  EmployeeID int not null IDENTITY(1,1),
+  EmployeeName nvarchar(32) not null,
+  [Hours] DATETIME2(0) not null,
   PRIMARY KEY (EmployeeID)
 );
 

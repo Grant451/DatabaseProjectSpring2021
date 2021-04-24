@@ -5,18 +5,28 @@ using LocationData.Models;
 
 namespace LocationData
 {
-    internal class RetrieveCustomersDataDelegate : IDataReaderDelegate<IReadOnlyList<Customer>>
-    {
-        public string ProcedureName => throw new System.NotImplementedException();
-
-        public void PrepareCommand(SqlCommand command)
+    internal class RetrieveCustomersDataDelegate : DataReaderDelegate<IReadOnlyList<Customer>>
+    { 
+        public RetrieveCustomersDataDelegate()
+            : base("Location.RetrieveCustomers")
         {
-            throw new System.NotImplementedException();
         }
 
-        public IReadOnlyList<Customer> Translate(SqlCommand command, IDataRowReader reader)
+        public override IReadOnlyList<Customer> Translate(SqlCommand command, IDataRowReader reader)
         {
-            throw new System.NotImplementedException();
+            var temp = new List<Customer>();
+
+            while(reader.Read())
+            {
+                temp.Add(
+                    new Customer(
+                        reader.GetInt32("CustomerID"),
+                        reader.GetString("CustomerName"),
+                        reader.GetString("VinNumber")
+                        )
+                    );
+            }
+            return temp;
         }
     }
 }
