@@ -23,5 +23,7 @@ namespace LocationData
         //repair history query 2:
         IReadOnlyList<Repair> RetrieveRepairs();
         RepairHistory FetchRepairHistoryCustomer(string custname);
+
+
     }
 }

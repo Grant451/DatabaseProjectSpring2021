@@ -6,7 +6,7 @@ CREATE OR ALTER PROCEDURE AutoShop.CreateAppointment
 	@AppointmentTime Datetime2(0)
 AS
 
-INSERT Location.Appointments(LocationID, RepairID, CustomerID, AppointmentTime)
+INSERT AutoShop.Appointments(LocationID, RepairID, CustomerID, AppointmentTime)
 VALUES(@LocationID, @RepairID, @CustomerID, @AppointmentTime);
 
 SET @AppointmentID = SCOPE_IDENTITY();--primary key

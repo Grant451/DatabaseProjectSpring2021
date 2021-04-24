@@ -6,7 +6,7 @@ CREATE OR ALTER PROCEDURE AutoShop.CreateLocation
 	@LocationID INT OUTPUT
 AS
 
-INSERT Location.Location(StreetAddress, City, Region, Zip)
+INSERT AutoShop.Locations(StreetAddress, City, Region, Zip)
 VALUES(@StreetAddress, @City, @Region, @Zip);
 
 SET @LocationID = SCOPE_IDENTITY();

@@ -2,7 +2,7 @@ CREATE OR ALTER PROCEDURE AutoShop.RetrieveCustomers
 AS
 
 Select C.CustomerID, C.CustomerName, C.VinNumber
-from Location.Customers C
+from AutoShop.Customers C
 GO
 
 /*

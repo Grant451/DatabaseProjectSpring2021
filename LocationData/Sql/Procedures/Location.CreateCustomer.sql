@@ -4,7 +4,7 @@ CREATE OR ALTER PROCEDURE AutoShop.CreateCustomer
 	@VinNumber nvarchar(11)
 AS
 
-INSERT Location.Customers(CustomerName, VinNumber)
+INSERT AutoShop.Customers(CustomerName, VinNumber)
 VALUES(@CustomerName, @VinNumber);
 
 SET @CustomerID = SCOPE_IDENTITY();

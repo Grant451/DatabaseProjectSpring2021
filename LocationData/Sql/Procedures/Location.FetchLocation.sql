@@ -3,6 +3,6 @@ CREATE OR ALTER PROCEDURE AutoShop.FetchLocation
 AS
 
 SELECT L.StreetAddress, L.City, L.Region, L.Zip
-FROM Location.Location L
+FROM AutoShop.Locations L
 WHERE L.LocationID = @LocationID
 GO
