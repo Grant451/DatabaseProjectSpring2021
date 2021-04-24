@@ -88,6 +88,12 @@ namespace LocationData
             return executor.ExecuteReader(d);
         }
 
+        public IReadOnlyList<LocationQuantity> FetchPart(string partName)
+        {
+            var d = new FetchPartDataDelegate(partName);
+            return executor.ExecuteReader(d);
+        }
+
         public IReadOnlyList<RepairHistory> FetchRepairHistoryEmployee(string empName)
         {
             var d = new FetchRepairHistoryEmployeeDataDelegate(empName);
