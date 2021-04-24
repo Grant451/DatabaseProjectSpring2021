@@ -51,6 +51,7 @@
     <Compile Include="DataDelegates\RetrieveLocationsDataDelegate.cs" />
     <Compile Include="DataDelegates\FetchRepairHistoryDataDelegate.cs" />
     <Compile Include="DataDelegates\RetrieveRepairsDataDelegate.cs" />
+    <Compile Include="DataDelegates\FetchRepairHistoryEmployeeDataDelegate.cs" />
     <Compile Include="ILocationRepository.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -67,6 +68,7 @@
     <Content Include="Sql\Data\Location.Types.sql" />
     <Content Include="Sql\Data\testData.sql" />
     <Content Include="Sql\Procedures\FetchAllLocationsAddress.sql" />
+    <Content Include="Sql\Procedures\FetchRepairHistoryEmployee.sql" />
     <Content Include="Sql\Procedures\FetchRepairHistoryVin.sql" />
     <Content Include="Sql\Procedures\FetchPartInformation.sql" />
     <Content Include="Sql\Procedures\Location.RetrieveCustomers.sql" />

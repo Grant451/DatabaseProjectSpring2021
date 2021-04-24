@@ -76,6 +76,12 @@ namespace LocationData
             return executor.ExecuteReader(d);
         }
 
+        public IReadOnlyList<RepairHistory> FetchRepairHistoryEmployee(string empName)
+        {
+            var d = new FetchRepairHistoryEmployeeDataDelegate(empName);
+            return executor.ExecuteReader(d);
+        }
+
         public RepairHistory FetchRepairHistoryVehicle(string vin)
         {
             var d = new FetchRepairHistoryVehicleDataDelegate(vin);

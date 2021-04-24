@@ -79,6 +79,11 @@ namespace DatabaseProjectSpring2021
             RepairHistory  reptest = repo.FetchRepairHistoryVehicle(vin);
             */
 
+            /*****query 4 FetchRepairHistoryEmployee working*****
+            string empName = "Shannon Colon";
+            var rhelisttest = repo.FetchRepairHistoryEmployee(empName);
+            */
+
             /*
             var Repairslisttest = repo.RetrieveRepairs();//works
             var aptlisttest = repo.RetreiveAppointments();
