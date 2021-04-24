@@ -45,6 +45,7 @@
     <Compile Include="DataDelegates\CreateCustomerDataDelegate.cs" />
     <Compile Include="DataDelegates\CreateLocationDataDelegate.cs" />
     <Compile Include="DataDelegates\FetchLocationDataDelegate.cs" />
+    <Compile Include="DataDelegates\FetchPartInformationDataDelegate.cs" />
     <Compile Include="DataDelegates\GetLocationDataDelegate.cs" />
     <Compile Include="DataDelegates\RetrieveLocationsDataDelegate.cs" />
     <Compile Include="DataDelegates\FetchRepairHistoryDataDelegate.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\PartSearch.cs" />
     <Compile Include="Models\Repair.cs" />
     <Compile Include="Models\RepairHistory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -63,6 +65,9 @@
   <ItemGroup>
     <Content Include="Sql\Data\Location.Types.sql" />
     <Content Include="Sql\Data\testData.sql" />
+    <Content Include="Sql\Procedures\FetchAllLocationsAddress.sql" />
+    <Content Include="Sql\Procedures\FetchRepairHistoryVin.sql" />
+    <Content Include="Sql\Procedures\FetchPartInformation.sql" />
     <Content Include="Sql\Procedures\Location.RetrieveCustomers.sql" />
     <Content Include="Sql\Procedures\Location.RetrieveAppointments.sql" />
     <Content Include="Sql\Procedures\Location.CreateAppointment.sql" />

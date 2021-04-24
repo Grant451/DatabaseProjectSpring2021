@@ -64,6 +64,12 @@ namespace LocationData
             return executor.ExecuteReader(d);
         }
 
+        public PartSearch FetchPartInformation(string streetAddress, string partName)
+        {
+            var d = new FetchPartInformationDataDelegate(streetAddress, partName);
+            return executor.ExecuteReader(d);
+        }
+
         public RepairHistory FetchRepairHistoryCustomer(string custname)
         {
             var d = new FetchRepairHistoryDataDelegate(custname);

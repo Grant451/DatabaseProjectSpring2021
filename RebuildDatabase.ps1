@@ -50,7 +50,10 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationDa
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\Location.CreateCustomer.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\Location.RetrieveCustomers.sql"
 
-<#     #>
+<#Query 1 #>
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\FetchPartInformation.sql"
+
+<#Query 2 #>
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\Location.FetchRepairHistoryCustomer.sql"
 
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\Location.RetrieveRepairs.sql"

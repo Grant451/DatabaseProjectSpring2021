@@ -60,7 +60,14 @@ namespace DatabaseProjectSpring2021
             var custlisttest = repo.RetrieveCustomers();
             */
 
-
+            ///*****query 1 serch to bring up a part for a specific location*****
+            //Fetchpartinformation
+            //takes streetAddress and part name
+            string streetAddress = "3521 Quam. Avenue";                
+            string partName = "ipsum porta";
+            PartSearch thing = repo.FetchPartInformation(streetAddress, partName);
+            //returns Quantity, price, 
+            //*/
 
             /*****query 2 search to bring up repair history works*****
             string custname = "Vincent Flores";
@@ -72,7 +79,7 @@ namespace DatabaseProjectSpring2021
             var aptlisttest = repo.RetreiveAppointments();
             */
 
-            //var = 
+
 
         }
 
