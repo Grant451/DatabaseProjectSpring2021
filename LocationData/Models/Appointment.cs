@@ -9,26 +9,30 @@ namespace LocationData.Models
     public class Appointment
     {
         /*
-        CustomerID int identity,
-        LocationID int,
-        RepairID int,
-        Datetime Datetime2
+        AppointmentID int Not NUll identity(1,1),
+        LocationID int not null,
+        RepairID int not null,
+        CustomerID int not null,
+        AppointmentTime Datetime2(0) not null
         */
 
-        public int CustomerID { get; }
+        public int AppointmentID { get; }
         
         public int LocationID { get; }
 
         public int RepairID { get; }
 
-        public DateTime DateTime { get; }
+        public int CustomerID { get; }
 
-        public Appointment(int customerID, int locationID, int repairID, DateTime dateTime)
+        public DateTime AppointmentTime { get; }
+
+        public Appointment(int appointmentID, int customerID, int locationID, int repairID, DateTime appointmentTime)
         {
+            AppointmentID = appointmentID;
             CustomerID = customerID;
             LocationID = locationID;
             RepairID = repairID;
-            DateTime = dateTime;
+            AppointmentTime = appointmentTime;
         }
     }
 }

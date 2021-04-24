@@ -17,9 +17,9 @@ namespace DataAccess
             return GetValue(name, reader.GetByte);
         }
 
-        public DateTimeOffset GetDateTimeOffset(string name)
+        public DateTime GetDateTime(string name)//was public DateTimeOffset
         {
-            return GetValue(name, reader.GetDateTimeOffset);
+            return GetValue(name, reader.GetDateTime);//was GetDateTimeOffset
         }
 
         public int GetInt32(string name)

@@ -40,9 +40,15 @@ namespace DatabaseProjectSpring2021
             //Location help = repo.FetchLocation(6);
             //var thing = repo.RetrieveLocations();
 
-            /******currently fails*****
+            /******working*****
             DateTime dateTime = new DateTime(2015, 12, 31, 5, 10, 20);
-            Appointment x = repo.CreateAppointment(dateTime);
+            int loc = 0;
+            int rep = 0;
+            int cust = 0;
+            Appointment x1 = repo.CreateAppointment(loc, rep, cust, dateTime);
+            Appointment x2 = repo.CreateAppointment(loc, rep, cust, dateTime);
+            Appointment x3 = repo.CreateAppointment(loc, rep, cust, dateTime);
+            var aptlisttest = repo.RetreiveAppointments();
             */
 
             /******currently fails*****
@@ -50,6 +56,8 @@ namespace DatabaseProjectSpring2021
             string vin = "123";
             Customer customertest = repo.CreateCustomer(name, vin);
             */
+
+
 
         }
 

@@ -67,13 +67,14 @@ CREATE INDEX PK ON Location.EmployeesLocation (EmployeeID, LocationID);
 CREATE INDEX FK ON Location.EmployeesLocation (EmployeeID, LocationID);
 
 CREATE TABLE Location.Appointments (
-  CustomerID int identity,
-  LocationID int,
-  RepairID int,
-  Datetime Datetime2
+  AppointmentID int Not NUll identity(1,1),
+  LocationID int not null,
+  RepairID int not null,
+  CustomerID int not null,
+  AppointmentTime Datetime2(0) not null
 );
 
-CREATE INDEX PK ON  Location.Appointments (CustomerID, LocationID, RepairID);
+CREATE INDEX PK ON  Location.Appointments (AppointmentID)--, LocationID, RepairID);
 CREATE INDEX FK ON  Location.Appointments (CustomerID, LocationID, RepairID);
 
 CREATE TABLE Location.Customers (

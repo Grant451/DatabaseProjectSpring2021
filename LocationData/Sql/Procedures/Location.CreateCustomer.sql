@@ -1,5 +1,5 @@
 CREATE OR ALTER PROCEDURE Location.CreateCustomer
-	@CustomerID Int,
+	@CustomerID Int output,
 	@CustomerName nvarchar(64),
 	@VinNumber nvarchar(11)
 AS

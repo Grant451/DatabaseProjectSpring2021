@@ -18,13 +18,19 @@ namespace LocationData
             executor = new SqlCommandExecutor(connectionString);
         }
 
-        public Appointment CreateAppointment(DateTime dateTime)
+        public Appointment CreateAppointment(int locationID, int repairID, int customerID, DateTime appointmentTime)
         {
-            if(dateTime == null)
+            if(appointmentTime == null)
             {
-                throw new ArgumentException("The parameter cannot be null or empty.", nameof(dateTime));
+                throw new ArgumentException("The parameter cannot be null or empty.", nameof(appointmentTime));
             }
-            var d = new CreateAppointmentDataDelegate(dateTime);
+            if (0 > repairID)
+                throw new ArgumentException("The parameter cannot be negative", nameof(repairID));
+            if (0> customerID)
+                throw new ArgumentException("The parameter cannot be negative", nameof(customerID));
+            if (0 > locationID)
+                throw new ArgumentException("The parameter cannot be negative", nameof(locationID));
+            var d = new CreateAppointmentDataDelegate(locationID, repairID, customerID, appointmentTime);
             return executor.ExecuteNonQuery(d);
         }
 
@@ -62,6 +68,16 @@ namespace LocationData
         {
             var d = new GetLocationDataDelegate(email);
             return executor.ExecuteReader(d);
+        }
+
+        public IReadOnlyList<Appointment> RetreiveAppointments()
+        {
+            return executor.ExecuteReader(new RetrieveAppointmentsDataDelegate());
+        }
+
+        public IReadOnlyList<Customer> RetrieveCustomers()
+        {
+            return executor.ExecuteReader(new RetrieveCustomersDataDelegate());
         }
 
         public IReadOnlyList<Location> RetrieveLocations()

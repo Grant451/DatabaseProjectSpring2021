@@ -52,11 +52,14 @@
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DataDelegates\RetrieveAppointmentsDataDelegate.cs" />
+    <Compile Include="DataDelegates\RetrieveCustomersDataDelegate.cs" />
     <Compile Include="SqlAppointmentRepository.cs" />
     <Compile Include="SqlLocationRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Sql\Data\Location.Types.sql" />
+    <Content Include="Sql\Procedures\Location.RetrieveAppointments.sql" />
     <Content Include="Sql\Procedures\Location.CreateAppointment.sql" />
     <Content Include="Sql\Procedures\Location.CreateCustomer.sql" />
     <Content Include="Sql\Procedures\Location.CreateLocation.sql" />

@@ -10,7 +10,7 @@ namespace DataAccess
 
         byte GetByte(string name);
 
-        DateTimeOffset GetDateTimeOffset(string name);
+        DateTime GetDateTime(string name);
 
         int GetInt32(string name);
 

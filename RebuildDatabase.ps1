@@ -47,6 +47,7 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationDa
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\Location.FetchLocation.sql"
 
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\Location.CreateAppointment.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\Location.RetrieveAppointments.sql"
 
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\Location.CreateCustomer.sql"
 

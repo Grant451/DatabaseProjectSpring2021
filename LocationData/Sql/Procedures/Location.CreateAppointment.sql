@@ -1,21 +1,21 @@
 CREATE OR ALTER PROCEDURE Location.CreateAppointment
-	@CustomerID int,
+	@AppointmentID int Output,
 	@LocationID int,
 	@RepairID int,
-	@Datetime Datetime2
+    @CustomerID int,
+	@AppointmentTime Datetime2(0)
 AS
 
-INSERT Location.Appointments(Datetime)
-VALUES(@Datetime);
+INSERT Location.Appointments(LocationID, RepairID, CustomerID, AppointmentTime)
+VALUES(@LocationID, @RepairID, @CustomerID, @AppointmentTime);
 
-SET @CustomerID = SCOPE_IDENTITY();--primary key
-SET @LocationID = SCOPE_IDENTITY();--primary key
-SET @RepairID = SCOPE_IDENTITY();--primary key
+SET @AppointmentID = SCOPE_IDENTITY();--primary key
 GO
 
 /*
-  CustomerID int identity,
-  LocationID int,
-  RepairID int,
-  Datetime Datetime2
+  AppointmentID int Not NUll identity(1,1),
+  LocationID int not null,
+  RepairID int not null,
+  CustomerID int not null,
+  AppointmentTime Datetime2(0) not null
   */
