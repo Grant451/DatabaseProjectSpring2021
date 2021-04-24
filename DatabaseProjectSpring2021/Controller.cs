@@ -89,6 +89,11 @@ namespace DatabaseProjectSpring2021
             var fplist = repo.FetchPart(PartName);
             */
 
+            /*****query 6 FetchRepairParts working*****
+            string repairName = "fringilla euismod";
+            var frplist = repo.FetchRepairParts(repairName);
+            */
+
             /*****query 8 FetchEmployeeRepairCounts working*****
             string fertest = "Colleen Mcleod";
             var ferlisttest = repo.FetchEmployeeRepairCounts(fertest);
