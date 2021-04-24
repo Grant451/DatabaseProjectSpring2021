@@ -64,6 +64,12 @@ namespace LocationData
             return executor.ExecuteReader(d);
         }
 
+        public RepairHistory FetchRepairHistoryCustomer(string custname)
+        {
+            var d = new FetchRepairHistoryDataDelegate(custname);
+            return executor.ExecuteReader(d);
+        }
+
         public Location GetLocation(string email)
         {
             var d = new GetLocationDataDelegate(email);

@@ -20,5 +20,7 @@ namespace LocationData
         Customer CreateCustomer(string customerName, string vinNumber);
         IReadOnlyList<Customer> RetrieveCustomers();
 
+        //repair history query 2:
+        RepairHistory FetchRepairHistoryCustomer(string custname);
     }
 }
