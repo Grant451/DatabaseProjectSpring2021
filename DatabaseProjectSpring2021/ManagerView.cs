@@ -54,6 +54,8 @@ namespace DatabaseProjectSpring2021
 
         private void radioButtonG_CheckedChanged(object sender, EventArgs e)
         {
+            // Empty query result text box
+            uxDisplayQueryCusTB.Text = "";
             RadioButton rb = sender as RadioButton;
             if (rb.Checked)
             {
@@ -79,6 +81,8 @@ namespace DatabaseProjectSpring2021
 
         private void radioButtonS_CheckedChanged(object sender, EventArgs e)
         {
+            // Empty query result text box
+            uxDisplayQueryCusTB.Text = "";
             RadioButton rb = sender as RadioButton;
             if (rb.Checked)
             {
@@ -126,6 +130,8 @@ namespace DatabaseProjectSpring2021
 
         private void uxExcecuteCusButtn_Click(object sender, EventArgs e)
         {
+            // Empty query result text box
+            uxDisplayQueryCusTB.Text = "";
             string rb1 = "";
             string rb2 = "";
             if (selectedrbGeneral != null)
@@ -135,15 +141,18 @@ namespace DatabaseProjectSpring2021
                 rb2 = selectedrbSpecific.Tag.ToString();
 
             // the list returned by the query
-            List<String> result = new List<string>();
+            //List<String> result = new List<string>();
+            String queryResult = "";
 
             switch (currentView)
             {
                 case ("Customers"):
-                    result = master.CustomerTabQueries(rb1, rb2);
+                    queryResult = master.CustomerTabQueries(rb1, rb2).ToString();
                     break;
             }
 
+            uxDisplayQueryCusTB.AppendText(queryResult);
+            /*
             string display = "";
             foreach (var res in result)
             {
@@ -155,6 +164,7 @@ namespace DatabaseProjectSpring2021
             //uxDisplayQueryCusTB.Text = display;
             //= result.ToArray()
             //Console.WriteLine(selectedrbLeft.Name);
+            */
         }
 
     }

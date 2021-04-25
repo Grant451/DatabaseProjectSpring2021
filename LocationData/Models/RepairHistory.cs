@@ -29,18 +29,20 @@ namespace LocationData.Models
         }
 
         //constructor for q20
-        public RepairHistory(string empName, string custName, string repName, int timesRepaired)
+        //public RepairHistory(string empName, string custName, string repName, int timesRepaired)
+        public RepairHistory(string custName, string repName, int timesRepaired)
         {
-            EmployeeName = empName;
+            //EmployeeName = empName;
             CustomerName = custName;
             RepairName = repName;
             TimesRepaired = timesRepaired;
         }
 
         //constructor for q19:
-        public RepairHistory(string empName, string repName, int reprepairs)
+        //public RepairHistory(string empName, string repName, int reprepairs)
+        public RepairHistory(string repName, int reprepairs)
         {
-            EmployeeName = empName;
+            //EmployeeName = empName;
             RepairName = repName;
             RepeatRepairs = reprepairs;
         }

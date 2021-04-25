@@ -27,7 +27,7 @@ namespace LocationData
             while (reader.Read())
             {
                 temp.Add(new RepairHistory(
-                    reader.GetString("EmployeeName"),
+                    //reader.GetString("EmployeeName"),
                     reader.GetString("CustomerName"),
                     reader.GetString("RepairName"),
                     reader.GetInt32("TimesRepaired")

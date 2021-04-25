@@ -36,11 +36,13 @@
             this.uxTabControl = new System.Windows.Forms.TabControl();
             this.uxCustomersPage = new System.Windows.Forms.TabPage();
             this.uxExcecuteCusButtn = new System.Windows.Forms.Button();
+            this.uxDisplayQueryCusTB = new System.Windows.Forms.TextBox();
             this.uxSpecificDisplayCustomerGB = new System.Windows.Forms.GroupBox();
             this.uxDisplayUpcomingApptCusRB = new System.Windows.Forms.RadioButton();
             this.uxDisplayRepeatedRepairsCusRB = new System.Windows.Forms.RadioButton();
             this.uxDisplayPastRepairsCusRB = new System.Windows.Forms.RadioButton();
             this.uxGeneralCustomerDisplayGB = new System.Windows.Forms.GroupBox();
+            this.uxSelectCusTB = new System.Windows.Forms.TextBox();
             this.uxDisplaySpecificVehicleRB = new System.Windows.Forms.RadioButton();
             this.uxDisplaySpecificCustomerRB = new System.Windows.Forms.RadioButton();
             this.uxDisplayAllCustomersRB = new System.Windows.Forms.RadioButton();
@@ -49,8 +51,6 @@
             this.uxPartsPage = new System.Windows.Forms.TabPage();
             this.uxReportsPage = new System.Windows.Forms.TabPage();
             this.RebuildDBBtn = new System.Windows.Forms.Button();
-            this.uxSelectCusTB = new System.Windows.Forms.TextBox();
-            this.uxDisplayQueryCusTB = new System.Windows.Forms.TextBox();
             this.uxTabControl.SuspendLayout();
             this.uxCustomersPage.SuspendLayout();
             this.uxSpecificDisplayCustomerGB.SuspendLayout();
@@ -151,6 +151,15 @@
             this.uxExcecuteCusButtn.UseVisualStyleBackColor = true;
             this.uxExcecuteCusButtn.Click += new System.EventHandler(this.uxExcecuteCusButtn_Click);
             // 
+            // uxDisplayQueryCusTB
+            // 
+            this.uxDisplayQueryCusTB.Location = new System.Drawing.Point(30, 401);
+            this.uxDisplayQueryCusTB.Multiline = true;
+            this.uxDisplayQueryCusTB.Name = "uxDisplayQueryCusTB";
+            this.uxDisplayQueryCusTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.uxDisplayQueryCusTB.Size = new System.Drawing.Size(985, 191);
+            this.uxDisplayQueryCusTB.TabIndex = 4;
+            // 
             // uxSpecificDisplayCustomerGB
             // 
             this.uxSpecificDisplayCustomerGB.Controls.Add(this.uxDisplayUpcomingApptCusRB);
@@ -218,6 +227,15 @@
             this.uxGeneralCustomerDisplayGB.TabIndex = 2;
             this.uxGeneralCustomerDisplayGB.TabStop = false;
             this.uxGeneralCustomerDisplayGB.Text = "General Display";
+            // 
+            // uxSelectCusTB
+            // 
+            this.uxSelectCusTB.Location = new System.Drawing.Point(52, 151);
+            this.uxSelectCusTB.Name = "uxSelectCusTB";
+            this.uxSelectCusTB.Size = new System.Drawing.Size(238, 31);
+            this.uxSelectCusTB.TabIndex = 3;
+            this.uxSelectCusTB.Text = "Enter Customer Name";
+            this.uxSelectCusTB.Visible = false;
             // 
             // uxDisplaySpecificVehicleRB
             // 
@@ -309,23 +327,6 @@
             this.RebuildDBBtn.TabIndex = 11;
             this.RebuildDBBtn.Text = "Rebuild DB";
             this.RebuildDBBtn.UseVisualStyleBackColor = true;
-            // 
-            // uxSelectCusTB
-            // 
-            this.uxSelectCusTB.Location = new System.Drawing.Point(52, 151);
-            this.uxSelectCusTB.Name = "uxSelectCusTB";
-            this.uxSelectCusTB.Size = new System.Drawing.Size(238, 31);
-            this.uxSelectCusTB.TabIndex = 3;
-            this.uxSelectCusTB.Text = "Enter Customer Name";
-            // 
-            // uxDisplayQueryCusTB
-            // 
-            this.uxDisplayQueryCusTB.Location = new System.Drawing.Point(30, 401);
-            this.uxDisplayQueryCusTB.Multiline = true;
-            this.uxDisplayQueryCusTB.Name = "uxDisplayQueryCusTB";
-            this.uxDisplayQueryCusTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.uxDisplayQueryCusTB.Size = new System.Drawing.Size(985, 191);
-            this.uxDisplayQueryCusTB.TabIndex = 4;
             // 
             // ManagerView
             // 

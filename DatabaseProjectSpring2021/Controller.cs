@@ -27,34 +27,51 @@ namespace DatabaseProjectSpring2021
         }
 
         //Exceute Queries Supported in Customer Tab
-        public List<string> CustomerTabQueries(string generalQuery, string specificQuery)
+        //public List<string> CustomerTabQueries(string generalQuery, string specificQuery)
+        public StringBuilder CustomerTabQueries(string generalQuery, string specificQuery)
         {
-            List<string> result = new List<string>();
+            //List<string> result = new List<string>();
+            StringBuilder result = new StringBuilder();
+            string newLine = Environment.NewLine;
+
             switch (generalQuery)
             {
                 case ("DisplayAllCustomers"):
                     if (specificQuery == "DisplayRepeatedRepairs")
                     {
                         //FetchRepeatedRepairs
-                        var queryresult = repo.FetchRepeatRepairs(1);
-                        return null;
+                        var queryresult = repo.FetchRepeatRepairs(0);
+                        
+                        string header = String.Format("{0,-40} {1,-40} {2, 10} \n\n", "CustomerName", "RepairName", "TimesRepaired");
+                        result.Append(header);
+                        result.Append(newLine);
+
+                        foreach (var r in queryresult)
+                        {
+                            result.Append(String.Format("{0,-40} {1,-40} {2, 10} \n", r.CustomerName.ToString(), r.RepairName.ToString(), r.TimesRepaired.ToString()));
+                            //result.Append(repair);
+                            result.Append(newLine);
+                            //Console.WriteLine(repair);
+                        }
                     }
                     else if (specificQuery == "")
                     {
                         //RetrieveCustomers -- fetch all customers
                         var queryresult = repo.RetrieveCustomers();
                         
-                        string heading = String.Format("{0,-31} {1,-27} {2, -35} \n\n", "CustomerId", "CustomerName", "VinNumber");
-                        result.Add(heading);
+                        string header = String.Format("{0,-31} {1,-27} {2, -35} \n\n", "CustomerId", "CustomerName", "VinNumber");
+                        result.Append(header);
+                        result.Append(newLine);
                         foreach (var c in queryresult)
                         {
-                            string customer =  String.Format("{0,-35} {1,-30} {2, -35} \n", c.CustomerID.ToString(), c.CustomerName.ToString(), c.VinNumber.ToString());
-                            result.Add(customer);
+                            string customer =  String.Format("{0,-35} {1,-35} {2, -35} \n", c.CustomerID.ToString(), c.CustomerName.ToString(), c.VinNumber.ToString());
+                            result.Append(customer);
+                            result.Append(newLine);
 
                         }
                     }
-
                     break;
+
                 case ("DisplaySpecificCustomer"):
                     if (specificQuery == "DisplayRepeatedRepairs")
                     {
