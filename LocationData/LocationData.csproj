@@ -63,6 +63,9 @@
     <Compile Include="DataDelegates\FetchInventorySpecificDataDelegate.cs" />
     <Compile Include="DataDelegates\FetchInventoryDataDelegate.cs" />
     <Compile Include="DataDelegates\FetchPopularApptTimesDataDelegate.cs" />
+    <Compile Include="DataDelegates\FetchAllEmployeesDataDelegate.cs" />
+    <Compile Include="DataDelegates\FetchRepeatRepairsSpecificDataDelegate.cs" />
+    <Compile Include="DataDelegates\FetchRepeatRepairsDataDelegate.cs" />
     <Compile Include="ILocationRepository.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -83,6 +86,8 @@
   <ItemGroup>
     <Content Include="Sql\Data\Location.Types.sql" />
     <Content Include="Sql\Data\testData.sql" />
+    <Content Include="Sql\Procedures\FetchRepeatRepairs.sql" />
+    <Content Include="Sql\Procedures\FetchRepeatRepairSpecific.sql" />
     <Content Include="Sql\Procedures\FetchInventorySpecific.sql" />
     <Content Include="Sql\Procedures\FetchInventory.sql" />
     <Content Include="Sql\Procedures\FetchSales.sql" />

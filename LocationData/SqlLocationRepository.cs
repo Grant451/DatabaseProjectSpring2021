@@ -171,5 +171,20 @@ namespace LocationData
         {
             return executor.ExecuteReader(new FetchPopularApptTimesDataDelegate(blank));
         }
+
+        public IReadOnlyList<EmployeeRepair> FetchAllEmployees(int blank)
+        {
+            return executor.ExecuteReader(new FetchAllEmployeesDataDelegate(blank));
+        }
+
+        public IReadOnlyList<RepairHistory> FetchRepeatRepairsSpecific(string custName)
+        {
+            return executor.ExecuteReader(new FetchRepeatRepairsSpecificDataDelegate(custName));
+        }
+
+        public IReadOnlyList<RepairHistory> FetchRepeatRepairs(int blank)
+        {
+            return executor.ExecuteReader(new FetchRepeatRepairsDataDelegate(blank));
+        }
     }
 }

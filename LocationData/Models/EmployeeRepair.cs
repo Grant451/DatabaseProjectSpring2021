@@ -17,6 +17,11 @@ namespace LocationData.Models
         public int RepairsCompleted { get; }
         public int RepairsInProgress { get; }
 
+        public EmployeeRepair(string employeeName)
+        {
+            EmployeeName = employeeName;
+        }
+
         public EmployeeRepair(int repCompleted, int repInProgress)
         {
             RepairsCompleted = repCompleted;

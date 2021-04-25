@@ -179,6 +179,21 @@ namespace DatabaseProjectSpring2021
             var falalist = repo.FetchAllLocationsAddress(blank);
             */
 
+            /*****query 17 FetchAllEmployees missing sql*****
+            int blank = 0;
+            var faelist = repo.FetchAllEmployees(blank);
+            */
+
+            /*****query 19 FetchRepeatRepairsSpecific returns nothing*****
+            string custName = "Zeus Terry";
+            var faelist = repo.FetchRepeatRepairsSpecific(custName);
+            */
+
+            /*****query 19 FetchRepeatRepairs returns nothing*****
+            int blank = 0;
+            var frrlist = repo.FetchRepeatRepairs(blank);
+            */
+
             /*****query 22 FetchPopularApptTimes working*****
             int blank = 0;
             var fpatlist = repo.FetchPopularApptTimes(blank);

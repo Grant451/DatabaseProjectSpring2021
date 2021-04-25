@@ -56,14 +56,23 @@ namespace LocationData
 
         //returns list current inventory at a specific store in reverse order by quantity query 12:
         IReadOnlyList<PartSearch> FetchInventorySpecific(string streetAddress);
+        //lists inventory across all stores in reverse order by quantity query 13:
+        IReadOnlyList<PartSearch> FetchInventory(int blank);
 
         //returns FetchAllLocationsAddress query 16:
         IReadOnlyList<SalesObj> FetchAllLocationsAddress(int blank);
 
-        //lists inventory across all stores in reverse order by quantity query 13:
-        IReadOnlyList<PartSearch> FetchInventory(int blank);
+        //returns employee name of all employees Query 17:
+        IReadOnlyList<EmployeeRepair> FetchAllEmployees(int blank);
+
+        //returns a list of how many times a specific customer comes back for a given repair query 19:
+        IReadOnlyList<RepairHistory> FetchRepeatRepairsSpecific(string custName);
+
+        //Returns how many times a repair has been repeated for a customer query 20:
+        IReadOnlyList<RepairHistory> FetchRepeatRepairs(int blank);
 
         //determines the most popular appointment times to come in for repairs query 22:
         IReadOnlyList<PopularApptTimes> FetchPopularApptTimes(int blank);
+        
     }
 }
