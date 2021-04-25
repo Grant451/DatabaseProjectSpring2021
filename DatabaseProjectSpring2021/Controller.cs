@@ -28,14 +28,17 @@ namespace DatabaseProjectSpring2021
         public string[] GetLocation()
          {
             //This is a test
-            
+            int val = 0;
+            var locationSearch = repo.FetchAllLocationsAddress(val);
 
-            string empName = "Shannon Colon";
-            var rhelisttest = repo.FetchRepairHistoryEmployee(empName);
+            //string empName = "Shannon Colon";
+            //RepairHistory;
+            //var rhelisttest = repo.FetchRepairHistoryEmployee(empName);
             List<string> returnaddress = new List<string>();
             int count1 = 0;
-            foreach (RepairHistory X in rhelisttest){
-                returnaddress.Add(X.CustomerName);
+            foreach (SalesObj X in locationSearch)
+            {
+                returnaddress.Add(X.StreetAddress);
                 count1++;
             }
             string[] retunstring = new string[returnaddress.Count()];
