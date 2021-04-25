@@ -43,6 +43,9 @@ namespace DatabaseProjectSpring2021
                 retunstring[count] = x;
                 count--;
             }
+
+            string dd = "d";
+            retunstring.Append(dd);
             return retunstring;
 
         }
