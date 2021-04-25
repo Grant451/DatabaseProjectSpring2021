@@ -74,7 +74,6 @@ namespace DatabaseProjectSpring2021
             DropDownListSelection.Items.AddRange(master.GetLocation());
 
             
-
             btnSubmit.Enabled = true;
         }
 
