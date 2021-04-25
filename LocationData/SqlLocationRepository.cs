@@ -136,5 +136,10 @@ namespace LocationData
         {
             return executor.ExecuteReader(new FetchRepairPartsDataDelegate(repairName));
         }
+
+        public IReadOnlyList<EmployeeLocation> FetchEmployeeLocation(string felemname)
+        {
+            return executor.ExecuteReader(new FetchEmployeeLocationDataDelegate(felemname));
+        }
     }
 }

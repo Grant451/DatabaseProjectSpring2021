@@ -121,6 +121,7 @@ namespace DatabaseProjectSpring2021
             string empName = "Shannon Colon";
             var rhelisttest = repo.FetchRepairHistoryEmployee(empName);
             */
+
             /*
             List<string> help = new List<string>();
             foreach (RepairHistory x in rhelisttest)
@@ -148,9 +149,9 @@ namespace DatabaseProjectSpring2021
             var frplist = repo.FetchRepairParts(repairName);
             */
 
-            /*****query 7 FetchEmployeeLocation untested*****
+            /*****query 7 FetchEmployeeLocation working*****
             string felempname = "Norman Abbott";
-            var fellist = repo.FetchEmployeeLocation(felemname);
+            var fellist = repo.FetchEmployeeLocation(felempname);
             */
 
             /*****query 8 FetchEmployeeRepairCounts working*****
