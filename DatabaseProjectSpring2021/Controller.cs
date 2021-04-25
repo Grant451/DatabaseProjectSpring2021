@@ -43,7 +43,15 @@ namespace DatabaseProjectSpring2021
                     {
                         //RetrieveCustomers -- fetch all customers
                         var queryresult = repo.RetrieveCustomers();
-                        foreach (c in queryresult)
+                        
+                        string heading = String.Format("{0,-31} {1,-27} {2, -35} \n\n", "CustomerId", "CustomerName", "VinNumber");
+                        result.Add(heading);
+                        foreach (var c in queryresult)
+                        {
+                            string customer =  String.Format("{0,-35} {1,-30} {2, -35} \n", c.CustomerID.ToString(), c.CustomerName.ToString(), c.VinNumber.ToString());
+                            result.Add(customer);
+
+                        }
                     }
 
                     break;

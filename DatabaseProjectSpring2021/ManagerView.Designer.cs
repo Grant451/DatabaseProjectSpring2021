@@ -36,7 +36,6 @@
             this.uxTabControl = new System.Windows.Forms.TabControl();
             this.uxCustomersPage = new System.Windows.Forms.TabPage();
             this.uxExcecuteCusButtn = new System.Windows.Forms.Button();
-            this.uxDisplayQueryCusTB = new System.Windows.Forms.TextBox();
             this.uxSpecificDisplayCustomerGB = new System.Windows.Forms.GroupBox();
             this.uxDisplayUpcomingApptCusRB = new System.Windows.Forms.RadioButton();
             this.uxDisplayRepeatedRepairsCusRB = new System.Windows.Forms.RadioButton();
@@ -51,6 +50,7 @@
             this.uxReportsPage = new System.Windows.Forms.TabPage();
             this.RebuildDBBtn = new System.Windows.Forms.Button();
             this.uxSelectCusTB = new System.Windows.Forms.TextBox();
+            this.uxDisplayQueryCusTB = new System.Windows.Forms.TextBox();
             this.uxTabControl.SuspendLayout();
             this.uxCustomersPage.SuspendLayout();
             this.uxSpecificDisplayCustomerGB.SuspendLayout();
@@ -150,15 +150,6 @@
             this.uxExcecuteCusButtn.Text = "Excecute";
             this.uxExcecuteCusButtn.UseVisualStyleBackColor = true;
             this.uxExcecuteCusButtn.Click += new System.EventHandler(this.uxExcecuteCusButtn_Click);
-            // 
-            // uxDisplayQueryCusTB
-            // 
-            this.uxDisplayQueryCusTB.Location = new System.Drawing.Point(30, 401);
-            this.uxDisplayQueryCusTB.Multiline = true;
-            this.uxDisplayQueryCusTB.Name = "uxDisplayQueryCusTB";
-            this.uxDisplayQueryCusTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.uxDisplayQueryCusTB.Size = new System.Drawing.Size(985, 191);
-            this.uxDisplayQueryCusTB.TabIndex = 4;
             // 
             // uxSpecificDisplayCustomerGB
             // 
@@ -327,6 +318,15 @@
             this.uxSelectCusTB.TabIndex = 3;
             this.uxSelectCusTB.Text = "Enter Customer Name";
             // 
+            // uxDisplayQueryCusTB
+            // 
+            this.uxDisplayQueryCusTB.Location = new System.Drawing.Point(30, 401);
+            this.uxDisplayQueryCusTB.Multiline = true;
+            this.uxDisplayQueryCusTB.Name = "uxDisplayQueryCusTB";
+            this.uxDisplayQueryCusTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.uxDisplayQueryCusTB.Size = new System.Drawing.Size(985, 191);
+            this.uxDisplayQueryCusTB.TabIndex = 4;
+            // 
             // ManagerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -375,8 +375,8 @@
         private System.Windows.Forms.GroupBox uxGeneralCustomerDisplayGB;
         private System.Windows.Forms.RadioButton uxDisplaySpecificVehicleRB;
         private System.Windows.Forms.Button RebuildDBBtn;
-        private System.Windows.Forms.TextBox uxDisplayQueryCusTB;
         private System.Windows.Forms.Button uxExcecuteCusButtn;
         private System.Windows.Forms.TextBox uxSelectCusTB;
+        private System.Windows.Forms.TextBox uxDisplayQueryCusTB;
     }
 }

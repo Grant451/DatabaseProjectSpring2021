@@ -134,12 +134,26 @@ namespace DatabaseProjectSpring2021
             if (selectedrbSpecific != null)
                 rb2 = selectedrbSpecific.Tag.ToString();
 
+            // the list returned by the query
+            List<String> result = new List<string>();
+
             switch (currentView)
             {
                 case ("Customers"):
-                    master.CustomerTabQueries(rb1, rb2);
+                    result = master.CustomerTabQueries(rb1, rb2);
                     break;
             }
+
+            string display = "";
+            foreach (var res in result)
+            {
+                //display += res;
+                //display += "\n";
+                uxDisplayQueryCusTB.AppendText(res);
+                uxDisplayQueryCusTB.AppendText(Environment.NewLine);
+            }
+            //uxDisplayQueryCusTB.Text = display;
+            //= result.ToArray()
             //Console.WriteLine(selectedrbLeft.Name);
         }
 
