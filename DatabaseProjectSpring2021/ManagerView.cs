@@ -42,13 +42,19 @@ namespace DatabaseProjectSpring2021
             DropDownListSelection.Items.AddRange(master.GetLocation());
 
             
-
             btnSubmit.Enabled = true;
         }
 
         private void DropDownListSelectionBtn(object sender, EventArgs e)
         {
             
+        }
+
+        private void RebuildDBBtn_Click(object sender, EventArgs e)
+        {
+         
+           System.Diagnostics.Process.Start(@"powershell.exe", @"C:\\Users\\israe\\source\\repos\\DatabaseProjectSpring2021\\RebuildDatabase.ps1");
+                        
         }
     }
 }
