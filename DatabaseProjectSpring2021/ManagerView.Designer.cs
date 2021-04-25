@@ -35,28 +35,30 @@
             this.DropDownListSelection = new System.Windows.Forms.ComboBox();
             this.uxTabControl = new System.Windows.Forms.TabControl();
             this.uxCustomersPage = new System.Windows.Forms.TabPage();
+            this.uxDisplayQueryCusTB = new System.Windows.Forms.TextBox();
+            this.uxSpecificDisplayCustomerGB = new System.Windows.Forms.GroupBox();
+            this.uxDisplayUpcomingApptCustRB = new System.Windows.Forms.RadioButton();
+            this.uxDisplayRepeatedRepairsCusRB = new System.Windows.Forms.RadioButton();
+            this.uxDisplayPastRepairsCusRB = new System.Windows.Forms.RadioButton();
+            this.uxGeneralCustomerDisplayGB = new System.Windows.Forms.GroupBox();
+            this.uxDisplaySpecificVehicleRB = new System.Windows.Forms.RadioButton();
+            this.uxDisplaySpecificCustomerRB = new System.Windows.Forms.RadioButton();
+            this.uxDisplayAllCustomersRB = new System.Windows.Forms.RadioButton();
             this.uxEmployeesPage = new System.Windows.Forms.TabPage();
             this.uxLocationsPage = new System.Windows.Forms.TabPage();
             this.uxPartsPage = new System.Windows.Forms.TabPage();
             this.uxReportsPage = new System.Windows.Forms.TabPage();
-            this.uxDisplayAllCustomersRB = new System.Windows.Forms.RadioButton();
-            this.uxDisplaySpecificCustomerRB = new System.Windows.Forms.RadioButton();
-            this.uxGeneralCustomerDisplayGB = new System.Windows.Forms.GroupBox();
-            this.uxDisplaySpecificVehicle = new System.Windows.Forms.RadioButton();
-            this.uxSpecificDisplayCustomerGB = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.uxDisplayPastRepairsCustomer = new System.Windows.Forms.RadioButton();
+            this.uxExcecuteCusBttn = new System.Windows.Forms.Button();
             this.uxTabControl.SuspendLayout();
             this.uxCustomersPage.SuspendLayout();
-            this.uxGeneralCustomerDisplayGB.SuspendLayout();
             this.uxSpecificDisplayCustomerGB.SuspendLayout();
+            this.uxGeneralCustomerDisplayGB.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnsearch
             // 
             this.btnsearch.Location = new System.Drawing.Point(14, 679);
-            this.btnsearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnsearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnsearch.Name = "btnsearch";
             this.btnsearch.Size = new System.Drawing.Size(148, 48);
             this.btnsearch.TabIndex = 1;
@@ -68,7 +70,7 @@
             // 
             this.btnSubmit.Enabled = false;
             this.btnSubmit.Location = new System.Drawing.Point(188, 679);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(148, 48);
             this.btnSubmit.TabIndex = 5;
@@ -87,10 +89,10 @@
             // 
             // btntest1
             // 
-            this.btntest1.Location = new System.Drawing.Point(773, 634);
-            this.btntest1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btntest1.Location = new System.Drawing.Point(741, 679);
+            this.btntest1.Margin = new System.Windows.Forms.Padding(2);
             this.btntest1.Name = "btntest1";
-            this.btntest1.Size = new System.Drawing.Size(252, 113);
+            this.btntest1.Size = new System.Drawing.Size(222, 52);
             this.btntest1.TabIndex = 8;
             this.btntest1.Text = "test query";
             this.btntest1.UseVisualStyleBackColor = true;
@@ -101,7 +103,7 @@
             this.DropDownListSelection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DropDownListSelection.FormattingEnabled = true;
             this.DropDownListSelection.Location = new System.Drawing.Point(404, 688);
-            this.DropDownListSelection.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.DropDownListSelection.Margin = new System.Windows.Forms.Padding(6);
             this.DropDownListSelection.Name = "DropDownListSelection";
             this.DropDownListSelection.Size = new System.Drawing.Size(238, 33);
             this.DropDownListSelection.TabIndex = 9;
@@ -118,71 +120,96 @@
             this.uxTabControl.Location = new System.Drawing.Point(3, 12);
             this.uxTabControl.Name = "uxTabControl";
             this.uxTabControl.SelectedIndex = 0;
-            this.uxTabControl.Size = new System.Drawing.Size(1069, 552);
+            this.uxTabControl.Size = new System.Drawing.Size(1069, 645);
             this.uxTabControl.TabIndex = 10;
             // 
             // uxCustomersPage
             // 
+            this.uxCustomersPage.Controls.Add(this.uxExcecuteCusBttn);
+            this.uxCustomersPage.Controls.Add(this.uxDisplayQueryCusTB);
             this.uxCustomersPage.Controls.Add(this.uxSpecificDisplayCustomerGB);
             this.uxCustomersPage.Controls.Add(this.uxGeneralCustomerDisplayGB);
             this.uxCustomersPage.Location = new System.Drawing.Point(8, 43);
             this.uxCustomersPage.Name = "uxCustomersPage";
             this.uxCustomersPage.Padding = new System.Windows.Forms.Padding(3);
-            this.uxCustomersPage.Size = new System.Drawing.Size(1053, 501);
+            this.uxCustomersPage.Size = new System.Drawing.Size(1053, 594);
             this.uxCustomersPage.TabIndex = 0;
             this.uxCustomersPage.Text = "Customers";
             this.uxCustomersPage.UseVisualStyleBackColor = true;
             // 
-            // uxEmployeesPage
+            // uxDisplayQueryCusTB
             // 
-            this.uxEmployeesPage.Location = new System.Drawing.Point(8, 39);
-            this.uxEmployeesPage.Name = "uxEmployeesPage";
-            this.uxEmployeesPage.Padding = new System.Windows.Forms.Padding(3);
-            this.uxEmployeesPage.Size = new System.Drawing.Size(1053, 505);
-            this.uxEmployeesPage.TabIndex = 1;
-            this.uxEmployeesPage.Text = "Employees";
-            this.uxEmployeesPage.UseVisualStyleBackColor = true;
+            this.uxDisplayQueryCusTB.Location = new System.Drawing.Point(32, 387);
+            this.uxDisplayQueryCusTB.Multiline = true;
+            this.uxDisplayQueryCusTB.Name = "uxDisplayQueryCusTB";
+            this.uxDisplayQueryCusTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.uxDisplayQueryCusTB.Size = new System.Drawing.Size(999, 188);
+            this.uxDisplayQueryCusTB.TabIndex = 4;
             // 
-            // uxLocationsPage
+            // uxSpecificDisplayCustomerGB
             // 
-            this.uxLocationsPage.Location = new System.Drawing.Point(8, 39);
-            this.uxLocationsPage.Name = "uxLocationsPage";
-            this.uxLocationsPage.Padding = new System.Windows.Forms.Padding(3);
-            this.uxLocationsPage.Size = new System.Drawing.Size(1053, 505);
-            this.uxLocationsPage.TabIndex = 2;
-            this.uxLocationsPage.Text = "Locations";
-            this.uxLocationsPage.UseVisualStyleBackColor = true;
+            this.uxSpecificDisplayCustomerGB.Controls.Add(this.uxDisplayUpcomingApptCustRB);
+            this.uxSpecificDisplayCustomerGB.Controls.Add(this.uxDisplayRepeatedRepairsCusRB);
+            this.uxSpecificDisplayCustomerGB.Controls.Add(this.uxDisplayPastRepairsCusRB);
+            this.uxSpecificDisplayCustomerGB.Location = new System.Drawing.Point(562, 32);
+            this.uxSpecificDisplayCustomerGB.Name = "uxSpecificDisplayCustomerGB";
+            this.uxSpecificDisplayCustomerGB.Size = new System.Drawing.Size(425, 233);
+            this.uxSpecificDisplayCustomerGB.TabIndex = 3;
+            this.uxSpecificDisplayCustomerGB.TabStop = false;
+            this.uxSpecificDisplayCustomerGB.Text = "Specific Display";
             // 
-            // uxPartsPage
+            // uxDisplayUpcomingApptCustRB
             // 
-            this.uxPartsPage.Location = new System.Drawing.Point(8, 39);
-            this.uxPartsPage.Name = "uxPartsPage";
-            this.uxPartsPage.Padding = new System.Windows.Forms.Padding(3);
-            this.uxPartsPage.Size = new System.Drawing.Size(1053, 505);
-            this.uxPartsPage.TabIndex = 3;
-            this.uxPartsPage.Text = "Parts";
-            this.uxPartsPage.UseVisualStyleBackColor = true;
+            this.uxDisplayUpcomingApptCustRB.AutoSize = true;
+            this.uxDisplayUpcomingApptCustRB.Location = new System.Drawing.Point(17, 164);
+            this.uxDisplayUpcomingApptCustRB.Name = "uxDisplayUpcomingApptCustRB";
+            this.uxDisplayUpcomingApptCustRB.Size = new System.Drawing.Size(353, 29);
+            this.uxDisplayUpcomingApptCustRB.TabIndex = 2;
+            this.uxDisplayUpcomingApptCustRB.Text = "Display Upcoming Appointments";
+            this.uxDisplayUpcomingApptCustRB.UseVisualStyleBackColor = true;
             // 
-            // uxReportsPage
+            // uxDisplayRepeatedRepairsCusRB
             // 
-            this.uxReportsPage.Location = new System.Drawing.Point(8, 39);
-            this.uxReportsPage.Name = "uxReportsPage";
-            this.uxReportsPage.Padding = new System.Windows.Forms.Padding(3);
-            this.uxReportsPage.Size = new System.Drawing.Size(1053, 505);
-            this.uxReportsPage.TabIndex = 4;
-            this.uxReportsPage.Text = "Reports";
-            this.uxReportsPage.UseVisualStyleBackColor = true;
+            this.uxDisplayRepeatedRepairsCusRB.AutoSize = true;
+            this.uxDisplayRepeatedRepairsCusRB.Location = new System.Drawing.Point(17, 106);
+            this.uxDisplayRepeatedRepairsCusRB.Name = "uxDisplayRepeatedRepairsCusRB";
+            this.uxDisplayRepeatedRepairsCusRB.Size = new System.Drawing.Size(293, 29);
+            this.uxDisplayRepeatedRepairsCusRB.TabIndex = 1;
+            this.uxDisplayRepeatedRepairsCusRB.Text = "Display Repeated Repairs";
+            this.uxDisplayRepeatedRepairsCusRB.UseVisualStyleBackColor = true;
             // 
-            // uxDisplayAllCustomersRB
+            // uxDisplayPastRepairsCusRB
             // 
-            this.uxDisplayAllCustomersRB.AutoSize = true;
-            this.uxDisplayAllCustomersRB.Location = new System.Drawing.Point(17, 43);
-            this.uxDisplayAllCustomersRB.Name = "uxDisplayAllCustomersRB";
-            this.uxDisplayAllCustomersRB.Size = new System.Drawing.Size(253, 29);
-            this.uxDisplayAllCustomersRB.TabIndex = 0;
-            this.uxDisplayAllCustomersRB.TabStop = true;
-            this.uxDisplayAllCustomersRB.Text = "Display All Customers";
-            this.uxDisplayAllCustomersRB.UseVisualStyleBackColor = true;
+            this.uxDisplayPastRepairsCusRB.AutoSize = true;
+            this.uxDisplayPastRepairsCusRB.Location = new System.Drawing.Point(17, 46);
+            this.uxDisplayPastRepairsCusRB.Name = "uxDisplayPastRepairsCusRB";
+            this.uxDisplayPastRepairsCusRB.Size = new System.Drawing.Size(243, 29);
+            this.uxDisplayPastRepairsCusRB.TabIndex = 0;
+            this.uxDisplayPastRepairsCusRB.TabStop = true;
+            this.uxDisplayPastRepairsCusRB.Text = "Display Past Repairs";
+            this.uxDisplayPastRepairsCusRB.UseVisualStyleBackColor = true;
+            // 
+            // uxGeneralCustomerDisplayGB
+            // 
+            this.uxGeneralCustomerDisplayGB.Controls.Add(this.uxDisplaySpecificVehicleRB);
+            this.uxGeneralCustomerDisplayGB.Controls.Add(this.uxDisplaySpecificCustomerRB);
+            this.uxGeneralCustomerDisplayGB.Controls.Add(this.uxDisplayAllCustomersRB);
+            this.uxGeneralCustomerDisplayGB.Location = new System.Drawing.Point(49, 32);
+            this.uxGeneralCustomerDisplayGB.Name = "uxGeneralCustomerDisplayGB";
+            this.uxGeneralCustomerDisplayGB.Size = new System.Drawing.Size(425, 233);
+            this.uxGeneralCustomerDisplayGB.TabIndex = 2;
+            this.uxGeneralCustomerDisplayGB.TabStop = false;
+            this.uxGeneralCustomerDisplayGB.Text = "General Display";
+            // 
+            // uxDisplaySpecificVehicleRB
+            // 
+            this.uxDisplaySpecificVehicleRB.AutoSize = true;
+            this.uxDisplaySpecificVehicleRB.Location = new System.Drawing.Point(17, 164);
+            this.uxDisplaySpecificVehicleRB.Name = "uxDisplaySpecificVehicleRB";
+            this.uxDisplaySpecificVehicleRB.Size = new System.Drawing.Size(273, 29);
+            this.uxDisplaySpecificVehicleRB.TabIndex = 2;
+            this.uxDisplaySpecificVehicleRB.Text = "Display Specific Vehicle";
+            this.uxDisplaySpecificVehicleRB.UseVisualStyleBackColor = true;
             // 
             // uxDisplaySpecificCustomerRB
             // 
@@ -194,91 +221,89 @@
             this.uxDisplaySpecificCustomerRB.Text = "Display Specific Customer";
             this.uxDisplaySpecificCustomerRB.UseVisualStyleBackColor = true;
             // 
-            // uxGeneralCustomerDisplayGB
+            // uxDisplayAllCustomersRB
             // 
-            this.uxGeneralCustomerDisplayGB.Controls.Add(this.uxDisplaySpecificVehicle);
-            this.uxGeneralCustomerDisplayGB.Controls.Add(this.uxDisplaySpecificCustomerRB);
-            this.uxGeneralCustomerDisplayGB.Controls.Add(this.uxDisplayAllCustomersRB);
-            this.uxGeneralCustomerDisplayGB.Location = new System.Drawing.Point(49, 32);
-            this.uxGeneralCustomerDisplayGB.Name = "uxGeneralCustomerDisplayGB";
-            this.uxGeneralCustomerDisplayGB.Size = new System.Drawing.Size(425, 233);
-            this.uxGeneralCustomerDisplayGB.TabIndex = 2;
-            this.uxGeneralCustomerDisplayGB.TabStop = false;
-            this.uxGeneralCustomerDisplayGB.Text = "General Display";
+            this.uxDisplayAllCustomersRB.AutoSize = true;
+            this.uxDisplayAllCustomersRB.Location = new System.Drawing.Point(17, 46);
+            this.uxDisplayAllCustomersRB.Name = "uxDisplayAllCustomersRB";
+            this.uxDisplayAllCustomersRB.Size = new System.Drawing.Size(253, 29);
+            this.uxDisplayAllCustomersRB.TabIndex = 0;
+            this.uxDisplayAllCustomersRB.TabStop = true;
+            this.uxDisplayAllCustomersRB.Text = "Display All Customers";
+            this.uxDisplayAllCustomersRB.UseVisualStyleBackColor = true;
             // 
-            // uxDisplaySpecificVehicle
+            // uxEmployeesPage
             // 
-            this.uxDisplaySpecificVehicle.AutoSize = true;
-            this.uxDisplaySpecificVehicle.Location = new System.Drawing.Point(17, 164);
-            this.uxDisplaySpecificVehicle.Name = "uxDisplaySpecificVehicle";
-            this.uxDisplaySpecificVehicle.Size = new System.Drawing.Size(273, 29);
-            this.uxDisplaySpecificVehicle.TabIndex = 2;
-            this.uxDisplaySpecificVehicle.Text = "Display Specific Vehicle";
-            this.uxDisplaySpecificVehicle.UseVisualStyleBackColor = true;
+            this.uxEmployeesPage.Location = new System.Drawing.Point(8, 43);
+            this.uxEmployeesPage.Name = "uxEmployeesPage";
+            this.uxEmployeesPage.Padding = new System.Windows.Forms.Padding(3);
+            this.uxEmployeesPage.Size = new System.Drawing.Size(1053, 594);
+            this.uxEmployeesPage.TabIndex = 1;
+            this.uxEmployeesPage.Text = "Employees";
+            this.uxEmployeesPage.UseVisualStyleBackColor = true;
             // 
-            // uxSpecificDisplayCustomerGB
+            // uxLocationsPage
             // 
-            this.uxSpecificDisplayCustomerGB.Controls.Add(this.radioButton1);
-            this.uxSpecificDisplayCustomerGB.Controls.Add(this.radioButton2);
-            this.uxSpecificDisplayCustomerGB.Controls.Add(this.uxDisplayPastRepairsCustomer);
-            this.uxSpecificDisplayCustomerGB.Location = new System.Drawing.Point(562, 32);
-            this.uxSpecificDisplayCustomerGB.Name = "uxSpecificDisplayCustomerGB";
-            this.uxSpecificDisplayCustomerGB.Size = new System.Drawing.Size(425, 233);
-            this.uxSpecificDisplayCustomerGB.TabIndex = 3;
-            this.uxSpecificDisplayCustomerGB.TabStop = false;
-            this.uxSpecificDisplayCustomerGB.Text = "Specific Display";
+            this.uxLocationsPage.Location = new System.Drawing.Point(8, 43);
+            this.uxLocationsPage.Name = "uxLocationsPage";
+            this.uxLocationsPage.Padding = new System.Windows.Forms.Padding(3);
+            this.uxLocationsPage.Size = new System.Drawing.Size(1053, 594);
+            this.uxLocationsPage.TabIndex = 2;
+            this.uxLocationsPage.Text = "Locations";
+            this.uxLocationsPage.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // uxPartsPage
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(17, 164);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(353, 29);
-            this.radioButton1.TabIndex = 2;
-            this.radioButton1.Text = "Display Upcoming Appointments";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.uxPartsPage.Location = new System.Drawing.Point(8, 43);
+            this.uxPartsPage.Name = "uxPartsPage";
+            this.uxPartsPage.Padding = new System.Windows.Forms.Padding(3);
+            this.uxPartsPage.Size = new System.Drawing.Size(1053, 594);
+            this.uxPartsPage.TabIndex = 3;
+            this.uxPartsPage.Text = "Parts";
+            this.uxPartsPage.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // uxReportsPage
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(17, 106);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(293, 29);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.Text = "Display Repeated Repairs";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.uxReportsPage.Location = new System.Drawing.Point(8, 43);
+            this.uxReportsPage.Name = "uxReportsPage";
+            this.uxReportsPage.Padding = new System.Windows.Forms.Padding(3);
+            this.uxReportsPage.Size = new System.Drawing.Size(1053, 594);
+            this.uxReportsPage.TabIndex = 4;
+            this.uxReportsPage.Text = "Reports";
+            this.uxReportsPage.UseVisualStyleBackColor = true;
             // 
-            // uxDisplayPastRepairsCustomer
+            // uxExcecuteCusBttn
             // 
-            this.uxDisplayPastRepairsCustomer.AutoSize = true;
-            this.uxDisplayPastRepairsCustomer.Location = new System.Drawing.Point(17, 43);
-            this.uxDisplayPastRepairsCustomer.Name = "uxDisplayPastRepairsCustomer";
-            this.uxDisplayPastRepairsCustomer.Size = new System.Drawing.Size(243, 29);
-            this.uxDisplayPastRepairsCustomer.TabIndex = 0;
-            this.uxDisplayPastRepairsCustomer.TabStop = true;
-            this.uxDisplayPastRepairsCustomer.Text = "Display Past Repairs";
-            this.uxDisplayPastRepairsCustomer.UseVisualStyleBackColor = true;
+            this.uxExcecuteCusBttn.Location = new System.Drawing.Point(765, 304);
+            this.uxExcecuteCusBttn.Margin = new System.Windows.Forms.Padding(2);
+            this.uxExcecuteCusBttn.Name = "uxExcecuteCusBttn";
+            this.uxExcecuteCusBttn.Size = new System.Drawing.Size(222, 52);
+            this.uxExcecuteCusBttn.TabIndex = 11;
+            this.uxExcecuteCusBttn.Text = "Excecute";
+            this.uxExcecuteCusBttn.UseVisualStyleBackColor = true;
+            this.uxExcecuteCusBttn.Click += new System.EventHandler(this.uxExcecuteCusBttn_Click);
             // 
             // ManagerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 758);
+            this.ClientSize = new System.Drawing.Size(1084, 769);
             this.Controls.Add(this.uxTabControl);
             this.Controls.Add(this.DropDownListSelection);
             this.Controls.Add(this.btntest1);
             this.Controls.Add(this.lblstatus);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.btnsearch);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ManagerView";
             this.Text = "Manager View";
             this.uxTabControl.ResumeLayout(false);
             this.uxCustomersPage.ResumeLayout(false);
-            this.uxGeneralCustomerDisplayGB.ResumeLayout(false);
-            this.uxGeneralCustomerDisplayGB.PerformLayout();
+            this.uxCustomersPage.PerformLayout();
             this.uxSpecificDisplayCustomerGB.ResumeLayout(false);
             this.uxSpecificDisplayCustomerGB.PerformLayout();
+            this.uxGeneralCustomerDisplayGB.ResumeLayout(false);
+            this.uxGeneralCustomerDisplayGB.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,11 +324,13 @@
         private System.Windows.Forms.RadioButton uxDisplayAllCustomersRB;
         private System.Windows.Forms.RadioButton uxDisplaySpecificCustomerRB;
         private System.Windows.Forms.GroupBox uxSpecificDisplayCustomerGB;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton uxDisplayPastRepairsCustomer;
+        private System.Windows.Forms.RadioButton uxDisplayUpcomingApptCustRB;
+        private System.Windows.Forms.RadioButton uxDisplayRepeatedRepairsCusRB;
+        private System.Windows.Forms.RadioButton uxDisplayPastRepairsCusRB;
         private System.Windows.Forms.GroupBox uxGeneralCustomerDisplayGB;
-        private System.Windows.Forms.RadioButton uxDisplaySpecificVehicle;
+        private System.Windows.Forms.RadioButton uxDisplaySpecificVehicleRB;
+        private System.Windows.Forms.TextBox uxDisplayQueryCusTB;
+        private System.Windows.Forms.Button uxExcecuteCusBttn;
     }
 }
 
