@@ -50,7 +50,7 @@
             this.uxPartsPage = new System.Windows.Forms.TabPage();
             this.uxReportsPage = new System.Windows.Forms.TabPage();
             this.RebuildDBBtn = new System.Windows.Forms.Button();
-            this.uxSelectCusCB = new System.Windows.Forms.ComboBox();
+            this.uxSelectCusTB = new System.Windows.Forms.TextBox();
             this.uxTabControl.SuspendLayout();
             this.uxCustomersPage.SuspendLayout();
             this.uxSpecificDisplayCustomerGB.SuspendLayout();
@@ -182,6 +182,7 @@
             this.uxDisplayUpcomingApptCusRB.Name = "uxDisplayUpcomingApptCusRB";
             this.uxDisplayUpcomingApptCusRB.Size = new System.Drawing.Size(353, 29);
             this.uxDisplayUpcomingApptCusRB.TabIndex = 2;
+            this.uxDisplayUpcomingApptCusRB.Tag = "DisplayUpcomingAppointments";
             this.uxDisplayUpcomingApptCusRB.Text = "Display Upcoming Appointments";
             this.uxDisplayUpcomingApptCusRB.UseVisualStyleBackColor = true;
             this.uxDisplayUpcomingApptCusRB.Visible = false;
@@ -194,6 +195,7 @@
             this.uxDisplayRepeatedRepairsCusRB.Name = "uxDisplayRepeatedRepairsCusRB";
             this.uxDisplayRepeatedRepairsCusRB.Size = new System.Drawing.Size(293, 29);
             this.uxDisplayRepeatedRepairsCusRB.TabIndex = 1;
+            this.uxDisplayRepeatedRepairsCusRB.Tag = "DisplayRepeatedRepairs";
             this.uxDisplayRepeatedRepairsCusRB.Text = "Display Repeated Repairs";
             this.uxDisplayRepeatedRepairsCusRB.UseVisualStyleBackColor = true;
             // 
@@ -206,13 +208,14 @@
             this.uxDisplayPastRepairsCusRB.Size = new System.Drawing.Size(243, 29);
             this.uxDisplayPastRepairsCusRB.TabIndex = 0;
             this.uxDisplayPastRepairsCusRB.TabStop = true;
+            this.uxDisplayPastRepairsCusRB.Tag = "DisplayPastRepairs";
             this.uxDisplayPastRepairsCusRB.Text = "Display Past Repairs";
             this.uxDisplayPastRepairsCusRB.UseVisualStyleBackColor = true;
             this.uxDisplayPastRepairsCusRB.Visible = false;
             // 
             // uxGeneralCustomerDisplayGB
             // 
-            this.uxGeneralCustomerDisplayGB.Controls.Add(this.uxSelectCusCB);
+            this.uxGeneralCustomerDisplayGB.Controls.Add(this.uxSelectCusTB);
             this.uxGeneralCustomerDisplayGB.Controls.Add(this.uxDisplaySpecificVehicleRB);
             this.uxGeneralCustomerDisplayGB.Controls.Add(this.uxDisplaySpecificCustomerRB);
             this.uxGeneralCustomerDisplayGB.Controls.Add(this.uxDisplayAllCustomersRB);
@@ -233,6 +236,7 @@
             this.uxDisplaySpecificVehicleRB.Name = "uxDisplaySpecificVehicleRB";
             this.uxDisplaySpecificVehicleRB.Size = new System.Drawing.Size(273, 29);
             this.uxDisplaySpecificVehicleRB.TabIndex = 2;
+            this.uxDisplaySpecificVehicleRB.Tag = "DisplaySpecificVehicle";
             this.uxDisplaySpecificVehicleRB.Text = "Display Specific Vehicle";
             this.uxDisplaySpecificVehicleRB.UseVisualStyleBackColor = true;
             // 
@@ -244,6 +248,7 @@
             this.uxDisplaySpecificCustomerRB.Name = "uxDisplaySpecificCustomerRB";
             this.uxDisplaySpecificCustomerRB.Size = new System.Drawing.Size(294, 29);
             this.uxDisplaySpecificCustomerRB.TabIndex = 1;
+            this.uxDisplaySpecificCustomerRB.Tag = "DisplaySpecificCustomer";
             this.uxDisplaySpecificCustomerRB.Text = "Display Specific Customer";
             this.uxDisplaySpecificCustomerRB.UseVisualStyleBackColor = true;
             // 
@@ -256,6 +261,7 @@
             this.uxDisplayAllCustomersRB.Size = new System.Drawing.Size(253, 29);
             this.uxDisplayAllCustomersRB.TabIndex = 0;
             this.uxDisplayAllCustomersRB.TabStop = true;
+            this.uxDisplayAllCustomersRB.Tag = "DisplayAllCustomers";
             this.uxDisplayAllCustomersRB.Text = "Display All Customers";
             this.uxDisplayAllCustomersRB.UseVisualStyleBackColor = true;
             // 
@@ -313,16 +319,13 @@
             this.RebuildDBBtn.Text = "Rebuild DB";
             this.RebuildDBBtn.UseVisualStyleBackColor = true;
             // 
-            // uxSelectCusCB
+            // uxSelectCusTB
             // 
-            this.uxSelectCusCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.uxSelectCusCB.FormattingEnabled = true;
-            this.uxSelectCusCB.Location = new System.Drawing.Point(120, 153);
-            this.uxSelectCusCB.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.uxSelectCusCB.Name = "uxSelectCusCB";
-            this.uxSelectCusCB.Size = new System.Drawing.Size(239, 33);
-            this.uxSelectCusCB.TabIndex = 12;
-            this.uxSelectCusCB.Visible = false;
+            this.uxSelectCusTB.Location = new System.Drawing.Point(52, 151);
+            this.uxSelectCusTB.Name = "uxSelectCusTB";
+            this.uxSelectCusTB.Size = new System.Drawing.Size(238, 31);
+            this.uxSelectCusTB.TabIndex = 3;
+            this.uxSelectCusTB.Text = "Enter Customer Name";
             // 
             // ManagerView
             // 
@@ -374,6 +377,6 @@
         private System.Windows.Forms.Button RebuildDBBtn;
         private System.Windows.Forms.TextBox uxDisplayQueryCusTB;
         private System.Windows.Forms.Button uxExcecuteCusButtn;
-        private System.Windows.Forms.ComboBox uxSelectCusCB;
+        private System.Windows.Forms.TextBox uxSelectCusTB;
     }
 }

@@ -26,24 +26,50 @@ namespace DatabaseProjectSpring2021
             transaction = new TransactionScope();
         }
 
+        //Exceute Queries Supported in Customer Tab
         public List<string> CustomerTabQueries(string generalQuery, string specificQuery)
         {
             List<string> result = new List<string>();
             switch (generalQuery)
             {
-                case ("uxDisplayAllCustomersRB"):
-                    if (specificQuery == "uxDisplayRepeatedRepairsCusRB")
+                case ("DisplayAllCustomers"):
+                    if (specificQuery == "DisplayRepeatedRepairs")
                     {
-                        //Console.WriteLine("Call method in master");
-                        Console.WriteLine("FetchRepeatedRepairs");
+                        //FetchRepeatedRepairs
                         var queryresult = repo.FetchRepeatRepairs(1);
                         return null;
                     }
+                    else if (specificQuery == "")
+                    {
+                        //RetrieveCustomers -- fetch all customers
+                        var queryresult = repo.RetrieveCustomers();
+                        foreach (c in queryresult)
+                    }
 
+                    break;
+                case ("DisplaySpecificCustomer"):
+                    if (specificQuery == "DisplayRepeatedRepairs")
+                    {
+                        //FetchRepeatedRepairsSpecific
+                    }
+                    else if (specificQuery == "DisplayPastRepairs")
+                    {
+                        //FetchRepairHistoryCustomer
+                    }
+                    else if (specificQuery == "DisplayUpcomingAppointments")
+                    {
+                        //FetchUpcomingAppointmentsCustomer **not complete
+                    }
+                    else if (specificQuery == "")
+                    {
+                        //RetrieveSpecificCustomer -- Fetch specific customer
+                        
+                    }
                     break;
             }
             return result;
         }
+
 
         public string[] GetLocation()
          {

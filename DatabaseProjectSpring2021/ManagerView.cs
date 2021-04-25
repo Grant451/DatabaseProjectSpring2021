@@ -61,7 +61,7 @@ namespace DatabaseProjectSpring2021
 
                 if (selectedrbGeneral.Name == "uxDisplaySpecificCustomerRB")
                 {
-                    uxSelectCusCB.Visible = true;
+                    uxSelectCusTB.Visible = true;
                     uxDisplayPastRepairsCusRB.Visible = true;
                 }
                 else if (selectedrbGeneral.Name == "uxDisplaySpecificVehicleRB")
@@ -70,7 +70,7 @@ namespace DatabaseProjectSpring2021
                 }
                 else
                 {
-                    uxSelectCusCB.Visible = false;
+                    uxSelectCusTB.Visible = false;
                     uxDisplayPastRepairsCusRB.Visible = false ;
                 }
 
@@ -129,10 +129,10 @@ namespace DatabaseProjectSpring2021
             string rb1 = "";
             string rb2 = "";
             if (selectedrbGeneral != null)
-                 rb1 = selectedrbGeneral.Name;
+                 rb1 = selectedrbGeneral.Tag.ToString();
 
             if (selectedrbSpecific != null)
-                rb2 = selectedrbSpecific.Name;
+                rb2 = selectedrbSpecific.Tag.ToString();
 
             switch (currentView)
             {
