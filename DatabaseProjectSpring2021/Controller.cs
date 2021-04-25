@@ -147,10 +147,15 @@ namespace DatabaseProjectSpring2021
             var faerclisttest = repo.FetchAllEmployeeRepairCounts(x);
             */
 
-            ///*****query 10 FetchSalesSpecific untested*****
+            /*****query 10 FetchSalesSpecific working*****
             string fssstreetAddress = "P.O. Box 776, 7543 Convallis Rd.";
             var fsslist = repo.FetchSalesSpecific(fssstreetAddress);
-            //*/
+            */
+
+            /*****query 11 FetchSales untested*****
+            int blank = 0;
+            var fslist = repo.FetchSales(blank);
+            */
 
             /*
             var Repairslisttest = repo.RetrieveRepairs();//works

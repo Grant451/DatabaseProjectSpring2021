@@ -12,7 +12,7 @@ namespace LocationData.Models
 
         public string StreetAddress { get; }
 
-        public SalesObj(int sales, string streetAddress)
+        public SalesObj(double sales, string streetAddress)
         {
             Sales = sales;
             StreetAddress = streetAddress;

@@ -146,5 +146,10 @@ namespace LocationData
         {
             return executor.ExecuteReader(new FetchSalesSpecificDataDelegate(streetAddress));
         }
+
+        public IReadOnlyList<SalesObj> FetchSales(int blank)
+        {
+            return executor.ExecuteReader(new FetchSalesDataDelegate(blank));
+        }
     }
 }

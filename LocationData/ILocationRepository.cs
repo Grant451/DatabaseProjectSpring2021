@@ -50,5 +50,8 @@ namespace LocationData
         
         //sales specific query 10:
         IReadOnlyList<SalesObj> FetchSalesSpecific(string fssstreetAddress);
+
+        //returns total sales across all stores query 11:
+        IReadOnlyList<SalesObj> FetchSales(int blank);
     }
 }
