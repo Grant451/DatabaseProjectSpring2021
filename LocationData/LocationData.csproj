@@ -59,6 +59,7 @@
     <Compile Include="ILocationRepository.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\EmployeeLocation.cs" />
     <Compile Include="Models\EmployeeRepair.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\LocationQuantity.cs" />
@@ -73,6 +74,7 @@
   <ItemGroup>
     <Content Include="Sql\Data\Location.Types.sql" />
     <Content Include="Sql\Data\testData.sql" />
+    <Content Include="Sql\Procedures\FetchEmployeeLocation.sql" />
     <Content Include="Sql\Procedures\FetchRepairParts.sql" />
     <Content Include="Sql\Procedures\FetchPart.sql" />
     <Content Include="Sql\Procedures\FetchAllEmployeeRepairCounts.sql" />

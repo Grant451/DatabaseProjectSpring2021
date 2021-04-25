@@ -44,6 +44,6 @@ namespace LocationData
 
         //repair counts for all employees query 9
         IReadOnlyList<EmployeeRepair> FetchAllEmployeeRepairCounts(int blank);
-        
+        //object FetchEmployeeLocation(object felemname);
     }
 }
