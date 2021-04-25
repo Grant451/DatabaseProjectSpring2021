@@ -45,9 +45,10 @@ namespace LocationData
         //repair counts by employee query 8:
         IReadOnlyList<EmployeeRepair> FetchEmployeeRepairCounts(string fertest);
 
-        //repair counts for all employees query 9
+        //repair counts for all employees query 9:
         IReadOnlyList<EmployeeRepair> FetchAllEmployeeRepairCounts(int blank);
-
         
+        //sales specific query 10:
+        IReadOnlyList<SalesObj> FetchSalesSpecific(string fssstreetAddress);
     }
 }

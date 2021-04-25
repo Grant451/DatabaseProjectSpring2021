@@ -10,6 +10,8 @@ namespace DataAccess
 
         byte GetByte(string name);
 
+        double GetDouble(string name);
+
         DateTime GetDateTime(string name);
 
         int GetInt32(string name);

@@ -122,23 +122,6 @@ namespace DatabaseProjectSpring2021
             var rhelisttest = repo.FetchRepairHistoryEmployee(empName);
             */
 
-            /*
-            List<string> help = new List<string>();
-            foreach (RepairHistory x in rhelisttest)
-            {
-                help.Add(x.CustomerName);
-            }
-            int i=0;
-            */
-            
-            /*
-            foreach(RepairHistory x in rhelisttest)
-            {
-                (RepairHistory
-                //help.Add(x);
-            }
-            */
-
             /*****query 5 FetchPart working*****
             string PartName = "vitae,  orci.";
             var fplist = repo.FetchPart(PartName);
@@ -163,6 +146,11 @@ namespace DatabaseProjectSpring2021
             int x = 0;//takes in a 0 to keep it simple
             var faerclisttest = repo.FetchAllEmployeeRepairCounts(x);
             */
+
+            ///*****query 10 FetchSalesSpecific untested*****
+            string fssstreetAddress = "P.O. Box 776, 7543 Convallis Rd.";
+            var fsslist = repo.FetchSalesSpecific(fssstreetAddress);
+            //*/
 
             /*
             var Repairslisttest = repo.RetrieveRepairs();//works
