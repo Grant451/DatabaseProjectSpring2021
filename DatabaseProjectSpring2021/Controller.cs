@@ -125,22 +125,6 @@ namespace DatabaseProjectSpring2021
             string empName = "Shannon Colon";
             var rhelisttest = repo.FetchRepairHistoryEmployee(empName);
             */
-            /*
-            List<string> help = new List<string>();
-            foreach (RepairHistory x in rhelisttest)
-            {
-                help.Add(x.CustomerName);
-            }
-            int i=0;
-            */
-            
-            /*
-            foreach(RepairHistory x in rhelisttest)
-            {
-                (RepairHistory
-                //help.Add(x);
-            }
-            */
 
             /*****query 5 FetchPart working*****
             string PartName = "vitae,  orci.";
@@ -152,9 +136,9 @@ namespace DatabaseProjectSpring2021
             var frplist = repo.FetchRepairParts(repairName);
             */
 
-            /*****query 7 FetchEmployeeLocation untested*****
+            /*****query 7 FetchEmployeeLocation working*****
             string felempname = "Norman Abbott";
-            var fellist = repo.FetchEmployeeLocation(felemname);
+            var fellist = repo.FetchEmployeeLocation(felempname);
             */
 
             /*****query 8 FetchEmployeeRepairCounts working*****
@@ -165,6 +149,21 @@ namespace DatabaseProjectSpring2021
             /*****query 9 FetchAllEmployeeRepairCounts working*****
             int x = 0;//takes in a 0 to keep it simple
             var faerclisttest = repo.FetchAllEmployeeRepairCounts(x);
+            */
+
+            /*****query 10 FetchSalesSpecific working*****
+            string fssstreetAddress = "P.O. Box 776, 7543 Convallis Rd.";
+            var fsslist = repo.FetchSalesSpecific(fssstreetAddress);
+            */
+
+            /*****query 11 FetchSales untested*****
+            int blank = 0;
+            var fslist = repo.FetchSales(blank);
+            */
+
+            /*****query 16 FetchAllLocationsAddress*****
+            int blank = 0;
+            var falalist = repo.FetchAllLocationsAddress(blank);
             */
 
             /*

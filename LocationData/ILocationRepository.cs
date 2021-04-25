@@ -39,11 +39,22 @@ namespace LocationData
         //part quantity across locations query 6:
         IReadOnlyList<PartSearch> FetchRepairParts(string repairName);
 
+        //LocationId, StreetAddress, City, Region, Zip query 7:
+        IReadOnlyList<EmployeeLocation> FetchEmployeeLocation(string felemname);
+
         //repair counts by employee query 8:
         IReadOnlyList<EmployeeRepair> FetchEmployeeRepairCounts(string fertest);
 
-        //repair counts for all employees query 9
+        //repair counts for all employees query 9:
         IReadOnlyList<EmployeeRepair> FetchAllEmployeeRepairCounts(int blank);
-        //object FetchEmployeeLocation(object felemname);
+        
+        //sales specific query 10:
+        IReadOnlyList<SalesObj> FetchSalesSpecific(string fssstreetAddress);
+
+        //returns total sales across all stores query 11:
+        IReadOnlyList<SalesObj> FetchSales(int blank);
+
+        //returns FetchAllLocationsAddress query 16:
+        IReadOnlyList<SalesObj> FetchAllLocationsAddress(int blank);
     }
 }

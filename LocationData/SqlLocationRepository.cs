@@ -136,5 +136,25 @@ namespace LocationData
         {
             return executor.ExecuteReader(new FetchRepairPartsDataDelegate(repairName));
         }
+
+        public IReadOnlyList<EmployeeLocation> FetchEmployeeLocation(string felemname)
+        {
+            return executor.ExecuteReader(new FetchEmployeeLocationDataDelegate(felemname));
+        }
+
+        public IReadOnlyList<SalesObj> FetchSalesSpecific(string streetAddress)
+        {
+            return executor.ExecuteReader(new FetchSalesSpecificDataDelegate(streetAddress));
+        }
+
+        public IReadOnlyList<SalesObj> FetchSales(int blank)
+        {
+            return executor.ExecuteReader(new FetchSalesDataDelegate(blank));
+        }
+
+        public IReadOnlyList<SalesObj> FetchAllLocationsAddress(int blank)
+        {
+            return executor.ExecuteReader(new FetchAllLocationsAddressDataDelegate(blank));
+        }
     }
 }
