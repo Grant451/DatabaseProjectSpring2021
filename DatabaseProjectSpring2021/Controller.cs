@@ -29,14 +29,17 @@ namespace DatabaseProjectSpring2021
         public string[] GetLocation()
          {
             //This is a test
-            
+            int val = 0;
+            var locationSearch = repo.FetchAllLocationsAddress(val);
 
-            string empName = "Shannon Colon";
-            var rhelisttest = repo.FetchRepairHistoryEmployee(empName);
+            //string empName = "Shannon Colon";
+            //RepairHistory;
+            //var rhelisttest = repo.FetchRepairHistoryEmployee(empName);
             List<string> returnaddress = new List<string>();
             int count1 = 0;
-            foreach (RepairHistory X in rhelisttest){
-                returnaddress.Add(X.CustomerName);
+            foreach (SalesObj X in locationSearch)
+            {
+                returnaddress.Add(X.StreetAddress);
                 count1++;
             }
             string[] retunstring = new string[returnaddress.Count()];
@@ -157,20 +160,47 @@ namespace DatabaseProjectSpring2021
             var fsslist = repo.FetchSalesSpecific(fssstreetAddress);
             */
 
-            /*****query 11 FetchSales untested*****
+            /*****query 11 FetchSales working*****
             int blank = 0;
             var fslist = repo.FetchSales(blank);
             */
 
-            /*****query 16 FetchAllLocationsAddress*****
+            /*****query 12 FetchInventorySpecific untested*****
+            string streetAddress = "2483 Nulla St.";
+            var sAlist = repo.FetchInventorySpecific(streetAddress);
+            */
+
+            /*****query 13 FetchInventory untested*****
+            int blank = 0;
+            var filist = repo.FetchInventory(blank);
+            */
+
+            /*****query 16 FetchAllLocationsAddress working*****
             int blank = 0;
             var falalist = repo.FetchAllLocationsAddress(blank);
             */
 
-            /*
-            var Repairslisttest = repo.RetrieveRepairs();//works
-            var aptlisttest = repo.RetreiveAppointments();
+            /*****query 17 FetchAllEmployees missing sql*****
+            int blank = 0;
+            var faelist = repo.FetchAllEmployees(blank);
             */
+
+            /*****query 19 FetchRepeatRepairsSpecific returns nothing*****
+            string custName = "Zeus Terry";
+            var faelist = repo.FetchRepeatRepairsSpecific(custName);
+            */
+
+            /*****query 19 FetchRepeatRepairs returns nothing*****
+            int blank = 0;
+            var frrlist = repo.FetchRepeatRepairs(blank);
+            */
+
+            /*****query 22 FetchPopularApptTimes working*****
+            int blank = 0;
+            var fpatlist = repo.FetchPopularApptTimes(blank);
+            */
+
+
 
         }
 

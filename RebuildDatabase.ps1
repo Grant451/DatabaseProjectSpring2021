@@ -73,8 +73,20 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationDa
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\FetchSalesSpecific.sql"
 <#Query 11 #>
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\FetchSales.sql"
+<#Query 12 #>
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\FetchInventorySpecific.sql"
+<#Query 13 #>
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\FetchInventory.sql"
 <#Query 16 #>
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\FetchAllLocationsAddress.sql"
+<#Query 17 missing#>
+<#  Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\FetchAllEmployees.sql"  #>
+<#Query 19 #>
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\FetchRepeatRepairSpecific.sql"
+<#Query 20 #>
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\FetchRepeatRepairs.sql"
+<#Query 22 #>
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\FetchPopularApptTimes.sql"
 
 <#
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Procedures\Person.CreatePerson.sql"
