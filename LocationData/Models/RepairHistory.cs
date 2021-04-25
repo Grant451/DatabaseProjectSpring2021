@@ -20,6 +20,14 @@ namespace LocationData.Models
 
         public int TimesRepaired { get; }
 
+        //constructor for q14
+        public RepairHistory(string repName, string empName, string custName)
+        {
+            EmployeeName = empName;
+            CustomerName = custName;
+            RepairName = repName;
+        }
+
         //constructor for q20
         public RepairHistory(string empName, string custName, string repName, int timesRepaired)
         {
@@ -43,11 +51,13 @@ namespace LocationData.Models
             RepairName = repairName;
         }
 
+        /*
         public RepairHistory(string vinNumber, string customerName, string repairName)
         {
             CustomerName = customerName;
             RepairName = repairName;
             //VinNumber = vinNumber;
         }
+        */
     }
 }

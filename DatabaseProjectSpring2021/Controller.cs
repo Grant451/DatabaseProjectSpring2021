@@ -97,7 +97,7 @@ namespace DatabaseProjectSpring2021
             var aptlisttest = repo.RetreiveAppointments();
             */
 
-            /******working*****
+            /******not working!!!*****
             string name = "bob";
             string vin = "123";
             Customer customertest = repo.CreateCustomer(name, vin);
@@ -115,14 +115,15 @@ namespace DatabaseProjectSpring2021
             //returns Quantity, price, 
             */
 
+            
             /*****query 2 search to bring up repair history works*****
             string custname = "Vincent Flores";
             RepairHistory help = repo.FetchRepairHistoryCustomer(custname);
             */
 
             /*****query 3 FetchRepairHistoryCustomer working*****
-            string vin = "28522458199";
-            RepairHistory  reptest = repo.FetchRepairHistoryVehicle(vin);
+            string vin2 = "28522458199";
+            RepairHistory  reptest = repo.FetchRepairHistoryVehicle(vin2);
             */
 
             /*****query 4 FetchRepairHistoryEmployee working*****
@@ -165,39 +166,45 @@ namespace DatabaseProjectSpring2021
             var fslist = repo.FetchSales(blank);
             */
 
-            /*****query 12 FetchInventorySpecific untested*****
-            string streetAddress = "2483 Nulla St.";
-            var sAlist = repo.FetchInventorySpecific(streetAddress);
+            /*****query 12 FetchInventorySpecific working*****
+            string streetAddress1 = "2483 Nulla St.";
+            var sAlist = repo.FetchInventorySpecific(streetAddress1);
             */
 
-            /*****query 13 FetchInventory untested*****
-            int blank = 0;
-            var filist = repo.FetchInventory(blank);
+            /*****query 13 FetchInventory working*****
+            int blank1 = 0;
+            var filist = repo.FetchInventory(blank1);
             */
+
+            /*****query 14 FetchReparsinProgress working*****
+            string fripaddress = "P.O. Box 776, 7543 Convallis Rd.";
+            var friplist = repo.FetchReparsinProgress(fripaddress);
+            */
+            
 
             /*****query 16 FetchAllLocationsAddress working*****
-            int blank = 0;
-            var falalist = repo.FetchAllLocationsAddress(blank);
+            int blank2 = 0;
+            var falalist = repo.FetchAllLocationsAddress(blank2);
             */
 
             /*****query 17 FetchAllEmployees missing sql*****
-            int blank = 0;
-            var faelist = repo.FetchAllEmployees(blank);
+            int blank3 = 0;
+            var faelist = repo.FetchAllEmployees(blank3);
             */
 
             /*****query 19 FetchRepeatRepairsSpecific returns nothing*****
             string custName = "Zeus Terry";
-            var faelist = repo.FetchRepeatRepairsSpecific(custName);
+            var frrslist = repo.FetchRepeatRepairsSpecific(custName);
             */
 
             /*****query 19 FetchRepeatRepairs returns nothing*****
-            int blank = 0;
-            var frrlist = repo.FetchRepeatRepairs(blank);
+            int blank4 = 0;
+            var frrlist = repo.FetchRepeatRepairs(blank4);
             */
 
             /*****query 22 FetchPopularApptTimes working*****
-            int blank = 0;
-            var fpatlist = repo.FetchPopularApptTimes(blank);
+            int blank5 = 0;
+            var fpatlist = repo.FetchPopularApptTimes(blank5);
             */
 
 

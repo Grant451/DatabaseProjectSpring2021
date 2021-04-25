@@ -66,6 +66,7 @@
     <Compile Include="DataDelegates\FetchAllEmployeesDataDelegate.cs" />
     <Compile Include="DataDelegates\FetchRepeatRepairsSpecificDataDelegate.cs" />
     <Compile Include="DataDelegates\FetchRepeatRepairsDataDelegate.cs" />
+    <Compile Include="DataDelegates\FetchReparsinProgressDataDelegate.cs" />
     <Compile Include="ILocationRepository.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -86,6 +87,8 @@
   <ItemGroup>
     <Content Include="Sql\Data\Location.Types.sql" />
     <Content Include="Sql\Data\testData.sql" />
+    <Content Include="Sql\Procedures\FetchAllEmployees.sql" />
+    <Content Include="Sql\Procedures\FetchReparsinProgress.sql" />
     <Content Include="Sql\Procedures\FetchRepeatRepairs.sql" />
     <Content Include="Sql\Procedures\FetchRepeatRepairSpecific.sql" />
     <Content Include="Sql\Procedures\FetchInventorySpecific.sql" />

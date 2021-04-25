@@ -186,5 +186,10 @@ namespace LocationData
         {
             return executor.ExecuteReader(new FetchRepeatRepairsDataDelegate(blank));
         }
+
+        public IReadOnlyList<RepairHistory> FetchReparsinProgress(string streetAddress)
+        {
+            return executor.ExecuteReader(new FetchReparsinProgressDataDelegate(streetAddress));
+        }
     }
 }

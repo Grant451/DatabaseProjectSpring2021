@@ -59,6 +59,9 @@ namespace LocationData
         //lists inventory across all stores in reverse order by quantity query 13:
         IReadOnlyList<PartSearch> FetchInventory(int blank);
 
+        //list total repairs completed for a given store query 14:
+        IReadOnlyList<RepairHistory> FetchReparsinProgress(string streetAddress);
+
         //returns FetchAllLocationsAddress query 16:
         IReadOnlyList<SalesObj> FetchAllLocationsAddress(int blank);
 
