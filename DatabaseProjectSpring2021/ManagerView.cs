@@ -28,7 +28,7 @@ namespace DatabaseProjectSpring2021
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            
+            MessageBox.Show("Successfully submitted: " + DropDownListSelection.SelectedItem.ToString());
         }
 
         private void btntest1_Click(object sender, EventArgs e)
