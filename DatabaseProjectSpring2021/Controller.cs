@@ -43,7 +43,18 @@ namespace DatabaseProjectSpring2021
                 retunstring[count] = x;
                 count--;
             }
-            return retunstring;
+
+            if(retunstring[0] != null)
+            {
+                return retunstring;
+            }
+            else
+            {
+                string[] ret = new string[1];
+                ret[0] = "";
+                return ret;
+            }
+            
 
         }
 
