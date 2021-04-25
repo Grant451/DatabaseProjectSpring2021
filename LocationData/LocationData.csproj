@@ -59,6 +59,7 @@
     <Compile Include="DataDelegates\FetchEmployeeLocationDataDelegate.cs" />
     <Compile Include="DataDelegates\FetchSalesSpecificDataDelegate.cs" />
     <Compile Include="DataDelegates\FetchSalesDataDelegate.cs" />
+    <Compile Include="DataDelegates\FetchAllLocationsDataDelegate.cs" />
     <Compile Include="ILocationRepository.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Customer.cs" />

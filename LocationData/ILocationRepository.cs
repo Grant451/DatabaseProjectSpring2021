@@ -53,5 +53,8 @@ namespace LocationData
 
         //returns total sales across all stores query 11:
         IReadOnlyList<SalesObj> FetchSales(int blank);
+
+        //returns FetchAllLocationsAddress query 16:
+        IReadOnlyList<SalesObj> FetchAllLocationsAddress(int blank);
     }
 }

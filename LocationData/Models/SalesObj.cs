@@ -22,5 +22,10 @@ namespace LocationData.Models
         {
             Sales = sales;
         }
+
+        public SalesObj(string streetAddress)
+        {
+            StreetAddress = streetAddress;
+        }
     }
 }

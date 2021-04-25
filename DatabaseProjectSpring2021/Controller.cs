@@ -157,6 +157,11 @@ namespace DatabaseProjectSpring2021
             var fslist = repo.FetchSales(blank);
             */
 
+            /*****query 16 FetchAllLocationsAddress*****
+            int blank = 0;
+            var falalist = repo.FetchAllLocationsAddress(blank);
+            */
+
             /*
             var Repairslisttest = repo.RetrieveRepairs();//works
             var aptlisttest = repo.RetreiveAppointments();
