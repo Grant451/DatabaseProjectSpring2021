@@ -8,11 +8,11 @@ namespace LocationData.Models
 {
     public class RepairHistory
     {
-        string CustomerName { get; }
+        public string CustomerName { get; }
 
-        string RepairName { get; }
+        public string RepairName { get; }
 
-        string VinNumber { get; }
+        public string VinNumber { get; }
 
         public RepairHistory(string customerName, string repairName)
         {

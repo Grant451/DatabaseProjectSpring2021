@@ -18,7 +18,12 @@ namespace DatabaseProjectSpring2021
         public ManagerView()
         {
             master = new Controller();//set up the controller
+            master.SetQueries();
             InitializeComponent();
+        }
+
+        private void InitializeComboBox()
+        {
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -29,6 +34,21 @@ namespace DatabaseProjectSpring2021
         private void btntest1_Click(object sender, EventArgs e)
         {
             master.test();
+        }
+
+        private void btnsearch_Click(object sender, EventArgs e)
+        {
+            //this.DropDownListSelectionBtn.
+            DropDownListSelection.Items.AddRange(master.GetLocation());
+
+            
+
+            btnSubmit.Enabled = true;
+        }
+
+        private void DropDownListSelectionBtn(object sender, EventArgs e)
+        {
+            
         }
     }
 }

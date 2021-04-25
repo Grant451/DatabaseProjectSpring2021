@@ -20,21 +20,48 @@ namespace DatabaseProjectSpring2021
         private ILocationRepository repo;
         private TransactionScope transaction;
 
-
-        public void test()
+        public void SetQueries()
         {
             repo = new SqlLocationRepository(connectionString);
             transaction = new TransactionScope();
+        }
+        public string[] GetLocation()
+         {
+            //This is a test
+            
+
+            string empName = "Shannon Colon";
+            var rhelisttest = repo.FetchRepairHistoryEmployee(empName);
+            List<string> testnames = new List<string>();
+            foreach (RepairHistory X in rhelisttest){
+                testnames.Append(X.CustomerName);
+            }
+            int count = testnames.Count();
+            string[] retunstring = new string[10];
+            foreach(string x in testnames)
+            {
+                retunstring[count] = x;
+                count--;
+            }
+            return retunstring;
+
+        }
+
+        public void test()
+        {
             /*
+            repo = new SqlLocationRepository(connectionString);
+            transaction = new TransactionScope();
+            
             string streetAddress = "testAddress";
             string city = "testcity";
             string region = "testregion";
             string zip = "testzip";
 
             Location actual = repo.CreateLocation(streetAddress, city, region, zip);
-            repo.CreateLocation(streetAddress, city, region, zip);
-            repo.CreateLocation(streetAddress, city, region, zip);
-            repo.CreateLocation(streetAddress, city, region, zip);
+            //repo.CreateLocation(streetAddress, city, region, zip);
+            //repo.CreateLocation(streetAddress, city, region, zip);
+            //repo.CreateLocation(streetAddress, city, region, zip);
             */
             //System.Windows.Forms.MessageBox.Show(actual.LocationID.ToString());
             //Location help = repo.FetchLocation(6);
