@@ -12,7 +12,7 @@ namespace LocationData.Models
 
         public string RepairName { get; }
 
-        public string VinNumber { get; }
+        //public string VinNumber { get; }
 
         public RepairHistory(string customerName, string repairName)
         {
@@ -24,7 +24,7 @@ namespace LocationData.Models
         {
             CustomerName = customerName;
             RepairName = repairName;
-            VinNumber = vinNumber;
+            //VinNumber = vinNumber;
         }
     }
 }

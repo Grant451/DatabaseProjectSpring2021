@@ -25,6 +25,7 @@ namespace DatabaseProjectSpring2021
             repo = new SqlLocationRepository(connectionString);
             transaction = new TransactionScope();
         }
+
         public string[] GetLocation()
          {
             //This is a test
