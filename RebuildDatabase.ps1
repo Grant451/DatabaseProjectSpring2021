@@ -79,6 +79,8 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationDa
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\FetchInventory.sql"
 <#Query 16 #>
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\FetchAllLocationsAddress.sql"
+<#Query 22 #>
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "LocationData\Sql\Procedures\FetchPopularApptTimes.sql"
 
 <#
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Procedures\Person.CreatePerson.sql"

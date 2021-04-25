@@ -166,5 +166,10 @@ namespace LocationData
         {
             return executor.ExecuteReader(new FetchInventoryDataDelegate(blank));
         }
+
+        public IReadOnlyList<PopularApptTimes> FetchPopularApptTimes(int blank)
+        {
+            return executor.ExecuteReader(new FetchPopularApptTimesDataDelegate(blank));
+        }
     }
 }

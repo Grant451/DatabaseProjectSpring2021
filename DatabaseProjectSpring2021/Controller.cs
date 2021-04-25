@@ -176,6 +176,11 @@ namespace DatabaseProjectSpring2021
             var falalist = repo.FetchAllLocationsAddress(blank);
             */
 
+            /*****query 22 FetchPopularApptTimes working*****
+            int blank = 0;
+            var fpatlist = repo.FetchPopularApptTimes(blank);
+            */
+
 
 
         }
