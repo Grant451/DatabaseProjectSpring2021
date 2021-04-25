@@ -23,6 +23,7 @@ namespace DatabaseProjectSpring2021
             master.SetQueries();
             InitializeComponent();
             InitializeRadioButtons();
+            InitializeTextBox();
 
             //textBox = uxDisplayQueryCusTB
         }
@@ -33,12 +34,12 @@ namespace DatabaseProjectSpring2021
 
         private void InitializeRadioButtons()
         {
-            this.uxDisplayUpcomingApptCustRB.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
+            this.uxDisplayUpcomingApptCusRB.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
         }
 
         private void InitializeTextBox()
         {
-            //this.uxTabControl.Selected += new EventHandler(textBox_Changed);
+            this.uxTabControl.Selected += new TabControlEventHandler(textBox_Changed);
         }
 
         private void radioButton_CheckedChanged(object sender, EventArgs e)
@@ -53,7 +54,14 @@ namespace DatabaseProjectSpring2021
 
         private void textBox_Changed(object sender, TabControlEventArgs e)
         {
-            Console.WriteLine(e.TabPageIndex);
+            int index = e.TabPageIndex;
+            switch (index)
+            {
+                case 0:
+                    textBox = uxDisplayQueryCusTB;
+                    break;
+            }
+                    
         }
 
 
