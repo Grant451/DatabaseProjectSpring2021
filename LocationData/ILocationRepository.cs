@@ -36,6 +36,9 @@ namespace LocationData
         //part quantity accross locations query 5:
         IReadOnlyList<LocationQuantity> FetchPart(string partName);
 
+        //part quantity across locations query 6:
+        IReadOnlyList<PartSearch> FetchRepairParts(string repairName);
+
         //repair counts by employee query 8:
         IReadOnlyList<EmployeeRepair> FetchEmployeeRepairCounts(string fertest);
 

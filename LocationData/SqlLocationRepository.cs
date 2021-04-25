@@ -131,5 +131,10 @@ namespace LocationData
         {
             return executor.ExecuteReader(new RetrieveRepairsDataDelegate());
         }
+
+        public IReadOnlyList<PartSearch> FetchRepairParts(string repairName)
+        {
+            return executor.ExecuteReader(new FetchRepairPartsDataDelegate(repairName));
+        }
     }
 }

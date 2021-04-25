@@ -46,7 +46,7 @@ namespace LocationData.DataDelegates
                 //StreetAddress,
                 //PartName,
                 reader.GetInt32("Quantity"),
-                reader.GetInt32("Price")
+                reader.GetString("Price")
                 );
         }
 

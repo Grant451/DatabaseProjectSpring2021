@@ -8,13 +8,20 @@ namespace LocationData.Models
 {
     public class PartSearch
     {
+        public string PartName { get; }
         public int Quantity { get; }
 
-        public int Price { get; }
+        public string Price { get; }
 
-        internal PartSearch(int quantity, int price)
+        internal PartSearch(int quantity, string price)
         {
             Quantity = quantity;
+            Price = price;
+        }
+
+        internal PartSearch(string partName, string price)
+        {
+            PartName = partName;
             Price = price;
         }
     }
