@@ -26,9 +26,23 @@ namespace DatabaseProjectSpring2021
             transaction = new TransactionScope();
         }
 
-        public void CallMethod(string rb1, string rb2)
+        public List<string> CustomerTabQueries(string generalQuery, string specificQuery)
         {
-            
+            List<string> result = new List<string>();
+            switch (generalQuery)
+            {
+                case ("uxDisplayAllCustomersRB"):
+                    if (specificQuery == "uxDisplayRepeatedRepairsCusRB")
+                    {
+                        //Console.WriteLine("Call method in master");
+                        Console.WriteLine("FetchRepeatedRepairs");
+                        var queryresult = repo.FetchRepeatRepairs(1);
+                        return null;
+                    }
+
+                    break;
+            }
+            return result;
         }
 
         public string[] GetLocation()

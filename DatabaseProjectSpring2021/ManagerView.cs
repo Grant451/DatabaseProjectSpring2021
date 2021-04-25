@@ -64,7 +64,10 @@ namespace DatabaseProjectSpring2021
                     uxSelectCusCB.Visible = true;
                     uxDisplayPastRepairsCusRB.Visible = true;
                 }
-
+                else if (selectedrbGeneral.Name == "uxDisplaySpecificVehicleRB")
+                {
+                    uxDisplayPastRepairsCusRB.Visible = true;
+                }
                 else
                 {
                     uxSelectCusCB.Visible = false;
@@ -123,11 +126,18 @@ namespace DatabaseProjectSpring2021
 
         private void uxExcecuteCusButtn_Click(object sender, EventArgs e)
         {
-            string generalQuery = "";
-            string specificQuery = "";
-            switch (selectedrbGeneral.Name)
+            string rb1 = "";
+            string rb2 = "";
+            if (selectedrbGeneral != null)
+                 rb1 = selectedrbGeneral.Name;
+
+            if (selectedrbSpecific != null)
+                rb2 = selectedrbSpecific.Name;
+
+            switch (currentView)
             {
-                case ("uxDisplayAllCustomersRB"):
+                case ("Customers"):
+                    master.CustomerTabQueries(rb1, rb2);
                     break;
             }
             //Console.WriteLine(selectedrbLeft.Name);
