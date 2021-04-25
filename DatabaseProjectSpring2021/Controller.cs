@@ -166,6 +166,11 @@ namespace DatabaseProjectSpring2021
             var sAlist = repo.FetchInventorySpecific(streetAddress);
             */
 
+            /*****query 13 FetchInventory untested*****
+            int blank = 0;
+            var filist = repo.FetchInventory(blank);
+            */
+
             /*****query 16 FetchAllLocationsAddress working*****
             int blank = 0;
             var falalist = repo.FetchAllLocationsAddress(blank);

@@ -60,6 +60,7 @@ namespace LocationData
         //returns FetchAllLocationsAddress query 16:
         IReadOnlyList<SalesObj> FetchAllLocationsAddress(int blank);
 
-        
+        //lists inventory across all stores in reverse order by quantity
+        IReadOnlyList<PartSearch> FetchInventory(int blank);
     }
 }

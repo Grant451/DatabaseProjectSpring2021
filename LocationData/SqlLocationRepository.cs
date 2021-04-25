@@ -161,5 +161,10 @@ namespace LocationData
         {
             return executor.ExecuteReader(new FetchInventorySpecificDataDelegate(streetAddress));
         }
+
+        public IReadOnlyList<PartSearch> FetchInventory(int blank)
+        {
+            return executor.ExecuteReader(new FetchInventoryDataDelegate(blank));
+        }
     }
 }
