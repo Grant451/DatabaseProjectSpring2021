@@ -32,26 +32,30 @@ namespace DatabaseProjectSpring2021
 
             string empName = "Shannon Colon";
             var rhelisttest = repo.FetchRepairHistoryEmployee(empName);
-            List<string> testnames = new List<string>();
+            List<string> returnaddress = new List<string>();
+            int count1 = 0;
             foreach (RepairHistory X in rhelisttest){
-                testnames.Append(X.CustomerName);
+                returnaddress.Add(X.CustomerName);
+                count1++;
             }
-            int count = testnames.Count();
-            string[] retunstring = new string[10];
-            foreach(string x in testnames)
+            string[] retunstring = new string[returnaddress.Count()];
+            int count = returnaddress.Count();
+            returnaddress.Append("hello");
+            foreach(string x in returnaddress)
             {
-                retunstring[count] = x;
                 count--;
+                retunstring[count] = x;
+
             }
 
-            if(retunstring[0] != null)
+            if (retunstring[0] != null)
             {
                 return retunstring;
             }
             else
             {
                 string[] ret = new string[1];
-                ret[0] = "";
+                ret[0] = "No locations found";
                 return ret;
             }
             
