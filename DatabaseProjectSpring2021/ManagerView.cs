@@ -14,7 +14,9 @@ namespace DatabaseProjectSpring2021
     public partial class ManagerView : Form
     {
         Controller master;
-        private RadioButton selectedrb;
+        private RadioButton selectedrbGeneral;
+        private RadioButton selectedrbSpecific;
+        private string currentView = "Customers";
         private TextBox textBox;
 
         public ManagerView()
@@ -34,7 +36,15 @@ namespace DatabaseProjectSpring2021
 
         private void InitializeRadioButtons()
         {
-            this.uxDisplayUpcomingApptCusRB.CheckedChanged += new EventHandler(radioButton_CheckedChanged);
+            // General Customer RB
+            this.uxDisplayAllCustomersRB.CheckedChanged += new EventHandler(radioButtonG_CheckedChanged);
+            this.uxDisplaySpecificCustomerRB.CheckedChanged += new EventHandler(radioButtonG_CheckedChanged);
+            this.uxDisplaySpecificVehicleRB.CheckedChanged += new EventHandler(radioButtonG_CheckedChanged);
+            // Specific Customer RB
+            this.uxDisplayPastRepairsCusRB.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
+            this.uxDisplayRepeatedRepairsCusRB.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
+            this.uxDisplayUpcomingApptCusRB.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
+
         }
 
         private void InitializeTextBox()
@@ -42,12 +52,34 @@ namespace DatabaseProjectSpring2021
             this.uxTabControl.Selected += new TabControlEventHandler(textBox_Changed);
         }
 
-        private void radioButton_CheckedChanged(object sender, EventArgs e)
+        private void radioButtonG_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton rb = sender as RadioButton;
             if (rb.Checked)
             {
-                selectedrb = rb;
+                selectedrbGeneral = rb;
+
+                if (selectedrbGeneral.Name == "uxDisplaySpecificCustomerRB")
+                {
+                    uxSelectCusCB.Visible = true;
+                    uxDisplayPastRepairsCusRB.Visible = true;
+                }
+
+                else
+                {
+                    uxSelectCusCB.Visible = false;
+                    uxDisplayPastRepairsCusRB.Visible = false ;
+                }
+
+            }
+        }
+
+        private void radioButtonS_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton rb = sender as RadioButton;
+            if (rb.Checked)
+            {
+                selectedrbSpecific = rb;
 
             }
         }
@@ -60,8 +92,7 @@ namespace DatabaseProjectSpring2021
                 case 0:
                     textBox = uxDisplayQueryCusTB;
                     break;
-            }
-                    
+            }     
         }
 
 
@@ -90,9 +121,17 @@ namespace DatabaseProjectSpring2021
             
         }
 
-        private void uxExcecuteCusBttn_Click(object sender, EventArgs e)
+        private void uxExcecuteCusButtn_Click(object sender, EventArgs e)
         {
-            master.test();
+            string generalQuery = "";
+            string specificQuery = "";
+            switch (selectedrbGeneral.Name)
+            {
+                case ("uxDisplayAllCustomersRB"):
+                    break;
+            }
+            //Console.WriteLine(selectedrbLeft.Name);
         }
+
     }
 }

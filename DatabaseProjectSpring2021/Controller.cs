@@ -26,6 +26,11 @@ namespace DatabaseProjectSpring2021
             transaction = new TransactionScope();
         }
 
+        public void CallMethod(string rb1, string rb2)
+        {
+            
+        }
+
         public string[] GetLocation()
          {
             //This is a test
@@ -200,9 +205,9 @@ namespace DatabaseProjectSpring2021
             var fpatlist = repo.FetchPopularApptTimes(blank);
             */
 
-
-
         }
+
+        //public void 
 
     }
 }
