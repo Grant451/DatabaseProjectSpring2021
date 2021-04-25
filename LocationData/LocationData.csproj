@@ -60,6 +60,7 @@
     <Compile Include="DataDelegates\FetchSalesSpecificDataDelegate.cs" />
     <Compile Include="DataDelegates\FetchSalesDataDelegate.cs" />
     <Compile Include="DataDelegates\FetchAllLocationsDataDelegate.cs" />
+    <Compile Include="DataDelegates\FetchInventorySpecificDataDelegate.cs" />
     <Compile Include="ILocationRepository.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -79,6 +80,7 @@
   <ItemGroup>
     <Content Include="Sql\Data\Location.Types.sql" />
     <Content Include="Sql\Data\testData.sql" />
+    <Content Include="Sql\Procedures\FetchInventorySpecific.sql" />
     <Content Include="Sql\Procedures\FetchSales.sql" />
     <Content Include="Sql\Procedures\FetchSalesSpecific.sql" />
     <Content Include="Sql\Procedures\FetchEmployeeLocation.sql" />

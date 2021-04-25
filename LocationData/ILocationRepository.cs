@@ -54,7 +54,12 @@ namespace LocationData
         //returns total sales across all stores query 11:
         IReadOnlyList<SalesObj> FetchSales(int blank);
 
+        //returns list current inventory at a specific store in reverse order by quantity query 12:
+        IReadOnlyList<PartSearch> FetchInventorySpecific(string streetAddress);
+
         //returns FetchAllLocationsAddress query 16:
         IReadOnlyList<SalesObj> FetchAllLocationsAddress(int blank);
+
+        
     }
 }

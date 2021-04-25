@@ -156,20 +156,22 @@ namespace DatabaseProjectSpring2021
             var fsslist = repo.FetchSalesSpecific(fssstreetAddress);
             */
 
-            /*****query 11 FetchSales untested*****
+            /*****query 11 FetchSales working*****
             int blank = 0;
             var fslist = repo.FetchSales(blank);
             */
 
-            /*****query 16 FetchAllLocationsAddress*****
+            /*****query 12 FetchInventorySpecific untested*****
+            string streetAddress = "2483 Nulla St.";
+            var sAlist = repo.FetchInventorySpecific(streetAddress);
+            */
+
+            /*****query 16 FetchAllLocationsAddress working*****
             int blank = 0;
             var falalist = repo.FetchAllLocationsAddress(blank);
             */
 
-            /*
-            var Repairslisttest = repo.RetrieveRepairs();//works
-            var aptlisttest = repo.RetreiveAppointments();
-            */
+
 
         }
 
