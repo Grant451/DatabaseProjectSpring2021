@@ -17,7 +17,7 @@ namespace DatabaseProjectSpring2021
         private RadioButton selectedrbGeneral;
         private RadioButton selectedrbSpecific;
         private string currentView = "Customers";
-        private TextBox textBox;
+        //private TextBox textBox;
 
         public ManagerView()
         {
@@ -45,6 +45,14 @@ namespace DatabaseProjectSpring2021
             this.uxDisplayRepeatedRepairsCusRB.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
             this.uxDisplayUpcomingApptCusRB.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
 
+            // General Employee RB
+            this.uxDisplayAllEmployeesRB.CheckedChanged += new EventHandler(radioButtonG_CheckedChanged);
+            this.uxDisplaySpecificEmployeeRB.CheckedChanged += new EventHandler(radioButtonG_CheckedChanged);
+            // Specific Employee RB
+            this.uxDisplayPastRepairsEmpRB.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
+            this.uxDisplayRepairCountsEmpRB.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
+            this.uxDisplayLocationEmpRB.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
+            this.uxDisplayUpcomingApptEmpRB.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
         }
 
         private void InitializeTextBox()
@@ -58,47 +66,67 @@ namespace DatabaseProjectSpring2021
             uxDisplayQueryCusTB.Text = "";
             // Empty customer name text box
             uxSelectCusTB.Text = "";
-            // Empty Vin Number text box
+            // Empty vin Number text box
             uxSelectVehicleTB.Text = "";
+
             RadioButton rb = sender as RadioButton;
             if (rb.Checked)
             {
                 selectedrbGeneral = rb;
 
-                if (selectedrbGeneral.Name == "uxDisplaySpecificCustomerRB")
-                {
-                    uxSelectCusTB.Visible = true;
-                    uxSelectVehicleTB.Visible = false;
-                    uxDisplayPastRepairsCusRB.Visible = true;
-                    uxDisplayRepeatedRepairsCusRB.Visible = true;
-                }
-                else if (selectedrbGeneral.Name == "uxDisplaySpecificVehicleRB")
-                {
-                    uxSelectVehicleTB.Visible = true;
-                    uxSelectCusTB.Visible = false;
-                    uxDisplayPastRepairsCusRB.Visible = true;
-                    uxDisplayRepeatedRepairsCusRB.Visible = false;
-                    uxDisplayRepeatedRepairsCusRB.Checked = false;
 
-                    if (selectedrbSpecific != null)
+                if(currentView == "Customers")
+                {
+                    if (selectedrbGeneral.Tag.ToString() == "DisplaySpecificCustomer")
                     {
-                        if (selectedrbSpecific.Tag.ToString() == "DisplayRepeatedRepairs")
-                            selectedrbSpecific = null;
+                        uxSelectCusTB.Visible = true;
+                        uxSelectVehicleTB.Visible = false;
+                        uxDisplayPastRepairsCusRB.Visible = true;
+                        uxDisplayRepeatedRepairsCusRB.Visible = true;
+                    }
+                    else if (selectedrbGeneral.Tag.ToString() == "DisplaySpecificVehicle")
+                    {
+                        uxSelectVehicleTB.Visible = true;
+                        uxSelectCusTB.Visible = false;
+                        uxDisplayPastRepairsCusRB.Visible = true;
+                        uxDisplayRepeatedRepairsCusRB.Visible = false;
+                        uxDisplayRepeatedRepairsCusRB.Checked = false;
+
+                        if (selectedrbSpecific != null)
+                        {
+                            if (selectedrbSpecific.Tag.ToString() == "DisplayRepeatedRepairs")
+                                selectedrbSpecific = null;
+                        }
+                    }
+                    else
+                    {
+                        uxDisplayRepeatedRepairsCusRB.Visible = true;
+                        uxSelectVehicleTB.Visible = false;
+                        uxSelectCusTB.Visible = false;
+                        uxDisplayPastRepairsCusRB.Visible = false;
+                        uxDisplayPastRepairsCusRB.Checked = false;
+
+                        if (selectedrbSpecific != null)
+                        {
+                            if (selectedrbSpecific.Tag.ToString() == "DisplayPastRepairs")
+                                selectedrbSpecific = null;
+                        }
                     }
                 }
-                else
+                
+                else if (currentView == "Employees")
                 {
-
-                    uxDisplayRepeatedRepairsCusRB.Visible = true;
-                    uxSelectVehicleTB.Visible = false;
-                    uxSelectCusTB.Visible = false;
-                    uxDisplayPastRepairsCusRB.Visible = false;
-                    uxDisplayPastRepairsCusRB.Checked = false;
-
-                    if (selectedrbSpecific != null)
+                    if (selectedrbGeneral.Tag.ToString() == "DisplayAllEmployees")
                     {
-                        if (selectedrbSpecific.Tag.ToString() == "DisplayPastRepairs")
-                            selectedrbSpecific = null;
+                        uxSelectEmpTB.Visible = false;
+                        uxDisplayLocationEmpRB.Visible = false;
+                        uxDisplayRepairCountsEmpRB.Visible = false;
+                    }
+                    else if (selectedrbGeneral.Tag.ToString() == "DisplaySpecificEmployee")
+                    {
+                        uxSelectEmpTB.Visible = true;
+                        uxDisplayLocationEmpRB.Visible = true;
+                        uxDisplayRepairCountsEmpRB.Visible = true;
                     }
                 }
             }
@@ -122,7 +150,14 @@ namespace DatabaseProjectSpring2021
             switch (index)
             {
                 case 0:
-                    textBox = uxDisplayQueryCusTB;
+                    //textBox = uxDisplayQueryCusTB;
+                    currentView = "Customers";
+                    break;
+                case 1:
+                    currentView = "Employees";
+                    break;
+                case 2:
+                    currentView = "Locations";
                     break;
             }     
         }
@@ -180,6 +215,10 @@ namespace DatabaseProjectSpring2021
                 case ("Customers"):
                     queryResult = master.CustomerTabQueries(rb1, rb2, input).ToString();
                     uxDisplayQueryCusTB.AppendText(queryResult);
+                    break;
+                case ("Employees"):
+                    queryResult = master.EmployeeTabQueries(rb1, rb2, input).ToString();
+                    uxDisplayQueryEmpTB.AppendText(queryResult);
                     break;
             }
 
