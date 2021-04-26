@@ -76,6 +76,8 @@ namespace LocationData
 
         //determines the most popular appointment times to come in for repairs query 22:
         IReadOnlyList<PopularApptTimes> FetchPopularApptTimes(int blank);
-        
+
+        //returns a list of all addresses and years that has the sale for each year in it query 23:
+        IReadOnlyList<SalesObj> FetchSalesPerYear(int blank6);
     }
 }

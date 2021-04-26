@@ -191,5 +191,10 @@ namespace LocationData
         {
             return executor.ExecuteReader(new FetchReparsinProgressDataDelegate(streetAddress));
         }
+
+        public IReadOnlyList<SalesObj> FetchSalesPerYear(int blank6)
+        {
+            return executor.ExecuteReader(new FetchSalesPerYearDataDelegate(blank6));
+        }
     }
 }

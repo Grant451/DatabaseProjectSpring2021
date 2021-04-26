@@ -12,6 +12,16 @@ namespace LocationData.Models
 
         public string StreetAddress { get; }
 
+        public int Year { get; }
+
+        //constructor for q23:
+        public SalesObj(string streetAddress, int year, double sales)
+        {
+            Sales = sales;
+            Year = year;
+            StreetAddress = streetAddress;
+        }
+
         public SalesObj(double sales, string streetAddress)
         {
             Sales = sales;

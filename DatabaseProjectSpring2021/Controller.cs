@@ -272,97 +272,107 @@ namespace DatabaseProjectSpring2021
             //returns Quantity, price, 
             */
 
-            
-            /*****query 2 search to bring up repair history works*****
-            string custname = "Vincent Flores";
-            RepairHistory help = repo.FetchRepairHistoryCustomer(custname);
-            */
 
-            /*****query 3 FetchRepairHistoryCustomer working*****
-            string vin2 = "28522458199";
-            RepairHistory  reptest = repo.FetchRepairHistoryVehicle(vin2);
-            */
+            int testall = 0;
+            if(testall == 1)
+            {
+                ///*****query 2 search to bring up repair history works*****
+                string custname = "Vincent Flores";
+                var help = repo.FetchRepairHistoryCustomer(custname);
+                //*/
 
-            /*****query 4 FetchRepairHistoryEmployee working*****
-            string empName = "Shannon Colon";
-            var rhelisttest = repo.FetchRepairHistoryEmployee(empName);
-            */
+                ///*****query 3 FetchRepairHistoryCustomer working*****
+                string vin2 = "28522458199";
+                var reptest = repo.FetchRepairHistoryVehicle(vin2);
+                //*/
 
-            /*****query 5 FetchPart working*****
-            string PartName = "vitae,  orci.";
-            var fplist = repo.FetchPart(PartName);
-            */
+                ///*****query 4 FetchRepairHistoryEmployee working*****
+                string empName = "Shannon Colon";
+                var rhelisttest = repo.FetchRepairHistoryEmployee(empName);
+                //*/
 
-            /*****query 6 FetchRepairParts working*****
-            string repairName = "fringilla euismod";
-            var frplist = repo.FetchRepairParts(repairName);
-            */
+                ///*****query 5 FetchPart working*****
+                string PartName = "vitae,  orci.";
+                var fplist = repo.FetchPart(PartName);
+                //*/
 
-            /*****query 7 FetchEmployeeLocation working*****
-            string felempname = "Norman Abbott";
-            var fellist = repo.FetchEmployeeLocation(felempname);
-            */
+                ///*****query 6 FetchRepairParts working*****
+                string repairName = "fringilla euismod";
+                var frplist = repo.FetchRepairParts(repairName);
+                //*/
 
-            /*****query 8 FetchEmployeeRepairCounts working*****
-            string fertest = "Colleen Mcleod";
-            var ferlisttest = repo.FetchEmployeeRepairCounts(fertest);
-            */
+                ///*****query 7 FetchEmployeeLocation working*****
+                string felempname = "Norman Abbott";
+                var fellist = repo.FetchEmployeeLocation(felempname);
+                //*/
 
-            /*****query 9 FetchAllEmployeeRepairCounts working*****
-            int x = 0;//takes in a 0 to keep it simple
-            var faerclisttest = repo.FetchAllEmployeeRepairCounts(x);
-            */
+                ///*****query 8 FetchEmployeeRepairCounts working*****
+                string fertest = "Colleen Mcleod";
+                var ferlisttest = repo.FetchEmployeeRepairCounts(fertest);
+                //*/
 
-            /*****query 10 FetchSalesSpecific working*****
-            string fssstreetAddress = "P.O. Box 776, 7543 Convallis Rd.";
-            var fsslist = repo.FetchSalesSpecific(fssstreetAddress);
-            */
+                ///*****query 9 FetchAllEmployeeRepairCounts working*****
+                int x = 0;//takes in a 0 to keep it simple
+                var faerclisttest = repo.FetchAllEmployeeRepairCounts(x);
+                //*/
 
-            /*****query 11 FetchSales working*****
-            int blank = 0;
-            var fslist = repo.FetchSales(blank);
-            */
+                ///*****query 10 FetchSalesSpecific working*****
+                string fssstreetAddress = "P.O. Box 776, 7543 Convallis Rd.";
+                var fsslist = repo.FetchSalesSpecific(fssstreetAddress);
+                //*/
 
-            /*****query 12 FetchInventorySpecific working*****
-            string streetAddress1 = "2483 Nulla St.";
-            var sAlist = repo.FetchInventorySpecific(streetAddress1);
-            */
+                // /*****query 11 FetchSales working*****
+                int blank = 0;
+                var fslist = repo.FetchSales(blank);
+                //*/
 
-            /*****query 13 FetchInventory working*****
-            int blank1 = 0;
-            var filist = repo.FetchInventory(blank1);
-            */
+                ///*****query 12 FetchInventorySpecific working*****
+                string streetAddress1 = "2483 Nulla St.";
+                var sAlist = repo.FetchInventorySpecific(streetAddress1);
+                //*/
 
-            /*****query 14 FetchReparsinProgress working*****
-            string fripaddress = "P.O. Box 776, 7543 Convallis Rd.";
-            var friplist = repo.FetchReparsinProgress(fripaddress);
-            */
-            
+                ///*****query 13 FetchInventory working*****
+                int blank1 = 0;
+                var filist = repo.FetchInventory(blank1);
+                //*/
 
-            /*****query 16 FetchAllLocationsAddress working*****
-            int blank2 = 0;
-            var falalist = repo.FetchAllLocationsAddress(blank2);
-            */
+                ///*****query 14 FetchReparsinProgress working*****
+                string fripaddress = "P.O. Box 776, 7543 Convallis Rd.";
+                var friplist = repo.FetchReparsinProgress(fripaddress);
+                //*/
 
-            /*****query 17 FetchAllEmployees missing sql*****
-            int blank3 = 0;
-            var faelist = repo.FetchAllEmployees(blank3);
-            */
 
-            /*****query 19 FetchRepeatRepairsSpecific returns nothing*****
-            string custName = "Zeus Terry";
-            var frrslist = repo.FetchRepeatRepairsSpecific(custName);
-            */
+                ///*****query 16 FetchAllLocationsAddress working*****
+                int blank2 = 0;
+                var falalist = repo.FetchAllLocationsAddress(blank2);
+                //*/
 
-            /*****query 19 FetchRepeatRepairs returns nothing*****
-            int blank4 = 0;
-            var frrlist = repo.FetchRepeatRepairs(blank4);
-            */
+                ///*****query 17 FetchAllEmployees missing sql*****
+                int blank3 = 0;
+                var faelist = repo.FetchAllEmployees(blank3);
+                //*/
 
-            /*****query 22 FetchPopularApptTimes working*****
-            int blank5 = 0;
-            var fpatlist = repo.FetchPopularApptTimes(blank5);
-            */
+                ///*****query 19 FetchRepeatRepairsSpecific returns nothing*****
+                string custName = "Zeus Terry";
+                var frrslist = repo.FetchRepeatRepairsSpecific(custName);
+                //*/
+
+                ///*****query 19 FetchRepeatRepairs returns nothing*****
+                int blank4 = 0;
+                var frrlist = repo.FetchRepeatRepairs(blank4);
+                //*/
+
+                ///*****query 22 FetchPopularApptTimes working*****
+                int blank5 = 0;
+                var fpatlist = repo.FetchPopularApptTimes(blank5);
+                //*/
+
+                ///*****query 23 FetchSalesPerYear untested*****
+                int blank6 = 0;
+                var fspylist = repo.FetchSalesPerYear(blank6);
+                //*/
+            }
+
 
         }
 
