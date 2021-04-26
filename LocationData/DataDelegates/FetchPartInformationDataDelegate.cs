@@ -11,15 +11,15 @@ using System.Data;
 
 namespace LocationData.DataDelegates
 {
-    internal class FetchPartInformationDataDelegate : DataReaderDelegate<PartSearch>
+    internal class FetchPartInformationDataDelegate : DataReaderDelegate<IReadOnlyList<PartSearch>>
     {
-        private readonly string StreetAddress;
+        //private readonly string StreetAddress;
         private readonly string PartName;
 
-        public FetchPartInformationDataDelegate(string streetaddress, string partname)
+        public FetchPartInformationDataDelegate(string partname)
             : base("AutoShop.FetchPartInformation")
         {
-            this.StreetAddress = streetaddress;
+            //this.StreetAddress = streetaddress;
             this.PartName = partname;
         }
 
@@ -27,27 +27,34 @@ namespace LocationData.DataDelegates
         {
             base.PrepareCommand(command);
 
-            var p = command.Parameters.Add("StreetAddress", SqlDbType.NVarChar);
-            p.Value = StreetAddress;
-            p = command.Parameters.Add("PartName", SqlDbType.NVarChar);
+            //var p = command.Parameters.Add("StreetAddress", SqlDbType.NVarChar);
+            //p.Value = StreetAddress;
+            var p = command.Parameters.Add("PartName", SqlDbType.NVarChar);
             p.Value = PartName;
 
         }
 
-        public override PartSearch Translate(SqlCommand command, IDataRowReader reader)
+        public override IReadOnlyList<PartSearch> Translate(SqlCommand command, IDataRowReader reader)
         {
-            if (!reader.Read())
-                throw new RecordNotFoundException(StreetAddress);
+            //if (!reader.Read())
+                //throw new RecordNotFoundException(StreetAddress);
             if (!reader.Read())
                 throw new RecordNotFoundException(PartName);
-                
 
-            return new PartSearch(
+
+            var temp = new List<PartSearch>();
+            while (reader.Read())
+            {
+               temp.Add( new PartSearch(
                 //StreetAddress,
                 //PartName,
                 reader.GetInt32("Quantity"),
-                reader.GetString("Price")
+                reader.GetString("Price"),
+                reader.GetString("StreetAddress")
+                )
                 );
+            }
+            return temp;
         }
 
         /*
