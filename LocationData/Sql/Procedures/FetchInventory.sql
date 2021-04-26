@@ -5,7 +5,7 @@
 CREATE PROCEDURE AutoShop.FetchInventory
 AS
 
-SELECT P.PartName, S.Quantity, 
+SELECT L.StreetAddress, P.PartName, S.Quantity, 
 	CASE      
 		WHEN S.Quantity < 10 THEN N'Very Low'     
 		WHEN S.Quantity BETWEEN 10 AND 30 THEN N'Running Low'      

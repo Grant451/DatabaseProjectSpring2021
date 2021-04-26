@@ -27,6 +27,7 @@ namespace LocationData
             while (reader.Read())
             {
                 temp.Add(new PartSearch(
+                    reader.GetString("StreetAddress"),
                     reader.GetString("PartName"),
                     reader.GetInt32("Quantity"),
                     reader.GetString("QuantityStatus")

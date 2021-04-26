@@ -267,15 +267,11 @@ namespace DatabaseProjectSpring2021
                 input = uxSelectEmpTB.Text;
 
             // the string returned by the query
-            List<string> queryResult = new List<string>();
+            string queryResult = "";
 
-            queryResult = master.EmployeeTabQueries(rb1, rb2, input);
+            queryResult = master.LocationTabQueries(rb1, rb2, input).ToString();
 
-            foreach (string s in queryResult)
-            {
-                uxDisplayQueryEmpTB.AppendText(s);
-
-            }
+            uxDisplayQueryLocTB.AppendText(queryResult);
         }
     }
 }

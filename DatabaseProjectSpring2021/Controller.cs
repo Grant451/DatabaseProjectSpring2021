@@ -317,7 +317,96 @@ namespace DatabaseProjectSpring2021
             }
             return result;
         }
-        
+
+        public StringBuilder LocationTabQueries(string generalQuery, string specificQuery, string input)
+        {
+            StringBuilder result = new StringBuilder();
+            string newLine = Environment.NewLine;
+
+            switch (generalQuery)
+            {
+                case ("DisplayAllLocations"):
+                    switch (specificQuery)
+                    {
+                        case ("DisplaySales"):
+                            //FetchSales
+                            try
+                            {
+                                var queryResult = repo.FetchSales(0);
+
+                                string header = String.Format("{0,-30} {1,-35} {2,-20} {3,-20} {4,-10}\n", "Location Address", "Sales");
+                                result.Append(header + newLine + newLine);
+
+                                foreach (var l in queryResult)
+                                {
+                                    string loc = String.Format("{0,-30} ${1,-5:N2} \n", l.StreetAddress, l.Sales);
+                                    result.Append(loc + newLine);
+                                }
+                            }
+                            catch (Exception)
+                            {
+                                result.Append("No sales to display");
+                            }
+                            break;
+                        case ("DisplayInventory"):
+                            //FetchInventory
+                            try
+                            {
+                                var queryResult = repo.FetchInventory(0);
+
+                                string header = String.Format("{0,-30} {0,-30} {2,-35}", "Location Address", "Quantity", "Quantity Status");
+                                result.Append(header + newLine + newLine);
+
+                                foreach (var l in queryResult)
+                                {
+                                    string loc = String.Format("{0,-30} ${1,-5:N2}, {2,-35}", l.StreetAddress, l.Quantity, l.QuantityStatus);
+                                    result.Append(loc + newLine);
+                                }
+                            }
+                            catch (Exception)
+                            {
+                                result.Append("No sales to display");
+                            }
+                            break;
+                        case ("DisplayUpcomingAppointments"):
+                            //**not complete
+                            break;
+                    }
+                    break;
+                case ("DisplaySpecificLocation"):
+                    switch (specificQuery)
+                    {
+                        case ("DisplaySales"):
+                            //FetchSalesSpecific
+                            try
+                            {
+                                var queryResult = repo.FetchSalesSpecific(input);
+
+                                string header = String.Format("{0,-30} {1,-5}", "Location Address", "Sales");
+                                result.Append(header + newLine + newLine);
+
+                                foreach (var l in queryResult)
+                                {
+                                    string loc = String.Format("{0,-30} ${1,-5:N2}", input, l.Sales);
+                                    result.Append(loc + newLine);
+                                }
+                            }
+                            catch (Exception)
+                            {
+                                result.Append("No sales for " + input);
+                            }
+                            break;
+                        case ("DisplayInventory"):
+                            //FetchInventorySpecific
+                            break;
+                        case ("DisplayUpcomingAppointments"):
+                            //**not complete
+                            break;
+                    }
+                    break;
+            }
+            return result;
+        }
 
          public string[] GetLocation()
          {
