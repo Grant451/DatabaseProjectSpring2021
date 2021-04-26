@@ -428,10 +428,12 @@ namespace DatabaseProjectSpring2021
             if (selectedrbSpecific != null)
                 rb2 = selectedrbSpecific.Tag.ToString();
 
-            if (uxSelectLocTB.Text != "")
-                input = uxSelectLocTB.Text;
+            if (uxSelectPartTB.Text != "")
+                input = uxSelectPartTB.Text;
+            else if (uxSelectRepairTB.Text != "")
+                input = uxSelectRepairTB.Text;
 
-            uxDisplayQueryLoc.View = View.Details;
+            uxDisplayQueryRep.View = View.Details;
 
             string[][] queryResult;
             queryResult = master.RepairTabQueries(rb1, rb2, input);
@@ -443,13 +445,13 @@ namespace DatabaseProjectSpring2021
             // set columns
             for (int i = 0; i < queryResult[0].Length; i++)
             {
-                uxDisplayQueryLoc.Columns.Add(queryResult[0][i], colWidth);
+                uxDisplayQueryRep.Columns.Add(queryResult[0][i], colWidth);
             }
 
             foreach (string[] arr in queryResult.Skip(1))
             {
                 ListViewItem itm = new ListViewItem(arr);
-                uxDisplayQueryLoc.Items.Add(itm);
+                uxDisplayQueryRep.Items.Add(itm);
             }
         }
     }

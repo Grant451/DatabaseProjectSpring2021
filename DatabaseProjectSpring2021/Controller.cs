@@ -507,42 +507,78 @@ namespace DatabaseProjectSpring2021
             string[][] result = new string[2][];
             switch (generalQuery)
             {
-                case ("Display Part"):
-                    if (specificQuery == "Display Price")
+                case ("DisplayPart"):
+                    if (specificQuery == "DisplayPrice")
                     {
                         //FetchPartInformaiton --minus quantity
                         try
                         {
-                            var queryResult = repo.FetchPart(input);
+                            var queryResult = repo.FetchPartInformation(input);
 
-                            string[] header = new string[3] { "Location Address", "Quantity", "Quantity Status" };
+                            string[] header = new string[2] { "Part Name", "Price" };
                             result[0] = header;
 
                             for (int i = 0; i < queryResult.Count; i++)
                             {
-                                string[] loc = new string[] { input, queryResult[i].Quantity.ToString(), queryResult[i].QuantityStatus };
+                                string[] loc = new string[] { input, queryResult[i].Price.ToString() };
                                 result[i + 1] = loc;
                             }
                         }
                         catch (Exception)
                         {
-                            result[1] = (new string[] { "No sales to display for " + input });
+                            result[1] = (new string[] { "No price for " + input });
                         }
                         break;
                     }
                     else if (specificQuery == "")
                     {
                         //FetchPart
+                        try
+                        {
+                            var queryResult = repo.FetchPart(input);
+
+                            string[] header = new string[3] { "Part Name", "Location", "Quantity" };
+                            result[0] = header;
+
+                            for (int i = 0; i < queryResult.Count; i++)
+                            {
+                                string[] loc = new string[3] { input, queryResult[i].StreetAddress, queryResult[i].Quantity.ToString() };
+                                result[i + 1] = loc;
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            result[1] = (new string[] { "No part with name " + input });
+                        }
+                        break;
                     }
                     break;
-                case ("Display Repair"):
-                    if (specificQuery == "Display Price")
+                case ("DisplayRepair"):
+                    if (specificQuery == "DisplayPrice")
                     {
                         //get price of repair **not complete
                     }
                     else if (specificQuery == "")
                     {
                         //FetchRepairParts
+                        try
+                        {
+                            var queryResult = repo.FetchRepairParts(input);
+
+                            string[] header = new string[3] { "Repair Name", "Part Name", "Price" };
+                            result[0] = header;
+
+                            for (int i = 0; i < queryResult.Count; i++)
+                            {
+                                string price = "$" + queryResult[i].Price.ToString();
+                                string[] loc = new string[3] { input, queryResult[i].PartName,  price};
+                                result[i + 1] = loc;
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            result[1] = (new string[] { "No parts for repair " + input });
+                        }
                     }
                     break;
             }
