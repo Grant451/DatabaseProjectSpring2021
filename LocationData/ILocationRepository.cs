@@ -79,5 +79,8 @@ namespace LocationData
 
         //returns a list of all addresses and years that has the sale for each year in it query 23:
         IReadOnlyList<SalesObj> FetchSalesPerYear(int blank6);
+
+        //returns customerid, customername, repairid, vinnumber query 24:
+        IReadOnlyList<RepairHistory> FetchCustomerReport(string fcrempName);
     }
 }

@@ -196,5 +196,10 @@ namespace LocationData
         {
             return executor.ExecuteReader(new FetchSalesPerYearDataDelegate(blank6));
         }
+
+        public IReadOnlyList<RepairHistory> FetchCustomerReport(string fcrempName)
+        {
+            return executor.ExecuteReader(new FetchCustomerReportDataDelegate(fcrempName));
+        }
     }
 }

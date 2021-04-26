@@ -12,13 +12,26 @@ namespace LocationData.Models
 
         public string RepairName { get; }
 
-        //public string VinNumber { get; }
+        public string VinNumber { get; }
 
         public string EmployeeName { get; }
 
         public int RepeatRepairs { get; }
 
         public int TimesRepaired { get; }
+
+        public int CustomerID { get; }
+
+        public int RepairID { get; }
+
+        //constructor for q24
+        public RepairHistory(int customerID, string customerName, int repairID, string vinNumber)
+        {
+            CustomerID = customerID;
+            CustomerName = customerName;
+            RepairID = repairID;
+            VinNumber = vinNumber;
+        }
 
         //constructor for q14
         public RepairHistory(string repName, string empName, string custName)

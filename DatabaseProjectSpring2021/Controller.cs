@@ -374,6 +374,11 @@ namespace DatabaseProjectSpring2021
             }
 
 
+            ///*****query 24 FetchCustomerReport untested*****
+            string fcrempName = "Zeus Terry";
+            var fcrlist = repo.FetchCustomerReport(fcrempName);
+            //*/
+
         }
 
         //public void 
