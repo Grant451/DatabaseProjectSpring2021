@@ -43,7 +43,7 @@ namespace DatabaseProjectSpring2021
                         {
                             var queryResult = repo.FetchRepeatRepairs(0);
 
-                            string header = String.Format("{0,-40} {1,-40} {2, 10} \n\n", "CustomerName", "RepairName", "TimesRepaired");
+                            string header = String.Format("{0,-40} {1,-40} {2, 10} \n\n", "Customer Name", "Repair Name", "Times Repaired");
                             result.Append(header + newLine + newLine);
 
                             foreach (var r in queryResult)
@@ -66,7 +66,7 @@ namespace DatabaseProjectSpring2021
                         {
                             var queryResult = repo.RetrieveCustomers();
 
-                            string header = String.Format("{0,-31} {1,-27} {2, -35} \n\n", "CustomerId", "CustomerName", "VinNumber");
+                            string header = String.Format("{0,-31} {1,-27} {2, -35} \n\n", "Customer Id", "Customer Name", "Vin Number");
                             result.Append(header + newLine + newLine);
 
                             foreach (var c in queryResult)
@@ -92,7 +92,7 @@ namespace DatabaseProjectSpring2021
                         {
                             var queryResult = repo.FetchRepeatRepairsSpecific(input);
 
-                            string header = String.Format("{0,-40} {1, 10} \n\n", "RepairName", "TimesRepaired");
+                            string header = String.Format("{0,-40} {1, 10} \n\n", "Repai rName", "Times Repaired");
                             result.Append(header + newLine + newLine);
 
                             foreach (var r in queryResult)
@@ -115,7 +115,7 @@ namespace DatabaseProjectSpring2021
                         {
                             var queryResult = repo.FetchRepairHistoryCustomer(input);
 
-                            string header = String.Format("{0,-40} \n\n", "RepairName");
+                            string header = String.Format("{0,-40} \n\n", "Repair Name");
                             result.Append(header + newLine + newLine);
                             
                             foreach (var r in queryResult)
@@ -155,7 +155,7 @@ namespace DatabaseProjectSpring2021
                         {
                             var queryResult = repo.FetchRepairHistoryVehicle(input);
 
-                            string header = String.Format("{0,-40} \n\n", "RepairName");
+                            string header = String.Format("{0,-40} \n\n", "Repair Name");
                             result.Append(header + newLine + newLine);
 
                             foreach (var r in queryResult)
@@ -196,14 +196,50 @@ namespace DatabaseProjectSpring2021
                             break;
                         case ("DisplayRepairCounts"):
                             //FetchAllEmployeeRepairCounts
+                            try
+                            {
+                                var queryResult = repo.FetchAllEmployeeRepairCounts(0);
+
+                                string header = String.Format("{0,-30} {1, 30} {2, 30} \n", "Employee Name", "Number Of Repairs Completed", "Number Of Repairs In Progress");
+                                result.Append(header + newLine + newLine);
+
+                                foreach (var r in queryResult)
+                                {
+                                    string repair = String.Format("{0,-30} {1,30:N} {2,30:N} \n", r.EmployeeName.ToString(), r.RepairsCompleted, r.RepairsInProgress);
+                                    result.Append(repair + newLine);
+                                    //Console.WriteLine(repair);
+                                }
+                            }
+                            catch (Exception)
+                            {
+                                result.Append("No repairs completed or in progress");
+                            }
                             break;
                         case ("DisplayLocation"):
                             //FetchAllEmployeeLocation **not complete
                             break;
                         case ("DisplayUpcomingAppointments"):
+                            //FetchUpcomingAppointmentsFAEmployees **not complete
                             break;
                         case (""):
                             //FetchAllEmployees
+                            try
+                            {
+                                var queryResult = repo.FetchAllEmployees(0);
+
+                                string header = String.Format("{0,-40} \n", "Employee Name");
+                                result.Append(header + newLine + newLine);
+
+                                foreach (var r in queryResult)
+                                {
+                                    string repair = String.Format("{0,-40} \n", r.EmployeeName.ToString());
+                                    result.Append(repair + newLine);
+                                }
+                            }
+                            catch (Exception)
+                            {
+                                result.Append("No employees to display");
+                            }
                             break;
                     }
                     break;
@@ -212,17 +248,69 @@ namespace DatabaseProjectSpring2021
                     {
                         case ("DisplayPastRepairs"):
                             //FetchRepairHistoryEmployee
+                            try
+                            {
+                                var queryResult = repo.FetchRepairHistoryEmployee(input);
+
+                                string header = String.Format("{0,-40} {1,-40}\n", "Employee Name", "Repair Name");
+                                result.Append(header + newLine + newLine);
+
+                                foreach (var r in queryResult)
+                                {
+                                    string repair = String.Format("{0,-40} {1,-40}\n", input, r.RepairName.ToString());
+                                    result.Append(repair + newLine);
+                                }
+                            }
+                            catch (Exception)
+                            {
+                                result.Append("No past repairs for " + input);
+                            }
                             break;
                         case ("DisplayRepairCounts"):
                             //FetchEmployeeRepairCounts
+                            try
+                            {
+                                var queryResult = repo.FetchEmployeeRepairCounts(input);
+
+                                string header = String.Format("{0,-40} {1,-40} {2,-40}\n", "Employee Name", "Number Of Repairs Completed", "Number Of Repairs In Progress");
+                                result.Append(header + newLine + newLine);
+
+                                foreach (var r in queryResult)
+                                {
+                                    string repair = String.Format("{0,-40} {1,-40} {2,-40}\n", input, r.RepairsCompleted, r.RepairsInProgress);
+                                    result.Append(repair + newLine);
+                                }
+                            }
+                            catch (Exception)
+                            {
+                                result.Append("No completed or in progress repaird for " + input);
+                            }
                             break;
                         case ("DisplayLocation"):
                             //FetchEmployeeLocation
+                            try
+                            {
+                                var queryResult = repo.FetchEmployeeLocation(input);
+
+                                string header = String.Format("{0,-40} {1,-40} {2,-20} {3,-20} {4,-20}\n", "Employee Name", "Street Address", "City", "Region", "Zip");
+                                result.Append(header + newLine + newLine);
+
+                                foreach (var r in queryResult)
+                                {
+                                    string repair = String.Format("{0,-40} {1,-40} {2,-20} {3,-20} {4,-20}\n", input, r.StreetAddress, r.City, r.Region, r.Zip);
+                                    result.Append(repair + newLine);
+                                }
+                            }
+                            catch (Exception)
+                            {
+                                result.Append("No location for " + input);
+                            }
                             break;
                         case ("DisplayUpcomingAppointments"):
+                            // FetchUpcomingAppointmentsEmployee **not complete
                             break;
                         case (""):
-                            //FetchAllEmployees
+                            //FetchEmployee **not complete
                             break;
                     }
                     break;

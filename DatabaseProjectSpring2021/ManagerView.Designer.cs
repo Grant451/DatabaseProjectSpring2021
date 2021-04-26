@@ -332,6 +332,7 @@
             this.uxExcecuteEmpBttn.TabIndex = 13;
             this.uxExcecuteEmpBttn.Text = "Excecute";
             this.uxExcecuteEmpBttn.UseVisualStyleBackColor = true;
+            this.uxExcecuteEmpBttn.Click += new System.EventHandler(this.uxExcecuteEmpBttn_Click);
             // 
             // uxSpecificEmployeeDisplayGB
             // 

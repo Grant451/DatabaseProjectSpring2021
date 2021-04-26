@@ -118,15 +118,18 @@ namespace DatabaseProjectSpring2021
                 {
                     if (selectedrbGeneral.Tag.ToString() == "DisplayAllEmployees")
                     {
+                        uxDisplayRepairCountsEmpRB.Visible = true;
                         uxSelectEmpTB.Visible = false;
                         uxDisplayLocationEmpRB.Visible = false;
-                        uxDisplayRepairCountsEmpRB.Visible = false;
+                        uxDisplayPastRepairsEmpRB.Visible = false;
+
                     }
                     else if (selectedrbGeneral.Tag.ToString() == "DisplaySpecificEmployee")
                     {
                         uxSelectEmpTB.Visible = true;
                         uxDisplayLocationEmpRB.Visible = true;
                         uxDisplayRepairCountsEmpRB.Visible = true;
+                        uxDisplayPastRepairsEmpRB.Visible = true;
                     }
                 }
             }
@@ -198,7 +201,6 @@ namespace DatabaseProjectSpring2021
 
             if (selectedrbGeneral != null)
                  rb1 = selectedrbGeneral.Tag.ToString();
-
             if (selectedrbSpecific != null)
                 rb2 = selectedrbSpecific.Tag.ToString();
 
@@ -210,20 +212,34 @@ namespace DatabaseProjectSpring2021
             // the string returned by the query
             String queryResult = "";
 
-            switch (currentView)
-            {
-                case ("Customers"):
-                    queryResult = master.CustomerTabQueries(rb1, rb2, input).ToString();
-                    uxDisplayQueryCusTB.AppendText(queryResult);
-                    break;
-                case ("Employees"):
-                    queryResult = master.EmployeeTabQueries(rb1, rb2, input).ToString();
-                    uxDisplayQueryEmpTB.AppendText(queryResult);
-                    break;
-            }
+            queryResult = master.CustomerTabQueries(rb1, rb2, input).ToString();
+            uxDisplayQueryCusTB.AppendText(queryResult);
 
-            
         }
 
+        private void uxExcecuteEmpBttn_Click(object sender, EventArgs e)
+        {
+            // Empty query result text box
+            uxDisplayQueryEmpTB.Text = "";
+            string rb1 = "";
+            string rb2 = "";
+            string input = "";
+
+            if (selectedrbGeneral != null)
+                rb1 = selectedrbGeneral.Tag.ToString();
+            if (selectedrbSpecific != null)
+                rb2 = selectedrbSpecific.Tag.ToString();
+
+            if (uxSelectEmpTB.Text != "")
+                input = uxSelectEmpTB.Text;
+
+            // the string returned by the query
+            String queryResult = "";
+
+            
+            queryResult = master.EmployeeTabQueries(rb1, rb2, input).ToString();
+            //Console.WriteLine(queryResult);
+            uxDisplayQueryEmpTB.AppendText(queryResult);
+        }
     }
 }
