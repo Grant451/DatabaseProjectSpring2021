@@ -28,7 +28,7 @@ namespace LocationData
         IReadOnlyList<RepairHistory> FetchRepairHistoryCustomer(string custname);
 
         //repair history by vin query 3:
-        RepairHistory FetchRepairHistoryVehicle(string vin);
+        IReadOnlyList<RepairHistory> FetchRepairHistoryVehicle(string vin);
 
         //repair history by employee query 4:
         IReadOnlyList<RepairHistory> FetchRepairHistoryEmployee(string empName);

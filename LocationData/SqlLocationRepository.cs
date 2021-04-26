@@ -100,7 +100,7 @@ namespace LocationData
             return executor.ExecuteReader(d);
         }
 
-        public RepairHistory FetchRepairHistoryVehicle(string vin)
+        public IReadOnlyList<RepairHistory> FetchRepairHistoryVehicle(string vin)
         {
             var d = new FetchRepairHistoryVehicleDataDelegate(vin);
             return executor.ExecuteReader(d);

@@ -70,15 +70,26 @@ namespace DatabaseProjectSpring2021
                     uxSelectCusTB.Visible = true;
                     uxSelectVehicleTB.Visible = false;
                     uxDisplayPastRepairsCusRB.Visible = true;
+                    uxDisplayRepeatedRepairsCusRB.Visible = true;
                 }
                 else if (selectedrbGeneral.Name == "uxDisplaySpecificVehicleRB")
                 {
                     uxSelectVehicleTB.Visible = true;
                     uxSelectCusTB.Visible = false;
                     uxDisplayPastRepairsCusRB.Visible = true;
+                    uxDisplayRepeatedRepairsCusRB.Visible = false;
+                    uxDisplayRepeatedRepairsCusRB.Checked = false;
+
+                    if (selectedrbSpecific != null)
+                    {
+                        if (selectedrbSpecific.Tag.ToString() == "DisplayRepeatedRepairs")
+                            selectedrbSpecific = null;
+                    }
                 }
                 else
                 {
+
+                    uxDisplayRepeatedRepairsCusRB.Visible = true;
                     uxSelectVehicleTB.Visible = false;
                     uxSelectCusTB.Visible = false;
                     uxDisplayPastRepairsCusRB.Visible = false;
@@ -168,10 +179,11 @@ namespace DatabaseProjectSpring2021
             {
                 case ("Customers"):
                     queryResult = master.CustomerTabQueries(rb1, rb2, input).ToString();
+                    uxDisplayQueryCusTB.AppendText(queryResult);
                     break;
             }
 
-            uxDisplayQueryCusTB.AppendText(queryResult);
+            
         }
 
     }

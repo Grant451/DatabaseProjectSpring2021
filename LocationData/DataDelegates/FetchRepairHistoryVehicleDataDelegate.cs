@@ -9,9 +9,10 @@ using LocationData.Models;
 using System.Data;
 using System.Data.SqlClient;
 
+
 namespace LocationData.DataDelegates
 {
-    internal class FetchRepairHistoryVehicleDataDelegate : DataReaderDelegate<RepairHistory>
+    internal class FetchRepairHistoryVehicleDataDelegate : DataReaderDelegate<IReadOnlyList<RepairHistory>>
     {
         /*
         @vinnumber NVARCHAR(11)
@@ -35,16 +36,21 @@ namespace LocationData.DataDelegates
             p.Value = VinNumber;
         }
 
-        public override RepairHistory Translate(SqlCommand command, IDataRowReader reader)
+        public override IReadOnlyList<RepairHistory> Translate(SqlCommand command, IDataRowReader reader)
         {
-            if (!reader.Read())
-                throw new RecordNotFoundException(VinNumber);
 
-            return new RepairHistory(
-                VinNumber,//might take the vin, but the constructor for RepairHistory doesn't allow for a vin
-                reader.GetString("CustomerName"),
-                reader.GetString("RepairName")
-                );
+            var temp = new List<RepairHistory>();
+            while (reader.Read())
+            {
+                temp.Add(new RepairHistory(
+                    VinNumber,
+                    reader.GetString("CustomerName"),
+                    reader.GetString("RepairName")
+                          )
+                    );
+            }
+            return temp;
+
         }
     }
 }

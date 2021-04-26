@@ -146,6 +146,38 @@ namespace DatabaseProjectSpring2021
                         //var queryResult = repo.RetrieveSpecificCustomer(input);
                     }
                     break;
+
+                case ("DisplaySpecificVehicle"):
+
+                    if (specificQuery == "DisplayPastRepairs")
+                    {
+                        // FetchRepairHistoryVehicle
+                        try
+                        {
+                            var queryResult = repo.FetchRepairHistoryVehicle(input);
+
+                            string header = String.Format("{0,-40} \n\n", "RepairName");
+                            result.Append(header + newLine + newLine);
+
+                            foreach (var r in queryResult)
+                            {
+                                string repair = String.Format("{0, -40} \n", r.CustomerName.ToString());
+                                result.Append(repair + newLine);
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            result.Append("No past repairs for " + input);
+                        }
+
+
+                    }
+                    else if (specificQuery == "")
+                    {
+                        //RetrieveSpecificVehicle -- Fetch specific customer ** not complete
+                        //var queryResult = repo.RetrieveSpecificVehicle(input);
+                    }
+                    break;
             }
             return result;
         }
