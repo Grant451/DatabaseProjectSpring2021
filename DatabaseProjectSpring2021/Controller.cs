@@ -125,9 +125,6 @@ namespace DatabaseProjectSpring2021
                                 string[] repair = new string[2] { input, queryResult[i].RepairName };
                                 result[i + 1] = repair;
                             }
-                            
-
-                            
                         }
                         catch (Exception)
                         {
@@ -143,8 +140,25 @@ namespace DatabaseProjectSpring2021
                     }
                     else if (specificQuery == "")
                     {
-                        //RetrieveSpecificCustomer -- Fetch specific customer ** not complete
-                        //var queryResult = repo.RetrieveSpecificCustomer(input);
+                        //FetchCustomerReport
+                        try
+                        {
+                            var queryResult = repo.FetchCustomerReport(input);
+                            result = new string[queryResult.Count + 1][];
+
+                            string[] header = new string[3] { "Customer ID", "CustomerName", "Vin Number" };
+                            result[0] = header;
+
+                            for (int i = 0; i < queryResult.Count; i++)
+                            {
+                                string[] repair = new string[3] { queryResult[i].CustomerID.ToString(), queryResult[i].CustomerName, queryResult[i].VinNumber.ToString() };
+                                result[i + 1] = repair;
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            result[1] = new string[1] { "No past repairs for " + input };
+                        }
                     }
                     break;
 
@@ -158,12 +172,12 @@ namespace DatabaseProjectSpring2021
                             var queryResult = repo.FetchRepairHistoryVehicle(input);
                             result = new string[queryResult.Count + 1][];
 
-                            string[] header = new string[2] { "CustomerName", "Repair Name" };
+                            string[] header = new string[3] { "Vin Number", "Customer Name", "Repair Name" };
                             result[0] = header;
 
                             for (int i = 0; i < queryResult.Count; i++)
                             {
-                                string[] repair = new string[2] { input, queryResult[i].CustomerName };
+                                string[] repair = new string[3] { input, queryResult[i].EmployeeName, queryResult[i].CustomerName };
                                 result[i + 1] = repair;
                             }
                         }
@@ -176,8 +190,25 @@ namespace DatabaseProjectSpring2021
                     }
                     else if (specificQuery == "")
                     {
-                        //RetrieveSpecificVehicle -- Fetch specific customer ** not complete
-                        //var queryResult = repo.RetrieveSpecificVehicle(input);
+                        //FetchVinReport returns: CustomerId, CustomerName, RepairId, vinnumber
+                        try
+                        {
+                            var queryResult = repo.FetchVinReport(input);
+                            result = new string[queryResult.Count + 1][];
+
+                            string[] header = new string[3] { "Customer ID", "CustomerName", "Vin Number" };
+                            result[0] = header;
+
+                            for (int i = 0; i < queryResult.Count; i++)
+                            {
+                                string[] repair = new string[3] { queryResult[i].CustomerID.ToString(), queryResult[i].CustomerName, queryResult[i].VinNumber.ToString() };
+                                result[i + 1] = repair;
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            result[1] = new string[1] { "No past repairs for " + input };
+                        }
                     }
                     break;
             }

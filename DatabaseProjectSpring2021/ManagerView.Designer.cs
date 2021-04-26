@@ -597,7 +597,7 @@
             this.uxPartsPage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uxPartsPage.Size = new System.Drawing.Size(1090, 708);
             this.uxPartsPage.TabIndex = 3;
-            this.uxPartsPage.Text = "Parts";
+            this.uxPartsPage.Text = "Repairs";
             this.uxPartsPage.UseVisualStyleBackColor = true;
             // 
             // uxReportsPage
