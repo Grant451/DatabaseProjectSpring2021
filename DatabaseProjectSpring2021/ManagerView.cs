@@ -64,6 +64,7 @@ namespace DatabaseProjectSpring2021
         {
             // Empty query result text box
             uxDisplayQueryCusTB.Text = "";
+            uxDisplayQueryEmpTB.Text = "";
             // Empty customer name text box
             uxSelectCusTB.Text = "";
             // Empty vin Number text box
@@ -77,6 +78,10 @@ namespace DatabaseProjectSpring2021
 
                 if(currentView == "Customers")
                 {
+                    selectedrbSpecific = null;
+                    uxDisplayPastRepairsCusRB.Checked = false;
+                    uxDisplayRepeatedRepairsCusRB.Checked = false;
+
                     if (selectedrbGeneral.Tag.ToString() == "DisplaySpecificCustomer")
                     {
                         uxSelectCusTB.Visible = true;
@@ -90,7 +95,6 @@ namespace DatabaseProjectSpring2021
                         uxSelectCusTB.Visible = false;
                         uxDisplayPastRepairsCusRB.Visible = true;
                         uxDisplayRepeatedRepairsCusRB.Visible = false;
-                        uxDisplayRepeatedRepairsCusRB.Checked = false;
 
                         if (selectedrbSpecific != null)
                         {
@@ -104,24 +108,24 @@ namespace DatabaseProjectSpring2021
                         uxSelectVehicleTB.Visible = false;
                         uxSelectCusTB.Visible = false;
                         uxDisplayPastRepairsCusRB.Visible = false;
-                        uxDisplayPastRepairsCusRB.Checked = false;
 
-                        if (selectedrbSpecific != null)
-                        {
-                            if (selectedrbSpecific.Tag.ToString() == "DisplayPastRepairs")
-                                selectedrbSpecific = null;
-                        }
                     }
                 }
                 
                 else if (currentView == "Employees")
                 {
+                    selectedrbSpecific = null;
+                    uxDisplayPastRepairsEmpRB.Checked = false;
+                    uxDisplayLocationEmpRB.Checked = false;
+                    uxDisplayRepairCountsEmpRB.Checked = false;
+
                     if (selectedrbGeneral.Tag.ToString() == "DisplayAllEmployees")
                     {
                         uxDisplayRepairCountsEmpRB.Visible = true;
                         uxSelectEmpTB.Visible = false;
                         uxDisplayLocationEmpRB.Visible = false;
                         uxDisplayPastRepairsEmpRB.Visible = false;
+                        
 
                     }
                     else if (selectedrbGeneral.Tag.ToString() == "DisplaySpecificEmployee")
@@ -139,6 +143,7 @@ namespace DatabaseProjectSpring2021
         {
             // Empty query result text box
             uxDisplayQueryCusTB.Text = "";
+            uxDisplayQueryEmpTB.Text = "";
             RadioButton rb = sender as RadioButton;
             if (rb.Checked)
             {
@@ -234,12 +239,43 @@ namespace DatabaseProjectSpring2021
                 input = uxSelectEmpTB.Text;
 
             // the string returned by the query
-            String queryResult = "";
+            List<string> queryResult = new List<string>();
 
-            
-            queryResult = master.EmployeeTabQueries(rb1, rb2, input).ToString();
-            //Console.WriteLine(queryResult);
-            uxDisplayQueryEmpTB.AppendText(queryResult);
+            queryResult = master.EmployeeTabQueries(rb1, rb2, input);
+
+            foreach (string s in queryResult)
+            {
+                uxDisplayQueryEmpTB.AppendText(s);
+
+            }
+        }
+
+        private void uxExcecuteLocBttn_Click(object sender, EventArgs e)
+        {
+            // Empty query result text box
+            uxDisplayQueryLocTB.Text = "";
+            string rb1 = "";
+            string rb2 = "";
+            string input = "";
+
+            if (selectedrbGeneral != null)
+                rb1 = selectedrbGeneral.Tag.ToString();
+            if (selectedrbSpecific != null)
+                rb2 = selectedrbSpecific.Tag.ToString();
+
+            if (uxSelectEmpTB.Text != "")
+                input = uxSelectEmpTB.Text;
+
+            // the string returned by the query
+            List<string> queryResult = new List<string>();
+
+            queryResult = master.EmployeeTabQueries(rb1, rb2, input);
+
+            foreach (string s in queryResult)
+            {
+                uxDisplayQueryEmpTB.AppendText(s);
+
+            }
         }
     }
 }

@@ -180,10 +180,10 @@ namespace DatabaseProjectSpring2021
             }
             return result;
         }
-
-        public StringBuilder EmployeeTabQueries(string generalQuery, string specificQuery, string input)
+        
+        public List<string> EmployeeTabQueries(string generalQuery, string specificQuery, string input)
         {
-            StringBuilder result = new StringBuilder();
+            List<string> result = new List<string>();
             string newLine = Environment.NewLine;
 
             switch (generalQuery)
@@ -200,19 +200,19 @@ namespace DatabaseProjectSpring2021
                             {
                                 var queryResult = repo.FetchAllEmployeeRepairCounts(0);
 
-                                string header = String.Format("{0,-30} {1, 30} {2, 30} \n", "Employee Name", "Number Of Repairs Completed", "Number Of Repairs In Progress");
-                                result.Append(header + newLine + newLine);
+                                string header = String.Format("{0,-30} {1, -30} {2, 30} \n", "Employee Name", "Number Of Repairs Completed", "Number Of Repairs In Progress");
+                                result.Add(header + newLine + newLine);
 
                                 foreach (var r in queryResult)
                                 {
-                                    string repair = String.Format("{0,-30} {1,30:N} {2,30:N} \n", r.EmployeeName.ToString(), r.RepairsCompleted, r.RepairsInProgress);
-                                    result.Append(repair + newLine);
+                                    string repair = String.Format("{0,-30} {1,-30:N0} {2,30:N0} \n", r.EmployeeName.ToString(), r.RepairsCompleted, r.RepairsInProgress);
+                                    result.Add(repair + newLine);
                                     //Console.WriteLine(repair);
                                 }
                             }
                             catch (Exception)
                             {
-                                result.Append("No repairs completed or in progress");
+                                result.Add("No repairs completed or in progress");
                             }
                             break;
                         case ("DisplayLocation"):
@@ -228,17 +228,17 @@ namespace DatabaseProjectSpring2021
                                 var queryResult = repo.FetchAllEmployees(0);
 
                                 string header = String.Format("{0,-40} \n", "Employee Name");
-                                result.Append(header + newLine + newLine);
+                                result.Add(header + newLine + newLine);
 
                                 foreach (var r in queryResult)
                                 {
                                     string repair = String.Format("{0,-40} \n", r.EmployeeName.ToString());
-                                    result.Append(repair + newLine);
+                                    result.Add(repair + newLine);
                                 }
                             }
                             catch (Exception)
                             {
-                                result.Append("No employees to display");
+                                result.Add("No employees to display");
                             }
                             break;
                     }
@@ -253,17 +253,17 @@ namespace DatabaseProjectSpring2021
                                 var queryResult = repo.FetchRepairHistoryEmployee(input);
 
                                 string header = String.Format("{0,-40} {1,-40}\n", "Employee Name", "Repair Name");
-                                result.Append(header + newLine + newLine);
+                                result.Add(header + newLine + newLine);
 
                                 foreach (var r in queryResult)
                                 {
                                     string repair = String.Format("{0,-40} {1,-40}\n", input, r.RepairName.ToString());
-                                    result.Append(repair + newLine);
+                                    result.Add(repair + newLine);
                                 }
                             }
                             catch (Exception)
                             {
-                                result.Append("No past repairs for " + input);
+                                result.Add("No past repairs for " + input);
                             }
                             break;
                         case ("DisplayRepairCounts"):
@@ -272,18 +272,18 @@ namespace DatabaseProjectSpring2021
                             {
                                 var queryResult = repo.FetchEmployeeRepairCounts(input);
 
-                                string header = String.Format("{0,-40} {1,-40} {2,-40}\n", "Employee Name", "Number Of Repairs Completed", "Number Of Repairs In Progress");
-                                result.Append(header + newLine + newLine);
+                                string header = String.Format("{0,-30} {1,-38} {2,-40}\n", "Employee Name", "Number Of Repairs Completed", "Number Of Repairs In Progress");
+                                result.Add(header + newLine + newLine);
 
                                 foreach (var r in queryResult)
                                 {
-                                    string repair = String.Format("{0,-40} {1,-40} {2,-40}\n", input, r.RepairsCompleted, r.RepairsInProgress);
-                                    result.Append(repair + newLine);
+                                    string repair = String.Format("{0,-30} {1,-40} {2,-40}\n", input, r.RepairsCompleted, r.RepairsInProgress);
+                                    result.Add(repair + newLine);
                                 }
                             }
                             catch (Exception)
                             {
-                                result.Append("No completed or in progress repaird for " + input);
+                                result.Add("No completed or in progress repaird for " + input);
                             }
                             break;
                         case ("DisplayLocation"):
@@ -292,18 +292,18 @@ namespace DatabaseProjectSpring2021
                             {
                                 var queryResult = repo.FetchEmployeeLocation(input);
 
-                                string header = String.Format("{0,-40} {1,-40} {2,-20} {3,-20} {4,-20}\n", "Employee Name", "Street Address", "City", "Region", "Zip");
-                                result.Append(header + newLine + newLine);
+                                string header = String.Format("{0,-30} {1,-35} {2,-20} {3,-20} {4,-10}\n", "Employee Name", "Street Address", "City", "Region", "Zip");
+                                result.Add(header + newLine + newLine);
 
                                 foreach (var r in queryResult)
                                 {
-                                    string repair = String.Format("{0,-40} {1,-40} {2,-20} {3,-20} {4,-20}\n", input, r.StreetAddress, r.City, r.Region, r.Zip);
-                                    result.Append(repair + newLine);
+                                    string repair = String.Format("{0,-30} {1,-35} {2,-20} {3,-20} {4,-10}\n", input, r.StreetAddress, r.City, r.Region, r.Zip);
+                                    result.Add(repair + newLine);
                                 }
                             }
                             catch (Exception)
                             {
-                                result.Append("No location for " + input);
+                                result.Add("No location for " + input);
                             }
                             break;
                         case ("DisplayUpcomingAppointments"):
@@ -317,8 +317,9 @@ namespace DatabaseProjectSpring2021
             }
             return result;
         }
+        
 
-        public string[] GetLocation()
+         public string[] GetLocation()
          {
             //This is a test
             int val = 0;

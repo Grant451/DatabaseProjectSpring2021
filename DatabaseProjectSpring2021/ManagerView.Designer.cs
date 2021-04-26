@@ -63,6 +63,20 @@
             this.uxPartsPage = new System.Windows.Forms.TabPage();
             this.uxReportsPage = new System.Windows.Forms.TabPage();
             this.RebuildDBBtn = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.uxGeneralDisplayLoc = new System.Windows.Forms.GroupBox();
+            this.uxSelectLocTB = new System.Windows.Forms.TextBox();
+            this.uxDisplaySpecificLocationRB = new System.Windows.Forms.RadioButton();
+            this.uxDisplayAllLocationsRB = new System.Windows.Forms.RadioButton();
+            this.uxSpecificDisplayLoc = new System.Windows.Forms.GroupBox();
+            this.uxDisplayUpcomingApptLocRB = new System.Windows.Forms.RadioButton();
+            this.uxDisplaySalesLocRB = new System.Windows.Forms.RadioButton();
+            this.uxDisplayInventoryLocRB = new System.Windows.Forms.RadioButton();
+            this.uxExcecuteLocBttn = new System.Windows.Forms.Button();
+            this.uxDisplayQueryLocTB = new System.Windows.Forms.TextBox();
             this.uxTabControl.SuspendLayout();
             this.uxCustomersPage.SuspendLayout();
             this.uxSpecificDisplayCustomerGB.SuspendLayout();
@@ -70,6 +84,10 @@
             this.uxEmployeesPage.SuspendLayout();
             this.uxSpecificEmployeeDisplayGB.SuspendLayout();
             this.uxGeneralEmployeeDisplayGB.SuspendLayout();
+            this.uxLocationsPage.SuspendLayout();
+            this.uxPartsPage.SuspendLayout();
+            this.uxGeneralDisplayLoc.SuspendLayout();
+            this.uxSpecificDisplayLoc.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnsearch
@@ -137,7 +155,7 @@
             this.uxTabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uxTabControl.Name = "uxTabControl";
             this.uxTabControl.SelectedIndex = 0;
-            this.uxTabControl.Size = new System.Drawing.Size(1069, 674);
+            this.uxTabControl.Size = new System.Drawing.Size(1106, 674);
             this.uxTabControl.TabIndex = 10;
             // 
             // uxCustomersPage
@@ -150,7 +168,7 @@
             this.uxCustomersPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uxCustomersPage.Name = "uxCustomersPage";
             this.uxCustomersPage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxCustomersPage.Size = new System.Drawing.Size(1053, 623);
+            this.uxCustomersPage.Size = new System.Drawing.Size(1090, 623);
             this.uxCustomersPage.TabIndex = 0;
             this.uxCustomersPage.Text = "Customers";
             this.uxCustomersPage.UseVisualStyleBackColor = true;
@@ -174,6 +192,7 @@
             this.uxDisplayQueryCusTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.uxDisplayQueryCusTB.Size = new System.Drawing.Size(985, 191);
             this.uxDisplayQueryCusTB.TabIndex = 4;
+            this.uxDisplayQueryCusTB.WordWrap = false;
             // 
             // uxSpecificDisplayCustomerGB
             // 
@@ -309,7 +328,7 @@
             this.uxEmployeesPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uxEmployeesPage.Name = "uxEmployeesPage";
             this.uxEmployeesPage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxEmployeesPage.Size = new System.Drawing.Size(1053, 623);
+            this.uxEmployeesPage.Size = new System.Drawing.Size(1090, 623);
             this.uxEmployeesPage.TabIndex = 1;
             this.uxEmployeesPage.Text = "Employees";
             this.uxEmployeesPage.UseVisualStyleBackColor = true;
@@ -320,7 +339,7 @@
             this.uxDisplayQueryEmpTB.Multiline = true;
             this.uxDisplayQueryEmpTB.Name = "uxDisplayQueryEmpTB";
             this.uxDisplayQueryEmpTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.uxDisplayQueryEmpTB.Size = new System.Drawing.Size(985, 191);
+            this.uxDisplayQueryEmpTB.Size = new System.Drawing.Size(1023, 191);
             this.uxDisplayQueryEmpTB.TabIndex = 14;
             // 
             // uxExcecuteEmpBttn
@@ -450,22 +469,27 @@
             // 
             // uxLocationsPage
             // 
+            this.uxLocationsPage.Controls.Add(this.uxDisplayQueryLocTB);
+            this.uxLocationsPage.Controls.Add(this.uxExcecuteLocBttn);
+            this.uxLocationsPage.Controls.Add(this.uxSpecificDisplayLoc);
+            this.uxLocationsPage.Controls.Add(this.uxGeneralDisplayLoc);
             this.uxLocationsPage.Location = new System.Drawing.Point(8, 43);
             this.uxLocationsPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uxLocationsPage.Name = "uxLocationsPage";
             this.uxLocationsPage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxLocationsPage.Size = new System.Drawing.Size(1053, 623);
+            this.uxLocationsPage.Size = new System.Drawing.Size(1090, 623);
             this.uxLocationsPage.TabIndex = 2;
             this.uxLocationsPage.Text = "Locations";
             this.uxLocationsPage.UseVisualStyleBackColor = true;
             // 
             // uxPartsPage
             // 
+            this.uxPartsPage.Controls.Add(this.listView1);
             this.uxPartsPage.Location = new System.Drawing.Point(8, 43);
             this.uxPartsPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uxPartsPage.Name = "uxPartsPage";
             this.uxPartsPage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxPartsPage.Size = new System.Drawing.Size(1053, 623);
+            this.uxPartsPage.Size = new System.Drawing.Size(1114, 623);
             this.uxPartsPage.TabIndex = 3;
             this.uxPartsPage.Text = "Parts";
             this.uxPartsPage.UseVisualStyleBackColor = true;
@@ -491,11 +515,144 @@
             this.RebuildDBBtn.Text = "Rebuild DB";
             this.RebuildDBBtn.UseVisualStyleBackColor = true;
             // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(59, 68);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(856, 487);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // uxGeneralDisplayLoc
+            // 
+            this.uxGeneralDisplayLoc.Controls.Add(this.uxSelectLocTB);
+            this.uxGeneralDisplayLoc.Controls.Add(this.uxDisplaySpecificLocationRB);
+            this.uxGeneralDisplayLoc.Controls.Add(this.uxDisplayAllLocationsRB);
+            this.uxGeneralDisplayLoc.Location = new System.Drawing.Point(49, 32);
+            this.uxGeneralDisplayLoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxGeneralDisplayLoc.Name = "uxGeneralDisplayLoc";
+            this.uxGeneralDisplayLoc.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxGeneralDisplayLoc.Size = new System.Drawing.Size(425, 232);
+            this.uxGeneralDisplayLoc.TabIndex = 4;
+            this.uxGeneralDisplayLoc.TabStop = false;
+            this.uxGeneralDisplayLoc.Text = "General Display";
+            // 
+            // uxSelectLocTB
+            // 
+            this.uxSelectLocTB.Location = new System.Drawing.Point(52, 151);
+            this.uxSelectLocTB.Name = "uxSelectLocTB";
+            this.uxSelectLocTB.Size = new System.Drawing.Size(238, 31);
+            this.uxSelectLocTB.TabIndex = 3;
+            this.uxSelectLocTB.Text = "Enter Location Name";
+            this.uxSelectLocTB.Visible = false;
+            // 
+            // uxDisplaySpecificLocationRB
+            // 
+            this.uxDisplaySpecificLocationRB.AutoSize = true;
+            this.uxDisplaySpecificLocationRB.Location = new System.Drawing.Point(17, 106);
+            this.uxDisplaySpecificLocationRB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplaySpecificLocationRB.Name = "uxDisplaySpecificLocationRB";
+            this.uxDisplaySpecificLocationRB.Size = new System.Drawing.Size(284, 29);
+            this.uxDisplaySpecificLocationRB.TabIndex = 1;
+            this.uxDisplaySpecificLocationRB.Tag = "DisplaySpecificLocation";
+            this.uxDisplaySpecificLocationRB.Text = "Display Specific Location";
+            this.uxDisplaySpecificLocationRB.UseVisualStyleBackColor = true;
+            // 
+            // uxDisplayAllLocationsRB
+            // 
+            this.uxDisplayAllLocationsRB.AutoSize = true;
+            this.uxDisplayAllLocationsRB.Location = new System.Drawing.Point(17, 42);
+            this.uxDisplayAllLocationsRB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplayAllLocationsRB.Name = "uxDisplayAllLocationsRB";
+            this.uxDisplayAllLocationsRB.Size = new System.Drawing.Size(243, 29);
+            this.uxDisplayAllLocationsRB.TabIndex = 0;
+            this.uxDisplayAllLocationsRB.TabStop = true;
+            this.uxDisplayAllLocationsRB.Tag = "DisplayAllLocations";
+            this.uxDisplayAllLocationsRB.Text = "Display All Locations";
+            this.uxDisplayAllLocationsRB.UseVisualStyleBackColor = true;
+            // 
+            // uxSpecificDisplayLoc
+            // 
+            this.uxSpecificDisplayLoc.Controls.Add(this.uxDisplayUpcomingApptLocRB);
+            this.uxSpecificDisplayLoc.Controls.Add(this.uxDisplaySalesLocRB);
+            this.uxSpecificDisplayLoc.Controls.Add(this.uxDisplayInventoryLocRB);
+            this.uxSpecificDisplayLoc.Location = new System.Drawing.Point(563, 32);
+            this.uxSpecificDisplayLoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxSpecificDisplayLoc.Name = "uxSpecificDisplayLoc";
+            this.uxSpecificDisplayLoc.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxSpecificDisplayLoc.Size = new System.Drawing.Size(425, 232);
+            this.uxSpecificDisplayLoc.TabIndex = 5;
+            this.uxSpecificDisplayLoc.TabStop = false;
+            this.uxSpecificDisplayLoc.Text = "Specific Display";
+            // 
+            // uxDisplayUpcomingApptLocRB
+            // 
+            this.uxDisplayUpcomingApptLocRB.AutoSize = true;
+            this.uxDisplayUpcomingApptLocRB.Location = new System.Drawing.Point(17, 166);
+            this.uxDisplayUpcomingApptLocRB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplayUpcomingApptLocRB.Name = "uxDisplayUpcomingApptLocRB";
+            this.uxDisplayUpcomingApptLocRB.Size = new System.Drawing.Size(353, 29);
+            this.uxDisplayUpcomingApptLocRB.TabIndex = 3;
+            this.uxDisplayUpcomingApptLocRB.Tag = "DisplayUpcomingAppointments";
+            this.uxDisplayUpcomingApptLocRB.Text = "Display Upcoming Appointments";
+            this.uxDisplayUpcomingApptLocRB.UseVisualStyleBackColor = true;
+            this.uxDisplayUpcomingApptLocRB.Visible = false;
+            // 
+            // uxDisplaySalesLocRB
+            // 
+            this.uxDisplaySalesLocRB.AutoSize = true;
+            this.uxDisplaySalesLocRB.Location = new System.Drawing.Point(17, 51);
+            this.uxDisplaySalesLocRB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplaySalesLocRB.Name = "uxDisplaySalesLocRB";
+            this.uxDisplaySalesLocRB.Size = new System.Drawing.Size(174, 29);
+            this.uxDisplaySalesLocRB.TabIndex = 1;
+            this.uxDisplaySalesLocRB.Tag = "DisplaySales";
+            this.uxDisplaySalesLocRB.Text = "Display Sales";
+            this.uxDisplaySalesLocRB.UseVisualStyleBackColor = true;
+            // 
+            // uxDisplayInventoryLocRB
+            // 
+            this.uxDisplayInventoryLocRB.AutoSize = true;
+            this.uxDisplayInventoryLocRB.Location = new System.Drawing.Point(17, 109);
+            this.uxDisplayInventoryLocRB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplayInventoryLocRB.Name = "uxDisplayInventoryLocRB";
+            this.uxDisplayInventoryLocRB.Size = new System.Drawing.Size(208, 29);
+            this.uxDisplayInventoryLocRB.TabIndex = 0;
+            this.uxDisplayInventoryLocRB.TabStop = true;
+            this.uxDisplayInventoryLocRB.Tag = "DisplayInventory ";
+            this.uxDisplayInventoryLocRB.Text = "Display Inventory";
+            this.uxDisplayInventoryLocRB.UseVisualStyleBackColor = true;
+            // 
+            // uxExcecuteLocBttn
+            // 
+            this.uxExcecuteLocBttn.Location = new System.Drawing.Point(791, 315);
+            this.uxExcecuteLocBttn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxExcecuteLocBttn.Name = "uxExcecuteLocBttn";
+            this.uxExcecuteLocBttn.Size = new System.Drawing.Size(197, 69);
+            this.uxExcecuteLocBttn.TabIndex = 14;
+            this.uxExcecuteLocBttn.Text = "Excecute";
+            this.uxExcecuteLocBttn.UseVisualStyleBackColor = true;
+            this.uxExcecuteLocBttn.Click += new System.EventHandler(this.uxExcecuteLocBttn_Click);
+            // 
+            // uxDisplayQueryLocTB
+            // 
+            this.uxDisplayQueryLocTB.Location = new System.Drawing.Point(30, 401);
+            this.uxDisplayQueryLocTB.Multiline = true;
+            this.uxDisplayQueryLocTB.Name = "uxDisplayQueryLocTB";
+            this.uxDisplayQueryLocTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.uxDisplayQueryLocTB.Size = new System.Drawing.Size(1023, 191);
+            this.uxDisplayQueryLocTB.TabIndex = 15;
+            // 
             // ManagerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 880);
+            this.ClientSize = new System.Drawing.Size(1115, 880);
             this.Controls.Add(this.RebuildDBBtn);
             this.Controls.Add(this.uxTabControl);
             this.Controls.Add(this.DropDownListSelection);
@@ -520,6 +677,13 @@
             this.uxSpecificEmployeeDisplayGB.PerformLayout();
             this.uxGeneralEmployeeDisplayGB.ResumeLayout(false);
             this.uxGeneralEmployeeDisplayGB.PerformLayout();
+            this.uxLocationsPage.ResumeLayout(false);
+            this.uxLocationsPage.PerformLayout();
+            this.uxPartsPage.ResumeLayout(false);
+            this.uxGeneralDisplayLoc.ResumeLayout(false);
+            this.uxGeneralDisplayLoc.PerformLayout();
+            this.uxSpecificDisplayLoc.ResumeLayout(false);
+            this.uxSpecificDisplayLoc.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -561,5 +725,19 @@
         private System.Windows.Forms.RadioButton uxDisplaySpecificEmployeeRB;
         private System.Windows.Forms.RadioButton uxDisplayAllEmployeesRB;
         private System.Windows.Forms.RadioButton uxDisplayUpcomingApptEmpRB;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.TextBox uxDisplayQueryLocTB;
+        private System.Windows.Forms.Button uxExcecuteLocBttn;
+        private System.Windows.Forms.GroupBox uxSpecificDisplayLoc;
+        private System.Windows.Forms.RadioButton uxDisplayUpcomingApptLocRB;
+        private System.Windows.Forms.RadioButton uxDisplaySalesLocRB;
+        private System.Windows.Forms.RadioButton uxDisplayInventoryLocRB;
+        private System.Windows.Forms.GroupBox uxGeneralDisplayLoc;
+        private System.Windows.Forms.TextBox uxSelectLocTB;
+        private System.Windows.Forms.RadioButton uxDisplaySpecificLocationRB;
+        private System.Windows.Forms.RadioButton uxDisplayAllLocationsRB;
     }
 }
