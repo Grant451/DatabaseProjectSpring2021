@@ -11,7 +11,7 @@ namespace LocationData
         private string fvrvin;
 
         public FetchVinReportDataDelegate(string fvrvin)
-            : base("")
+            : base("AutoShop.FetchVinReport")
         {
             this.fvrvin = fvrvin;
         }
@@ -20,13 +20,24 @@ namespace LocationData
         {
             base.PrepareCommand(command);
 
-            var p = command.Parameters.Add("VinNumber", SqlDbType.Int);
+            var p = command.Parameters.Add("VinNumber", SqlDbType.NVarChar);
             p.Value = fvrvin;
         }
 
         public override IReadOnlyList<RepairHistory> Translate(SqlCommand command, IDataRowReader reader)
         {
-            throw new System.NotImplementedException();
+            var temp = new List<RepairHistory>();
+            while (reader.Read())
+            {
+                temp.Add(new RepairHistory(
+                    reader.GetInt32("CustomerID"),
+                    reader.GetString("CustomerName"),
+                    reader.GetInt32("RepairID"),
+                    reader.GetString("vinnumber")
+                          )
+                    );
+            }
+            return temp;
         }
     }
 }
