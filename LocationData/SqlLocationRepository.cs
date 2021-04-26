@@ -201,5 +201,10 @@ namespace LocationData
         {
             return executor.ExecuteReader(new FetchCustomerReportDataDelegate(fcrempName));
         }
+
+        public IReadOnlyList<RepairHistory> FetchVinReport(string fvrvin)
+        {
+            return executor.ExecuteReader(new FetchVinReportDataDelegate(fvrvin));
+        }
     }
 }

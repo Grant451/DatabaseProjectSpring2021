@@ -82,5 +82,8 @@ namespace LocationData
 
         //returns customerid, customername, repairid, vinnumber query 24:
         IReadOnlyList<RepairHistory> FetchCustomerReport(string fcrempName);
+
+        //returns customerid, customername, repairid, vinnumber query 25:
+        IReadOnlyList<RepairHistory> FetchVinReport(string fvrvin);
     }
 }

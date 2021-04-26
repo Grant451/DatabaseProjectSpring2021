@@ -418,13 +418,18 @@ namespace DatabaseProjectSpring2021
                 int blank6 = 0;
                 var fspylist = repo.FetchSalesPerYear(blank6);
                 //*/
+
+                ///*****query 24 FetchCustomerReport untested*****
+                string fcrempName = "Zeus Terry";
+                var fcrlist = repo.FetchCustomerReport(fcrempName);
+                //*/
             }
 
-
-            ///*****query 24 FetchCustomerReport untested*****
-            string fcrempName = "Zeus Terry";
-            var fcrlist = repo.FetchCustomerReport(fcrempName);
+            ///*****query 25 FetchVinReport untested*****
+            string fvrvin = "06434275099";
+            var fvrlist = repo.FetchVinReport(fvrvin);
             //*/
+
 
         }
 
