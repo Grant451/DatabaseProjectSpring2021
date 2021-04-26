@@ -85,5 +85,7 @@ namespace LocationData
 
         //returns customerid, customername, repairid, vinnumber query 25:
         IReadOnlyList<RepairHistory> FetchVinReport(string fvrvin);
+        //returns a list of all the hours and locations an employee works query 26:
+        IReadOnlyList<HourReport> FetchEmpoyeesByHours(string febhempName);
     }
 }
