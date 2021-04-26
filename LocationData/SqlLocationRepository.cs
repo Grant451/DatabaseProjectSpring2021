@@ -206,5 +206,10 @@ namespace LocationData
         {
             return executor.ExecuteReader(new FetchVinReportDataDelegate(fvrvin));
         }
+
+        public IReadOnlyList<HourReport> FetchEmpoyeesByHours(string febhempName)
+        {
+            return executor.ExecuteReader(new FetchEmpoyeesByHoursDataDelegate(febhempName));
+        }
     }
 }

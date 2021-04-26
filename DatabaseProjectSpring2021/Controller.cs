@@ -660,11 +660,16 @@ namespace DatabaseProjectSpring2021
                 string fcrempName = "Zeus Terry";
                 var fcrlist = repo.FetchCustomerReport(fcrempName);
                 //*/
+
+                ///*****query 25 FetchVinReport untested*****
+                string fvrvin = "06434275099";
+                var fvrlist = repo.FetchVinReport(fvrvin);
+                //*/
             }
 
-            ///*****query 25 FetchVinReport untested*****
-            string fvrvin = "06434275099";
-            var fvrlist = repo.FetchVinReport(fvrvin);
+            ///*****query 26 FetchEmpoyeesByHours untested*****
+            string febhempName = "Travis French";
+            var frbhlist = repo.FetchEmpoyeesByHours(febhempName);
             //*/
 
 

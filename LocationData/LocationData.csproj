@@ -70,11 +70,13 @@
     <Compile Include="DataDelegates\FetchSalesPerYearDataDelegate.cs" />
     <Compile Include="DataDelegates\FetchCustomerReportDataDelegate.cs" />
     <Compile Include="DataDelegates\FetchVinReportDataDelegate.cs" />
+    <Compile Include="DataDelegates\FetchEmpoyeesByHoursDataDelegate.cs" />
     <Compile Include="ILocationRepository.cs" />
     <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\EmployeeLocation.cs" />
     <Compile Include="Models\EmployeeRepair.cs" />
+    <Compile Include="Models\HourReport.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\LocationQuantity.cs" />
     <Compile Include="Models\PartSearch.cs" />
@@ -91,6 +93,7 @@
     <Content Include="Sql\Data\Location.Types.sql" />
     <Content Include="Sql\Data\testData.sql" />
     <Content Include="Sql\Procedures\FetchCustomerReport.sql" />
+    <Content Include="Sql\Procedures\FetchEmployeesByHours.sql" />
     <Content Include="Sql\Procedures\FetchVinReport.sql" />
     <Content Include="Sql\Procedures\FetchSalesPerYear.sql" />
     <Content Include="Sql\Procedures\FetchAllEmployees.sql" />
