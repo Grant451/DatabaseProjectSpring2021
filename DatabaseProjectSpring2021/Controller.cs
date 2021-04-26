@@ -28,10 +28,9 @@ namespace DatabaseProjectSpring2021
 
         //Exceute Queries Supported in Customer Tab
         //public List<string> CustomerTabQueries(string generalQuery, string specificQuery)
-        public StringBuilder CustomerTabQueries(string generalQuery, string specificQuery, string input)
+        public string[][] CustomerTabQueries(string generalQuery, string specificQuery, string input)
         {
-            StringBuilder result = new StringBuilder();
-            string newLine = Environment.NewLine;
+            string[][] result = new string[2][];
 
             switch (generalQuery)
             {
@@ -42,20 +41,20 @@ namespace DatabaseProjectSpring2021
                         try
                         {
                             var queryResult = repo.FetchRepeatRepairs(0);
+                            result = new string[queryResult.Count + 1][];
 
-                            string header = String.Format("{0,-40} {1,-40} {2, 10} \n\n", "Customer Name", "Repair Name", "Times Repaired");
-                            result.Append(header + newLine + newLine);
+                            string[] header = new string[3] { "Customer Name", "Repair Name", "Times Repaired" };
+                            result[0] = header;
 
-                            foreach (var r in queryResult)
+                            for (int i = 0; i < queryResult.Count; i++)
                             {
-                                string repair = String.Format("{0,-40} {1,-40} {2, 10} \n", r.CustomerName.ToString(), r.RepairName.ToString(), r.TimesRepaired.ToString());
-                                result.Append(repair + newLine);
-                                result.Append(newLine);
+                                string[] repair = new string[3] { queryResult[i].CustomerName, queryResult[i].RepairName, queryResult[i].TimesRepaired.ToString() };
+                                result[i + 1] = repair;
                             }
                         }
                         catch (Exception)
                         {
-                            result.Append("No repeated repairs");
+                            result[1] = new string[1] { "No repeated repairs" };
                         }
                         
                     }
@@ -65,20 +64,21 @@ namespace DatabaseProjectSpring2021
                         try
                         {
                             var queryResult = repo.RetrieveCustomers();
+                            result = new string[queryResult.Count + 1][];
 
-                            string header = String.Format("{0,-31} {1,-27} {2, -35} \n\n", "Customer Id", "Customer Name", "Vin Number");
-                            result.Append(header + newLine + newLine);
+                            string[] header = new string[3] { "Customer Id", "Customer Name", "Vin Number" };
+                            result[0] = header;
 
-                            foreach (var c in queryResult)
+                            for (int i = 0; i < queryResult.Count; i++)
                             {
-                                string customer = String.Format("{0,-35} {1,-35} {2, -35} \n", c.CustomerID.ToString(), c.CustomerName.ToString(), c.VinNumber.ToString());
-                                result.Append(customer + newLine);
+                                string[] customer = new string[3] { queryResult[i].CustomerID.ToString(), queryResult[i].CustomerName, queryResult[i].VinNumber.ToString() };
+                                result[i + 1] = customer;
 
                             }
                         }
                         catch (Exception)
                         {
-                            result.Append("No customers :(");
+                            result[1] = new string[1] { "No customers :(" };
                         }
                         
                     }
@@ -91,21 +91,22 @@ namespace DatabaseProjectSpring2021
                         try
                         {
                             var queryResult = repo.FetchRepeatRepairsSpecific(input);
+                            result = new string[queryResult.Count + 1][];
 
-                            string header = String.Format("{0,-40} {1, 10} \n\n", "Repai rName", "Times Repaired");
-                            result.Append(header + newLine + newLine);
+                            string[] header = new string[2] { "Repair Name", "Times Repaired" };
+                            result[0] = header;
 
-                            foreach (var r in queryResult)
+                            for (int i = 0; i < queryResult.Count; i++)
                             {
-                                string repair = String.Format("{0, -40} {1, 10} \n", r.RepairName.ToString(), r.RepeatRepairs.ToString());
-                                result.Append(repair + newLine);
+                                string[] repair = new string[2] { queryResult[i].RepairName, queryResult[i].RepeatRepairs.ToString() };
+                                result[i + 1] = repair;
 
                             }
                         }
                         catch (Exception e)
                         {
-                            Console.WriteLine(e.Message);
-                            result.Append("No repeated repairs for " + input);
+                            string msg = "No repeated repairs for " + input;
+                            result[1] = new string[1] { msg };
                         }
                     }
                     else if (specificQuery == "DisplayPastRepairs")
@@ -114,14 +115,15 @@ namespace DatabaseProjectSpring2021
                         try
                         {
                             var queryResult = repo.FetchRepairHistoryCustomer(input);
+                            result = new string[queryResult.Count + 1][];
 
-                            string header = String.Format("{0,-40} \n\n", "Repair Name");
-                            result.Append(header + newLine + newLine);
-                            
-                            foreach (var r in queryResult)
+                            string[] header = new string[2] { "Customer Name", "Repair Name" };
+                            result[0] = header;
+
+                            for (int i = 0; i < queryResult.Count; i++)
                             {
-                                string repair = String.Format("{0, -40} \n", r.RepairName.ToString());
-                                result.Append(repair + newLine);
+                                string[] repair = new string[2] { input, queryResult[i].RepairName };
+                                result[i + 1] = repair;
                             }
                             
 
@@ -129,7 +131,7 @@ namespace DatabaseProjectSpring2021
                         }
                         catch (Exception)
                         {
-                            result.Append("No past repairs for " + input);
+                            result[1] = new string[1] { "No past repairs for " + input };
                         }
                         
                         
@@ -154,19 +156,20 @@ namespace DatabaseProjectSpring2021
                         try
                         {
                             var queryResult = repo.FetchRepairHistoryVehicle(input);
+                            result = new string[queryResult.Count + 1][];
 
-                            string header = String.Format("{0,-40} \n\n", "Repair Name");
-                            result.Append(header + newLine + newLine);
+                            string[] header = new string[2] { "CustomerName", "Repair Name" };
+                            result[0] = header;
 
-                            foreach (var r in queryResult)
+                            for (int i = 0; i < queryResult.Count; i++)
                             {
-                                string repair = String.Format("{0, -40} \n", r.CustomerName.ToString());
-                                result.Append(repair + newLine);
+                                string[] repair = new string[2] { input, queryResult[i].CustomerName };
+                                result[i + 1] = repair;
                             }
                         }
                         catch (Exception)
                         {
-                            result.Append("No past repairs for " + input);
+                            result[1] = new string[1] { "No past repairs for " + input };
                         }
 
 

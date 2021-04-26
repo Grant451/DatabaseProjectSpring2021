@@ -152,7 +152,7 @@ namespace DatabaseProjectSpring2021
         private void radioButtonS_CheckedChanged(object sender, EventArgs e)
         {
             // Empty query result text box
-            uxDisplayQueryCusTB.Text = "";
+            uxDisplayQueryCus.Clear();
             uxDisplayQueryEmp.Clear();
             uxDisplayQueryLoc.Items.Clear();
 
@@ -222,7 +222,7 @@ namespace DatabaseProjectSpring2021
         private void ClearTB()
         {
             // Customer
-            uxDisplayQueryCusTB.Text = "";
+            uxDisplayQueryCus.Clear();
             uxSelectCusTB.Text = "";
             uxSelectVehicleTB.Text = "";
 
@@ -263,7 +263,7 @@ namespace DatabaseProjectSpring2021
         private void uxExcecuteCusButtn_Click(object sender, EventArgs e)
         {
             // Empty query result text box
-            uxDisplayQueryCusTB.Text = "";
+            uxDisplayQueryCus.Clear();
             string rb1 = "";
             string rb2 = "";
             string input = "";
@@ -278,11 +278,27 @@ namespace DatabaseProjectSpring2021
             else if (uxSelectVehicleTB.Text != "")
                 input = uxSelectVehicleTB.Text;
 
-            // the string returned by the query
-            String queryResult = "";
+            uxDisplayQueryCus.View = View.Details;
 
-            queryResult = master.CustomerTabQueries(rb1, rb2, input).ToString();
-            uxDisplayQueryCusTB.AppendText(queryResult);
+            string[][] queryResult;
+            queryResult = master.CustomerTabQueries(rb1, rb2, input);
+
+            if (queryResult[0] == null)
+                return;
+
+            // calculate col width based on number of headings
+            int colWidth = (1055 / 2) / queryResult[0].Length;
+            // set columns
+            for (int i = 0; i < queryResult[0].Length; i++)
+            {
+                uxDisplayQueryCus.Columns.Add(queryResult[0][i], colWidth);
+            }
+
+            foreach (string[] arr in queryResult.Skip(1))
+            {
+                ListViewItem itm = new ListViewItem(arr);
+                uxDisplayQueryCus.Items.Add(itm);
+            }
 
         }
 
