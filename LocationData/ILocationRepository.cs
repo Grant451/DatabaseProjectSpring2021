@@ -21,7 +21,7 @@ namespace LocationData
         IReadOnlyList<Customer> RetrieveCustomers();
 
         //Query 1 Fetch part information:
-        PartSearch FetchPartInformation(string streetAddress, string partName);
+        IReadOnlyList<PartSearch> FetchPartInformation(string partName);
 
         //repair history query 2:
         IReadOnlyList<Repair> RetrieveRepairs();

@@ -76,10 +76,9 @@ namespace LocationData
             return executor.ExecuteReader(d);
         }
 
-        public PartSearch FetchPartInformation(string streetAddress, string partName)
+        public IReadOnlyList<PartSearch> FetchPartInformation(string partName)
         {
-            var d = new FetchPartInformationDataDelegate(streetAddress, partName);
-            return executor.ExecuteReader(d);
+            return executor.ExecuteReader(new FetchPartInformationDataDelegate(partName));
         }
 
         public IReadOnlyList<RepairHistory> FetchRepairHistoryCustomer(string custname)

@@ -14,6 +14,14 @@ namespace LocationData.Models
         public string Price { get; }
         public string QuantityStatus { get; }
 
+        //constructor for q1
+        internal PartSearch( int quantity, string price, string streetAddress)
+        {
+            StreetAddress = streetAddress;
+            Quantity = quantity;
+            Price = price;
+        }
+
         internal PartSearch(string partname, int quantity, string quantityStatus)
         {
             Quantity = quantity;
@@ -29,6 +37,7 @@ namespace LocationData.Models
             QuantityStatus = quantityStatus;
         }
 
+        
         internal PartSearch(int quantity, string price)
         {
             Quantity = quantity;
@@ -40,5 +49,6 @@ namespace LocationData.Models
             PartName = partName;
             Price = price;
         }
+        
     }
 }
