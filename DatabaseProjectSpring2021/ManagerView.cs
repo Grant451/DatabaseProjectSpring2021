@@ -59,6 +59,13 @@ namespace DatabaseProjectSpring2021
             this.uxDisplayInventoryLocRB.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
             this.uxDisplaySalesLocRB.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
             this.uxDisplayUpcomingApptLocRB.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
+
+            // General Repairs RB
+            this.uxDisplayPart.CheckedChanged += new EventHandler(radioButtonG_CheckedChanged);
+            this.uxDisplayRepair.CheckedChanged += new EventHandler(radioButtonG_CheckedChanged);
+            //Specific Repairs RB
+            this.uxDisplayPrice.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
+            this.uxDisplayQuantity.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
         }
 
         private void InitializeTextBox()
@@ -144,7 +151,23 @@ namespace DatabaseProjectSpring2021
                     {
                         uxSelectLocTB.Visible = false;
                     }
-
+                }
+                else if (currentView == "Repairs")
+                {
+                    if (selectedrbGeneral.Tag.ToString() == "DisplayPart")
+                    {
+                        uxSelectPartTB.Visible = true;
+                        uxDisplayPrice.Visible = true;
+                        uxDisplayQuantity.Visible = true;
+                        uxSelectRepairTB.Visible = false;
+                    }
+                    else
+                    {
+                        uxSelectRepairTB.Visible = true;
+                        uxSelectPartTB.Visible = false;
+                        uxDisplayPrice.Visible = false;
+                        uxDisplayQuantity.Visible = false;
+                    }
                 }
             }
         }
@@ -184,6 +207,9 @@ namespace DatabaseProjectSpring2021
                 case 2:
                     currentView = "Locations";
                     break;
+                case 3:
+                    currentView = "Repairs";
+                    break;
             }     
         }
 
@@ -200,6 +226,10 @@ namespace DatabaseProjectSpring2021
             //Location
             uxDisplayAllLocationsRB.Checked = false;
             uxDisplaySpecificLocationRB.Checked = false;
+
+            // Repair
+            uxDisplayPart.Checked = false;
+            uxDisplayRepair.Checked = false;
         }
 
         private void ClearSpecificRB()
@@ -217,6 +247,10 @@ namespace DatabaseProjectSpring2021
             uxDisplayInventoryLocRB.Checked = false;
             uxDisplaySalesLocRB.Checked = false;
             uxDisplayUpcomingApptLocRB.Checked = false;
+
+            //Repair
+            uxDisplayPrice.Checked = false;
+            uxDisplayQuantity.Checked = false;
         }
 
         private void ClearTB()
@@ -381,5 +415,42 @@ namespace DatabaseProjectSpring2021
             }
         }
 
+        private void uxExcecuteRepBttn_Click(object sender, EventArgs e)
+        {
+            // Empty query result text box
+            uxDisplayQueryRep.Clear();
+            string rb1 = "";
+            string rb2 = "";
+            string input = "";
+
+            if (selectedrbGeneral != null)
+                rb1 = selectedrbGeneral.Tag.ToString();
+            if (selectedrbSpecific != null)
+                rb2 = selectedrbSpecific.Tag.ToString();
+
+            if (uxSelectLocTB.Text != "")
+                input = uxSelectLocTB.Text;
+
+            uxDisplayQueryLoc.View = View.Details;
+
+            string[][] queryResult;
+            queryResult = master.RepairTabQueries(rb1, rb2, input);
+
+            if (queryResult[0] == null)
+                return;
+            // calculate col width based on number of headings
+            int colWidth = (1055 / 2) / queryResult[0].Length;
+            // set columns
+            for (int i = 0; i < queryResult[0].Length; i++)
+            {
+                uxDisplayQueryLoc.Columns.Add(queryResult[0][i], colWidth);
+            }
+
+            foreach (string[] arr in queryResult.Skip(1))
+            {
+                ListViewItem itm = new ListViewItem(arr);
+                uxDisplayQueryLoc.Items.Add(itm);
+            }
+        }
     }
 }

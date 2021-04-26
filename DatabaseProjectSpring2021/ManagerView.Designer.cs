@@ -73,6 +73,16 @@
             this.uxReportsPage = new System.Windows.Forms.TabPage();
             this.RebuildDBBtn = new System.Windows.Forms.Button();
             this.uxDisplayQueryCus = new System.Windows.Forms.ListView();
+            this.uxGeneralDisplayRep = new System.Windows.Forms.GroupBox();
+            this.uxSelectRepairTB = new System.Windows.Forms.TextBox();
+            this.uxDisplayRepair = new System.Windows.Forms.RadioButton();
+            this.uxDisplayPart = new System.Windows.Forms.RadioButton();
+            this.uxExcecuteRepBttn = new System.Windows.Forms.Button();
+            this.uxSpecificDisplayRep = new System.Windows.Forms.GroupBox();
+            this.uxDisplayPrice = new System.Windows.Forms.RadioButton();
+            this.uxDisplayQueryRep = new System.Windows.Forms.ListView();
+            this.uxSelectPartTB = new System.Windows.Forms.TextBox();
+            this.uxDisplayQuantity = new System.Windows.Forms.RadioButton();
             this.uxTabControl.SuspendLayout();
             this.uxCustomersPage.SuspendLayout();
             this.uxSpecificDisplayCustomerGB.SuspendLayout();
@@ -83,6 +93,9 @@
             this.uxLocationsPage.SuspendLayout();
             this.uxSpecificDisplayLoc.SuspendLayout();
             this.uxGeneralDisplayLoc.SuspendLayout();
+            this.uxPartsPage.SuspendLayout();
+            this.uxGeneralDisplayRep.SuspendLayout();
+            this.uxSpecificDisplayRep.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnsearch
@@ -591,6 +604,10 @@
             // 
             // uxPartsPage
             // 
+            this.uxPartsPage.Controls.Add(this.uxDisplayQueryRep);
+            this.uxPartsPage.Controls.Add(this.uxSpecificDisplayRep);
+            this.uxPartsPage.Controls.Add(this.uxExcecuteRepBttn);
+            this.uxPartsPage.Controls.Add(this.uxGeneralDisplayRep);
             this.uxPartsPage.Location = new System.Drawing.Point(8, 43);
             this.uxPartsPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uxPartsPage.Name = "uxPartsPage";
@@ -631,6 +648,124 @@
             this.uxDisplayQueryCus.TabIndex = 17;
             this.uxDisplayQueryCus.UseCompatibleStateImageBehavior = false;
             // 
+            // uxGeneralDisplayRep
+            // 
+            this.uxGeneralDisplayRep.Controls.Add(this.uxSelectPartTB);
+            this.uxGeneralDisplayRep.Controls.Add(this.uxSelectRepairTB);
+            this.uxGeneralDisplayRep.Controls.Add(this.uxDisplayRepair);
+            this.uxGeneralDisplayRep.Controls.Add(this.uxDisplayPart);
+            this.uxGeneralDisplayRep.Location = new System.Drawing.Point(49, 32);
+            this.uxGeneralDisplayRep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxGeneralDisplayRep.Name = "uxGeneralDisplayRep";
+            this.uxGeneralDisplayRep.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxGeneralDisplayRep.Size = new System.Drawing.Size(425, 232);
+            this.uxGeneralDisplayRep.TabIndex = 5;
+            this.uxGeneralDisplayRep.TabStop = false;
+            this.uxGeneralDisplayRep.Text = "General Display";
+            // 
+            // uxSelectRepairTB
+            // 
+            this.uxSelectRepairTB.Location = new System.Drawing.Point(51, 166);
+            this.uxSelectRepairTB.Name = "uxSelectRepairTB";
+            this.uxSelectRepairTB.Size = new System.Drawing.Size(238, 31);
+            this.uxSelectRepairTB.TabIndex = 3;
+            this.uxSelectRepairTB.Text = "Enter Repair Name";
+            this.uxSelectRepairTB.Visible = false;
+            // 
+            // uxDisplayRepair
+            // 
+            this.uxDisplayRepair.AutoSize = true;
+            this.uxDisplayRepair.Location = new System.Drawing.Point(17, 122);
+            this.uxDisplayRepair.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplayRepair.Name = "uxDisplayRepair";
+            this.uxDisplayRepair.Size = new System.Drawing.Size(183, 29);
+            this.uxDisplayRepair.TabIndex = 1;
+            this.uxDisplayRepair.Tag = "DisplayRepair";
+            this.uxDisplayRepair.Text = "Display Repair";
+            this.uxDisplayRepair.UseVisualStyleBackColor = true;
+            // 
+            // uxDisplayPart
+            // 
+            this.uxDisplayPart.AutoSize = true;
+            this.uxDisplayPart.Location = new System.Drawing.Point(17, 42);
+            this.uxDisplayPart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplayPart.Name = "uxDisplayPart";
+            this.uxDisplayPart.Size = new System.Drawing.Size(159, 29);
+            this.uxDisplayPart.TabIndex = 0;
+            this.uxDisplayPart.TabStop = true;
+            this.uxDisplayPart.Tag = "DisplayPart";
+            this.uxDisplayPart.Text = "Display Part";
+            this.uxDisplayPart.UseVisualStyleBackColor = true;
+            // 
+            // uxExcecuteRepBttn
+            // 
+            this.uxExcecuteRepBttn.Location = new System.Drawing.Point(791, 315);
+            this.uxExcecuteRepBttn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxExcecuteRepBttn.Name = "uxExcecuteRepBttn";
+            this.uxExcecuteRepBttn.Size = new System.Drawing.Size(197, 69);
+            this.uxExcecuteRepBttn.TabIndex = 13;
+            this.uxExcecuteRepBttn.Text = "Excecute";
+            this.uxExcecuteRepBttn.UseVisualStyleBackColor = true;
+            this.uxExcecuteRepBttn.Click += new System.EventHandler(this.uxExcecuteRepBttn_Click);
+            // 
+            // uxSpecificDisplayRep
+            // 
+            this.uxSpecificDisplayRep.Controls.Add(this.uxDisplayQuantity);
+            this.uxSpecificDisplayRep.Controls.Add(this.uxDisplayPrice);
+            this.uxSpecificDisplayRep.Location = new System.Drawing.Point(563, 32);
+            this.uxSpecificDisplayRep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxSpecificDisplayRep.Name = "uxSpecificDisplayRep";
+            this.uxSpecificDisplayRep.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxSpecificDisplayRep.Size = new System.Drawing.Size(425, 157);
+            this.uxSpecificDisplayRep.TabIndex = 14;
+            this.uxSpecificDisplayRep.TabStop = false;
+            this.uxSpecificDisplayRep.Text = "Specific Display";
+            // 
+            // uxDisplayPrice
+            // 
+            this.uxDisplayPrice.AutoSize = true;
+            this.uxDisplayPrice.Location = new System.Drawing.Point(17, 51);
+            this.uxDisplayPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplayPrice.Name = "uxDisplayPrice";
+            this.uxDisplayPrice.Size = new System.Drawing.Size(169, 29);
+            this.uxDisplayPrice.TabIndex = 1;
+            this.uxDisplayPrice.Tag = "DisplayPrice";
+            this.uxDisplayPrice.Text = "Display Price";
+            this.uxDisplayPrice.UseVisualStyleBackColor = true;
+            this.uxDisplayPrice.Visible = false;
+            // 
+            // uxDisplayQueryRep
+            // 
+            this.uxDisplayQueryRep.GridLines = true;
+            this.uxDisplayQueryRep.HideSelection = false;
+            this.uxDisplayQueryRep.Location = new System.Drawing.Point(6, 402);
+            this.uxDisplayQueryRep.Name = "uxDisplayQueryRep";
+            this.uxDisplayQueryRep.Size = new System.Drawing.Size(1055, 287);
+            this.uxDisplayQueryRep.TabIndex = 16;
+            this.uxDisplayQueryRep.UseCompatibleStateImageBehavior = false;
+            // 
+            // uxSelectPartTB
+            // 
+            this.uxSelectPartTB.Location = new System.Drawing.Point(51, 82);
+            this.uxSelectPartTB.Name = "uxSelectPartTB";
+            this.uxSelectPartTB.Size = new System.Drawing.Size(238, 31);
+            this.uxSelectPartTB.TabIndex = 4;
+            this.uxSelectPartTB.Text = "Enter Part Name";
+            this.uxSelectPartTB.Visible = false;
+            // 
+            // uxDisplayQuantity
+            // 
+            this.uxDisplayQuantity.AutoSize = true;
+            this.uxDisplayQuantity.Location = new System.Drawing.Point(17, 109);
+            this.uxDisplayQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplayQuantity.Name = "uxDisplayQuantity";
+            this.uxDisplayQuantity.Size = new System.Drawing.Size(200, 29);
+            this.uxDisplayQuantity.TabIndex = 2;
+            this.uxDisplayQuantity.Tag = "DisplayQuantity";
+            this.uxDisplayQuantity.Text = "Display Quantity";
+            this.uxDisplayQuantity.UseVisualStyleBackColor = true;
+            this.uxDisplayQuantity.Visible = false;
+            // 
             // ManagerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -663,6 +798,11 @@
             this.uxSpecificDisplayLoc.PerformLayout();
             this.uxGeneralDisplayLoc.ResumeLayout(false);
             this.uxGeneralDisplayLoc.PerformLayout();
+            this.uxPartsPage.ResumeLayout(false);
+            this.uxGeneralDisplayRep.ResumeLayout(false);
+            this.uxGeneralDisplayRep.PerformLayout();
+            this.uxSpecificDisplayRep.ResumeLayout(false);
+            this.uxSpecificDisplayRep.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -714,5 +854,15 @@
         private System.Windows.Forms.ListView uxDisplayQueryLoc;
         private System.Windows.Forms.ListView uxDisplayQueryEmp;
         private System.Windows.Forms.ListView uxDisplayQueryCus;
+        private System.Windows.Forms.ListView uxDisplayQueryRep;
+        private System.Windows.Forms.GroupBox uxSpecificDisplayRep;
+        private System.Windows.Forms.RadioButton uxDisplayPrice;
+        private System.Windows.Forms.Button uxExcecuteRepBttn;
+        private System.Windows.Forms.GroupBox uxGeneralDisplayRep;
+        private System.Windows.Forms.TextBox uxSelectPartTB;
+        private System.Windows.Forms.TextBox uxSelectRepairTB;
+        private System.Windows.Forms.RadioButton uxDisplayRepair;
+        private System.Windows.Forms.RadioButton uxDisplayPart;
+        private System.Windows.Forms.RadioButton uxDisplayQuantity;
     }
 }

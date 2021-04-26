@@ -501,7 +501,54 @@ namespace DatabaseProjectSpring2021
             }
             return result;
         }
-        public string[] GetLocation()
+
+        public string[][] RepairTabQueries(string generalQuery, string specificQuery, string input)
+        {
+            string[][] result = new string[2][];
+            switch (generalQuery)
+            {
+                case ("Display Part"):
+                    if (specificQuery == "Display Price")
+                    {
+                        //FetchPartInformaiton --minus quantity
+                        try
+                        {
+                            var queryResult = repo.FetchPart(input);
+
+                            string[] header = new string[3] { "Location Address", "Quantity", "Quantity Status" };
+                            result[0] = header;
+
+                            for (int i = 0; i < queryResult.Count; i++)
+                            {
+                                string[] loc = new string[] { input, queryResult[i].Quantity.ToString(), queryResult[i].QuantityStatus };
+                                result[i + 1] = loc;
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            result[1] = (new string[] { "No sales to display for " + input });
+                        }
+                        break;
+                    }
+                    else if (specificQuery == "")
+                    {
+                        //FetchPart
+                    }
+                    break;
+                case ("Display Repair"):
+                    if (specificQuery == "Display Price")
+                    {
+                        //get price of repair **not complete
+                    }
+                    else if (specificQuery == "")
+                    {
+                        //FetchRepairParts
+                    }
+                    break;
+            }
+            return result;
+        }
+            public string[] GetLocation()
          {
             //This is a test
             int val = 0;
