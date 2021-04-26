@@ -17,17 +17,15 @@ namespace DatabaseProjectSpring2021
         private RadioButton selectedrbGeneral;
         private RadioButton selectedrbSpecific;
         private string currentView = "Customers";
-        //private TextBox textBox;
 
         public ManagerView()
         {
-            master = new Controller();//set up the controller
+            master = new Controller(); // set up the controller
             master.SetQueries();
             InitializeComponent();
             InitializeRadioButtons();
             InitializeTextBox();
 
-            //textBox = uxDisplayQueryCusTB
         }
 
         private void InitializeComboBox()
@@ -53,6 +51,14 @@ namespace DatabaseProjectSpring2021
             this.uxDisplayRepairCountsEmpRB.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
             this.uxDisplayLocationEmpRB.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
             this.uxDisplayUpcomingApptEmpRB.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
+
+            // General Location RB
+            this.uxDisplayAllLocationsRB.CheckedChanged += new EventHandler(radioButtonG_CheckedChanged);
+            this.uxDisplaySpecificLocationRB.CheckedChanged += new EventHandler(radioButtonG_CheckedChanged);
+            // Specific Location RB
+            this.uxDisplayInventoryLocRB.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
+            this.uxDisplaySalesLocRB.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
+            this.uxDisplayUpcomingApptLocRB.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
         }
 
         private void InitializeTextBox()
@@ -62,25 +68,20 @@ namespace DatabaseProjectSpring2021
 
         private void radioButtonG_CheckedChanged(object sender, EventArgs e)
         {
-            // Empty query result text box
-            uxDisplayQueryCusTB.Text = "";
-            uxDisplayQueryEmpTB.Text = "";
-            // Empty customer name text box
-            uxSelectCusTB.Text = "";
-            // Empty vin Number text box
-            uxSelectVehicleTB.Text = "";
-
+            ClearTB();
+            
             RadioButton rb = sender as RadioButton;
             if (rb.Checked)
             {
                 selectedrbGeneral = rb;
 
+                selectedrbSpecific = null;
 
-                if(currentView == "Customers")
+                ClearSpecificRB();
+
+
+                if (currentView == "Customers")
                 {
-                    selectedrbSpecific = null;
-                    uxDisplayPastRepairsCusRB.Checked = false;
-                    uxDisplayRepeatedRepairsCusRB.Checked = false;
 
                     if (selectedrbGeneral.Tag.ToString() == "DisplaySpecificCustomer")
                     {
@@ -114,10 +115,6 @@ namespace DatabaseProjectSpring2021
                 
                 else if (currentView == "Employees")
                 {
-                    selectedrbSpecific = null;
-                    uxDisplayPastRepairsEmpRB.Checked = false;
-                    uxDisplayLocationEmpRB.Checked = false;
-                    uxDisplayRepairCountsEmpRB.Checked = false;
 
                     if (selectedrbGeneral.Tag.ToString() == "DisplayAllEmployees")
                     {
@@ -136,6 +133,19 @@ namespace DatabaseProjectSpring2021
                         uxDisplayPastRepairsEmpRB.Visible = true;
                     }
                 }
+                else if (currentView == "Locations")
+                { 
+
+                    if (selectedrbGeneral.Tag.ToString() == "DisplaySpecificLocation")
+                    {
+                        uxSelectLocTB.Visible = true;
+                    }
+                    else
+                    {
+                        uxSelectLocTB.Visible = false;
+                    }
+
+                }
             }
         }
 
@@ -143,7 +153,9 @@ namespace DatabaseProjectSpring2021
         {
             // Empty query result text box
             uxDisplayQueryCusTB.Text = "";
-            uxDisplayQueryEmpTB.Text = "";
+            uxDisplayQueryEmp.Clear();
+            uxDisplayQueryLoc.Items.Clear();
+
             RadioButton rb = sender as RadioButton;
             if (rb.Checked)
             {
@@ -154,11 +166,16 @@ namespace DatabaseProjectSpring2021
 
         private void textBox_Changed(object sender, TabControlEventArgs e)
         {
+            // Uncheck all buttons and clear all text boxes
+            // Customer
+            ClearGeneralRB();
+            ClearSpecificRB();
+            ClearTB();
+            
             int index = e.TabPageIndex;
             switch (index)
             {
                 case 0:
-                    //textBox = uxDisplayQueryCusTB;
                     currentView = "Customers";
                     break;
                 case 1:
@@ -170,6 +187,53 @@ namespace DatabaseProjectSpring2021
             }     
         }
 
+        private void ClearGeneralRB()
+        {
+            // Customer
+            uxDisplayAllCustomersRB.Checked = false;
+            uxDisplaySpecificCustomerRB.Checked = false;
+
+            // Employee
+            uxDisplayAllEmployeesRB.Checked = false;
+            uxDisplaySpecificEmployeeRB.Checked = false;
+
+            //Location
+            uxDisplayAllLocationsRB.Checked = false;
+            uxDisplaySpecificLocationRB.Checked = false;
+        }
+
+        private void ClearSpecificRB()
+        {
+            // Customer
+            uxDisplayPastRepairsCusRB.Checked = false;
+            uxDisplayRepeatedRepairsCusRB.Checked = false;
+
+            // Employee 
+            uxDisplayPastRepairsEmpRB.Checked = false;
+            uxDisplayLocationEmpRB.Checked = false;
+            uxDisplayRepairCountsEmpRB.Checked = false;
+
+            // Location 
+            uxDisplayInventoryLocRB.Checked = false;
+            uxDisplaySalesLocRB.Checked = false;
+            uxDisplayUpcomingApptLocRB.Checked = false;
+        }
+
+        private void ClearTB()
+        {
+            // Customer
+            uxDisplayQueryCusTB.Text = "";
+            uxSelectCusTB.Text = "";
+            uxSelectVehicleTB.Text = "";
+
+            // Employee
+            uxDisplayQueryEmp.Clear();
+            uxSelectEmpTB.Text = "";
+
+            // Location
+            uxDisplayQueryLoc.Clear();
+            uxSelectLocTB.Text = "";
+        }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -225,7 +289,7 @@ namespace DatabaseProjectSpring2021
         private void uxExcecuteEmpBttn_Click(object sender, EventArgs e)
         {
             // Empty query result text box
-            uxDisplayQueryEmpTB.Text = "";
+            uxDisplayQueryEmp.Clear();
             string rb1 = "";
             string rb2 = "";
             string input = "";
@@ -238,22 +302,35 @@ namespace DatabaseProjectSpring2021
             if (uxSelectEmpTB.Text != "")
                 input = uxSelectEmpTB.Text;
 
-            // the string returned by the query
-            List<string> queryResult = new List<string>();
+            uxDisplayQueryEmp.View = View.Details;
 
+            string[][] queryResult;
             queryResult = master.EmployeeTabQueries(rb1, rb2, input);
 
-            foreach (string s in queryResult)
-            {
-                uxDisplayQueryEmpTB.AppendText(s);
+            if (queryResult[0] == null)
+                return;
 
+            // calculate col width based on number of headings
+            int colWidth = (1055 / 2) / queryResult[0].Length;
+            // set columns
+            for (int i = 0; i < queryResult[0].Length; i++)
+            {
+                uxDisplayQueryEmp.Columns.Add(queryResult[0][i], colWidth);
             }
+
+            foreach (string[] arr in queryResult.Skip(1))
+            {
+                ListViewItem itm = new ListViewItem(arr);
+                uxDisplayQueryEmp.Items.Add(itm);
+            }
+
+            
         }
 
         private void uxExcecuteLocBttn_Click(object sender, EventArgs e)
         {
             // Empty query result text box
-            uxDisplayQueryLocTB.Text = "";
+            uxDisplayQueryLoc.Clear();
             string rb1 = "";
             string rb2 = "";
             string input = "";
@@ -263,15 +340,30 @@ namespace DatabaseProjectSpring2021
             if (selectedrbSpecific != null)
                 rb2 = selectedrbSpecific.Tag.ToString();
 
-            if (uxSelectEmpTB.Text != "")
-                input = uxSelectEmpTB.Text;
+            if (uxSelectLocTB.Text != "")
+                input = uxSelectLocTB.Text;
 
-            // the string returned by the query
-            string queryResult = "";
+            uxDisplayQueryLoc.View = View.Details;
 
-            queryResult = master.LocationTabQueries(rb1, rb2, input).ToString();
+            string[][] queryResult;
+            queryResult = master.LocationTabQueries(rb1, rb2, input);
 
-            uxDisplayQueryLocTB.AppendText(queryResult);
+            if (queryResult[0] == null)
+                return;
+            // calculate col width based on number of headings
+            int colWidth = (1055/2) / queryResult[0].Length;
+            // set columns
+            for (int i = 0; i < queryResult[0].Length; i++)
+            {
+                uxDisplayQueryLoc.Columns.Add(queryResult[0][i], colWidth);
+            }
+            
+            foreach (string[] arr in queryResult.Skip(1))
+            {
+                ListViewItem itm = new ListViewItem(arr);
+                uxDisplayQueryLoc.Items.Add(itm);
+            }
         }
+
     }
 }

@@ -181,10 +181,9 @@ namespace DatabaseProjectSpring2021
             return result;
         }
         
-        public List<string> EmployeeTabQueries(string generalQuery, string specificQuery, string input)
+        public string[][] EmployeeTabQueries(string generalQuery, string specificQuery, string input)
         {
-            List<string> result = new List<string>();
-            string newLine = Environment.NewLine;
+            string[][] result = new string[2][];
 
             switch (generalQuery)
             {
@@ -199,20 +198,21 @@ namespace DatabaseProjectSpring2021
                             try
                             {
                                 var queryResult = repo.FetchAllEmployeeRepairCounts(0);
+                                result = new string[queryResult.Count + 1][];
 
-                                string header = String.Format("{0,-30} {1, -30} {2, 30} \n", "Employee Name", "Number Of Repairs Completed", "Number Of Repairs In Progress");
-                                result.Add(header + newLine + newLine);
+                                string[] header = new string[3] { "Employee Name", "Number Of Repairs Completed", "Number Of Repairs In Progress" };
+                                result[0] = header;
 
-                                foreach (var r in queryResult)
+                                for (int i = 0; i < queryResult.Count; i++)
                                 {
-                                    string repair = String.Format("{0,-30} {1,-30:N0} {2,30:N0} \n", r.EmployeeName.ToString(), r.RepairsCompleted, r.RepairsInProgress);
-                                    result.Add(repair + newLine);
+                                    string[] repair = new string[3] { queryResult[i].EmployeeName.ToString(), queryResult[i].RepairsCompleted.ToString(), queryResult[i].RepairsInProgress.ToString() };
+                                    result[i + 1] = repair;
                                     //Console.WriteLine(repair);
                                 }
                             }
                             catch (Exception)
                             {
-                                result.Add("No repairs completed or in progress");
+                                result[1] = (new string[] { "No repairs completed or in progress" });
                             }
                             break;
                         case ("DisplayLocation"):
@@ -226,19 +226,20 @@ namespace DatabaseProjectSpring2021
                             try
                             {
                                 var queryResult = repo.FetchAllEmployees(0);
+                                result = new string[queryResult.Count + 1][];
 
-                                string header = String.Format("{0,-40} \n", "Employee Name");
-                                result.Add(header + newLine + newLine);
+                                string[] header = new string[1] { "Employee Name" };
+                                result[0] = header;
 
-                                foreach (var r in queryResult)
+                                for (int i = 0; i < queryResult.Count; i++)
                                 {
-                                    string repair = String.Format("{0,-40} \n", r.EmployeeName.ToString());
-                                    result.Add(repair + newLine);
+                                    string[] repair = new string[1] { queryResult[i].EmployeeName };
+                                    result[i + 1] = repair;
                                 }
                             }
                             catch (Exception)
                             {
-                                result.Add("No employees to display");
+                                result[1] = (new string[] { "No employees to display" });
                             }
                             break;
                     }
@@ -251,19 +252,21 @@ namespace DatabaseProjectSpring2021
                             try
                             {
                                 var queryResult = repo.FetchRepairHistoryEmployee(input);
+                                result = new string[queryResult.Count + 1][];
 
-                                string header = String.Format("{0,-40} {1,-40}\n", "Employee Name", "Repair Name");
-                                result.Add(header + newLine + newLine);
+                                string[] header = new string[2] { "Employee Name", "Repair Name" };
+                                result[0] = header;
 
-                                foreach (var r in queryResult)
+
+                                for (int i = 0; i < queryResult.Count; i++)
                                 {
-                                    string repair = String.Format("{0,-40} {1,-40}\n", input, r.RepairName.ToString());
-                                    result.Add(repair + newLine);
+                                    string[] repair = new string[2] { input, queryResult[i].RepairName };
+                                    result[i + 1] = repair;
                                 }
                             }
                             catch (Exception)
                             {
-                                result.Add("No past repairs for " + input);
+                                result[1] = (new string[] { "No past repairs for " + input });
                             }
                             break;
                         case ("DisplayRepairCounts"):
@@ -271,19 +274,24 @@ namespace DatabaseProjectSpring2021
                             try
                             {
                                 var queryResult = repo.FetchEmployeeRepairCounts(input);
-
-                                string header = String.Format("{0,-30} {1,-38} {2,-40}\n", "Employee Name", "Number Of Repairs Completed", "Number Of Repairs In Progress");
-                                result.Add(header + newLine + newLine);
-
-                                foreach (var r in queryResult)
+                                if(queryResult == null)
                                 {
-                                    string repair = String.Format("{0,-30} {1,-40} {2,-40}\n", input, r.RepairsCompleted, r.RepairsInProgress);
-                                    result.Add(repair + newLine);
+                                    throw new Exception();
+                                }
+                                result = new string[queryResult.Count + 1][];
+
+                                string[] header = new string[3] { "Employee Name", "Number Of Repairs Completed", "Number Of Repairs In Progress" };
+                                result[0] = header;
+
+                                for (int i = 0; i < queryResult.Count; i++)
+                                {
+                                    string[] repair = new string[3] { input, queryResult[i].RepairsCompleted.ToString(), queryResult[i].RepairsInProgress.ToString() };
+                                    result[i + 1] = repair;
                                 }
                             }
                             catch (Exception)
                             {
-                                result.Add("No completed or in progress repaird for " + input);
+                                result[1] = (new string[] { "No completed or in progress repaird for " + input });
                             }
                             break;
                         case ("DisplayLocation"):
@@ -291,19 +299,21 @@ namespace DatabaseProjectSpring2021
                             try
                             {
                                 var queryResult = repo.FetchEmployeeLocation(input);
+                                result = new string[queryResult.Count + 1][];
 
-                                string header = String.Format("{0,-30} {1,-35} {2,-20} {3,-20} {4,-10}\n", "Employee Name", "Street Address", "City", "Region", "Zip");
-                                result.Add(header + newLine + newLine);
+                                string[] header = new string[5] { "Employee Name", "Street Address", "City", "Region", "Zip" };
+                                result[0] = header;
 
-                                foreach (var r in queryResult)
+
+                                for (int i = 0; i < queryResult.Count; i++)
                                 {
-                                    string repair = String.Format("{0,-30} {1,-35} {2,-20} {3,-20} {4,-10}\n", input, r.StreetAddress, r.City, r.Region, r.Zip);
-                                    result.Add(repair + newLine);
+                                    string[] repair = new string[5] { input, queryResult[i].StreetAddress, queryResult[i].City, queryResult[i].Region, queryResult[i].Zip };
+                                    result[i + 1] = repair;
                                 }
                             }
                             catch (Exception)
                             {
-                                result.Add("No location for " + input);
+                                result[1] = (new string[] { "No location for " + input });
                             }
                             break;
                         case ("DisplayUpcomingAppointments"):
@@ -318,10 +328,9 @@ namespace DatabaseProjectSpring2021
             return result;
         }
 
-        public StringBuilder LocationTabQueries(string generalQuery, string specificQuery, string input)
+        public string[][] LocationTabQueries(string generalQuery, string specificQuery, string input)
         {
-            StringBuilder result = new StringBuilder();
-            string newLine = Environment.NewLine;
+            string[][] result = new string[2][];
 
             switch (generalQuery)
             {
@@ -333,19 +342,22 @@ namespace DatabaseProjectSpring2021
                             try
                             {
                                 var queryResult = repo.FetchSales(0);
+                                result = new string[queryResult.Count + 1][];
 
-                                string header = String.Format("{0,-30} {1,-35} {2,-20} {3,-20} {4,-10}\n", "Location Address", "Sales");
-                                result.Append(header + newLine + newLine);
+                                string[] header = new string[2] { "Location Address", "Sales" };
+                                result[0] = header;
 
-                                foreach (var l in queryResult)
+
+                                for (int i = 0; i < queryResult.Count; i++)
                                 {
-                                    string loc = String.Format("{0,-30} ${1,-5:N2} \n", l.StreetAddress, l.Sales);
-                                    result.Append(loc + newLine);
+                                    string sales = "$" + queryResult[i].Sales.ToString();
+                                    string[] loc = new string[2] { queryResult[i].StreetAddress,  sales};
+                                    result[i + 1] = loc;
                                 }
                             }
                             catch (Exception)
                             {
-                                result.Append("No sales to display");
+                                result[1] = (new string[] { "No sales to display" });
                             }
                             break;
                         case ("DisplayInventory"):
@@ -353,23 +365,47 @@ namespace DatabaseProjectSpring2021
                             try
                             {
                                 var queryResult = repo.FetchInventory(0);
+                                result = new string[queryResult.Count + 1][];
 
-                                string header = String.Format("{0,-30} {0,-30} {2,-35}", "Location Address", "Quantity", "Quantity Status");
-                                result.Append(header + newLine + newLine);
+                                string [] header = new string[3]{"Location Address", "Quantity", "Quantity Status"};
+                                result[0] = header;
 
-                                foreach (var l in queryResult)
+
+                                for (int i = 0; i < queryResult.Count; i++)
                                 {
-                                    string loc = String.Format("{0,-30} ${1,-5:N2}, {2,-35}", l.StreetAddress, l.Quantity, l.QuantityStatus);
-                                    result.Append(loc + newLine);
+                                    string[] loc = new string[3] { queryResult[i].StreetAddress, queryResult[i].Quantity.ToString(), queryResult[i].QuantityStatus };
+                                    result[i + 1] = loc;
                                 }
                             }
                             catch (Exception)
                             {
-                                result.Append("No sales to display");
+                                result[1] = (new string[] { "No inventory to display" });
                             }
                             break;
                         case ("DisplayUpcomingAppointments"):
                             //**not complete
+                            break;
+                        case (""):
+                            //FetchAllLocationsAddress
+                            try
+                            {
+                                var queryResult = repo.FetchAllLocationsAddress(0);
+                                result = new string[queryResult.Count + 1][];
+
+                                string[] header = new string[1] { "Location Address" };
+                                result[0] = header;
+
+
+                                for (int i = 0; i < queryResult.Count; i++)
+                                {
+                                    string[] loc = new string[1] { queryResult[i].StreetAddress };
+                                    result[i + 1] = loc;
+                                }
+                            }
+                            catch (Exception)
+                            {
+                                result[1] = (new string[] { "No locations to display" });
+                            }
                             break;
                     }
                     break;
@@ -382,33 +418,56 @@ namespace DatabaseProjectSpring2021
                             {
                                 var queryResult = repo.FetchSalesSpecific(input);
 
-                                string header = String.Format("{0,-30} {1,-5}", "Location Address", "Sales");
-                                result.Append(header + newLine + newLine);
+                                string[] header = new string[2] { "Location Address", "Sales" };
+                                result[0] = header;
 
-                                foreach (var l in queryResult)
+                                if (queryResult[1] == null)
+                                    throw new Exception();
+
+                                for (int i = 0; i < queryResult.Count; i++)
                                 {
-                                    string loc = String.Format("{0,-30} ${1,-5:N2}", input, l.Sales);
-                                    result.Append(loc + newLine);
+                                    string sales = "$" + queryResult[i].Sales.ToString();
+                                    string[] loc = new string[] { input,  sales};
+                                    result[i + 1] = loc;
                                 }
                             }
                             catch (Exception)
                             {
-                                result.Append("No sales for " + input);
+                                result[1] = (new string[] { "No sales for " + input });
                             }
                             break;
                         case ("DisplayInventory"):
                             //FetchInventorySpecific
+                            try
+                            {
+                                var queryResult = repo.FetchInventorySpecific(input);
+
+                                string[] header = new string[3] { "Location Address", "Quantity", "Quantity Status" };
+                                result[0] = header;
+
+                                for (int i = 0; i < queryResult.Count; i++)
+                                {
+                                    string[] loc = new string[] { input, queryResult[i].Quantity.ToString(), queryResult[i].QuantityStatus };
+                                    result[i + 1] = loc;
+                                }
+                            }
+                            catch (Exception)
+                            {
+                                result[1] = (new string[] { "No sales to display for " + input });
+                            }
                             break;
                         case ("DisplayUpcomingAppointments"):
                             //**not complete
+                            break;
+                        case (""):
+                            //Dispaly Specific Location
                             break;
                     }
                     break;
             }
             return result;
         }
-
-         public string[] GetLocation()
+        public string[] GetLocation()
          {
             //This is a test
             int val = 0;
