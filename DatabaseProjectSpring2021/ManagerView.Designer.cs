@@ -42,20 +42,34 @@
             this.uxDisplayRepeatedRepairsCusRB = new System.Windows.Forms.RadioButton();
             this.uxDisplayPastRepairsCusRB = new System.Windows.Forms.RadioButton();
             this.uxGeneralCustomerDisplayGB = new System.Windows.Forms.GroupBox();
+            this.uxSelectVehicleTB = new System.Windows.Forms.TextBox();
             this.uxSelectCusTB = new System.Windows.Forms.TextBox();
             this.uxDisplaySpecificVehicleRB = new System.Windows.Forms.RadioButton();
             this.uxDisplaySpecificCustomerRB = new System.Windows.Forms.RadioButton();
             this.uxDisplayAllCustomersRB = new System.Windows.Forms.RadioButton();
             this.uxEmployeesPage = new System.Windows.Forms.TabPage();
+            this.uxDisplayQueryEmpTB = new System.Windows.Forms.TextBox();
+            this.uxExcecuteEmpBttn = new System.Windows.Forms.Button();
+            this.uxSpecificEmployeeDisplayGB = new System.Windows.Forms.GroupBox();
+            this.uxDisplayUpcomingApptEmpRB = new System.Windows.Forms.RadioButton();
+            this.uxDisplayLocationEmpRB = new System.Windows.Forms.RadioButton();
+            this.uxDisplayPastRepairsEmpRB = new System.Windows.Forms.RadioButton();
+            this.uxDisplayRepairCountsEmpRB = new System.Windows.Forms.RadioButton();
+            this.uxGeneralEmployeeDisplayGB = new System.Windows.Forms.GroupBox();
+            this.uxSelectEmpTB = new System.Windows.Forms.TextBox();
+            this.uxDisplaySpecificEmployeeRB = new System.Windows.Forms.RadioButton();
+            this.uxDisplayAllEmployeesRB = new System.Windows.Forms.RadioButton();
             this.uxLocationsPage = new System.Windows.Forms.TabPage();
             this.uxPartsPage = new System.Windows.Forms.TabPage();
             this.uxReportsPage = new System.Windows.Forms.TabPage();
             this.RebuildDBBtn = new System.Windows.Forms.Button();
-            this.uxSelectVehicleTB = new System.Windows.Forms.TextBox();
             this.uxTabControl.SuspendLayout();
             this.uxCustomersPage.SuspendLayout();
             this.uxSpecificDisplayCustomerGB.SuspendLayout();
             this.uxGeneralCustomerDisplayGB.SuspendLayout();
+            this.uxEmployeesPage.SuspendLayout();
+            this.uxSpecificEmployeeDisplayGB.SuspendLayout();
+            this.uxGeneralEmployeeDisplayGB.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnsearch
@@ -143,7 +157,7 @@
             // 
             // uxExcecuteCusButtn
             // 
-            this.uxExcecuteCusButtn.Location = new System.Drawing.Point(791, 298);
+            this.uxExcecuteCusButtn.Location = new System.Drawing.Point(791, 315);
             this.uxExcecuteCusButtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uxExcecuteCusButtn.Name = "uxExcecuteCusButtn";
             this.uxExcecuteCusButtn.Size = new System.Drawing.Size(197, 69);
@@ -230,6 +244,15 @@
             this.uxGeneralCustomerDisplayGB.TabStop = false;
             this.uxGeneralCustomerDisplayGB.Text = "General Display";
             // 
+            // uxSelectVehicleTB
+            // 
+            this.uxSelectVehicleTB.Location = new System.Drawing.Point(52, 246);
+            this.uxSelectVehicleTB.Name = "uxSelectVehicleTB";
+            this.uxSelectVehicleTB.Size = new System.Drawing.Size(238, 31);
+            this.uxSelectVehicleTB.TabIndex = 4;
+            this.uxSelectVehicleTB.Text = "Enter Vin Number";
+            this.uxSelectVehicleTB.Visible = false;
+            // 
             // uxSelectCusTB
             // 
             this.uxSelectCusTB.Location = new System.Drawing.Point(52, 151);
@@ -278,6 +301,10 @@
             // 
             // uxEmployeesPage
             // 
+            this.uxEmployeesPage.Controls.Add(this.uxDisplayQueryEmpTB);
+            this.uxEmployeesPage.Controls.Add(this.uxExcecuteEmpBttn);
+            this.uxEmployeesPage.Controls.Add(this.uxSpecificEmployeeDisplayGB);
+            this.uxEmployeesPage.Controls.Add(this.uxGeneralEmployeeDisplayGB);
             this.uxEmployeesPage.Location = new System.Drawing.Point(8, 43);
             this.uxEmployeesPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uxEmployeesPage.Name = "uxEmployeesPage";
@@ -286,6 +313,139 @@
             this.uxEmployeesPage.TabIndex = 1;
             this.uxEmployeesPage.Text = "Employees";
             this.uxEmployeesPage.UseVisualStyleBackColor = true;
+            // 
+            // uxDisplayQueryEmpTB
+            // 
+            this.uxDisplayQueryEmpTB.Location = new System.Drawing.Point(30, 401);
+            this.uxDisplayQueryEmpTB.Multiline = true;
+            this.uxDisplayQueryEmpTB.Name = "uxDisplayQueryEmpTB";
+            this.uxDisplayQueryEmpTB.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.uxDisplayQueryEmpTB.Size = new System.Drawing.Size(985, 191);
+            this.uxDisplayQueryEmpTB.TabIndex = 14;
+            // 
+            // uxExcecuteEmpBttn
+            // 
+            this.uxExcecuteEmpBttn.Location = new System.Drawing.Point(791, 315);
+            this.uxExcecuteEmpBttn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxExcecuteEmpBttn.Name = "uxExcecuteEmpBttn";
+            this.uxExcecuteEmpBttn.Size = new System.Drawing.Size(197, 69);
+            this.uxExcecuteEmpBttn.TabIndex = 13;
+            this.uxExcecuteEmpBttn.Text = "Excecute";
+            this.uxExcecuteEmpBttn.UseVisualStyleBackColor = true;
+            // 
+            // uxSpecificEmployeeDisplayGB
+            // 
+            this.uxSpecificEmployeeDisplayGB.Controls.Add(this.uxDisplayUpcomingApptEmpRB);
+            this.uxSpecificEmployeeDisplayGB.Controls.Add(this.uxDisplayLocationEmpRB);
+            this.uxSpecificEmployeeDisplayGB.Controls.Add(this.uxDisplayPastRepairsEmpRB);
+            this.uxSpecificEmployeeDisplayGB.Controls.Add(this.uxDisplayRepairCountsEmpRB);
+            this.uxSpecificEmployeeDisplayGB.Location = new System.Drawing.Point(563, 32);
+            this.uxSpecificEmployeeDisplayGB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxSpecificEmployeeDisplayGB.Name = "uxSpecificEmployeeDisplayGB";
+            this.uxSpecificEmployeeDisplayGB.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxSpecificEmployeeDisplayGB.Size = new System.Drawing.Size(425, 262);
+            this.uxSpecificEmployeeDisplayGB.TabIndex = 4;
+            this.uxSpecificEmployeeDisplayGB.TabStop = false;
+            this.uxSpecificEmployeeDisplayGB.Text = "Specific Display";
+            // 
+            // uxDisplayUpcomingApptEmpRB
+            // 
+            this.uxDisplayUpcomingApptEmpRB.AutoSize = true;
+            this.uxDisplayUpcomingApptEmpRB.Location = new System.Drawing.Point(17, 216);
+            this.uxDisplayUpcomingApptEmpRB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplayUpcomingApptEmpRB.Name = "uxDisplayUpcomingApptEmpRB";
+            this.uxDisplayUpcomingApptEmpRB.Size = new System.Drawing.Size(353, 29);
+            this.uxDisplayUpcomingApptEmpRB.TabIndex = 3;
+            this.uxDisplayUpcomingApptEmpRB.Tag = "DisplayUpcomingAppointments";
+            this.uxDisplayUpcomingApptEmpRB.Text = "Display Upcoming Appointments";
+            this.uxDisplayUpcomingApptEmpRB.UseVisualStyleBackColor = true;
+            this.uxDisplayUpcomingApptEmpRB.Visible = false;
+            // 
+            // uxDisplayLocationEmpRB
+            // 
+            this.uxDisplayLocationEmpRB.AutoSize = true;
+            this.uxDisplayLocationEmpRB.Location = new System.Drawing.Point(17, 160);
+            this.uxDisplayLocationEmpRB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplayLocationEmpRB.Name = "uxDisplayLocationEmpRB";
+            this.uxDisplayLocationEmpRB.Size = new System.Drawing.Size(202, 29);
+            this.uxDisplayLocationEmpRB.TabIndex = 2;
+            this.uxDisplayLocationEmpRB.Tag = "DisplayLocation";
+            this.uxDisplayLocationEmpRB.Text = "Display Location";
+            this.uxDisplayLocationEmpRB.UseVisualStyleBackColor = true;
+            this.uxDisplayLocationEmpRB.Visible = false;
+            // 
+            // uxDisplayPastRepairsEmpRB
+            // 
+            this.uxDisplayPastRepairsEmpRB.AutoSize = true;
+            this.uxDisplayPastRepairsEmpRB.Location = new System.Drawing.Point(17, 51);
+            this.uxDisplayPastRepairsEmpRB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplayPastRepairsEmpRB.Name = "uxDisplayPastRepairsEmpRB";
+            this.uxDisplayPastRepairsEmpRB.Size = new System.Drawing.Size(243, 29);
+            this.uxDisplayPastRepairsEmpRB.TabIndex = 1;
+            this.uxDisplayPastRepairsEmpRB.Tag = "DisplayPastRepairs";
+            this.uxDisplayPastRepairsEmpRB.Text = "Display Past Repairs";
+            this.uxDisplayPastRepairsEmpRB.UseVisualStyleBackColor = true;
+            // 
+            // uxDisplayRepairCountsEmpRB
+            // 
+            this.uxDisplayRepairCountsEmpRB.AutoSize = true;
+            this.uxDisplayRepairCountsEmpRB.Location = new System.Drawing.Point(17, 106);
+            this.uxDisplayRepairCountsEmpRB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplayRepairCountsEmpRB.Name = "uxDisplayRepairCountsEmpRB";
+            this.uxDisplayRepairCountsEmpRB.Size = new System.Drawing.Size(257, 29);
+            this.uxDisplayRepairCountsEmpRB.TabIndex = 0;
+            this.uxDisplayRepairCountsEmpRB.TabStop = true;
+            this.uxDisplayRepairCountsEmpRB.Tag = "DisplayRepairCounts";
+            this.uxDisplayRepairCountsEmpRB.Text = "Display Repair Counts";
+            this.uxDisplayRepairCountsEmpRB.UseVisualStyleBackColor = true;
+            // 
+            // uxGeneralEmployeeDisplayGB
+            // 
+            this.uxGeneralEmployeeDisplayGB.Controls.Add(this.uxSelectEmpTB);
+            this.uxGeneralEmployeeDisplayGB.Controls.Add(this.uxDisplaySpecificEmployeeRB);
+            this.uxGeneralEmployeeDisplayGB.Controls.Add(this.uxDisplayAllEmployeesRB);
+            this.uxGeneralEmployeeDisplayGB.Location = new System.Drawing.Point(49, 32);
+            this.uxGeneralEmployeeDisplayGB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxGeneralEmployeeDisplayGB.Name = "uxGeneralEmployeeDisplayGB";
+            this.uxGeneralEmployeeDisplayGB.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxGeneralEmployeeDisplayGB.Size = new System.Drawing.Size(425, 232);
+            this.uxGeneralEmployeeDisplayGB.TabIndex = 3;
+            this.uxGeneralEmployeeDisplayGB.TabStop = false;
+            this.uxGeneralEmployeeDisplayGB.Text = "General Display";
+            // 
+            // uxSelectEmpTB
+            // 
+            this.uxSelectEmpTB.Location = new System.Drawing.Point(52, 151);
+            this.uxSelectEmpTB.Name = "uxSelectEmpTB";
+            this.uxSelectEmpTB.Size = new System.Drawing.Size(238, 31);
+            this.uxSelectEmpTB.TabIndex = 3;
+            this.uxSelectEmpTB.Text = "Enter Employee Name";
+            this.uxSelectEmpTB.Visible = false;
+            // 
+            // uxDisplaySpecificEmployeeRB
+            // 
+            this.uxDisplaySpecificEmployeeRB.AutoSize = true;
+            this.uxDisplaySpecificEmployeeRB.Location = new System.Drawing.Point(17, 106);
+            this.uxDisplaySpecificEmployeeRB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplaySpecificEmployeeRB.Name = "uxDisplaySpecificEmployeeRB";
+            this.uxDisplaySpecificEmployeeRB.Size = new System.Drawing.Size(297, 29);
+            this.uxDisplaySpecificEmployeeRB.TabIndex = 1;
+            this.uxDisplaySpecificEmployeeRB.Tag = "DisplaySpecificEmployee";
+            this.uxDisplaySpecificEmployeeRB.Text = "Display Specific Employee";
+            this.uxDisplaySpecificEmployeeRB.UseVisualStyleBackColor = true;
+            // 
+            // uxDisplayAllEmployeesRB
+            // 
+            this.uxDisplayAllEmployeesRB.AutoSize = true;
+            this.uxDisplayAllEmployeesRB.Location = new System.Drawing.Point(17, 42);
+            this.uxDisplayAllEmployeesRB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplayAllEmployeesRB.Name = "uxDisplayAllEmployeesRB";
+            this.uxDisplayAllEmployeesRB.Size = new System.Drawing.Size(256, 29);
+            this.uxDisplayAllEmployeesRB.TabIndex = 0;
+            this.uxDisplayAllEmployeesRB.TabStop = true;
+            this.uxDisplayAllEmployeesRB.Tag = "DisplayAllEmployees";
+            this.uxDisplayAllEmployeesRB.Text = "Display All Employees";
+            this.uxDisplayAllEmployeesRB.UseVisualStyleBackColor = true;
             // 
             // uxLocationsPage
             // 
@@ -330,15 +490,6 @@
             this.RebuildDBBtn.Text = "Rebuild DB";
             this.RebuildDBBtn.UseVisualStyleBackColor = true;
             // 
-            // uxSelectVehicleTB
-            // 
-            this.uxSelectVehicleTB.Location = new System.Drawing.Point(52, 246);
-            this.uxSelectVehicleTB.Name = "uxSelectVehicleTB";
-            this.uxSelectVehicleTB.Size = new System.Drawing.Size(238, 31);
-            this.uxSelectVehicleTB.TabIndex = 4;
-            this.uxSelectVehicleTB.Text = "Enter Vin Number";
-            this.uxSelectVehicleTB.Visible = false;
-            // 
             // ManagerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -351,6 +502,7 @@
             this.Controls.Add(this.lblstatus);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.btnsearch);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ManagerView";
             this.Text = "Manager View";
@@ -361,6 +513,12 @@
             this.uxSpecificDisplayCustomerGB.PerformLayout();
             this.uxGeneralCustomerDisplayGB.ResumeLayout(false);
             this.uxGeneralCustomerDisplayGB.PerformLayout();
+            this.uxEmployeesPage.ResumeLayout(false);
+            this.uxEmployeesPage.PerformLayout();
+            this.uxSpecificEmployeeDisplayGB.ResumeLayout(false);
+            this.uxSpecificEmployeeDisplayGB.PerformLayout();
+            this.uxGeneralEmployeeDisplayGB.ResumeLayout(false);
+            this.uxGeneralEmployeeDisplayGB.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -391,5 +549,16 @@
         private System.Windows.Forms.TextBox uxSelectCusTB;
         private System.Windows.Forms.TextBox uxDisplayQueryCusTB;
         private System.Windows.Forms.TextBox uxSelectVehicleTB;
+        private System.Windows.Forms.TextBox uxDisplayQueryEmpTB;
+        private System.Windows.Forms.Button uxExcecuteEmpBttn;
+        private System.Windows.Forms.GroupBox uxSpecificEmployeeDisplayGB;
+        private System.Windows.Forms.RadioButton uxDisplayLocationEmpRB;
+        private System.Windows.Forms.RadioButton uxDisplayPastRepairsEmpRB;
+        private System.Windows.Forms.RadioButton uxDisplayRepairCountsEmpRB;
+        private System.Windows.Forms.GroupBox uxGeneralEmployeeDisplayGB;
+        private System.Windows.Forms.TextBox uxSelectEmpTB;
+        private System.Windows.Forms.RadioButton uxDisplaySpecificEmployeeRB;
+        private System.Windows.Forms.RadioButton uxDisplayAllEmployeesRB;
+        private System.Windows.Forms.RadioButton uxDisplayUpcomingApptEmpRB;
     }
 }

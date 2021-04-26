@@ -30,7 +30,6 @@ namespace DatabaseProjectSpring2021
         //public List<string> CustomerTabQueries(string generalQuery, string specificQuery)
         public StringBuilder CustomerTabQueries(string generalQuery, string specificQuery, string input)
         {
-            //List<string> result = new List<string>();
             StringBuilder result = new StringBuilder();
             string newLine = Environment.NewLine;
 
@@ -182,6 +181,54 @@ namespace DatabaseProjectSpring2021
             return result;
         }
 
+        public StringBuilder EmployeeTabQueries(string generalQuery, string specificQuery, string input)
+        {
+            StringBuilder result = new StringBuilder();
+            string newLine = Environment.NewLine;
+
+            switch (generalQuery)
+            {
+                case ("DisplayAllEmployees"):
+                    switch (specificQuery)
+                    {
+                        case ("DisplayPastRepairs"):
+                            //FetchAllRepairHistoryEmployee **not complete
+                            break;
+                        case ("DisplayRepairCounts"):
+                            //FetchAllEmployeeRepairCounts
+                            break;
+                        case ("DisplayLocation"):
+                            //FetchAllEmployeeLocation **not complete
+                            break;
+                        case ("DisplayUpcomingAppointments"):
+                            break;
+                        case (""):
+                            //FetchAllEmployees
+                            break;
+                    }
+                    break;
+                case ("DisplaySpecificEmployee"):
+                    switch (specificQuery)
+                    {
+                        case ("DisplayPastRepairs"):
+                            //FetchRepairHistoryEmployee
+                            break;
+                        case ("DisplayRepairCounts"):
+                            //FetchEmployeeRepairCounts
+                            break;
+                        case ("DisplayLocation"):
+                            //FetchEmployeeLocation
+                            break;
+                        case ("DisplayUpcomingAppointments"):
+                            break;
+                        case (""):
+                            //FetchAllEmployees
+                            break;
+                    }
+                    break;
+            }
+            return result;
+        }
 
         public string[] GetLocation()
          {
