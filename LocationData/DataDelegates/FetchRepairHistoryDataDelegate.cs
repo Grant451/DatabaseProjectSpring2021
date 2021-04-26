@@ -2,10 +2,11 @@
 using LocationData.Models;
 using System.Data;
 using System.Data.SqlClient;
+using System.Collections.Generic;
 
 namespace LocationData
 {
-    internal class FetchRepairHistoryDataDelegate : DataReaderDelegate<RepairHistory>
+    internal class FetchRepairHistoryDataDelegate : DataReaderDelegate<IReadOnlyList<RepairHistory>>
     {
         private readonly string CustomerName;
 
@@ -23,15 +24,18 @@ namespace LocationData
             p.Value = CustomerName;
         }
 
-        public override RepairHistory Translate(SqlCommand command, IDataRowReader reader)
+        public override IReadOnlyList<RepairHistory> Translate(SqlCommand command, IDataRowReader reader)
         {
-            if (!reader.Read())
-                throw new RecordNotFoundException(CustomerName.ToString());
-
-            return new RepairHistory(
+            var temp = new List<RepairHistory>();
+            while (reader.Read())
+            {
+                temp.Add(new RepairHistory(
                     CustomerName,
                     reader.GetString("RepairName")
+                          )
                     );
+            }
+            return temp;
         }
     }
 }

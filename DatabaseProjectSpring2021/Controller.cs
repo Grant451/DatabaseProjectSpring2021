@@ -28,7 +28,7 @@ namespace DatabaseProjectSpring2021
 
         //Exceute Queries Supported in Customer Tab
         //public List<string> CustomerTabQueries(string generalQuery, string specificQuery)
-        public StringBuilder CustomerTabQueries(string generalQuery, string specificQuery)
+        public StringBuilder CustomerTabQueries(string generalQuery, string specificQuery, string input)
         {
             //List<string> result = new List<string>();
             StringBuilder result = new StringBuilder();
@@ -40,55 +40,110 @@ namespace DatabaseProjectSpring2021
                     if (specificQuery == "DisplayRepeatedRepairs")
                     {
                         //FetchRepeatedRepairs
-                        var queryresult = repo.FetchRepeatRepairs(0);
-                        
-                        string header = String.Format("{0,-40} {1,-40} {2, 10} \n\n", "CustomerName", "RepairName", "TimesRepaired");
-                        result.Append(header);
-                        result.Append(newLine);
-
-                        foreach (var r in queryresult)
+                        try
                         {
-                            result.Append(String.Format("{0,-40} {1,-40} {2, 10} \n", r.CustomerName.ToString(), r.RepairName.ToString(), r.TimesRepaired.ToString()));
-                            //result.Append(repair);
-                            result.Append(newLine);
-                            //Console.WriteLine(repair);
+                            var queryResult = repo.FetchRepeatRepairs(0);
+
+                            string header = String.Format("{0,-40} {1,-40} {2, 10} \n\n", "CustomerName", "RepairName", "TimesRepaired");
+                            result.Append(header + newLine + newLine);
+
+                            foreach (var r in queryResult)
+                            {
+                                string repair = String.Format("{0,-40} {1,-40} {2, 10} \n", r.CustomerName.ToString(), r.RepairName.ToString(), r.TimesRepaired.ToString());
+                                result.Append(repair + newLine);
+                                result.Append(newLine);
+                            }
                         }
+                        catch (Exception)
+                        {
+                            result.Append("No repeated repairs");
+                        }
+                        
                     }
                     else if (specificQuery == "")
                     {
                         //RetrieveCustomers -- fetch all customers
-                        var queryresult = repo.RetrieveCustomers();
-                        
-                        string header = String.Format("{0,-31} {1,-27} {2, -35} \n\n", "CustomerId", "CustomerName", "VinNumber");
-                        result.Append(header);
-                        result.Append(newLine);
-                        foreach (var c in queryresult)
+                        try
                         {
-                            string customer =  String.Format("{0,-35} {1,-35} {2, -35} \n", c.CustomerID.ToString(), c.CustomerName.ToString(), c.VinNumber.ToString());
-                            result.Append(customer);
-                            result.Append(newLine);
+                            var queryResult = repo.RetrieveCustomers();
 
+                            string header = String.Format("{0,-31} {1,-27} {2, -35} \n\n", "CustomerId", "CustomerName", "VinNumber");
+                            result.Append(header + newLine + newLine);
+
+                            foreach (var c in queryResult)
+                            {
+                                string customer = String.Format("{0,-35} {1,-35} {2, -35} \n", c.CustomerID.ToString(), c.CustomerName.ToString(), c.VinNumber.ToString());
+                                result.Append(customer + newLine);
+
+                            }
                         }
+                        catch (Exception)
+                        {
+                            result.Append("No customers :(");
+                        }
+                        
                     }
                     break;
 
                 case ("DisplaySpecificCustomer"):
                     if (specificQuery == "DisplayRepeatedRepairs")
                     {
-                        //FetchRepeatedRepairsSpecific
+                        //FetchRepeatedRepairsSpecific --Roth Mullins
+                        try
+                        {
+                            var queryResult = repo.FetchRepeatRepairsSpecific(input);
+
+                            string header = String.Format("{0,-40} {1, 10} \n\n", "RepairName", "TimesRepaired");
+                            result.Append(header + newLine + newLine);
+
+                            foreach (var r in queryResult)
+                            {
+                                string repair = String.Format("{0, -40} {1, 10} \n", r.RepairName.ToString(), r.RepeatRepairs.ToString());
+                                result.Append(repair + newLine);
+
+                            }
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                            result.Append("No repeated repairs for " + input);
+                        }
                     }
                     else if (specificQuery == "DisplayPastRepairs")
                     {
-                        //FetchRepairHistoryCustomer
+                        // FetchRepairHistoryCustomer
+                        try
+                        {
+                            var queryResult = repo.FetchRepairHistoryCustomer(input);
+
+                            string header = String.Format("{0,-40} \n\n", "RepairName");
+                            result.Append(header + newLine + newLine);
+                            
+                            foreach (var r in queryResult)
+                            {
+                                string repair = String.Format("{0, -40} \n", r.RepairName.ToString());
+                                result.Append(repair + newLine);
+                            }
+                            
+
+                            
+                        }
+                        catch (Exception)
+                        {
+                            result.Append("No past repairs for " + input);
+                        }
+                        
+                        
                     }
                     else if (specificQuery == "DisplayUpcomingAppointments")
                     {
                         //FetchUpcomingAppointmentsCustomer **not complete
+                        //var queryResult = repo.FetchUpcomingAppointmentsCustomer(input);
                     }
                     else if (specificQuery == "")
                     {
-                        //RetrieveSpecificCustomer -- Fetch specific customer
-                        
+                        //RetrieveSpecificCustomer -- Fetch specific customer ** not complete
+                        //var queryResult = repo.RetrieveSpecificCustomer(input);
                     }
                     break;
             }

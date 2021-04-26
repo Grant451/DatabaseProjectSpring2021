@@ -51,6 +51,7 @@
             this.uxPartsPage = new System.Windows.Forms.TabPage();
             this.uxReportsPage = new System.Windows.Forms.TabPage();
             this.RebuildDBBtn = new System.Windows.Forms.Button();
+            this.uxSelectVehicleTB = new System.Windows.Forms.TextBox();
             this.uxTabControl.SuspendLayout();
             this.uxCustomersPage.SuspendLayout();
             this.uxSpecificDisplayCustomerGB.SuspendLayout();
@@ -215,6 +216,7 @@
             // 
             // uxGeneralCustomerDisplayGB
             // 
+            this.uxGeneralCustomerDisplayGB.Controls.Add(this.uxSelectVehicleTB);
             this.uxGeneralCustomerDisplayGB.Controls.Add(this.uxSelectCusTB);
             this.uxGeneralCustomerDisplayGB.Controls.Add(this.uxDisplaySpecificVehicleRB);
             this.uxGeneralCustomerDisplayGB.Controls.Add(this.uxDisplaySpecificCustomerRB);
@@ -223,7 +225,7 @@
             this.uxGeneralCustomerDisplayGB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uxGeneralCustomerDisplayGB.Name = "uxGeneralCustomerDisplayGB";
             this.uxGeneralCustomerDisplayGB.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxGeneralCustomerDisplayGB.Size = new System.Drawing.Size(425, 259);
+            this.uxGeneralCustomerDisplayGB.Size = new System.Drawing.Size(425, 303);
             this.uxGeneralCustomerDisplayGB.TabIndex = 2;
             this.uxGeneralCustomerDisplayGB.TabStop = false;
             this.uxGeneralCustomerDisplayGB.Text = "General Display";
@@ -328,6 +330,15 @@
             this.RebuildDBBtn.Text = "Rebuild DB";
             this.RebuildDBBtn.UseVisualStyleBackColor = true;
             // 
+            // uxSelectVehicleTB
+            // 
+            this.uxSelectVehicleTB.Location = new System.Drawing.Point(52, 246);
+            this.uxSelectVehicleTB.Name = "uxSelectVehicleTB";
+            this.uxSelectVehicleTB.Size = new System.Drawing.Size(238, 31);
+            this.uxSelectVehicleTB.TabIndex = 4;
+            this.uxSelectVehicleTB.Text = "Enter Vin Number";
+            this.uxSelectVehicleTB.Visible = false;
+            // 
             // ManagerView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -379,5 +390,6 @@
         private System.Windows.Forms.Button uxExcecuteCusButtn;
         private System.Windows.Forms.TextBox uxSelectCusTB;
         private System.Windows.Forms.TextBox uxDisplayQueryCusTB;
+        private System.Windows.Forms.TextBox uxSelectVehicleTB;
     }
 }

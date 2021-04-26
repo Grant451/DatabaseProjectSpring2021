@@ -56,6 +56,10 @@ namespace DatabaseProjectSpring2021
         {
             // Empty query result text box
             uxDisplayQueryCusTB.Text = "";
+            // Empty customer name text box
+            uxSelectCusTB.Text = "";
+            // Empty Vin Number text box
+            uxSelectVehicleTB.Text = "";
             RadioButton rb = sender as RadioButton;
             if (rb.Checked)
             {
@@ -64,18 +68,28 @@ namespace DatabaseProjectSpring2021
                 if (selectedrbGeneral.Name == "uxDisplaySpecificCustomerRB")
                 {
                     uxSelectCusTB.Visible = true;
+                    uxSelectVehicleTB.Visible = false;
                     uxDisplayPastRepairsCusRB.Visible = true;
                 }
                 else if (selectedrbGeneral.Name == "uxDisplaySpecificVehicleRB")
                 {
+                    uxSelectVehicleTB.Visible = true;
+                    uxSelectCusTB.Visible = false;
                     uxDisplayPastRepairsCusRB.Visible = true;
                 }
                 else
                 {
+                    uxSelectVehicleTB.Visible = false;
                     uxSelectCusTB.Visible = false;
-                    uxDisplayPastRepairsCusRB.Visible = false ;
-                }
+                    uxDisplayPastRepairsCusRB.Visible = false;
+                    uxDisplayPastRepairsCusRB.Checked = false;
 
+                    if (selectedrbSpecific != null)
+                    {
+                        if (selectedrbSpecific.Tag.ToString() == "DisplayPastRepairs")
+                            selectedrbSpecific = null;
+                    }
+                }
             }
         }
 
@@ -134,37 +148,30 @@ namespace DatabaseProjectSpring2021
             uxDisplayQueryCusTB.Text = "";
             string rb1 = "";
             string rb2 = "";
+            string input = "";
+
             if (selectedrbGeneral != null)
                  rb1 = selectedrbGeneral.Tag.ToString();
 
             if (selectedrbSpecific != null)
                 rb2 = selectedrbSpecific.Tag.ToString();
 
-            // the list returned by the query
-            //List<String> result = new List<string>();
+            if (uxSelectCusTB.Text != "")
+                input = uxSelectCusTB.Text;
+            else if (uxSelectVehicleTB.Text != "")
+                input = uxSelectVehicleTB.Text;
+
+            // the string returned by the query
             String queryResult = "";
 
             switch (currentView)
             {
                 case ("Customers"):
-                    queryResult = master.CustomerTabQueries(rb1, rb2).ToString();
+                    queryResult = master.CustomerTabQueries(rb1, rb2, input).ToString();
                     break;
             }
 
             uxDisplayQueryCusTB.AppendText(queryResult);
-            /*
-            string display = "";
-            foreach (var res in result)
-            {
-                //display += res;
-                //display += "\n";
-                uxDisplayQueryCusTB.AppendText(res);
-                uxDisplayQueryCusTB.AppendText(Environment.NewLine);
-            }
-            //uxDisplayQueryCusTB.Text = display;
-            //= result.ToArray()
-            //Console.WriteLine(selectedrbLeft.Name);
-            */
         }
 
     }
