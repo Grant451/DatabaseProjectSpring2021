@@ -231,5 +231,10 @@ namespace LocationData
         {
             throw new NotImplementedException();
         }
+
+        object ILocationRepository.FetchEmployeesByHours(string input)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

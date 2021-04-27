@@ -351,6 +351,7 @@ namespace DatabaseProjectSpring2021
                             // FetchEmpoyeesByHours
                             try
                             {
+                                /*
                                 var queryResult = repo.FetchEmployeesByHours(input);
                                 result = new string[queryResult.Count + 1][];
 
@@ -363,6 +364,7 @@ namespace DatabaseProjectSpring2021
                                     string[] repair = new string[3] { input, queryResult[i].StreetAddress, queryResult[i].Hours.ToString()};
                                     result[i + 1] = repair;
                                 }
+                                */
                             }
                             catch (Exception)
                             {
