@@ -26,12 +26,17 @@ namespace LocationData.Models
 
         public DateTime AppointmentTime { get; }
 
+        public string StreetAddress { get; }
+        public string RepairName { get; }
+        public string CustomerName { get; }
+
         //q1 constructor for creating an apointment: 
-        public Appointment(int locationID, int repairID, int customerID,   DateTime appointmentTime)
+        //StreetAddress, RepairName, CustomerName, AppointmentTime
+        public Appointment(string streetAddress, string repairName, string customerName,   DateTime appointmentTime)
         {
-            CustomerID = customerID;
-            LocationID = locationID;
-            RepairID = repairID;
+            StreetAddress = streetAddress;
+            RepairName = repairName;
+            CustomerName = customerName;
             AppointmentTime = appointmentTime;
         }
 

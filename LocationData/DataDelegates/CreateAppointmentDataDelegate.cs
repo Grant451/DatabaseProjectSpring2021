@@ -13,25 +13,19 @@ namespace LocationData.DataDelegates
 {
     internal class CreateAppointmentDataDelegate :NonQueryDataDelegate<Appointment>
     {
-        /*
-        AppointmentId INT NOT NULL IDENTITY(1, 1),
-        LocationId INT NOT NULL,
-        RepairId INT NOT NULL,
-        CustomerId INT NOT NULL,
-        AppointmentTime DATETIME2(0) NOT NULL,
-        */
+        //(StreetAddress, RepairName, CustomerName, AppointmentTime)
 
-        public readonly int LocationID;
-        public readonly int RepairID;
-        public readonly int CustomerID;
+        public readonly string StreetAddress;
+        public readonly string RepairName;
+        public readonly string CustomerName;
         public readonly DateTime AppointmentTime;
 
-        public CreateAppointmentDataDelegate(int locationID, int repairID, int customerID, DateTime dateTime)
+        public CreateAppointmentDataDelegate(string streetAddress, string repName, string custName, DateTime dateTime)
             : base("AutoShop.CreateAppointment")
         {
-            this.LocationID = locationID;
-            this.RepairID = repairID;
-            this.CustomerID = customerID;
+            this.StreetAddress = streetAddress;
+            this.RepairName = repName;
+            this.CustomerName = custName;
             this.AppointmentTime = dateTime;
         }
 
@@ -41,12 +35,12 @@ namespace LocationData.DataDelegates
 
             //var p = command.Parameters.Add("AppointmentID", SqlDbType.Int);
             //p.Direction = ParameterDirection.Output;
-            var p = command.Parameters.Add("LocationID", SqlDbType.Int);
-            p.Value = LocationID;
-            p = command.Parameters.Add("RepairID", SqlDbType.Int);
-            p.Value = RepairID;
-            p = command.Parameters.Add("CustomerID", SqlDbType.Int);
-            p.Value = CustomerID;
+            var p = command.Parameters.Add("StreetAddress", SqlDbType.NVarChar);
+            p.Value = StreetAddress;
+            p = command.Parameters.Add("RepairName", SqlDbType.NVarChar);
+            p.Value = RepairName;
+            p = command.Parameters.Add("CustomerName", SqlDbType.NVarChar);
+            p.Value = CustomerName;
             p = command.Parameters.Add("AppointmentTime", SqlDbType.DateTime2);
             p.Value = AppointmentTime;
         }
@@ -54,9 +48,9 @@ namespace LocationData.DataDelegates
         public override Appointment Translate(SqlCommand command)
         {
             return new Appointment( //(int)command.Parameters["AppointmentID"].Value,
-                                    LocationID,
-                                    RepairID,
-                                    CustomerID,
+                                    StreetAddress,
+                                    RepairName,
+                                    CustomerName,
                                     AppointmentTime
                                     );
         }

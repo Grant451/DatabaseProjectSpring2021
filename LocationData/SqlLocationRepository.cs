@@ -18,19 +18,19 @@ namespace LocationData
             executor = new SqlCommandExecutor(connectionString);
         }
 
-        public Appointment CreateAppointment(int locationID, int repairID, int customerID, DateTime appointmentTime)
+        public Appointment CreateAppointment(string streetAddress, string repName, string custName, DateTime dateTime)
         {
-            if(appointmentTime == null)
+            if(dateTime == null)
             {
-                throw new ArgumentException("The parameter cannot be null or empty.", nameof(appointmentTime));
+                throw new ArgumentException("The parameter cannot be null or empty.", nameof(dateTime));
             }
-            if (0 > repairID)
-                throw new ArgumentException("The parameter cannot be negative", nameof(repairID));
-            if (0> customerID)
-                throw new ArgumentException("The parameter cannot be negative", nameof(customerID));
-            if (0 > locationID)
-                throw new ArgumentException("The parameter cannot be negative", nameof(locationID));
-            var d = new CreateAppointmentDataDelegate(locationID, repairID, customerID, appointmentTime);
+            if (streetAddress == null)
+                throw new ArgumentException("The parameter cannot be negative", nameof(streetAddress));
+            if (repName == null)
+                throw new ArgumentException("The parameter cannot be negative", nameof(repName));
+            if (custName == null)
+                throw new ArgumentException("The parameter cannot be negative", nameof(custName));
+            var d = new CreateAppointmentDataDelegate(streetAddress, repName, custName, dateTime);
             return executor.ExecuteNonQuery(d);
         }
 

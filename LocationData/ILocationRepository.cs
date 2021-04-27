@@ -13,7 +13,7 @@ namespace LocationData
         Location CreateLocation(string streetAddress, string city, string region, string zip);
 
         //appointment services:
-        Appointment CreateAppointment(int locationID, int repairID, int customerID, DateTime appointmentTime);
+        Appointment CreateAppointment(string streetAddress, string repName, string custName, DateTime dateTime);
         IReadOnlyList<Appointment> RetreiveAppointments();
 
         //Customer services:
