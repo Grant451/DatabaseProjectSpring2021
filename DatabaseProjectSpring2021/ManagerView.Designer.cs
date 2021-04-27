@@ -88,8 +88,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.uxDisplaySalesPerYear = new System.Windows.Forms.RadioButton();
             this.uxDisplayTotalSales = new System.Windows.Forms.RadioButton();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.uxDisplayQueryReport = new System.Windows.Forms.ListView();
+            this.uxExcecuteReportBttn = new System.Windows.Forms.Button();
             this.uxTabControl.SuspendLayout();
             this.uxCustomersPage.SuspendLayout();
             this.uxSpecificDisplayCustomerGB.SuspendLayout();
@@ -482,7 +482,7 @@
             // 
             this.uxDisplayQueryLoc.GridLines = true;
             this.uxDisplayQueryLoc.HideSelection = false;
-            this.uxDisplayQueryLoc.Location = new System.Drawing.Point(6, 402);
+            this.uxDisplayQueryLoc.Location = new System.Drawing.Point(15, 404);
             this.uxDisplayQueryLoc.Name = "uxDisplayQueryLoc";
             this.uxDisplayQueryLoc.Size = new System.Drawing.Size(1055, 287);
             this.uxDisplayQueryLoc.TabIndex = 15;
@@ -618,7 +618,7 @@
             // 
             this.uxDisplayQueryRep.GridLines = true;
             this.uxDisplayQueryRep.HideSelection = false;
-            this.uxDisplayQueryRep.Location = new System.Drawing.Point(6, 402);
+            this.uxDisplayQueryRep.Location = new System.Drawing.Point(15, 405);
             this.uxDisplayQueryRep.Name = "uxDisplayQueryRep";
             this.uxDisplayQueryRep.Size = new System.Drawing.Size(1055, 287);
             this.uxDisplayQueryRep.TabIndex = 16;
@@ -734,8 +734,8 @@
             // 
             // uxReportsPage
             // 
-            this.uxReportsPage.Controls.Add(this.button1);
-            this.uxReportsPage.Controls.Add(this.listView1);
+            this.uxReportsPage.Controls.Add(this.uxExcecuteReportBttn);
+            this.uxReportsPage.Controls.Add(this.uxDisplayQueryReport);
             this.uxReportsPage.Controls.Add(this.groupBox1);
             this.uxReportsPage.Controls.Add(this.uxApptGroupbox);
             this.uxReportsPage.Location = new System.Drawing.Point(8, 43);
@@ -848,25 +848,26 @@
             this.uxDisplayTotalSales.Text = "Display Total Sales";
             this.uxDisplayTotalSales.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // uxDisplayQueryReport
             // 
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(15, 406);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1055, 287);
-            this.listView1.TabIndex = 17;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.uxDisplayQueryReport.GridLines = true;
+            this.uxDisplayQueryReport.HideSelection = false;
+            this.uxDisplayQueryReport.Location = new System.Drawing.Point(15, 406);
+            this.uxDisplayQueryReport.Name = "uxDisplayQueryReport";
+            this.uxDisplayQueryReport.Size = new System.Drawing.Size(1055, 287);
+            this.uxDisplayQueryReport.TabIndex = 17;
+            this.uxDisplayQueryReport.UseCompatibleStateImageBehavior = false;
             // 
-            // button1
+            // uxExcecuteReportBttn
             // 
-            this.button1.Location = new System.Drawing.Point(841, 310);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(197, 69);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Excecute";
-            this.button1.UseVisualStyleBackColor = true;
+            this.uxExcecuteReportBttn.Location = new System.Drawing.Point(791, 315);
+            this.uxExcecuteReportBttn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxExcecuteReportBttn.Name = "uxExcecuteReportBttn";
+            this.uxExcecuteReportBttn.Size = new System.Drawing.Size(197, 69);
+            this.uxExcecuteReportBttn.TabIndex = 18;
+            this.uxExcecuteReportBttn.Text = "Excecute";
+            this.uxExcecuteReportBttn.UseVisualStyleBackColor = true;
+            this.uxExcecuteReportBttn.Click += new System.EventHandler(this.uxExcecuteReportBttn_Click);
             // 
             // ManagerView
             // 
@@ -974,7 +975,7 @@
         private System.Windows.Forms.RadioButton uxDisplayPastAppt;
         private System.Windows.Forms.RadioButton uxDisplayUpcomingAppt;
         private System.Windows.Forms.RadioButton uxDisplayPopApptTimes;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Button uxExcecuteReportBttn;
+        private System.Windows.Forms.ListView uxDisplayQueryReport;
     }
 }

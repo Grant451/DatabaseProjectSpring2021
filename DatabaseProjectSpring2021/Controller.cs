@@ -588,7 +588,92 @@ namespace DatabaseProjectSpring2021
             }
             return result;
         }
-            public string[] GetLocation()
+
+        public string[][] ReportTabQueries(string generalQuery)
+        {
+            string[][] result = new string[2][];
+
+            switch (generalQuery)
+            {
+                case ("DisplayPopularAppointmentTimes"):
+                    //FetchPopularApptTimes -- returns StreetAddress, MorningAppointments, AfternoonAppointments, EveningAppointments
+                    try
+                    {
+                        var queryResult = repo.FetchPopularApptTimes(0);
+                        result = new string[queryResult.Count + 1][];
+
+                        string[] header = new string[4] { "Location Address", "Morning Appointments", "Afternoon Appointmetns", "Evening Appointments" };
+                        result[0] = header;
+
+
+                        for (int i = 0; i < queryResult.Count; i++)
+                        {
+                            string[] loc = new string[4] { queryResult[i].StreetAddress, queryResult[i].MorningAppointments.ToString(), queryResult[i].AfternoonAppointments.ToString(), queryResult[i].EveningAppointments.ToString() };
+                            result[i + 1] = loc;
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        result[1] = (new string[] { "No appointments to display" });
+                    }
+                    break;
+                case ("DisplayUpcomingAppointments"):
+                    //**not implemented
+                    break;
+                case ("DisplayPastAppointments"):
+                    //**not implemented
+                    break;
+                case ("DisplayTotalSales"):
+                    //FetchSales
+                    try
+                    {
+                        var queryResult = repo.FetchSales(0);
+                        result = new string[queryResult.Count + 1][];
+
+                        string[] header = new string[2] { "Location Address", "Sales" };
+                        result[0] = header;
+
+
+                        for (int i = 0; i < queryResult.Count; i++)
+                        {
+                            string sales = "$" + queryResult[i].Sales.ToString();
+                            string[] loc = new string[2] { queryResult[i].StreetAddress, sales };
+                            result[i + 1] = loc;
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        result[1] = (new string[] { "No sales to display" });
+                    }
+                    break;
+                case ("DisplaySalesPerYear"):
+                    //FetchSales
+                    try
+                    {
+                        var queryResult = repo.FetchSalesPerYear(0);
+                        result = new string[queryResult.Count + 1][];
+
+                        string[] header = new string[3] { "Location Address", "Year", "Sales" };
+                        result[0] = header;
+
+
+                        for (int i = 0; i < queryResult.Count; i++)
+                        {
+                            string sales = "$" + queryResult[i].Sales.ToString();
+                            string[] loc = new string[3] { queryResult[i].StreetAddress, queryResult[i].Year.ToString(), sales };
+                            result[i + 1] = loc;
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        result[1] = (new string[] { "No sales to display" });
+                    }
+                    break;
+            }
+            return result;
+        }
+
+         public string[] GetLocation()
          {
             //This is a test
             int val = 0;

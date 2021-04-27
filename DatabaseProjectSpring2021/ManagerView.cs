@@ -67,6 +67,8 @@ namespace DatabaseProjectSpring2021
             this.uxDisplayPopApptTimes.CheckedChanged += new EventHandler(radioButtonReport_CheckedChanged);
             this.uxDisplayUpcomingAppt.CheckedChanged += new EventHandler(radioButtonReport_CheckedChanged);
             this.uxDisplayPastAppt.CheckedChanged += new EventHandler(radioButtonReport_CheckedChanged);
+            this.uxDisplayTotalSales.CheckedChanged += new EventHandler(radioButtonReport_CheckedChanged);
+            this.uxDisplaySalesPerYear.CheckedChanged += new EventHandler(radioButtonReport_CheckedChanged);
         }
 
         private void InitializeTextBox()
@@ -190,7 +192,23 @@ namespace DatabaseProjectSpring2021
 
         private void radioButtonReport_CheckedChanged(object sender, EventArgs e)
         {
-            uxDisplayQueryReport.Cear();
+            uxDisplayQueryReport.Clear();
+            RadioButton rb = sender as RadioButton;
+            if (rb.Checked)
+            {
+                selectedrbGeneral = rb;
+
+                if (rb.Tag.ToString() == "DisplayPopularAppointmentTimes")
+                {
+                    uxDisplaySalesPerYear.Checked = false;
+                    uxDisplayTotalSales.Checked = false;
+                }
+                
+                else if (rb.Tag.ToString() == "DisplaySalesPerYear" || rb.Tag.ToString() == "DisplayTotalSales")
+                {
+                    uxDisplayPopApptTimes.Checked = false;
+                }
+            }
         }
 
         private void textBox_Changed(object sender, TabControlEventArgs e)
@@ -278,6 +296,9 @@ namespace DatabaseProjectSpring2021
             uxDisplayQueryRep.Clear();
             uxSelectPartTB.Text = "";
             uxSelectRepairTB.Text = "";
+
+            // Report
+            uxDisplayQueryReport.Clear();
         }
 
 
@@ -452,8 +473,38 @@ namespace DatabaseProjectSpring2021
                 ListViewItem itm = new ListViewItem(arr);
                 uxDisplayQueryRep.Items.Add(itm);
             }
+        }
 
-            
+        private void uxExcecuteReportBttn_Click(object sender, EventArgs e)
+        {
+            // Empty query result text box
+            uxDisplayQueryReport.Clear();
+            string rb1 = "";
+
+            if (selectedrbGeneral != null)
+                rb1 = selectedrbGeneral.Tag.ToString();
+
+            uxDisplayQueryReport.View = View.Details;
+
+            string[][] queryResult;
+            queryResult = master.ReportTabQueries(rb1);
+
+            if (queryResult[0] != null)
+            {
+                // calculate col width based on number of headings
+                int colWidth = (1055 / 2) / queryResult[0].Length;
+                // set columns
+                for (int i = 0; i < queryResult[0].Length; i++)
+                {
+                    uxDisplayQueryReport.Columns.Add(queryResult[0][i], colWidth);
+                }
+            }
+
+            foreach (string[] arr in queryResult.Skip(1))
+            {
+                ListViewItem itm = new ListViewItem(arr);
+                uxDisplayQueryReport.Items.Add(itm);
+            }
         }
     }
 }
