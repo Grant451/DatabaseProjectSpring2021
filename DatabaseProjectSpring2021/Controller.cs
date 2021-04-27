@@ -654,8 +654,6 @@ namespace DatabaseProjectSpring2021
             int rep = 0;
             int cust = 0;
             Appointment x1 = repo.CreateAppointment(loc, rep, cust, dateTime);
-            Appointment x2 = repo.CreateAppointment(loc, rep, cust, dateTime);
-            Appointment x3 = repo.CreateAppointment(loc, rep, cust, dateTime);
             var aptlisttest = repo.RetreiveAppointments();
             */
 
@@ -668,18 +666,20 @@ namespace DatabaseProjectSpring2021
             var custlisttest = repo.RetrieveCustomers();
             */
 
-            ///*****query 1 serch to bring up a part for a specific location not working*****
-            //Fetchpartinformation
-            //takes streetAddress and part name              
-            string partName = "ipsum porta";
-            var thinglist = repo.FetchPartInformation(partName);
-            //returns Quantity, price, 
-            //*/
+            
 
 
             int testall = 1;
             if(testall == 1)
             {
+                ///*****query 1 serch to bring up a part for a specific location not working*****
+                //Fetchpartinformation
+                //takes streetAddress and part name              
+                string partName = "ipsum porta";
+                var thinglist = repo.FetchPartInformation(partName);
+                //returns Quantity, price, 
+                //*/
+
                 ///*****query 2 search to bring up repair history works*****
                 string custname = "Vincent Flores";
                 var help = repo.FetchRepairHistoryCustomer(custname);

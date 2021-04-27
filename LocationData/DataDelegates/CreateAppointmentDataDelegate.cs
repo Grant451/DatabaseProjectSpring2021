@@ -14,11 +14,11 @@ namespace LocationData.DataDelegates
     internal class CreateAppointmentDataDelegate :NonQueryDataDelegate<Appointment>
     {
         /*
-        AppointmentID int Not NUll identity(1,1),
-        LocationID int not null,
-        RepairID int not null,
-        CustomerID int not null,
-        AppointmentTime Datetime2(0) not null
+        AppointmentId INT NOT NULL IDENTITY(1, 1),
+        LocationId INT NOT NULL,
+        RepairId INT NOT NULL,
+        CustomerId INT NOT NULL,
+        AppointmentTime DATETIME2(0) NOT NULL,
         */
 
         public readonly int LocationID;
@@ -39,9 +39,9 @@ namespace LocationData.DataDelegates
         {
             base.PrepareCommand(command);
 
-            var p = command.Parameters.Add("AppointmentID", SqlDbType.Int);
-            p.Direction = ParameterDirection.Output;
-            p = command.Parameters.Add("LocationID", SqlDbType.Int);
+            //var p = command.Parameters.Add("AppointmentID", SqlDbType.Int);
+            //p.Direction = ParameterDirection.Output;
+            var p = command.Parameters.Add("LocationID", SqlDbType.Int);
             p.Value = LocationID;
             p = command.Parameters.Add("RepairID", SqlDbType.Int);
             p.Value = RepairID;
@@ -53,7 +53,7 @@ namespace LocationData.DataDelegates
 
         public override Appointment Translate(SqlCommand command)
         {
-            return new Appointment( (int)command.Parameters["AppointmentID"].Value,
+            return new Appointment( //(int)command.Parameters["AppointmentID"].Value,
                                     LocationID,
                                     RepairID,
                                     CustomerID,
