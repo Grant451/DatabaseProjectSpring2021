@@ -648,14 +648,7 @@ namespace DatabaseProjectSpring2021
             //Location help = repo.FetchLocation(6);
             //var thing = repo.RetrieveLocations();
 
-            /******working*****
-            DateTime dateTime = new DateTime(2015, 12, 31, 5, 10, 20);
-            int loc = 0;
-            int rep = 0;
-            int cust = 0;
-            Appointment x1 = repo.CreateAppointment(loc, rep, cust, dateTime);
-            var aptlisttest = repo.RetreiveAppointments();
-            */
+            
 
             /******not working!!!*****
             string name = "bob";
@@ -669,7 +662,7 @@ namespace DatabaseProjectSpring2021
             
 
 
-            int testall = 1;
+            int testall = 0;
             if(testall == 1)
             {
                 ///*****query 1 serch to bring up a part for a specific location not working*****
@@ -785,12 +778,25 @@ namespace DatabaseProjectSpring2021
                 string fvrvin = "06434275099";
                 var fvrlist = repo.FetchVinReport(fvrvin);
                 //*/
+
+                ///*****query 26 FetchEmpoyeesByHours untested*****
+                string febhempName = "Travis French";
+                var frbhlist = repo.FetchEmpoyeesByHours(febhempName);
+                //*/
+
+
+                ///******q 28 working*****
+                //'427-9420 Mauris. Ave', 'fringilla euismod', 'Randall Park', '2020-06-21 11:13:00'
+                //StreetAddress, RepairName, CustomerName, AppointmentTime
+                DateTime dateTime = new DateTime(2020, 06, 21, 11, 13, 00);
+                string streetAddress = "427-9420 Mauris. Ave";
+                string repName = "fringilla euismod";
+                string cacustName = "Randall Park";
+                Appointment x1 = repo.CreateAppointment(streetAddress, repName, cacustName, dateTime);
+                var aptlisttest = repo.RetreiveAppointments();
+                //*/
             }
 
-            ///*****query 26 FetchEmpoyeesByHours untested*****
-            string febhempName = "Travis French";
-            var frbhlist = repo.FetchEmpoyeesByHours(febhempName);
-            //*/
 
 
         }
