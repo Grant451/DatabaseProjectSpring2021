@@ -451,6 +451,7 @@ namespace DatabaseProjectSpring2021
                             try
                             {
                                 var queryResult = repo.FetchSalesSpecific(input);
+                                result = new string[queryResult.Count + 1][];
 
                                 string[] header = new string[2] { "Location Address", "Sales" };
                                 result[0] = header;
@@ -475,6 +476,7 @@ namespace DatabaseProjectSpring2021
                             try
                             {
                                 var queryResult = repo.FetchInventorySpecific(input);
+                                result = new string[queryResult.Count + 1][];
 
                                 string[] header = new string[3] { "Location Address", "Quantity", "Quantity Status" };
                                 result[0] = header;
@@ -514,11 +516,12 @@ namespace DatabaseProjectSpring2021
                         try
                         {
                             var queryResult = repo.FetchPartInformation(input);
+                            result = new string[queryResult.Count + 1][];
 
                             string[] header = new string[2] { "Part Name", "Price" };
                             result[0] = header;
 
-                            for (int i = 0; i < queryResult.Count; i++)
+                            for (int i = 0; i < 1; i++)
                             {
                                 string[] loc = new string[] { input, queryResult[i].Price.ToString() };
                                 result[i + 1] = loc;
@@ -530,12 +533,13 @@ namespace DatabaseProjectSpring2021
                         }
                         break;
                     }
-                    else if (specificQuery == "")
+                    else if (specificQuery == "" || specificQuery == "DisplayQuantity")
                     {
                         //FetchPart
                         try
                         {
                             var queryResult = repo.FetchPart(input);
+                            result = new string[queryResult.Count + 1][];
 
                             string[] header = new string[3] { "Part Name", "Location", "Quantity" };
                             result[0] = header;
@@ -564,6 +568,7 @@ namespace DatabaseProjectSpring2021
                         try
                         {
                             var queryResult = repo.FetchRepairParts(input);
+                            result = new string[queryResult.Count + 1][];
 
                             string[] header = new string[3] { "Repair Name", "Part Name", "Price" };
                             result[0] = header;
