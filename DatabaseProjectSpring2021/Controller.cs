@@ -690,7 +690,17 @@ namespace DatabaseProjectSpring2021
             return result;
         }
 
-         public string[] GetLocation()
+        public void InsertAppointment(string customerName, string streetAddress, string repairName, DateTime AppointmentTime)
+        {
+            repo.CreateAppointment(streetAddress, repairName, customerName, AppointmentTime);
+        }
+
+        public void InsertRepair(string repairName, string status, string laborCost)
+        {
+            repo.CreateRepair(repairName, laborCost, status);
+        }
+
+        public string[] GetLocation()
          {
             //This is a test
             int val = 0;

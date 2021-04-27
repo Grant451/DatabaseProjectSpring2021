@@ -521,5 +521,44 @@ namespace DatabaseProjectSpring2021
         {
             uxTabControl.SelectedIndex = 5;
         }
+        private void uxCreateApptBttn_Click(object sender, EventArgs e)
+        {
+            if (uxCusNameAppt.Text == "Enter Customer Name" || uxCusNameAppt.Text == "")
+                MessageBox.Show("Enter Customer Name");
+            if (uxRepNameAppt.Text == "Enter Repair Name" || uxRepNameAppt.Text == "")
+                MessageBox.Show("Enter Repair Name");
+            if (uxLocAppt.Text == "Enter Location" || uxLocAppt.Text == "")
+                MessageBox.Show("Enter Location Address");
+            else
+            {
+                string custName = uxCusNameAppt.Text;
+                string repName = uxRepNameAppt.Text;
+                string locName = uxLocAppt.Text;
+                DateTime apptTime = uxApptTime.Value;
+
+                //string appt = apptDate.ToString() + " " + apptTime.ToString();
+                //DateTime appointmentTime = DateTime.Parse(apptTime);
+                Console.WriteLine(apptTime);
+
+                master.InsertAppointment(custName, locName, repName, apptTime);
+            }
+            
+        }
+
+        private void AddRepairBttn_Click(object sender, EventArgs e)
+        {
+            if (uxRepairNameAddRep.Text == "Enter Repair Name" || uxRepairNameAddRep.Text == "")
+                MessageBox.Show("Enter Repair Name");
+            if (uxRepStatus.SelectedIndex == -1)
+                MessageBox.Show("Select Repair Status");
+            else
+            {
+                string repairName = uxRepairNameAddRep.Text;
+                string status = uxRepStatus.SelectedItem.ToString();
+                string laborCost = uxLaborCost.Text;
+
+                master.InsertRepair(repairName, status, laborCost);
+            }
+        }
     }
 }
