@@ -13,7 +13,7 @@ WITH
 	SELECT e.EmployeeID, EmployeeName, L.StreetAddress, e.Hours
     FROM AutoShop.Employees e
 		INNER JOIN AutoShop.EmployeesLocation EL ON EL.EmployeeId = e.EmployeeId
-		INNER JOIN AutoShop.Locations L ON EL.LocationId = EL.LocationId
+		INNER JOIN AutoShop.Locations L ON L.LocationId = EL.LocationId
 	WHERE @EmployeeName = e.EmployeeName
   )
 SELECT EmployeeName, Hours, StreetAddress

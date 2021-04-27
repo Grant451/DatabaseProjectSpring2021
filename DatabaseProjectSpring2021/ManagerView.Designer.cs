@@ -49,7 +49,7 @@
             this.uxDisplayQueryEmp = new System.Windows.Forms.ListView();
             this.uxExcecuteEmpBttn = new System.Windows.Forms.Button();
             this.uxSpecificEmployeeDisplayGB = new System.Windows.Forms.GroupBox();
-            this.uxDisplayUpcomingApptEmpRB = new System.Windows.Forms.RadioButton();
+            this.uxDisplayHoursEmpRB = new System.Windows.Forms.RadioButton();
             this.uxDisplayLocationEmpRB = new System.Windows.Forms.RadioButton();
             this.uxDisplayPastRepairsEmpRB = new System.Windows.Forms.RadioButton();
             this.uxDisplayRepairCountsEmpRB = new System.Windows.Forms.RadioButton();
@@ -80,16 +80,16 @@
             this.uxDisplayRepair = new System.Windows.Forms.RadioButton();
             this.uxDisplayPart = new System.Windows.Forms.RadioButton();
             this.uxReportsPage = new System.Windows.Forms.TabPage();
-            this.RebuildDBBtn = new System.Windows.Forms.Button();
-            this.uxApptGroupbox = new System.Windows.Forms.GroupBox();
-            this.uxDisplayUpcomingAppt = new System.Windows.Forms.RadioButton();
-            this.uxDisplayPopApptTimes = new System.Windows.Forms.RadioButton();
-            this.uxDisplayPastAppt = new System.Windows.Forms.RadioButton();
+            this.uxExcecuteReportBttn = new System.Windows.Forms.Button();
+            this.uxDisplayQueryReport = new System.Windows.Forms.ListView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.uxDisplaySalesPerYear = new System.Windows.Forms.RadioButton();
             this.uxDisplayTotalSales = new System.Windows.Forms.RadioButton();
-            this.uxDisplayQueryReport = new System.Windows.Forms.ListView();
-            this.uxExcecuteReportBttn = new System.Windows.Forms.Button();
+            this.uxApptGroupbox = new System.Windows.Forms.GroupBox();
+            this.uxDisplayPastAppt = new System.Windows.Forms.RadioButton();
+            this.uxDisplayUpcomingAppt = new System.Windows.Forms.RadioButton();
+            this.uxDisplayPopApptTimes = new System.Windows.Forms.RadioButton();
+            this.RebuildDBBtn = new System.Windows.Forms.Button();
             this.uxTabControl.SuspendLayout();
             this.uxCustomersPage.SuspendLayout();
             this.uxSpecificDisplayCustomerGB.SuspendLayout();
@@ -104,8 +104,8 @@
             this.uxSpecificDisplayRep.SuspendLayout();
             this.uxGeneralDisplayRep.SuspendLayout();
             this.uxReportsPage.SuspendLayout();
-            this.uxApptGroupbox.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.uxApptGroupbox.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblstatus
@@ -351,7 +351,7 @@
             // 
             // uxSpecificEmployeeDisplayGB
             // 
-            this.uxSpecificEmployeeDisplayGB.Controls.Add(this.uxDisplayUpcomingApptEmpRB);
+            this.uxSpecificEmployeeDisplayGB.Controls.Add(this.uxDisplayHoursEmpRB);
             this.uxSpecificEmployeeDisplayGB.Controls.Add(this.uxDisplayLocationEmpRB);
             this.uxSpecificEmployeeDisplayGB.Controls.Add(this.uxDisplayPastRepairsEmpRB);
             this.uxSpecificEmployeeDisplayGB.Controls.Add(this.uxDisplayRepairCountsEmpRB);
@@ -364,18 +364,18 @@
             this.uxSpecificEmployeeDisplayGB.TabStop = false;
             this.uxSpecificEmployeeDisplayGB.Text = "Specific Display";
             // 
-            // uxDisplayUpcomingApptEmpRB
+            // uxDisplayHoursEmpRB
             // 
-            this.uxDisplayUpcomingApptEmpRB.AutoSize = true;
-            this.uxDisplayUpcomingApptEmpRB.Location = new System.Drawing.Point(17, 216);
-            this.uxDisplayUpcomingApptEmpRB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxDisplayUpcomingApptEmpRB.Name = "uxDisplayUpcomingApptEmpRB";
-            this.uxDisplayUpcomingApptEmpRB.Size = new System.Drawing.Size(353, 29);
-            this.uxDisplayUpcomingApptEmpRB.TabIndex = 3;
-            this.uxDisplayUpcomingApptEmpRB.Tag = "DisplayUpcomingAppointments";
-            this.uxDisplayUpcomingApptEmpRB.Text = "Display Upcoming Appointments";
-            this.uxDisplayUpcomingApptEmpRB.UseVisualStyleBackColor = true;
-            this.uxDisplayUpcomingApptEmpRB.Visible = false;
+            this.uxDisplayHoursEmpRB.AutoSize = true;
+            this.uxDisplayHoursEmpRB.Location = new System.Drawing.Point(17, 216);
+            this.uxDisplayHoursEmpRB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplayHoursEmpRB.Name = "uxDisplayHoursEmpRB";
+            this.uxDisplayHoursEmpRB.Size = new System.Drawing.Size(177, 29);
+            this.uxDisplayHoursEmpRB.TabIndex = 3;
+            this.uxDisplayHoursEmpRB.Tag = "DisplayHours";
+            this.uxDisplayHoursEmpRB.Text = "Display Hours";
+            this.uxDisplayHoursEmpRB.UseVisualStyleBackColor = true;
+            this.uxDisplayHoursEmpRB.Visible = false;
             // 
             // uxDisplayLocationEmpRB
             // 
@@ -747,69 +747,26 @@
             this.uxReportsPage.Text = "Reports";
             this.uxReportsPage.UseVisualStyleBackColor = true;
             // 
-            // RebuildDBBtn
+            // uxExcecuteReportBttn
             // 
-            this.RebuildDBBtn.Location = new System.Drawing.Point(26, 852);
-            this.RebuildDBBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.RebuildDBBtn.Name = "RebuildDBBtn";
-            this.RebuildDBBtn.Size = new System.Drawing.Size(145, 48);
-            this.RebuildDBBtn.TabIndex = 11;
-            this.RebuildDBBtn.Text = "Rebuild DB";
-            this.RebuildDBBtn.UseVisualStyleBackColor = true;
+            this.uxExcecuteReportBttn.Location = new System.Drawing.Point(791, 315);
+            this.uxExcecuteReportBttn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxExcecuteReportBttn.Name = "uxExcecuteReportBttn";
+            this.uxExcecuteReportBttn.Size = new System.Drawing.Size(197, 69);
+            this.uxExcecuteReportBttn.TabIndex = 18;
+            this.uxExcecuteReportBttn.Text = "Excecute";
+            this.uxExcecuteReportBttn.UseVisualStyleBackColor = true;
+            this.uxExcecuteReportBttn.Click += new System.EventHandler(this.uxExcecuteReportBttn_Click);
             // 
-            // uxApptGroupbox
+            // uxDisplayQueryReport
             // 
-            this.uxApptGroupbox.Controls.Add(this.uxDisplayPastAppt);
-            this.uxApptGroupbox.Controls.Add(this.uxDisplayUpcomingAppt);
-            this.uxApptGroupbox.Controls.Add(this.uxDisplayPopApptTimes);
-            this.uxApptGroupbox.Location = new System.Drawing.Point(49, 32);
-            this.uxApptGroupbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxApptGroupbox.Name = "uxApptGroupbox";
-            this.uxApptGroupbox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxApptGroupbox.Size = new System.Drawing.Size(425, 232);
-            this.uxApptGroupbox.TabIndex = 6;
-            this.uxApptGroupbox.TabStop = false;
-            this.uxApptGroupbox.Text = "Appointment Reports";
-            // 
-            // uxDisplayUpcomingAppt
-            // 
-            this.uxDisplayUpcomingAppt.AutoSize = true;
-            this.uxDisplayUpcomingAppt.Location = new System.Drawing.Point(17, 109);
-            this.uxDisplayUpcomingAppt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxDisplayUpcomingAppt.Name = "uxDisplayUpcomingAppt";
-            this.uxDisplayUpcomingAppt.Size = new System.Drawing.Size(353, 29);
-            this.uxDisplayUpcomingAppt.TabIndex = 1;
-            this.uxDisplayUpcomingAppt.Tag = "DisplayUpcomingAppointments";
-            this.uxDisplayUpcomingAppt.Text = "Display Upcoming Appointmetns";
-            this.uxDisplayUpcomingAppt.UseVisualStyleBackColor = true;
-            this.uxDisplayUpcomingAppt.Visible = false;
-            // 
-            // uxDisplayPopApptTimes
-            // 
-            this.uxDisplayPopApptTimes.AutoSize = true;
-            this.uxDisplayPopApptTimes.Location = new System.Drawing.Point(17, 51);
-            this.uxDisplayPopApptTimes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxDisplayPopApptTimes.Name = "uxDisplayPopApptTimes";
-            this.uxDisplayPopApptTimes.Size = new System.Drawing.Size(384, 29);
-            this.uxDisplayPopApptTimes.TabIndex = 0;
-            this.uxDisplayPopApptTimes.TabStop = true;
-            this.uxDisplayPopApptTimes.Tag = "DisplayPopularAppointmentTimes";
-            this.uxDisplayPopApptTimes.Text = "Display Popular Appointment Times";
-            this.uxDisplayPopApptTimes.UseVisualStyleBackColor = true;
-            // 
-            // uxDisplayPastAppt
-            // 
-            this.uxDisplayPastAppt.AutoSize = true;
-            this.uxDisplayPastAppt.Location = new System.Drawing.Point(17, 169);
-            this.uxDisplayPastAppt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxDisplayPastAppt.Name = "uxDisplayPastAppt";
-            this.uxDisplayPastAppt.Size = new System.Drawing.Size(297, 31);
-            this.uxDisplayPastAppt.TabIndex = 2;
-            this.uxDisplayPastAppt.Tag = "DisplayPastAppointments";
-            this.uxDisplayPastAppt.Text = "Display Past Appointmetns";
-            this.uxDisplayPastAppt.UseCompatibleTextRendering = true;
-            this.uxDisplayPastAppt.UseVisualStyleBackColor = true;
-            this.uxDisplayPastAppt.Visible = false;
+            this.uxDisplayQueryReport.GridLines = true;
+            this.uxDisplayQueryReport.HideSelection = false;
+            this.uxDisplayQueryReport.Location = new System.Drawing.Point(15, 406);
+            this.uxDisplayQueryReport.Name = "uxDisplayQueryReport";
+            this.uxDisplayQueryReport.Size = new System.Drawing.Size(1055, 287);
+            this.uxDisplayQueryReport.TabIndex = 17;
+            this.uxDisplayQueryReport.UseCompatibleStateImageBehavior = false;
             // 
             // groupBox1
             // 
@@ -848,26 +805,69 @@
             this.uxDisplayTotalSales.Text = "Display Total Sales";
             this.uxDisplayTotalSales.UseVisualStyleBackColor = true;
             // 
-            // uxDisplayQueryReport
+            // uxApptGroupbox
             // 
-            this.uxDisplayQueryReport.GridLines = true;
-            this.uxDisplayQueryReport.HideSelection = false;
-            this.uxDisplayQueryReport.Location = new System.Drawing.Point(15, 406);
-            this.uxDisplayQueryReport.Name = "uxDisplayQueryReport";
-            this.uxDisplayQueryReport.Size = new System.Drawing.Size(1055, 287);
-            this.uxDisplayQueryReport.TabIndex = 17;
-            this.uxDisplayQueryReport.UseCompatibleStateImageBehavior = false;
+            this.uxApptGroupbox.Controls.Add(this.uxDisplayPastAppt);
+            this.uxApptGroupbox.Controls.Add(this.uxDisplayUpcomingAppt);
+            this.uxApptGroupbox.Controls.Add(this.uxDisplayPopApptTimes);
+            this.uxApptGroupbox.Location = new System.Drawing.Point(49, 32);
+            this.uxApptGroupbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxApptGroupbox.Name = "uxApptGroupbox";
+            this.uxApptGroupbox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxApptGroupbox.Size = new System.Drawing.Size(425, 232);
+            this.uxApptGroupbox.TabIndex = 6;
+            this.uxApptGroupbox.TabStop = false;
+            this.uxApptGroupbox.Text = "Appointment Reports";
             // 
-            // uxExcecuteReportBttn
+            // uxDisplayPastAppt
             // 
-            this.uxExcecuteReportBttn.Location = new System.Drawing.Point(791, 315);
-            this.uxExcecuteReportBttn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxExcecuteReportBttn.Name = "uxExcecuteReportBttn";
-            this.uxExcecuteReportBttn.Size = new System.Drawing.Size(197, 69);
-            this.uxExcecuteReportBttn.TabIndex = 18;
-            this.uxExcecuteReportBttn.Text = "Excecute";
-            this.uxExcecuteReportBttn.UseVisualStyleBackColor = true;
-            this.uxExcecuteReportBttn.Click += new System.EventHandler(this.uxExcecuteReportBttn_Click);
+            this.uxDisplayPastAppt.AutoSize = true;
+            this.uxDisplayPastAppt.Location = new System.Drawing.Point(17, 169);
+            this.uxDisplayPastAppt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplayPastAppt.Name = "uxDisplayPastAppt";
+            this.uxDisplayPastAppt.Size = new System.Drawing.Size(297, 31);
+            this.uxDisplayPastAppt.TabIndex = 2;
+            this.uxDisplayPastAppt.Tag = "DisplayPastAppointments";
+            this.uxDisplayPastAppt.Text = "Display Past Appointmetns";
+            this.uxDisplayPastAppt.UseCompatibleTextRendering = true;
+            this.uxDisplayPastAppt.UseVisualStyleBackColor = true;
+            this.uxDisplayPastAppt.Visible = false;
+            // 
+            // uxDisplayUpcomingAppt
+            // 
+            this.uxDisplayUpcomingAppt.AutoSize = true;
+            this.uxDisplayUpcomingAppt.Location = new System.Drawing.Point(17, 109);
+            this.uxDisplayUpcomingAppt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplayUpcomingAppt.Name = "uxDisplayUpcomingAppt";
+            this.uxDisplayUpcomingAppt.Size = new System.Drawing.Size(353, 29);
+            this.uxDisplayUpcomingAppt.TabIndex = 1;
+            this.uxDisplayUpcomingAppt.Tag = "DisplayUpcomingAppointments";
+            this.uxDisplayUpcomingAppt.Text = "Display Upcoming Appointmetns";
+            this.uxDisplayUpcomingAppt.UseVisualStyleBackColor = true;
+            this.uxDisplayUpcomingAppt.Visible = false;
+            // 
+            // uxDisplayPopApptTimes
+            // 
+            this.uxDisplayPopApptTimes.AutoSize = true;
+            this.uxDisplayPopApptTimes.Location = new System.Drawing.Point(17, 51);
+            this.uxDisplayPopApptTimes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplayPopApptTimes.Name = "uxDisplayPopApptTimes";
+            this.uxDisplayPopApptTimes.Size = new System.Drawing.Size(384, 29);
+            this.uxDisplayPopApptTimes.TabIndex = 0;
+            this.uxDisplayPopApptTimes.TabStop = true;
+            this.uxDisplayPopApptTimes.Tag = "DisplayPopularAppointmentTimes";
+            this.uxDisplayPopApptTimes.Text = "Display Popular Appointment Times";
+            this.uxDisplayPopApptTimes.UseVisualStyleBackColor = true;
+            // 
+            // RebuildDBBtn
+            // 
+            this.RebuildDBBtn.Location = new System.Drawing.Point(26, 852);
+            this.RebuildDBBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.RebuildDBBtn.Name = "RebuildDBBtn";
+            this.RebuildDBBtn.Size = new System.Drawing.Size(145, 48);
+            this.RebuildDBBtn.TabIndex = 11;
+            this.RebuildDBBtn.Text = "Rebuild DB";
+            this.RebuildDBBtn.UseVisualStyleBackColor = true;
             // 
             // ManagerView
             // 
@@ -905,10 +905,10 @@
             this.uxGeneralDisplayRep.ResumeLayout(false);
             this.uxGeneralDisplayRep.PerformLayout();
             this.uxReportsPage.ResumeLayout(false);
-            this.uxApptGroupbox.ResumeLayout(false);
-            this.uxApptGroupbox.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.uxApptGroupbox.ResumeLayout(false);
+            this.uxApptGroupbox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -945,7 +945,7 @@
         private System.Windows.Forms.TextBox uxSelectEmpTB;
         private System.Windows.Forms.RadioButton uxDisplaySpecificEmployeeRB;
         private System.Windows.Forms.RadioButton uxDisplayAllEmployeesRB;
-        private System.Windows.Forms.RadioButton uxDisplayUpcomingApptEmpRB;
+        private System.Windows.Forms.RadioButton uxDisplayHoursEmpRB;
         private System.Windows.Forms.Button uxExcecuteLocBttn;
         private System.Windows.Forms.GroupBox uxSpecificDisplayLoc;
         private System.Windows.Forms.RadioButton uxDisplayUpcomingApptLocRB;

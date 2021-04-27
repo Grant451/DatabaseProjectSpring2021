@@ -46,7 +46,7 @@ namespace DatabaseProjectSpring2021
             this.uxDisplayPastRepairsEmpRB.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
             this.uxDisplayRepairCountsEmpRB.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
             this.uxDisplayLocationEmpRB.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
-            this.uxDisplayUpcomingApptEmpRB.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
+            this.uxDisplayHoursEmpRB.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
 
             // General Location RB
             this.uxDisplayAllLocationsRB.CheckedChanged += new EventHandler(radioButtonG_CheckedChanged);
@@ -132,7 +132,8 @@ namespace DatabaseProjectSpring2021
                         uxSelectEmpTB.Visible = false;
                         uxDisplayLocationEmpRB.Visible = false;
                         uxDisplayPastRepairsEmpRB.Visible = false;
-                        
+                        uxDisplayHoursEmpRB.Visible = false;
+
 
                     }
                     else if (selectedrbGeneral.Tag.ToString() == "DisplaySpecificEmployee")
@@ -141,6 +142,7 @@ namespace DatabaseProjectSpring2021
                         uxDisplayLocationEmpRB.Visible = true;
                         uxDisplayRepairCountsEmpRB.Visible = true;
                         uxDisplayPastRepairsEmpRB.Visible = true;
+                        uxDisplayHoursEmpRB.Visible = true;
                     }
                 }
                 else if (currentView == "Locations")

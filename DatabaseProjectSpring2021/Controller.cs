@@ -103,7 +103,7 @@ namespace DatabaseProjectSpring2021
 
                             }
                         }
-                        catch (Exception e)
+                        catch (Exception)
                         {
                             string msg = "No repeated repairs for " + input;
                             result[1] = new string[1] { msg };
@@ -252,9 +252,6 @@ namespace DatabaseProjectSpring2021
                         case ("DisplayLocation"):
                             //FetchAllEmployeeLocation **not complete
                             break;
-                        case ("DisplayUpcomingAppointments"):
-                            //FetchUpcomingAppointmentsFAEmployees **not complete
-                            break;
                         case (""):
                             //FetchAllEmployees
                             try
@@ -350,8 +347,27 @@ namespace DatabaseProjectSpring2021
                                 result[1] = (new string[] { "No location for " + input });
                             }
                             break;
-                        case ("DisplayUpcomingAppointments"):
-                            // FetchUpcomingAppointmentsEmployee **not complete
+                        case ("DisplayHours"):
+                            // FetchEmpoyeesByHours
+                            try
+                            {
+                                var queryResult = repo.FetchEmployeesByHours(input);
+                                result = new string[queryResult.Count + 1][];
+
+                                string[] header = new string[3] { "Employee Name", "Location Address", "Hours" };
+                                result[0] = header;
+
+
+                                for (int i = 0; i < queryResult.Count; i++)
+                                {
+                                    string[] repair = new string[3] { input, queryResult[i].StreetAddress, queryResult[i].Hours.ToString()};
+                                    result[i + 1] = repair;
+                                }
+                            }
+                            catch (Exception)
+                            {
+                                result[1] = (new string[] { "No location for " + input });
+                            }
                             break;
                         case (""):
                             //FetchEmployee **not complete
@@ -866,7 +882,7 @@ namespace DatabaseProjectSpring2021
 
                 ///*****query 26 FetchEmpoyeesByHours untested*****
                 string febhempName = "Travis French";
-                var frbhlist = repo.FetchEmpoyeesByHours(febhempName);
+                var frbhlist = repo.FetchEmployeesByHours(febhempName);
                 //*/
 
 

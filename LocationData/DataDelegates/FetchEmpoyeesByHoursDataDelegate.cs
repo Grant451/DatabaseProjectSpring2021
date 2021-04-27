@@ -6,11 +6,11 @@ using System.Collections.Generic;
 
 namespace LocationData
 {
-    internal class FetchEmpoyeesByHoursDataDelegate : DataReaderDelegate<IReadOnlyList<HourReport>>
+    internal class FetchEmployeesByHoursDataDelegate : DataReaderDelegate<IReadOnlyList<HourReport>>
     {
         private string febhempName;
 
-        public FetchEmpoyeesByHoursDataDelegate(string febhempName)
+        public FetchEmployeesByHoursDataDelegate(string febhempName)
             : base("AutoShop.FetchEmployeesByHours")
         {
             this.febhempName = febhempName;
