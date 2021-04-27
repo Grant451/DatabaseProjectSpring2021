@@ -177,7 +177,7 @@ namespace DatabaseProjectSpring2021
             // Empty query result text box
             uxDisplayQueryCus.Clear();
             uxDisplayQueryEmp.Clear();
-            uxDisplayQueryLoc.Items.Clear();
+            uxDisplayQueryLoc.Clear();
 
             RadioButton rb = sender as RadioButton;
             if (rb.Checked)
@@ -267,6 +267,11 @@ namespace DatabaseProjectSpring2021
             // Location
             uxDisplayQueryLoc.Clear();
             uxSelectLocTB.Text = "";
+
+            // Repair
+            uxDisplayQueryRep.Clear();
+            uxSelectPartTB.Text = "";
+            uxSelectRepairTB.Text = "";
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -357,15 +362,15 @@ namespace DatabaseProjectSpring2021
             string[][] queryResult;
             queryResult = master.EmployeeTabQueries(rb1, rb2, input);
 
-            if (queryResult[0] == null)
-                return;
-
-            // calculate col width based on number of headings
-            int colWidth = (1055 / 2) / queryResult[0].Length;
-            // set columns
-            for (int i = 0; i < queryResult[0].Length; i++)
+            if (queryResult[0] != null)
             {
-                uxDisplayQueryEmp.Columns.Add(queryResult[0][i], colWidth);
+                // calculate col width based on number of headings
+                int colWidth = (1055 / 2) / queryResult[0].Length;
+                // set columns
+                for (int i = 0; i < queryResult[0].Length; i++)
+                {
+                    uxDisplayQueryEmp.Columns.Add(queryResult[0][i], colWidth);
+                }
             }
 
             foreach (string[] arr in queryResult.Skip(1))
@@ -373,8 +378,6 @@ namespace DatabaseProjectSpring2021
                 ListViewItem itm = new ListViewItem(arr);
                 uxDisplayQueryEmp.Items.Add(itm);
             }
-
-            
         }
 
         private void uxExcecuteLocBttn_Click(object sender, EventArgs e)
@@ -398,14 +401,15 @@ namespace DatabaseProjectSpring2021
             string[][] queryResult;
             queryResult = master.LocationTabQueries(rb1, rb2, input);
 
-            if (queryResult[0] == null)
-                return;
-            // calculate col width based on number of headings
-            int colWidth = (1055/2) / queryResult[0].Length;
-            // set columns
-            for (int i = 0; i < queryResult[0].Length; i++)
+            if (queryResult[0] != null)
             {
-                uxDisplayQueryLoc.Columns.Add(queryResult[0][i], colWidth);
+                // calculate col width based on number of headings
+                int colWidth = (1055 / 2) / queryResult[0].Length;
+                // set columns
+                for (int i = 0; i < queryResult[0].Length; i++)
+                {
+                    uxDisplayQueryLoc.Columns.Add(queryResult[0][i], colWidth);
+                }
             }
             
             foreach (string[] arr in queryResult.Skip(1))
@@ -413,6 +417,7 @@ namespace DatabaseProjectSpring2021
                 ListViewItem itm = new ListViewItem(arr);
                 uxDisplayQueryLoc.Items.Add(itm);
             }
+            
         }
 
         private void uxExcecuteRepBttn_Click(object sender, EventArgs e)
@@ -438,21 +443,24 @@ namespace DatabaseProjectSpring2021
             string[][] queryResult;
             queryResult = master.RepairTabQueries(rb1, rb2, input);
 
-            if (queryResult[0] == null)
-                return;
-            // calculate col width based on number of headings
-            int colWidth = (1055 / 2) / queryResult[0].Length;
-            // set columns
-            for (int i = 0; i < queryResult[0].Length; i++)
+            if (queryResult[0] != null)
             {
-                uxDisplayQueryRep.Columns.Add(queryResult[0][i], colWidth);
+                // calculate col width based on number of headings
+                int colWidth = (1055 / 2) / queryResult[0].Length;
+                // set columns
+                for (int i = 0; i < queryResult[0].Length; i++)
+                {
+                    uxDisplayQueryRep.Columns.Add(queryResult[0][i], colWidth);
+                }
             }
-
+            
             foreach (string[] arr in queryResult.Skip(1))
             {
                 ListViewItem itm = new ListViewItem(arr);
                 uxDisplayQueryRep.Items.Add(itm);
             }
+
+            
         }
     }
 }
