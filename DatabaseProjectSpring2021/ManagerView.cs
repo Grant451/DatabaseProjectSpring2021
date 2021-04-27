@@ -28,10 +28,6 @@ namespace DatabaseProjectSpring2021
 
         }
 
-        private void InitializeComboBox()
-        {
-        }
-
         private void InitializeRadioButtons()
         {
             // General Customer RB
@@ -66,6 +62,11 @@ namespace DatabaseProjectSpring2021
             //Specific Repairs RB
             this.uxDisplayPrice.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
             this.uxDisplayQuantity.CheckedChanged += new EventHandler(radioButtonS_CheckedChanged);
+
+            // Report RB
+            this.uxDisplayPopApptTimes.CheckedChanged += new EventHandler(radioButtonReport_CheckedChanged);
+            this.uxDisplayUpcomingAppt.CheckedChanged += new EventHandler(radioButtonReport_CheckedChanged);
+            this.uxDisplayPastAppt.CheckedChanged += new EventHandler(radioButtonReport_CheckedChanged);
         }
 
         private void InitializeTextBox()
@@ -187,6 +188,11 @@ namespace DatabaseProjectSpring2021
             }
         }
 
+        private void radioButtonReport_CheckedChanged(object sender, EventArgs e)
+        {
+            uxDisplayQueryReport.Cear();
+        }
+
         private void textBox_Changed(object sender, TabControlEventArgs e)
         {
             // Uncheck all buttons and clear all text boxes
@@ -274,24 +280,11 @@ namespace DatabaseProjectSpring2021
             uxSelectRepairTB.Text = "";
         }
 
-        private void btnSubmit_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Successfully submitted: " + DropDownListSelection.SelectedItem.ToString());
-        }
 
         private void btntest1_Click(object sender, EventArgs e)
         {
 
             master.test();
-        }
-
-        private void btnsearch_Click(object sender, EventArgs e)
-        {
-            //this.DropDownListSelectionBtn.
-            DropDownListSelection.Items.AddRange(master.GetLocation());
-
-            
-            btnSubmit.Enabled = true;
         }
 
         private void DropDownListSelectionBtn(object sender, EventArgs e)

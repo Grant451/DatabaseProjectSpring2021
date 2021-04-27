@@ -28,13 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnsearch = new System.Windows.Forms.Button();
-            this.btnSubmit = new System.Windows.Forms.Button();
             this.lblstatus = new System.Windows.Forms.Label();
             this.btntest1 = new System.Windows.Forms.Button();
             this.DropDownListSelection = new System.Windows.Forms.ComboBox();
             this.uxTabControl = new System.Windows.Forms.TabControl();
             this.uxCustomersPage = new System.Windows.Forms.TabPage();
+            this.uxDisplayQueryCus = new System.Windows.Forms.ListView();
             this.uxExcecuteCusButtn = new System.Windows.Forms.Button();
             this.uxSpecificDisplayCustomerGB = new System.Windows.Forms.GroupBox();
             this.uxDisplayUpcomingApptCusRB = new System.Windows.Forms.RadioButton();
@@ -70,19 +69,27 @@
             this.uxDisplaySpecificLocationRB = new System.Windows.Forms.RadioButton();
             this.uxDisplayAllLocationsRB = new System.Windows.Forms.RadioButton();
             this.uxPartsPage = new System.Windows.Forms.TabPage();
-            this.uxReportsPage = new System.Windows.Forms.TabPage();
-            this.RebuildDBBtn = new System.Windows.Forms.Button();
-            this.uxDisplayQueryCus = new System.Windows.Forms.ListView();
+            this.uxDisplayQueryRep = new System.Windows.Forms.ListView();
+            this.uxSpecificDisplayRep = new System.Windows.Forms.GroupBox();
+            this.uxDisplayQuantity = new System.Windows.Forms.RadioButton();
+            this.uxDisplayPrice = new System.Windows.Forms.RadioButton();
+            this.uxExcecuteRepBttn = new System.Windows.Forms.Button();
             this.uxGeneralDisplayRep = new System.Windows.Forms.GroupBox();
+            this.uxSelectPartTB = new System.Windows.Forms.TextBox();
             this.uxSelectRepairTB = new System.Windows.Forms.TextBox();
             this.uxDisplayRepair = new System.Windows.Forms.RadioButton();
             this.uxDisplayPart = new System.Windows.Forms.RadioButton();
-            this.uxExcecuteRepBttn = new System.Windows.Forms.Button();
-            this.uxSpecificDisplayRep = new System.Windows.Forms.GroupBox();
-            this.uxDisplayPrice = new System.Windows.Forms.RadioButton();
-            this.uxDisplayQueryRep = new System.Windows.Forms.ListView();
-            this.uxSelectPartTB = new System.Windows.Forms.TextBox();
-            this.uxDisplayQuantity = new System.Windows.Forms.RadioButton();
+            this.uxReportsPage = new System.Windows.Forms.TabPage();
+            this.RebuildDBBtn = new System.Windows.Forms.Button();
+            this.uxApptGroupbox = new System.Windows.Forms.GroupBox();
+            this.uxDisplayUpcomingAppt = new System.Windows.Forms.RadioButton();
+            this.uxDisplayPopApptTimes = new System.Windows.Forms.RadioButton();
+            this.uxDisplayPastAppt = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uxDisplaySalesPerYear = new System.Windows.Forms.RadioButton();
+            this.uxDisplayTotalSales = new System.Windows.Forms.RadioButton();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.button1 = new System.Windows.Forms.Button();
             this.uxTabControl.SuspendLayout();
             this.uxCustomersPage.SuspendLayout();
             this.uxSpecificDisplayCustomerGB.SuspendLayout();
@@ -94,32 +101,12 @@
             this.uxSpecificDisplayLoc.SuspendLayout();
             this.uxGeneralDisplayLoc.SuspendLayout();
             this.uxPartsPage.SuspendLayout();
-            this.uxGeneralDisplayRep.SuspendLayout();
             this.uxSpecificDisplayRep.SuspendLayout();
+            this.uxGeneralDisplayRep.SuspendLayout();
+            this.uxReportsPage.SuspendLayout();
+            this.uxApptGroupbox.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnsearch
-            // 
-            this.btnsearch.Location = new System.Drawing.Point(26, 852);
-            this.btnsearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnsearch.Name = "btnsearch";
-            this.btnsearch.Size = new System.Drawing.Size(148, 48);
-            this.btnsearch.TabIndex = 1;
-            this.btnsearch.Text = "search";
-            this.btnsearch.UseVisualStyleBackColor = true;
-            this.btnsearch.Click += new System.EventHandler(this.btnsearch_Click);
-            // 
-            // btnSubmit
-            // 
-            this.btnSubmit.Enabled = false;
-            this.btnSubmit.Location = new System.Drawing.Point(201, 852);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(148, 48);
-            this.btnSubmit.TabIndex = 5;
-            this.btnSubmit.Text = "Submit";
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // lblstatus
             // 
@@ -180,6 +167,16 @@
             this.uxCustomersPage.TabIndex = 0;
             this.uxCustomersPage.Text = "Customers";
             this.uxCustomersPage.UseVisualStyleBackColor = true;
+            // 
+            // uxDisplayQueryCus
+            // 
+            this.uxDisplayQueryCus.GridLines = true;
+            this.uxDisplayQueryCus.HideSelection = false;
+            this.uxDisplayQueryCus.Location = new System.Drawing.Point(15, 403);
+            this.uxDisplayQueryCus.Name = "uxDisplayQueryCus";
+            this.uxDisplayQueryCus.Size = new System.Drawing.Size(1055, 287);
+            this.uxDisplayQueryCus.TabIndex = 17;
+            this.uxDisplayQueryCus.UseCompatibleStateImageBehavior = false;
             // 
             // uxExcecuteCusButtn
             // 
@@ -617,36 +614,65 @@
             this.uxPartsPage.Text = "Repairs";
             this.uxPartsPage.UseVisualStyleBackColor = true;
             // 
-            // uxReportsPage
+            // uxDisplayQueryRep
             // 
-            this.uxReportsPage.Location = new System.Drawing.Point(8, 43);
-            this.uxReportsPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxReportsPage.Name = "uxReportsPage";
-            this.uxReportsPage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxReportsPage.Size = new System.Drawing.Size(1090, 708);
-            this.uxReportsPage.TabIndex = 4;
-            this.uxReportsPage.Text = "Reports";
-            this.uxReportsPage.UseVisualStyleBackColor = true;
+            this.uxDisplayQueryRep.GridLines = true;
+            this.uxDisplayQueryRep.HideSelection = false;
+            this.uxDisplayQueryRep.Location = new System.Drawing.Point(6, 402);
+            this.uxDisplayQueryRep.Name = "uxDisplayQueryRep";
+            this.uxDisplayQueryRep.Size = new System.Drawing.Size(1055, 287);
+            this.uxDisplayQueryRep.TabIndex = 16;
+            this.uxDisplayQueryRep.UseCompatibleStateImageBehavior = false;
             // 
-            // RebuildDBBtn
+            // uxSpecificDisplayRep
             // 
-            this.RebuildDBBtn.Location = new System.Drawing.Point(29, 787);
-            this.RebuildDBBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.RebuildDBBtn.Name = "RebuildDBBtn";
-            this.RebuildDBBtn.Size = new System.Drawing.Size(145, 48);
-            this.RebuildDBBtn.TabIndex = 11;
-            this.RebuildDBBtn.Text = "Rebuild DB";
-            this.RebuildDBBtn.UseVisualStyleBackColor = true;
+            this.uxSpecificDisplayRep.Controls.Add(this.uxDisplayQuantity);
+            this.uxSpecificDisplayRep.Controls.Add(this.uxDisplayPrice);
+            this.uxSpecificDisplayRep.Location = new System.Drawing.Point(563, 32);
+            this.uxSpecificDisplayRep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxSpecificDisplayRep.Name = "uxSpecificDisplayRep";
+            this.uxSpecificDisplayRep.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxSpecificDisplayRep.Size = new System.Drawing.Size(425, 157);
+            this.uxSpecificDisplayRep.TabIndex = 14;
+            this.uxSpecificDisplayRep.TabStop = false;
+            this.uxSpecificDisplayRep.Text = "Specific Display";
             // 
-            // uxDisplayQueryCus
+            // uxDisplayQuantity
             // 
-            this.uxDisplayQueryCus.GridLines = true;
-            this.uxDisplayQueryCus.HideSelection = false;
-            this.uxDisplayQueryCus.Location = new System.Drawing.Point(15, 403);
-            this.uxDisplayQueryCus.Name = "uxDisplayQueryCus";
-            this.uxDisplayQueryCus.Size = new System.Drawing.Size(1055, 287);
-            this.uxDisplayQueryCus.TabIndex = 17;
-            this.uxDisplayQueryCus.UseCompatibleStateImageBehavior = false;
+            this.uxDisplayQuantity.AutoSize = true;
+            this.uxDisplayQuantity.Location = new System.Drawing.Point(17, 109);
+            this.uxDisplayQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplayQuantity.Name = "uxDisplayQuantity";
+            this.uxDisplayQuantity.Size = new System.Drawing.Size(200, 29);
+            this.uxDisplayQuantity.TabIndex = 2;
+            this.uxDisplayQuantity.Tag = "DisplayQuantity";
+            this.uxDisplayQuantity.Text = "Display Quantity";
+            this.uxDisplayQuantity.UseVisualStyleBackColor = true;
+            this.uxDisplayQuantity.Visible = false;
+            // 
+            // uxDisplayPrice
+            // 
+            this.uxDisplayPrice.AutoSize = true;
+            this.uxDisplayPrice.Location = new System.Drawing.Point(17, 51);
+            this.uxDisplayPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplayPrice.Name = "uxDisplayPrice";
+            this.uxDisplayPrice.Size = new System.Drawing.Size(169, 29);
+            this.uxDisplayPrice.TabIndex = 1;
+            this.uxDisplayPrice.Tag = "DisplayPrice";
+            this.uxDisplayPrice.Text = "Display Price";
+            this.uxDisplayPrice.UseVisualStyleBackColor = true;
+            this.uxDisplayPrice.Visible = false;
+            // 
+            // uxExcecuteRepBttn
+            // 
+            this.uxExcecuteRepBttn.Location = new System.Drawing.Point(791, 315);
+            this.uxExcecuteRepBttn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxExcecuteRepBttn.Name = "uxExcecuteRepBttn";
+            this.uxExcecuteRepBttn.Size = new System.Drawing.Size(197, 69);
+            this.uxExcecuteRepBttn.TabIndex = 13;
+            this.uxExcecuteRepBttn.Text = "Excecute";
+            this.uxExcecuteRepBttn.UseVisualStyleBackColor = true;
+            this.uxExcecuteRepBttn.Click += new System.EventHandler(this.uxExcecuteRepBttn_Click);
             // 
             // uxGeneralDisplayRep
             // 
@@ -662,6 +688,15 @@
             this.uxGeneralDisplayRep.TabIndex = 5;
             this.uxGeneralDisplayRep.TabStop = false;
             this.uxGeneralDisplayRep.Text = "General Display";
+            // 
+            // uxSelectPartTB
+            // 
+            this.uxSelectPartTB.Location = new System.Drawing.Point(51, 82);
+            this.uxSelectPartTB.Name = "uxSelectPartTB";
+            this.uxSelectPartTB.Size = new System.Drawing.Size(238, 31);
+            this.uxSelectPartTB.TabIndex = 4;
+            this.uxSelectPartTB.Text = "Enter Part Name";
+            this.uxSelectPartTB.Visible = false;
             // 
             // uxSelectRepairTB
             // 
@@ -697,74 +732,141 @@
             this.uxDisplayPart.Text = "Display Part";
             this.uxDisplayPart.UseVisualStyleBackColor = true;
             // 
-            // uxExcecuteRepBttn
+            // uxReportsPage
             // 
-            this.uxExcecuteRepBttn.Location = new System.Drawing.Point(791, 315);
-            this.uxExcecuteRepBttn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxExcecuteRepBttn.Name = "uxExcecuteRepBttn";
-            this.uxExcecuteRepBttn.Size = new System.Drawing.Size(197, 69);
-            this.uxExcecuteRepBttn.TabIndex = 13;
-            this.uxExcecuteRepBttn.Text = "Excecute";
-            this.uxExcecuteRepBttn.UseVisualStyleBackColor = true;
-            this.uxExcecuteRepBttn.Click += new System.EventHandler(this.uxExcecuteRepBttn_Click);
+            this.uxReportsPage.Controls.Add(this.button1);
+            this.uxReportsPage.Controls.Add(this.listView1);
+            this.uxReportsPage.Controls.Add(this.groupBox1);
+            this.uxReportsPage.Controls.Add(this.uxApptGroupbox);
+            this.uxReportsPage.Location = new System.Drawing.Point(8, 43);
+            this.uxReportsPage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxReportsPage.Name = "uxReportsPage";
+            this.uxReportsPage.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxReportsPage.Size = new System.Drawing.Size(1090, 708);
+            this.uxReportsPage.TabIndex = 4;
+            this.uxReportsPage.Text = "Reports";
+            this.uxReportsPage.UseVisualStyleBackColor = true;
             // 
-            // uxSpecificDisplayRep
+            // RebuildDBBtn
             // 
-            this.uxSpecificDisplayRep.Controls.Add(this.uxDisplayQuantity);
-            this.uxSpecificDisplayRep.Controls.Add(this.uxDisplayPrice);
-            this.uxSpecificDisplayRep.Location = new System.Drawing.Point(563, 32);
-            this.uxSpecificDisplayRep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxSpecificDisplayRep.Name = "uxSpecificDisplayRep";
-            this.uxSpecificDisplayRep.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxSpecificDisplayRep.Size = new System.Drawing.Size(425, 157);
-            this.uxSpecificDisplayRep.TabIndex = 14;
-            this.uxSpecificDisplayRep.TabStop = false;
-            this.uxSpecificDisplayRep.Text = "Specific Display";
+            this.RebuildDBBtn.Location = new System.Drawing.Point(26, 852);
+            this.RebuildDBBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.RebuildDBBtn.Name = "RebuildDBBtn";
+            this.RebuildDBBtn.Size = new System.Drawing.Size(145, 48);
+            this.RebuildDBBtn.TabIndex = 11;
+            this.RebuildDBBtn.Text = "Rebuild DB";
+            this.RebuildDBBtn.UseVisualStyleBackColor = true;
             // 
-            // uxDisplayPrice
+            // uxApptGroupbox
             // 
-            this.uxDisplayPrice.AutoSize = true;
-            this.uxDisplayPrice.Location = new System.Drawing.Point(17, 51);
-            this.uxDisplayPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxDisplayPrice.Name = "uxDisplayPrice";
-            this.uxDisplayPrice.Size = new System.Drawing.Size(169, 29);
-            this.uxDisplayPrice.TabIndex = 1;
-            this.uxDisplayPrice.Tag = "DisplayPrice";
-            this.uxDisplayPrice.Text = "Display Price";
-            this.uxDisplayPrice.UseVisualStyleBackColor = true;
-            this.uxDisplayPrice.Visible = false;
+            this.uxApptGroupbox.Controls.Add(this.uxDisplayPastAppt);
+            this.uxApptGroupbox.Controls.Add(this.uxDisplayUpcomingAppt);
+            this.uxApptGroupbox.Controls.Add(this.uxDisplayPopApptTimes);
+            this.uxApptGroupbox.Location = new System.Drawing.Point(49, 32);
+            this.uxApptGroupbox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxApptGroupbox.Name = "uxApptGroupbox";
+            this.uxApptGroupbox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxApptGroupbox.Size = new System.Drawing.Size(425, 232);
+            this.uxApptGroupbox.TabIndex = 6;
+            this.uxApptGroupbox.TabStop = false;
+            this.uxApptGroupbox.Text = "Appointment Reports";
             // 
-            // uxDisplayQueryRep
+            // uxDisplayUpcomingAppt
             // 
-            this.uxDisplayQueryRep.GridLines = true;
-            this.uxDisplayQueryRep.HideSelection = false;
-            this.uxDisplayQueryRep.Location = new System.Drawing.Point(6, 402);
-            this.uxDisplayQueryRep.Name = "uxDisplayQueryRep";
-            this.uxDisplayQueryRep.Size = new System.Drawing.Size(1055, 287);
-            this.uxDisplayQueryRep.TabIndex = 16;
-            this.uxDisplayQueryRep.UseCompatibleStateImageBehavior = false;
+            this.uxDisplayUpcomingAppt.AutoSize = true;
+            this.uxDisplayUpcomingAppt.Location = new System.Drawing.Point(17, 109);
+            this.uxDisplayUpcomingAppt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplayUpcomingAppt.Name = "uxDisplayUpcomingAppt";
+            this.uxDisplayUpcomingAppt.Size = new System.Drawing.Size(353, 29);
+            this.uxDisplayUpcomingAppt.TabIndex = 1;
+            this.uxDisplayUpcomingAppt.Tag = "DisplayUpcomingAppointments";
+            this.uxDisplayUpcomingAppt.Text = "Display Upcoming Appointmetns";
+            this.uxDisplayUpcomingAppt.UseVisualStyleBackColor = true;
+            this.uxDisplayUpcomingAppt.Visible = false;
             // 
-            // uxSelectPartTB
+            // uxDisplayPopApptTimes
             // 
-            this.uxSelectPartTB.Location = new System.Drawing.Point(51, 82);
-            this.uxSelectPartTB.Name = "uxSelectPartTB";
-            this.uxSelectPartTB.Size = new System.Drawing.Size(238, 31);
-            this.uxSelectPartTB.TabIndex = 4;
-            this.uxSelectPartTB.Text = "Enter Part Name";
-            this.uxSelectPartTB.Visible = false;
+            this.uxDisplayPopApptTimes.AutoSize = true;
+            this.uxDisplayPopApptTimes.Location = new System.Drawing.Point(17, 51);
+            this.uxDisplayPopApptTimes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplayPopApptTimes.Name = "uxDisplayPopApptTimes";
+            this.uxDisplayPopApptTimes.Size = new System.Drawing.Size(384, 29);
+            this.uxDisplayPopApptTimes.TabIndex = 0;
+            this.uxDisplayPopApptTimes.TabStop = true;
+            this.uxDisplayPopApptTimes.Tag = "DisplayPopularAppointmentTimes";
+            this.uxDisplayPopApptTimes.Text = "Display Popular Appointment Times";
+            this.uxDisplayPopApptTimes.UseVisualStyleBackColor = true;
             // 
-            // uxDisplayQuantity
+            // uxDisplayPastAppt
             // 
-            this.uxDisplayQuantity.AutoSize = true;
-            this.uxDisplayQuantity.Location = new System.Drawing.Point(17, 109);
-            this.uxDisplayQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxDisplayQuantity.Name = "uxDisplayQuantity";
-            this.uxDisplayQuantity.Size = new System.Drawing.Size(200, 29);
-            this.uxDisplayQuantity.TabIndex = 2;
-            this.uxDisplayQuantity.Tag = "DisplayQuantity";
-            this.uxDisplayQuantity.Text = "Display Quantity";
-            this.uxDisplayQuantity.UseVisualStyleBackColor = true;
-            this.uxDisplayQuantity.Visible = false;
+            this.uxDisplayPastAppt.AutoSize = true;
+            this.uxDisplayPastAppt.Location = new System.Drawing.Point(17, 169);
+            this.uxDisplayPastAppt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplayPastAppt.Name = "uxDisplayPastAppt";
+            this.uxDisplayPastAppt.Size = new System.Drawing.Size(297, 31);
+            this.uxDisplayPastAppt.TabIndex = 2;
+            this.uxDisplayPastAppt.Tag = "DisplayPastAppointments";
+            this.uxDisplayPastAppt.Text = "Display Past Appointmetns";
+            this.uxDisplayPastAppt.UseCompatibleTextRendering = true;
+            this.uxDisplayPastAppt.UseVisualStyleBackColor = true;
+            this.uxDisplayPastAppt.Visible = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.uxDisplaySalesPerYear);
+            this.groupBox1.Controls.Add(this.uxDisplayTotalSales);
+            this.groupBox1.Location = new System.Drawing.Point(563, 32);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(425, 157);
+            this.groupBox1.TabIndex = 15;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Sales Reports";
+            // 
+            // uxDisplaySalesPerYear
+            // 
+            this.uxDisplaySalesPerYear.AutoSize = true;
+            this.uxDisplaySalesPerYear.Location = new System.Drawing.Point(17, 109);
+            this.uxDisplaySalesPerYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplaySalesPerYear.Name = "uxDisplaySalesPerYear";
+            this.uxDisplaySalesPerYear.Size = new System.Drawing.Size(265, 29);
+            this.uxDisplaySalesPerYear.TabIndex = 2;
+            this.uxDisplaySalesPerYear.Tag = "DisplaySalesPerYear";
+            this.uxDisplaySalesPerYear.Text = "Display Sales Per Year";
+            this.uxDisplaySalesPerYear.UseVisualStyleBackColor = true;
+            // 
+            // uxDisplayTotalSales
+            // 
+            this.uxDisplayTotalSales.AutoSize = true;
+            this.uxDisplayTotalSales.Location = new System.Drawing.Point(17, 51);
+            this.uxDisplayTotalSales.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxDisplayTotalSales.Name = "uxDisplayTotalSales";
+            this.uxDisplayTotalSales.Size = new System.Drawing.Size(228, 29);
+            this.uxDisplayTotalSales.TabIndex = 1;
+            this.uxDisplayTotalSales.Tag = "DisplayTotalSales";
+            this.uxDisplayTotalSales.Text = "Display Total Sales";
+            this.uxDisplayTotalSales.UseVisualStyleBackColor = true;
+            // 
+            // listView1
+            // 
+            this.listView1.GridLines = true;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(15, 406);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(1055, 287);
+            this.listView1.TabIndex = 17;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(841, 310);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(197, 69);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Excecute";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // ManagerView
             // 
@@ -776,8 +878,6 @@
             this.Controls.Add(this.DropDownListSelection);
             this.Controls.Add(this.btntest1);
             this.Controls.Add(this.lblstatus);
-            this.Controls.Add(this.btnSubmit);
-            this.Controls.Add(this.btnsearch);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ManagerView";
@@ -799,18 +899,21 @@
             this.uxGeneralDisplayLoc.ResumeLayout(false);
             this.uxGeneralDisplayLoc.PerformLayout();
             this.uxPartsPage.ResumeLayout(false);
-            this.uxGeneralDisplayRep.ResumeLayout(false);
-            this.uxGeneralDisplayRep.PerformLayout();
             this.uxSpecificDisplayRep.ResumeLayout(false);
             this.uxSpecificDisplayRep.PerformLayout();
+            this.uxGeneralDisplayRep.ResumeLayout(false);
+            this.uxGeneralDisplayRep.PerformLayout();
+            this.uxReportsPage.ResumeLayout(false);
+            this.uxApptGroupbox.ResumeLayout(false);
+            this.uxApptGroupbox.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btnsearch;
-        private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Label lblstatus;
         private System.Windows.Forms.Button btntest1;
         private System.Windows.Forms.ComboBox DropDownListSelection;
@@ -864,5 +967,14 @@
         private System.Windows.Forms.RadioButton uxDisplayRepair;
         private System.Windows.Forms.RadioButton uxDisplayPart;
         private System.Windows.Forms.RadioButton uxDisplayQuantity;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton uxDisplaySalesPerYear;
+        private System.Windows.Forms.RadioButton uxDisplayTotalSales;
+        private System.Windows.Forms.GroupBox uxApptGroupbox;
+        private System.Windows.Forms.RadioButton uxDisplayPastAppt;
+        private System.Windows.Forms.RadioButton uxDisplayUpcomingAppt;
+        private System.Windows.Forms.RadioButton uxDisplayPopApptTimes;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListView listView1;
     }
 }
