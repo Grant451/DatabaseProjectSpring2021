@@ -575,8 +575,7 @@ namespace DatabaseProjectSpring2021
 
                             for (int i = 0; i < queryResult.Count; i++)
                             {
-                                string price = "$" + queryResult[i].Price.ToString();
-                                string[] loc = new string[3] { input, queryResult[i].PartName,  price};
+                                string[] loc = new string[3] { input, queryResult[i].PartName, queryResult[i].Price.ToString() };
                                 result[i + 1] = loc;
                             }
                         }
