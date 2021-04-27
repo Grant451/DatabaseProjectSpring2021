@@ -90,6 +90,5 @@ namespace LocationData
 
         //returns a repair object, and inserts into the repairs table. query 29:
         Repair CreateRepair(string ccrepName, string crlaborCost, string crstatus);
-        IReadOnlyList<HourReport> FetchEmployeesByHours(string febhempName);
     }
 }
