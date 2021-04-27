@@ -113,6 +113,8 @@
             this.uxLaborCost = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.uxApptTime = new System.Windows.Forms.DateTimePicker();
+            this.uxDisplayAppt = new System.Windows.Forms.ListView();
+            this.uxDisplayRepairs = new System.Windows.Forms.ListView();
             this.uxTabControl.SuspendLayout();
             this.uxCustomersPage.SuspendLayout();
             this.uxSpecificDisplayCustomerGB.SuspendLayout();
@@ -925,6 +927,7 @@
             // 
             // uxAppointmentsTab
             // 
+            this.uxAppointmentsTab.Controls.Add(this.uxDisplayAppt);
             this.uxAppointmentsTab.Controls.Add(this.groupBox3);
             this.uxAppointmentsTab.Location = new System.Drawing.Point(8, 43);
             this.uxAppointmentsTab.Name = "uxAppointmentsTab";
@@ -1006,6 +1009,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.uxDisplayRepairs);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Location = new System.Drawing.Point(8, 43);
             this.tabPage1.Name = "tabPage1";
@@ -1137,6 +1141,26 @@
             this.uxApptTime.Size = new System.Drawing.Size(345, 31);
             this.uxApptTime.TabIndex = 16;
             this.uxApptTime.Value = new System.DateTime(2021, 4, 26, 0, 0, 0, 0);
+            // 
+            // uxDisplayAppt
+            // 
+            this.uxDisplayAppt.GridLines = true;
+            this.uxDisplayAppt.HideSelection = false;
+            this.uxDisplayAppt.Location = new System.Drawing.Point(15, 401);
+            this.uxDisplayAppt.Name = "uxDisplayAppt";
+            this.uxDisplayAppt.Size = new System.Drawing.Size(1055, 287);
+            this.uxDisplayAppt.TabIndex = 18;
+            this.uxDisplayAppt.UseCompatibleStateImageBehavior = false;
+            // 
+            // uxDisplayRepairs
+            // 
+            this.uxDisplayRepairs.GridLines = true;
+            this.uxDisplayRepairs.HideSelection = false;
+            this.uxDisplayRepairs.Location = new System.Drawing.Point(15, 409);
+            this.uxDisplayRepairs.Name = "uxDisplayRepairs";
+            this.uxDisplayRepairs.Size = new System.Drawing.Size(1055, 287);
+            this.uxDisplayRepairs.TabIndex = 18;
+            this.uxDisplayRepairs.UseCompatibleStateImageBehavior = false;
             // 
             // ManagerView
             // 
@@ -1275,5 +1299,7 @@
         private System.Windows.Forms.TextBox uxLaborCost;
         private System.Windows.Forms.DateTimePicker uxApptTime;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ListView uxDisplayAppt;
+        private System.Windows.Forms.ListView uxDisplayRepairs;
     }
 }

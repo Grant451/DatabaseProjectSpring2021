@@ -239,6 +239,19 @@ namespace DatabaseProjectSpring2021
                 case 3:
                     currentView = "Repairs";
                     break;
+                case 4:
+                    currentView = "Reports";
+                    break;
+                case 5:
+                    currentView = "Add Appointment";
+                    uxDisplayAppt.Clear();
+                    DisplayAppointments();
+                    break;
+                case 6:
+                    currentView = "Add Repair";
+                    uxDisplayRepairs.Clear();
+                    DisplayRepairs();
+                    break;
             }     
         }
 
@@ -541,6 +554,9 @@ namespace DatabaseProjectSpring2021
                 Console.WriteLine(apptTime);
 
                 master.InsertAppointment(custName, locName, repName, apptTime);
+
+                uxDisplayAppt.Clear();
+                DisplayAppointments();
             }
             
         }
@@ -551,13 +567,64 @@ namespace DatabaseProjectSpring2021
                 MessageBox.Show("Enter Repair Name");
             if (uxRepStatus.SelectedIndex == -1)
                 MessageBox.Show("Select Repair Status");
-            else
-            {
-                string repairName = uxRepairNameAddRep.Text;
-                string status = uxRepStatus.SelectedItem.ToString();
-                string laborCost = uxLaborCost.Text;
 
-                master.InsertRepair(repairName, status, laborCost);
+            string repairName = uxRepairNameAddRep.Text;
+            string status = uxRepStatus.Text;
+            string laborCost = uxLaborCost.Text;
+
+            master.InsertRepair(repairName, status, laborCost);
+
+            uxDisplayRepairs.Clear();
+            DisplayRepairs();
+        }
+
+        private void DisplayAppointments()
+        {
+            uxDisplayAppt.View = View.Details;
+
+            string[][] queryResult;
+            queryResult = master.DisplayAppointments();
+
+            if (queryResult[0] != null)
+            {
+                // calculate col width based on number of headings
+                int colWidth = (1055 / 2) / queryResult[0].Length;
+                // set columns
+                for (int i = 0; i < queryResult[0].Length; i++)
+                {
+                    uxDisplayAppt.Columns.Add(queryResult[0][i], colWidth);
+                }
+            }
+
+            foreach (string[] arr in queryResult.Skip(1))
+            {
+                ListViewItem itm = new ListViewItem(arr);
+                uxDisplayAppt.Items.Add(itm);
+            }
+        }
+
+        private void DisplayRepairs()
+        {
+            uxDisplayRepairs.View = View.Details;
+
+            string[][] queryResult;
+            queryResult = master.DisplayRepairs();
+
+            if (queryResult[0] != null)
+            {
+                // calculate col width based on number of headings
+                int colWidth = (1055 / 2) / queryResult[0].Length;
+                // set columns
+                for (int i = 0; i < queryResult[0].Length; i++)
+                {
+                    uxDisplayRepairs.Columns.Add(queryResult[0][i], colWidth);
+                }
+            }
+
+            foreach (string[] arr in queryResult.Skip(1))
+            {
+                ListViewItem itm = new ListViewItem(arr);
+                uxDisplayRepairs.Items.Add(itm);
             }
         }
     }

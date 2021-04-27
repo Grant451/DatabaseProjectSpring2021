@@ -690,14 +690,81 @@ namespace DatabaseProjectSpring2021
             return result;
         }
 
+        public string[][] DisplayAppointments()
+        {
+            string[][] result = new string[2][];
+            try
+            {
+                var queryResult = repo.RetreiveAppointments();
+                result = new string[queryResult.Count + 1][];
+
+                //string[] header = new string[4] { "Location Address", "Customer Name", "Repair Name", "Appointment Time"};
+                string[] header = new string[1] { "Appointment Time" };
+                result[0] = header;
+
+
+                for (int i = 0; i < queryResult.Count; i++)
+                {
+                    string[] appt = new string[1] { queryResult[i].AppointmentTime.ToString() };
+                    result[i + 1] = appt;
+                }
+            }
+            catch (Exception)
+            {
+                result[1] = (new string[] { "No appointments to display" });
+            }
+            return result;
+        }
+
+        public string[][] DisplayRepairs()
+        {
+            string[][] result = new string[2][];
+            try
+            {
+                var queryResult = repo.RetrieveRepairs();
+                result = new string[queryResult.Count + 1][];
+
+                string[] header = new string[3] { "Repair Name", "Labor Cost", "Repair Status"};
+                result[0] = header;
+
+
+                for (int i = 0; i < queryResult.Count; i++)
+                {
+                    string[] appt = new string[3] { queryResult[i].RepairName, queryResult[i].LaborCost.ToString(), queryResult[i].Status };
+                    result[i + 1] = appt;
+                }
+            }
+            catch (Exception)
+            {
+                result[1] = (new string[] { "No repairs to display" });
+            }
+            return result;
+        }
+
         public void InsertAppointment(string customerName, string streetAddress, string repairName, DateTime AppointmentTime)
         {
-            repo.CreateAppointment(streetAddress, repairName, customerName, AppointmentTime);
+            try
+            {
+                repo.CreateAppointment(streetAddress, repairName, customerName, AppointmentTime);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            
         }
 
         public void InsertRepair(string repairName, string status, string laborCost)
         {
-            repo.CreateRepair(repairName, laborCost, status);
+            try
+            {
+                repo.CreateRepair(repairName, laborCost, status);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            
         }
 
         public string[] GetLocation()
