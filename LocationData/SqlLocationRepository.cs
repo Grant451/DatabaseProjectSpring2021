@@ -227,6 +227,9 @@ namespace LocationData
             return executor.ExecuteReader(new FetchEmployeesByHoursDataDelegate(febhempName));
         }
 
-        
+        public IReadOnlyList<HourReport> FetchEmpoyeesByHours(string febhempName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
