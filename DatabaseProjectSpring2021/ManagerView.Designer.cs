@@ -94,11 +94,9 @@
             this.uxDisplayPopApptTimes = new System.Windows.Forms.RadioButton();
             this.uxAppointmentsTab = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.DateandTimeLbl = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.uxApptDate = new System.Windows.Forms.DateTimePicker();
             this.uxLocAppt = new System.Windows.Forms.TextBox();
             this.uxCusNameAppt = new System.Windows.Forms.TextBox();
             this.uxRepNameAppt = new System.Windows.Forms.TextBox();
@@ -940,11 +938,9 @@
             this.groupBox3.Controls.Add(this.uxApptTime);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.uxCreateApptBttn);
-            this.groupBox3.Controls.Add(this.DateandTimeLbl);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.uxApptDate);
             this.groupBox3.Controls.Add(this.uxLocAppt);
             this.groupBox3.Controls.Add(this.uxCusNameAppt);
             this.groupBox3.Controls.Add(this.uxRepNameAppt);
@@ -956,15 +952,6 @@
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Create Appointment";
-            // 
-            // DateandTimeLbl
-            // 
-            this.DateandTimeLbl.AutoSize = true;
-            this.DateandTimeLbl.Location = new System.Drawing.Point(346, 49);
-            this.DateandTimeLbl.Name = "DateandTimeLbl";
-            this.DateandTimeLbl.Size = new System.Drawing.Size(189, 25);
-            this.DateandTimeLbl.TabIndex = 9;
-            this.DateandTimeLbl.Text = "Appointment Date:";
             // 
             // label6
             // 
@@ -992,17 +979,6 @@
             this.label8.Size = new System.Drawing.Size(172, 25);
             this.label8.TabIndex = 8;
             this.label8.Text = "Customer Name:";
-            // 
-            // uxApptDate
-            // 
-            this.uxApptDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.uxApptDate.Location = new System.Drawing.Point(346, 82);
-            this.uxApptDate.MaxDate = new System.DateTime(2022, 9, 1, 0, 0, 0, 0);
-            this.uxApptDate.MinDate = new System.DateTime(2021, 4, 26, 0, 0, 0, 0);
-            this.uxApptDate.Name = "uxApptDate";
-            this.uxApptDate.Size = new System.Drawing.Size(345, 31);
-            this.uxApptDate.TabIndex = 7;
-            this.uxApptDate.Value = new System.DateTime(2021, 4, 26, 0, 0, 0, 0);
             // 
             // uxLocAppt
             // 
@@ -1145,7 +1121,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(341, 136);
+            this.label4.Location = new System.Drawing.Point(347, 48);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(191, 25);
             this.label4.TabIndex = 15;
@@ -1154,7 +1130,7 @@
             // uxApptTime
             // 
             this.uxApptTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.uxApptTime.Location = new System.Drawing.Point(346, 166);
+            this.uxApptTime.Location = new System.Drawing.Point(352, 82);
             this.uxApptTime.MaxDate = new System.DateTime(2022, 9, 1, 0, 0, 0, 0);
             this.uxApptTime.MinDate = new System.DateTime(2021, 4, 26, 0, 0, 0, 0);
             this.uxApptTime.Name = "uxApptTime";
@@ -1282,11 +1258,9 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button AddApptCus;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label DateandTimeLbl;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.DateTimePicker uxApptDate;
         private System.Windows.Forms.TextBox uxLocAppt;
         private System.Windows.Forms.TextBox uxCusNameAppt;
         private System.Windows.Forms.TextBox uxRepNameAppt;
