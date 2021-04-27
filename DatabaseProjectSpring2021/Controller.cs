@@ -896,9 +896,14 @@ namespace DatabaseProjectSpring2021
                 Appointment x1 = repo.CreateAppointment(streetAddress, repName, cacustName, dateTime);
                 var aptlisttest = repo.RetreiveAppointments();
                 //*/
+
+                ///*****q29 CreateRepair working*****
+                string crrepName = "window replacement";
+                string crlaborCost = "$1.25";
+                string crstatus = "Complete";
+                Repair crtest = repo.CreateRepair(crrepName, crlaborCost, crstatus);
+                //*/
             }
-
-
 
         }
 

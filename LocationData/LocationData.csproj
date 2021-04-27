@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataDelegates\CreateRepairDataDelegate.cs" />
     <Compile Include="DataDelegates\CreateAppointmentDataDelegate.cs" />
     <Compile Include="DataDelegates\CreateCustomerDataDelegate.cs" />
     <Compile Include="DataDelegates\CreateLocationDataDelegate.cs" />
@@ -94,6 +95,7 @@
     <Content Include="Sql\Data\testData.sql" />
     <Content Include="Sql\Procedures\FetchCustomerReport.sql" />
     <Content Include="Sql\Procedures\FetchEmployeesByHours.sql" />
+    <Content Include="Sql\Procedures\CreateRepair.sql" />
     <Content Include="Sql\Procedures\FetchVinReport.sql" />
     <Content Include="Sql\Procedures\FetchSalesPerYear.sql" />
     <Content Include="Sql\Procedures\FetchAllEmployees.sql" />

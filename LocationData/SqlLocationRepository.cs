@@ -18,6 +18,22 @@ namespace LocationData
             executor = new SqlCommandExecutor(connectionString);
         }
 
+        public Repair CreateRepair(string repName, string laborCost, string status)
+        {
+            if (repName == null)
+            {
+                throw new ArgumentException("The parameter cannot be null or empty.", nameof(repName));
+            }
+            if (laborCost == null)
+                throw new ArgumentException("The parameter cannot be negative", nameof(laborCost));
+            if (repName == null)
+                throw new ArgumentException("The parameter cannot be negative", nameof(repName));
+            if (status == null)
+                throw new ArgumentException("The parameter cannot be negative", nameof(status));
+            var d = new CreateRepairDataDelegate(repName, laborCost, status);
+            return executor.ExecuteNonQuery(d);
+        }
+
         public Appointment CreateAppointment(string streetAddress, string repName, string custName, DateTime dateTime)
         {
             if(dateTime == null)
@@ -210,5 +226,7 @@ namespace LocationData
         {
             return executor.ExecuteReader(new FetchEmployeesByHoursDataDelegate(febhempName));
         }
+
+        
     }
 }
