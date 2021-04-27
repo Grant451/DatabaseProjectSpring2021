@@ -33,6 +33,7 @@
             this.DropDownListSelection = new System.Windows.Forms.ComboBox();
             this.uxTabControl = new System.Windows.Forms.TabControl();
             this.uxCustomersPage = new System.Windows.Forms.TabPage();
+            this.AddApptCus = new System.Windows.Forms.Button();
             this.uxDisplayQueryCus = new System.Windows.Forms.ListView();
             this.uxExcecuteCusButtn = new System.Windows.Forms.Button();
             this.uxSpecificDisplayCustomerGB = new System.Windows.Forms.GroupBox();
@@ -46,6 +47,7 @@
             this.uxDisplaySpecificCustomerRB = new System.Windows.Forms.RadioButton();
             this.uxDisplayAllCustomersRB = new System.Windows.Forms.RadioButton();
             this.uxEmployeesPage = new System.Windows.Forms.TabPage();
+            this.uxAddApptEmp = new System.Windows.Forms.Button();
             this.uxDisplayQueryEmp = new System.Windows.Forms.ListView();
             this.uxExcecuteEmpBttn = new System.Windows.Forms.Button();
             this.uxSpecificEmployeeDisplayGB = new System.Windows.Forms.GroupBox();
@@ -69,6 +71,7 @@
             this.uxDisplaySpecificLocationRB = new System.Windows.Forms.RadioButton();
             this.uxDisplayAllLocationsRB = new System.Windows.Forms.RadioButton();
             this.uxPartsPage = new System.Windows.Forms.TabPage();
+            this.uxAddRepairRep = new System.Windows.Forms.Button();
             this.uxDisplayQueryRep = new System.Windows.Forms.ListView();
             this.uxSpecificDisplayRep = new System.Windows.Forms.GroupBox();
             this.uxDisplayQuantity = new System.Windows.Forms.RadioButton();
@@ -89,6 +92,24 @@
             this.uxDisplayPastAppt = new System.Windows.Forms.RadioButton();
             this.uxDisplayUpcomingAppt = new System.Windows.Forms.RadioButton();
             this.uxDisplayPopApptTimes = new System.Windows.Forms.RadioButton();
+            this.uxAppointmentsTab = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.RebuildDBBtn = new System.Windows.Forms.Button();
             this.uxTabControl.SuspendLayout();
             this.uxCustomersPage.SuspendLayout();
@@ -106,6 +127,11 @@
             this.uxReportsPage.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.uxApptGroupbox.SuspendLayout();
+            this.uxAppointmentsTab.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblstatus
@@ -145,6 +171,8 @@
             this.uxTabControl.Controls.Add(this.uxLocationsPage);
             this.uxTabControl.Controls.Add(this.uxPartsPage);
             this.uxTabControl.Controls.Add(this.uxReportsPage);
+            this.uxTabControl.Controls.Add(this.uxAppointmentsTab);
+            this.uxTabControl.Controls.Add(this.tabPage1);
             this.uxTabControl.ItemSize = new System.Drawing.Size(115, 35);
             this.uxTabControl.Location = new System.Drawing.Point(3, 12);
             this.uxTabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -155,6 +183,7 @@
             // 
             // uxCustomersPage
             // 
+            this.uxCustomersPage.Controls.Add(this.AddApptCus);
             this.uxCustomersPage.Controls.Add(this.uxDisplayQueryCus);
             this.uxCustomersPage.Controls.Add(this.uxExcecuteCusButtn);
             this.uxCustomersPage.Controls.Add(this.uxSpecificDisplayCustomerGB);
@@ -167,6 +196,17 @@
             this.uxCustomersPage.TabIndex = 0;
             this.uxCustomersPage.Text = "Customers";
             this.uxCustomersPage.UseVisualStyleBackColor = true;
+            // 
+            // AddApptCus
+            // 
+            this.AddApptCus.Location = new System.Drawing.Point(49, 345);
+            this.AddApptCus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.AddApptCus.Name = "AddApptCus";
+            this.AddApptCus.Size = new System.Drawing.Size(216, 39);
+            this.AddApptCus.TabIndex = 18;
+            this.AddApptCus.Text = "Add Appointment";
+            this.AddApptCus.UseVisualStyleBackColor = true;
+            this.AddApptCus.Click += new System.EventHandler(this.AddAppt_Click);
             // 
             // uxDisplayQueryCus
             // 
@@ -315,6 +355,7 @@
             // 
             // uxEmployeesPage
             // 
+            this.uxEmployeesPage.Controls.Add(this.uxAddApptEmp);
             this.uxEmployeesPage.Controls.Add(this.uxDisplayQueryEmp);
             this.uxEmployeesPage.Controls.Add(this.uxExcecuteEmpBttn);
             this.uxEmployeesPage.Controls.Add(this.uxSpecificEmployeeDisplayGB);
@@ -327,6 +368,16 @@
             this.uxEmployeesPage.TabIndex = 1;
             this.uxEmployeesPage.Text = "Employees";
             this.uxEmployeesPage.UseVisualStyleBackColor = true;
+            // 
+            // uxAddApptEmp
+            // 
+            this.uxAddApptEmp.Location = new System.Drawing.Point(49, 281);
+            this.uxAddApptEmp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxAddApptEmp.Name = "uxAddApptEmp";
+            this.uxAddApptEmp.Size = new System.Drawing.Size(216, 39);
+            this.uxAddApptEmp.TabIndex = 19;
+            this.uxAddApptEmp.Text = "Add Appointment";
+            this.uxAddApptEmp.UseVisualStyleBackColor = true;
             // 
             // uxDisplayQueryEmp
             // 
@@ -601,6 +652,7 @@
             // 
             // uxPartsPage
             // 
+            this.uxPartsPage.Controls.Add(this.uxAddRepairRep);
             this.uxPartsPage.Controls.Add(this.uxDisplayQueryRep);
             this.uxPartsPage.Controls.Add(this.uxSpecificDisplayRep);
             this.uxPartsPage.Controls.Add(this.uxExcecuteRepBttn);
@@ -613,6 +665,17 @@
             this.uxPartsPage.TabIndex = 3;
             this.uxPartsPage.Text = "Repairs";
             this.uxPartsPage.UseVisualStyleBackColor = true;
+            // 
+            // uxAddRepairRep
+            // 
+            this.uxAddRepairRep.Location = new System.Drawing.Point(49, 280);
+            this.uxAddRepairRep.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxAddRepairRep.Name = "uxAddRepairRep";
+            this.uxAddRepairRep.Size = new System.Drawing.Size(155, 39);
+            this.uxAddRepairRep.TabIndex = 17;
+            this.uxAddRepairRep.Text = "Add Repair";
+            this.uxAddRepairRep.UseVisualStyleBackColor = true;
+            this.uxAddRepairRep.Click += new System.EventHandler(this.uxAddRepairRep_Click);
             // 
             // uxDisplayQueryRep
             // 
@@ -859,6 +922,195 @@
             this.uxDisplayPopApptTimes.Text = "Display Popular Appointment Times";
             this.uxDisplayPopApptTimes.UseVisualStyleBackColor = true;
             // 
+            // uxAppointmentsTab
+            // 
+            this.uxAppointmentsTab.Controls.Add(this.groupBox3);
+            this.uxAppointmentsTab.Location = new System.Drawing.Point(8, 43);
+            this.uxAppointmentsTab.Name = "uxAppointmentsTab";
+            this.uxAppointmentsTab.Size = new System.Drawing.Size(1090, 708);
+            this.uxAppointmentsTab.TabIndex = 5;
+            this.uxAppointmentsTab.Text = "Add Appointment";
+            this.uxAppointmentsTab.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.dateTimePicker2);
+            this.groupBox3.Controls.Add(this.textBox4);
+            this.groupBox3.Controls.Add(this.textBox5);
+            this.groupBox3.Controls.Add(this.textBox6);
+            this.groupBox3.Location = new System.Drawing.Point(28, 32);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Size = new System.Drawing.Size(697, 292);
+            this.groupBox3.TabIndex = 9;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Create Appointment";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(356, 136);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(158, 25);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Date and Time:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(356, 48);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(143, 25);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Repair Name:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(36, 136);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(185, 25);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Location Address:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(36, 48);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(172, 25);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Customer Name:";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(360, 164);
+            this.dateTimePicker2.MaxDate = new System.DateTime(2022, 9, 1, 0, 0, 0, 0);
+            this.dateTimePicker2.MinDate = new System.DateTime(2021, 4, 26, 0, 0, 0, 0);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(238, 31);
+            this.dateTimePicker2.TabIndex = 7;
+            this.dateTimePicker2.Value = new System.DateTime(2021, 4, 26, 0, 0, 0, 0);
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(41, 166);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(238, 31);
+            this.textBox4.TabIndex = 6;
+            this.textBox4.Text = "Enter Location";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(40, 82);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(238, 31);
+            this.textBox5.TabIndex = 5;
+            this.textBox5.Text = "Enter Customer Name";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(361, 79);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(238, 31);
+            this.textBox6.TabIndex = 4;
+            this.textBox6.Text = "Enter Repair Name";
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.groupBox2);
+            this.tabPage1.Location = new System.Drawing.Point(8, 43);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(1090, 708);
+            this.tabPage1.TabIndex = 6;
+            this.tabPage1.Text = "Add Repair";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.numericUpDown1);
+            this.groupBox2.Controls.Add(this.textBox7);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Location = new System.Drawing.Point(46, 32);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(697, 292);
+            this.groupBox2.TabIndex = 8;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Create Repair";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "In Progress",
+            "Complete"});
+            this.comboBox1.Location = new System.Drawing.Point(41, 180);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(185, 33);
+            this.comboBox1.TabIndex = 9;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Location = new System.Drawing.Point(370, 82);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(94, 31);
+            this.numericUpDown1.TabIndex = 9;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(41, 82);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(238, 31);
+            this.textBox7.TabIndex = 11;
+            this.textBox7.Text = "Enter Repair Name";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(36, 152);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(142, 25);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Repair Status";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(365, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(117, 25);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Labor Cost";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(36, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(137, 25);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Repair Name";
+            // 
             // RebuildDBBtn
             // 
             this.RebuildDBBtn.Location = new System.Drawing.Point(26, 852);
@@ -909,6 +1161,13 @@
             this.groupBox1.PerformLayout();
             this.uxApptGroupbox.ResumeLayout(false);
             this.uxApptGroupbox.PerformLayout();
+            this.uxAppointmentsTab.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -977,5 +1236,26 @@
         private System.Windows.Forms.RadioButton uxDisplayPopApptTimes;
         private System.Windows.Forms.Button uxExcecuteReportBttn;
         private System.Windows.Forms.ListView uxDisplayQueryReport;
+        private System.Windows.Forms.TabPage uxAppointmentsTab;
+        private System.Windows.Forms.Button uxAddRepairRep;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button AddApptCus;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button uxAddApptEmp;
     }
 }

@@ -350,9 +350,8 @@ namespace DatabaseProjectSpring2021
                         case ("DisplayHours"):
                             // FetchEmpoyeesByHours
                             try
-                            {
-                                /*
-                                var queryResult = repo.FetchEmployeesByHours(input);
+                            { 
+                                var queryResult = repo.FetchEmpoyeesByHours(input);
                                 result = new string[queryResult.Count + 1][];
 
                                 string[] header = new string[3] { "Employee Name", "Location Address", "Hours" };
@@ -364,11 +363,11 @@ namespace DatabaseProjectSpring2021
                                     string[] repair = new string[3] { input, queryResult[i].StreetAddress, queryResult[i].Hours.ToString()};
                                     result[i + 1] = repair;
                                 }
-                                */
+                                
                             }
                             catch (Exception)
                             {
-                                result[1] = (new string[] { "No location for " + input });
+                                result[1] = (new string[] { "No hours for " + input });
                             }
                             break;
                         case (""):

@@ -26,6 +26,9 @@ namespace DatabaseProjectSpring2021
             InitializeRadioButtons();
             InitializeTextBox();
 
+            uxAddApptEmp.Click += new EventHandler(AddAppt_Click);
+            //uxAddApptLoc.Click += new EventHandler(AddAppt_Click);
+
         }
 
         private void InitializeRadioButtons()
@@ -507,6 +510,16 @@ namespace DatabaseProjectSpring2021
                 ListViewItem itm = new ListViewItem(arr);
                 uxDisplayQueryReport.Items.Add(itm);
             }
+        }
+
+        private void uxAddRepairRep_Click(object sender, EventArgs e)
+        {
+            uxTabControl.SelectedIndex = 6;
+        }
+
+        private void AddAppt_Click(object sender, EventArgs e)
+        {
+            uxTabControl.SelectedIndex = 5;
         }
     }
 }
