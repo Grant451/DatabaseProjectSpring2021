@@ -93,7 +93,11 @@
             this.uxDisplayUpcomingAppt = new System.Windows.Forms.RadioButton();
             this.uxDisplayPopApptTimes = new System.Windows.Forms.RadioButton();
             this.uxAppointmentsTab = new System.Windows.Forms.TabPage();
+            this.uxDisplayAppt = new System.Windows.Forms.ListView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.uxApptTime = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.uxCreateApptBttn = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -101,20 +105,16 @@
             this.uxCusNameAppt = new System.Windows.Forms.TextBox();
             this.uxRepNameAppt = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.uxDisplayRepairs = new System.Windows.Forms.ListView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.uxLaborCost = new System.Windows.Forms.TextBox();
+            this.AddRepairBttn = new System.Windows.Forms.Button();
             this.uxRepStatus = new System.Windows.Forms.ComboBox();
             this.uxRepairNameAddRep = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.RebuildDBBtn = new System.Windows.Forms.Button();
-            this.uxCreateApptBttn = new System.Windows.Forms.Button();
-            this.AddRepairBttn = new System.Windows.Forms.Button();
-            this.uxLaborCost = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.uxApptTime = new System.Windows.Forms.DateTimePicker();
-            this.uxDisplayAppt = new System.Windows.Forms.ListView();
-            this.uxDisplayRepairs = new System.Windows.Forms.ListView();
             this.uxTabControl.SuspendLayout();
             this.uxCustomersPage.SuspendLayout();
             this.uxSpecificDisplayCustomerGB.SuspendLayout();
@@ -154,6 +154,7 @@
             this.btntest1.TabIndex = 8;
             this.btntest1.Text = "test query";
             this.btntest1.UseVisualStyleBackColor = true;
+            this.btntest1.Visible = false;
             this.btntest1.Click += new System.EventHandler(this.btntest1_Click);
             // 
             // DropDownListSelection
@@ -165,6 +166,7 @@
             this.DropDownListSelection.Name = "DropDownListSelection";
             this.DropDownListSelection.Size = new System.Drawing.Size(239, 33);
             this.DropDownListSelection.TabIndex = 9;
+            this.DropDownListSelection.Visible = false;
             this.DropDownListSelection.SelectedIndexChanged += new System.EventHandler(this.DropDownListSelectionBtn);
             // 
             // uxTabControl
@@ -936,6 +938,16 @@
             this.uxAppointmentsTab.Text = "Add Appointment";
             this.uxAppointmentsTab.UseVisualStyleBackColor = true;
             // 
+            // uxDisplayAppt
+            // 
+            this.uxDisplayAppt.GridLines = true;
+            this.uxDisplayAppt.HideSelection = false;
+            this.uxDisplayAppt.Location = new System.Drawing.Point(15, 401);
+            this.uxDisplayAppt.Name = "uxDisplayAppt";
+            this.uxDisplayAppt.Size = new System.Drawing.Size(1055, 287);
+            this.uxDisplayAppt.TabIndex = 18;
+            this.uxDisplayAppt.UseCompatibleStateImageBehavior = false;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.uxApptTime);
@@ -955,6 +967,37 @@
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Create Appointment";
+            // 
+            // uxApptTime
+            // 
+            this.uxApptTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.uxApptTime.Location = new System.Drawing.Point(352, 82);
+            this.uxApptTime.MaxDate = new System.DateTime(2022, 9, 1, 0, 0, 0, 0);
+            this.uxApptTime.MinDate = new System.DateTime(2021, 4, 26, 0, 0, 0, 0);
+            this.uxApptTime.Name = "uxApptTime";
+            this.uxApptTime.Size = new System.Drawing.Size(345, 31);
+            this.uxApptTime.TabIndex = 16;
+            this.uxApptTime.Value = new System.DateTime(2021, 4, 26, 0, 0, 0, 0);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(347, 48);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(191, 25);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Appointment Time:";
+            // 
+            // uxCreateApptBttn
+            // 
+            this.uxCreateApptBttn.Location = new System.Drawing.Point(516, 237);
+            this.uxCreateApptBttn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.uxCreateApptBttn.Name = "uxCreateApptBttn";
+            this.uxCreateApptBttn.Size = new System.Drawing.Size(159, 51);
+            this.uxCreateApptBttn.TabIndex = 14;
+            this.uxCreateApptBttn.Text = "Create";
+            this.uxCreateApptBttn.UseVisualStyleBackColor = true;
+            this.uxCreateApptBttn.Click += new System.EventHandler(this.uxCreateApptBttn_Click);
             // 
             // label6
             // 
@@ -1018,6 +1061,16 @@
             this.tabPage1.Text = "Add Repair";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // uxDisplayRepairs
+            // 
+            this.uxDisplayRepairs.GridLines = true;
+            this.uxDisplayRepairs.HideSelection = false;
+            this.uxDisplayRepairs.Location = new System.Drawing.Point(15, 409);
+            this.uxDisplayRepairs.Name = "uxDisplayRepairs";
+            this.uxDisplayRepairs.Size = new System.Drawing.Size(1055, 287);
+            this.uxDisplayRepairs.TabIndex = 18;
+            this.uxDisplayRepairs.UseCompatibleStateImageBehavior = false;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.uxLaborCost);
@@ -1035,6 +1088,25 @@
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Create Repair";
+            // 
+            // uxLaborCost
+            // 
+            this.uxLaborCost.Location = new System.Drawing.Point(370, 82);
+            this.uxLaborCost.Name = "uxLaborCost";
+            this.uxLaborCost.Size = new System.Drawing.Size(238, 31);
+            this.uxLaborCost.TabIndex = 16;
+            this.uxLaborCost.Text = "Enter Cost";
+            // 
+            // AddRepairBttn
+            // 
+            this.AddRepairBttn.Location = new System.Drawing.Point(509, 219);
+            this.AddRepairBttn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.AddRepairBttn.Name = "AddRepairBttn";
+            this.AddRepairBttn.Size = new System.Drawing.Size(159, 51);
+            this.AddRepairBttn.TabIndex = 15;
+            this.AddRepairBttn.Text = "Create";
+            this.AddRepairBttn.UseVisualStyleBackColor = true;
+            this.AddRepairBttn.Click += new System.EventHandler(this.AddRepairBttn_Click);
             // 
             // uxRepStatus
             // 
@@ -1091,76 +1163,7 @@
             this.RebuildDBBtn.TabIndex = 11;
             this.RebuildDBBtn.Text = "Rebuild DB";
             this.RebuildDBBtn.UseVisualStyleBackColor = true;
-            // 
-            // uxCreateApptBttn
-            // 
-            this.uxCreateApptBttn.Location = new System.Drawing.Point(516, 237);
-            this.uxCreateApptBttn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.uxCreateApptBttn.Name = "uxCreateApptBttn";
-            this.uxCreateApptBttn.Size = new System.Drawing.Size(159, 51);
-            this.uxCreateApptBttn.TabIndex = 14;
-            this.uxCreateApptBttn.Text = "Create";
-            this.uxCreateApptBttn.UseVisualStyleBackColor = true;
-            this.uxCreateApptBttn.Click += new System.EventHandler(this.uxCreateApptBttn_Click);
-            // 
-            // AddRepairBttn
-            // 
-            this.AddRepairBttn.Location = new System.Drawing.Point(509, 219);
-            this.AddRepairBttn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.AddRepairBttn.Name = "AddRepairBttn";
-            this.AddRepairBttn.Size = new System.Drawing.Size(159, 51);
-            this.AddRepairBttn.TabIndex = 15;
-            this.AddRepairBttn.Text = "Create";
-            this.AddRepairBttn.UseVisualStyleBackColor = true;
-            this.AddRepairBttn.Click += new System.EventHandler(this.AddRepairBttn_Click);
-            // 
-            // uxLaborCost
-            // 
-            this.uxLaborCost.Location = new System.Drawing.Point(370, 82);
-            this.uxLaborCost.Name = "uxLaborCost";
-            this.uxLaborCost.Size = new System.Drawing.Size(238, 31);
-            this.uxLaborCost.TabIndex = 16;
-            this.uxLaborCost.Text = "Enter Cost";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(347, 48);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(191, 25);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Appointment Time:";
-            // 
-            // uxApptTime
-            // 
-            this.uxApptTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.uxApptTime.Location = new System.Drawing.Point(352, 82);
-            this.uxApptTime.MaxDate = new System.DateTime(2022, 9, 1, 0, 0, 0, 0);
-            this.uxApptTime.MinDate = new System.DateTime(2021, 4, 26, 0, 0, 0, 0);
-            this.uxApptTime.Name = "uxApptTime";
-            this.uxApptTime.Size = new System.Drawing.Size(345, 31);
-            this.uxApptTime.TabIndex = 16;
-            this.uxApptTime.Value = new System.DateTime(2021, 4, 26, 0, 0, 0, 0);
-            // 
-            // uxDisplayAppt
-            // 
-            this.uxDisplayAppt.GridLines = true;
-            this.uxDisplayAppt.HideSelection = false;
-            this.uxDisplayAppt.Location = new System.Drawing.Point(15, 401);
-            this.uxDisplayAppt.Name = "uxDisplayAppt";
-            this.uxDisplayAppt.Size = new System.Drawing.Size(1055, 287);
-            this.uxDisplayAppt.TabIndex = 18;
-            this.uxDisplayAppt.UseCompatibleStateImageBehavior = false;
-            // 
-            // uxDisplayRepairs
-            // 
-            this.uxDisplayRepairs.GridLines = true;
-            this.uxDisplayRepairs.HideSelection = false;
-            this.uxDisplayRepairs.Location = new System.Drawing.Point(15, 409);
-            this.uxDisplayRepairs.Name = "uxDisplayRepairs";
-            this.uxDisplayRepairs.Size = new System.Drawing.Size(1055, 287);
-            this.uxDisplayRepairs.TabIndex = 18;
-            this.uxDisplayRepairs.UseCompatibleStateImageBehavior = false;
+            this.RebuildDBBtn.Visible = false;
             // 
             // ManagerView
             // 

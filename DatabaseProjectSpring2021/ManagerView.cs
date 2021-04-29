@@ -223,7 +223,11 @@ namespace DatabaseProjectSpring2021
             ClearGeneralRB();
             ClearSpecificRB();
             ClearTB();
-            
+
+            selectedrbGeneral = null;
+            selectedrbSpecific = null;
+
+
             int index = e.TabPageIndex;
             switch (index)
             {
