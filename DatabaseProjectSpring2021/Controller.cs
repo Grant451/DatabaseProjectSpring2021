@@ -23,7 +23,7 @@ namespace DatabaseProjectSpring2021
         public void SetQueries()
         {
             repo = new SqlLocationRepository(connectionString);
-            transaction = new TransactionScope();
+            transaction = new TransactionScope(TransactionScopeOption.Required, TimeSpan.FromSeconds(7200));
         }
 
         //Exceute Queries Supported in Customer Tab

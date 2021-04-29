@@ -30,6 +30,7 @@ namespace DatabaseProjectSpring2021
                     using (var command = new SqlCommand(dataDelegate.ProcedureName, connection))
                     {
                         dataDelegate.PrepareCommand(command);
+                        command.CommandTimeout = 7200;
                         connection.Open();
                         command.ExecuteNonQuery();
                         transaction.Complete();
@@ -47,6 +48,7 @@ namespace DatabaseProjectSpring2021
                     using (var command = new SqlCommand(dataDelegate.ProcedureName, connection))
                     {
                         dataDelegate.PrepareCommand(command);
+                        command.CommandTimeout = 7200;
                         connection.Open();
                         command.ExecuteNonQuery();
                         transaction.Complete();
@@ -63,6 +65,7 @@ namespace DatabaseProjectSpring2021
                 using (var command = new SqlCommand(dataDelegate.ProcedureName, connection))
                 {
                     dataDelegate.PrepareCommand(command);
+                    command.CommandTimeout = 7200;
                     connection.Open();
                     var reader = command.ExecuteReader();
                     return dataDelegate.Translate(command, new DataRowReader(reader));
